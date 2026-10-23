@@ -24,12 +24,25 @@ B. Meeting Summaries
 
    Location : PostDoctoral Apartment
 
-   Attendees : 
+   Attendees : Complete Member 
 
    Purpose & Agenda : 
 
-   Key Discussion : 
-   
+   Key Discussion Points : 
+
+   Decisions & Outcomes :
+
+   Follow Up Actions : 
+
+C. Evidence of Work
+
+D. Significant AI Use
+
+E. Team Member Contribution
+
+
+
+
 
 
 
