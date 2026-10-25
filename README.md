@@ -21,5 +21,5 @@
 ## The main purpose is to teach everyone about the basics and fundemental knowledge about Hardware,Networks and Behavioural AI
 
 # File directory:
-## all content about the module is placed within the content folder
-## project log and plans are placed within the file which are called as they are
+## all content about the module is placed within the folder called Module's content folder
+## project and personal logs are placed within the folder called All logs and planning same as the plans
