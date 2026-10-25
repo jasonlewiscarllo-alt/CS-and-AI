@@ -22,4 +22,4 @@
 
 # File directory:
 ## all content about the module including the outline is placed within the folder called Module's content folder.This link will send you to the folder immediately [https://github.com/jasonlewiscarllo-alt/CS-and-AI/tree/6572d1f918a981af88b0ea6ada2887279011cdce/Module's%20content](https://github.com/jasonlewiscarllo-alt/CS-and-AI/tree/6572d1f918a981af88b0ea6ada2887279011cdce/Module's%20content)
-## project and personal logs are placed within the folder called All logs and planning same as the plans.This link will also lead you to the folder [\[text\](https://github.com/jasonlewiscarllo-alt/CS-and-AI/tree/6572d1f918a981af88b0ea6ada2887279011cdce/All%20Logs%20and%20plan)](https://github.com/jasonlewiscarllo-alt/CS-and-AI/tree/6572d1f918a981af88b0ea6ada2887279011cdce/All%20Logs%20and%20plan)
+## project and personal logs are placed within the folder called All logs and planning same as the plans.This link will also lead you to the folder All Logs and plan
