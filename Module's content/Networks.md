@@ -52,7 +52,3 @@
  - - #### *Key Function: Enables data to be routed across multiple interconnected networks, guiding packets from a source device across the global internet to a destination device.*
 
 
-## Table of Contents
-* [1.Pros](#benefits)
-* [2.Cons](#losses)
-
