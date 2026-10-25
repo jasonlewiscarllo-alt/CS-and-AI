@@ -44,4 +44,9 @@
  - #### *Common cyberattacks*
 
  - #### *System vulnerabilities and defense mechanisms*
+
+
+### *Types of Computer Networks*
+ - #### *Network Topologies*
+ - #### *Types of Networks and their uses*
  
