@@ -6,14 +6,14 @@
 
 #### *Mention what the network is made up of*
 
-#### *All types of data tranmission and topology*
+#### *All types of data tranmission and how are data transferred and how they reach the recipient*
 
 #### *Threats that roam the internet and what stops these threats*
 
 
 ## **Prerequisite Knowledge:**
 
-### *There is barely any need for pre-requisite knowledge since the contents will mention everything you need to know beforehand*
+### *Know about bits which is binary and would be explained in the Hardware module content which is currently WIP(work in progress)*
 
 
 ## **Major Topics and Sub-Topics:**
@@ -21,13 +21,17 @@
 ### *Fundemental Knowledge about Network*
 
  - #### *Definition of Networks and it's uses*
-
- - #### *Packets and it's method of transmission*
-
-
-### *Common Network Components*
  - #### *Nodes (devices) and links (wired vs wireless connections)*
  - #### *Core networking hardware:Routers and Switches*
+
+
+###  *Packet*
+ - #### *Packets and it's method of transmission*
+ - #### *Data flow*
+ - #### *Transmission and synchronization*
+
+### *Addressing and Identification*
+ - #### *Identification of devices*
 
 
 ### *Protocols and Addressing*
@@ -35,6 +39,22 @@
  - #### *Role of communication protocols*
 
  - #### *Anatomy of a URL*
+
+
+### *Network Topologies*
+ - #### *Network Topologies*
+
+### *Data flow and Tranmission*
+ - #### *Data flow*
+ - #### *Data transmission and synchronization*
+
+
+
+### *Network Architecture and it's types*
+ - #### *Types of Networks*
+
+
+ 
 
 
 ### *Network Security and Threats*
@@ -45,15 +65,9 @@
 
  - #### *System vulnerabilities and defense mechanisms*
 
-
-### *Types of Computer Networks*
- - #### *Network Topologies*
- - #### *Types of Networks and their uses*
- 
-
-
-
-
+### *The Layered Network Architecture (OSI & TCP/IP)*
+ - #### *The 7 Layer model*
+ - #### *IP 4 Layer Model*
 
 
 ### ***Planned questions***
