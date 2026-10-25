@@ -50,3 +50,22 @@
  - #### *Network Topologies*
  - #### *Types of Networks and their uses*
  
+
+
+
+
+
+
+### ***Planned questions***
+ - #### *Definition of network*
+ - #### *What are packets*
+ - #### *State all methods for data transmission*
+ - #### *List down all components of the Network and state it's purpose or uses* *(This might be split into several questions)
+ - #### *What makes up the URL*
+ - #### *List 3 malware and 2 cyberattacks and all defenses to these threats and cyberattacks*
+ - #### *name 4 networks with the topology it uses and why they use that topology*
+
+
+
+
+## Current Development status:[**Draft**]
