@@ -57,6 +57,7 @@ For example, when you visit a website, DNS helps your device find the website's 
 
 
 
+<img width="1021" height="303" alt="urlparts" src="https://github.com/user-attachments/assets/cfd668db-5fc2-4964-934a-ec86fa12e122" />
 
 
 
