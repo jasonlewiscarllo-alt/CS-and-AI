@@ -1,15 +1,3 @@
 # ***<h1 align="center">Networks</h1>***
 
-### *Intended Learning Outcome:*
-
-#### *Definition of Networks*
-
-#### *To be able to mention all the types of networks such as LAN or WAN as well as understand the components of a URL*
-
-#### *Mention what the network is made up of*
-
-#### *All types of data tranmission and topology*
-
-#### *Threats that roam the internet and what stops these threats*
-
-
+##### **A network is like a group of friends who can communicate with one another, share ideas, and exchange things whenever they need to. In the same way, a computer network is a group of two or more devices, such as computers, laptops, mobile phones, tablets, and printers, that are connected to each other so they can share information and resources easily. These devices can communicate and exchange data through cables, wires, or wireless signals such as Wi-Fi. For example, when we send a message to a friend, share photos, print a document from a laptop, or use the internet on our phones, we are using a network. Networks make it easier and faster for people to communicate, work together, and share important information. They also help save time and resources because several devices can use the same internet connection, printer, or files. Networks can be small, such as a network connecting devices in a home or school, or very large, connecting computers across different cities and countries. In simple words, a computer network allows different devices to connect, communicate, and share information and resources with one another**
