@@ -6,7 +6,8 @@
 
 
 ### **Packets**
-![alt text](image-1.png)
+<img width="738" height="237" alt="image-1" src="https://github.com/user-attachments/assets/06815940-666a-479b-b6ba-5bd465a1e12d" />
+
 #### *In networks, a packet is a small part of a larger piece of information that is sent over the internet. Each packet contains the a header, payload, and a trailer, which includes important details about the data, The header stores where it needs to go and who sent it. The header also helps the receiving device understand how to rearrange the packet back together. The payload is the place where the actual infromation is stored within the packet.This is to tell that all packets have been sent.When we send information over the internet, such as a photo, video, or message, the data is divided into smaller packets. These packets travel through network devices like routers and switches until they reach their destination. Once they arrive, the receiving device puts the packets back together so the information can be viewed or used. This process is similar to building a puzzle, where each piece is sent separately and then joined together to complete the picture.Sending data in packets also makes the internet more efficient because many devices can send and receive information at the same time. This method is called packet switching. Instead of one connection taking up the whole network, packets can travel through available routes, allowing many people to use the internet simultaneously.*
 ![alt text](image-3.png)
 *This picture shows the available paths where the packets will go and they will seperate to different routes since if a router or link fails, packets can automatically reroute around the problem so that the packets won't get lost and never received*
