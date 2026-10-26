@@ -25,7 +25,46 @@
 
 ## **Major Topics and sub-Topics for Hardware:**
 
+#### **1. Hardware Module Outline**
 
+#### *Major Topics and Sub-Topics* 
+
+#### *Introduction to Computer Hardware* 
+
+#### *Overview of computer architecture (Von Neumann architecture)* 
+
+#### *Definition and distinction between hardware and software* 
+
+#### *CPU Components and Architecture* 
+
+#### *Arithmetic Logic Unit (ALU) and Control Unit (CU) roles* 
+
+#### *Core Registers: Program Counter (PC), Memory Address Register (MAR), Memory Data Register (MDR), and Accumulator (ACC)* 
+
+#### *The Fetch-Decode-Execute cycle overview* 
+
+#### *System Buses* 
+
+#### *Definition of a bus and its width/speed impact* 
+
+#### *Data Bus, Address Bus, and Control Bus functions*
+
+#### *Bits, bytes, and binary fundamentals (Prerequisite connection)* 
+
+#### *Converting between Binary and Denary (Decimal)* 
+
+#### *Converting between Binary and Hexadecimal* 
+
+#### **Planned Questions (Hardware)** 
+#### *What is the primary function of the Control Unit within the CPU?* 
+
+#### *Explain the difference in purpose between the Memory Address Register (MAR) and the Memory Data Register (MDR).* 
+
+#### *State the direction of data flow for the Address Bus versus the Data Bus.* 
+
+#### *Convert the binary number 11010110 into denary and then into hexadecimal.* 
+
+#### *Why is hexadecimal commonly used in computer science instead of long binary strings?* 
 
 
 
@@ -79,7 +118,38 @@
 
  - #### *System vulnerabilities and defense mechanisms*
 
+#### **2. Behavioural AI Module Outline**
+#### *Major Topics and Sub-Topics*
+#### *Introduction to Behavioural AI*
 
+#### *Definition of Behavioural AI and how it differs from traditional rule-based software or generative AI*
+
+#### *The role of historical and real-time user/system telemetry data*
+
+#### *Core Components of Behavioural AI*
+
+#### *Pattern Recognition: Identifying recurring habits, keystrokes, navigation styles, or operational baselines*
+
+#### *Anomaly Detection: Spotting deviations from established normal behavior*
+
+#### *User Behavior Modeling: Creating dynamic profiles to predict future actions or intents*
+
+#### *Practical Applications & Use Cases*
+
+#### *Cybersecurity: Continuous authentication and insider threat detection*
+
+#### *Fraud Detection: Spotting unusual transaction patterns in banking*
+
+#### *Adaptive User Experience (UX): Personalizing interfaces based on user interaction trends*
+
+#### **Planned Questions (Behavioural AI)**
+#### *How is Behavioural AI fundamentally different from static, rule-based security systems?*
+
+#### *List and explain the three core components of a Behavioural AI framework.*
+
+#### *Give an example of how anomaly detection is used to prevent financial fraud.*
+
+#### *What are the primary privacy and ethical concerns when collecting data for behavioural modeling?*
 
 ### ***Planned questions***
  - #### *Definition of network*
