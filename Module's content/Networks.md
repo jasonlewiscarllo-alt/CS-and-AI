@@ -240,7 +240,7 @@
  - - - #### *Example: Walkie-talkies.*
 
  - #### **Methods of Data Transmission**
-  - - #### **1) Simplex(One Way)**
+  - - #### **1) Serial Transmission**
 
 
  - - - #### *Data travels in only one direction.*
