@@ -193,7 +193,8 @@
 
 
   - #### **7) Tree Topology**
-![Uploading images (5).jpg…]()
+<img width="738" height="411" alt="images (5)" src="https://github.com/user-attachments/assets/e35bc84e-4279-489a-818f-df85d0bfb347" />
+
 
 
   - - #### *Tree topology is a hierarchical network structure that combines elements of star and bus topologies, resembling a tree with a central root node, branches, and leaf nodes*
