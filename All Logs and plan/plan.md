@@ -6,9 +6,9 @@
 
 ##### **Task List Location: [\[Insert GitHub Projects / README link\]](https://github.com/jasonlewiscarllo-alt/CS-and-AI/blob/4aaf7da5c21aac234a1a8fcb83bc3da71c85e41b/README.md)**
 
-**Member 1 Name**: *Jason Lewis Carllo*
+**Member 1 Name**: *[Jason Lewis Carllo]*
 
-**Student ID: 1820262145**
+**Student ID: *1820262145***
 
 **Strengths & Experience: Beginner programming in python,Mediocre at github**
 
@@ -17,48 +17,48 @@
 **Assigned Responsibilities: Markdown content drafting for core technical topics, and repository management as well as checking any mistakes in the Markdown content**
 
 
-**Member 2 Name**: *Kenzo Vernard*
+**Member 2 Name**: *[Kenzo Vernard]*
 
-Student ID: [ID Number]
+**Student ID: *1820262125***
 
-Strengths & Experience: Excellent analytical skills, educational design background, and experience with presentation software.
+**Strengths & Experience:  Logical thinking, problem-solving, and learning new technologies.**
 
-Skills to Develop: Video scripting, screen recording tools, and technical test-bank design.
+**Skills to Develop: Time management**
 
-Assigned Responsibilities: Quality Assurance Lead, Peer Review coordinator, and Study Guide / Test Bank architect.
-
-
-Member 3 Name (as on class roster): [Full Name]
-
-Student ID: [ID Number]
-
-Strengths & Experience: Visual design, multimedia creation, and public speaking / lecture delivery.
-
-Skills to Develop: Deep-dive technical explanations and structured Markdown documentation.
-
-Assigned Responsibilities: PPT Slide Designer, Video Tutorial lead, and Live Mini-Lecture preparation.
+**Assigned Responsibilities: CEO and Submission lead**
 
 
-Member 4 Name: [Full Name]
+**Member 3 Name: *[Rysen Reicania Santosa]***
 
-Student ID: [ID Number]
+**Student ID: *1820262077***
 
-Strengths & Experience: Visual design, multimedia creation, and public speaking / lecture delivery.
+**Strengths & Experience: Beginner at Visual design, multimedia creation**
 
-Skills to Develop: Deep-dive technical explanations and structured Markdown documentation.
+**Skills to Develop: Video editing**
 
-Assigned Responsibilities: PPT Slide Designer, Video Tutorial lead, and Live Mini-Lecture preparation.
+**Assigned Responsibilities: Visual lead and video design lead**
 
 
-Member 5 Name: [Full Name]
+**Member 4 Name: *[Kelton James Mahendra]***
 
-Student ID: [ID Number]
+**Student ID: 1820262114**
 
-Strengths & Experience: Visual design, multimedia creation, and public speaking / lecture delivery.
+**Strengths & Experience: Visual design, multimedia creation, and public speaking / lecture delivery.**
 
-Skills to Develop: Deep-dive technical explanations and structured Markdown documentation.
+**Skills to Develop: Using Gituhub**
 
-Assigned Responsibilities: PPT Slide Designer, Video Tutorial lead, and Live Mini-Lecture preparation.
+**Assigned Responsibilities: Project log and meeting sumamries**
+
+
+**Member 5 Name: *[Louis Tjoe]***
+
+**Student ID: *1820262354***
+
+**Strengths & Experience: Analytical skills and problem solving**
+
+**Skills to Develop: Designing**
+
+**Assigned Responsibilities: PPT Slide Designer**
 
 Workload Distribution Strategy
 Our team distributes work fairly based on individual strengths while ensuring shared understanding. Every team member participates directly in researching core concepts, peer-reviewing drafted Markdown files, and testing learner activities. While specific members take the lead on the final production of the Study Guide, PPT Slides, or Videos, all content originates from our shared Markdown repository foundation.
@@ -69,19 +69,17 @@ Assumed Background Knowledge: Understand a bit about binary or bits or denary(wi
 
 Learning Goals
 After completing our module materials, learners will be able to:
-
-Definition of Hardware
-
-Definition of Networks
-
-Use of Behavioural AI
-
+*Properly explain the different types of RAM and ROM with the differences between them*
+*Mention all the protocols that was listed in this*
 
 Content Outline
 
 
 Fundamentals
 
+*Mention all the components of hardware and their use*
+
+*Mention all the components of network and their purpose*
 
 Review & Assessment
 
