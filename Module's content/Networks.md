@@ -39,7 +39,18 @@
 
 
 ### ***Protocol and Addressing***
+ - #### ***Protocols***
+ - - #### *Protocols are the rules and standards that devices follow to communicate with one another over a network. They define how data is formatted, transmitted, received, and understood by different devices.Since different devices may use different hardware and software, they need to follow common rules so they can understand the information being exchanged. Protocols work like a common language that helps devices communicate correctly.Without protocols, devices might not understand the information sent by other devices. Protocols help ensure that communication happens in an organized and reliable way.*
+ - - #### **Some common network protocols include:**
+ - - - #### *TCP(Transmission Control Protocol):It helps ensure data arrives reliably and in the correct order so that the information is delivered accurately*
+ - - - #### *IP: is the identity of the devices that will send information or receive them it acts similar to a mailbox where the router is the one who leads it to its proper destination at the most efficient route but that will sometimes cause the information to be jumbled up or mismatched that is why TCP is used*
+ - - - #### *HTTP/HTTPS: Protocols used to transfer website information between web browsers and web servers. HTTPS also encrypts the connection to ensure it is secure.*
+ - - - #### *FTP: A protocol used to transfer files between computers over a network.*
+ - - - #### *DNS: A system that translates domain names, such as google.com, into IP addresses that computers use to locate servers.*
+ - - - #### *Ethernet:It connects computers, routers, and other devices to build a local area network (LAN) and link them to the internet.*
+ - - #### *For example, when you visit a website, DNS helps your device find the website's server, while TCP/IP helps move data between your device and that server.In conclusion, packets divide information into smaller pieces so it can be sent efficiently, while protocols provide the rules that allow devices to communicate and understand the data they receive. Both are important for making the internet work properly.*
 
+ - ### ***Method of Identification within devices***
  - #### ***1)MAC Address(Media Access Control)***
  - - #### *MAC Address is a unique, hardcoded **48-bit** physical identifier burned into a Network Interface Card (NIC) by the hardware manufacturer.*
  - - #### *Key Function: Identifies a specific hardware interface so that devices connected to the same local network segment can send data directly to each other.*
@@ -52,4 +63,4 @@
  - - #### *Key Function: Enables data to be routed across multiple interconnected networks, guiding packets from a source device across the global internet to a destination device.*
  - - ##### *While IPv4 offers widespread compatibility and mature deployment, its major disadvantage compared to IPv6 is its severely limited address space and lack of native security features.*
 
-
+ - ### ***URL***
