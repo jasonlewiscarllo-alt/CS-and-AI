@@ -249,6 +249,7 @@
  - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
 
   - - #### **2) Serial Transmission**
+<img width="660" height="330" alt="images (9)" src="https://github.com/user-attachments/assets/a9ab9e0b-133b-4e4e-87f2-b81eef3c4e38" />
 
 
 
