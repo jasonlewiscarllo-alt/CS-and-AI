@@ -75,6 +75,7 @@
 
 ### ***Network Topologies***
  - #### **1) Bus Topology**
+<img width="726" height="422" alt="images (1)" src="https://github.com/user-attachments/assets/0e5488f7-ad58-41a1-9c59-784db3c6ead3" />
 
 
  - - #### *To allow multiple devices to communicate with each other over a single, shared physical medium without needing a complex web of individual wires.* 
@@ -92,6 +93,7 @@
 
 
  - #### **2) Point-To-Point**
+<img width="620" height="322" alt="images (3)" src="https://github.com/user-attachments/assets/49e98028-962f-4e68-a197-e26e9b3bbc94" />
 
 
   - - #### *A point-to-point topology is the simplest form of network architecture where a dedicated communication link directly connects two devices (nodes) to each other without any intermediate switches or hubs.* 
@@ -112,6 +114,7 @@
 
 
   - #### **3) Star Topology**
+<img width="554" height="554" alt="images (2)" src="https://github.com/user-attachments/assets/6ca71f98-f097-4e52-9443-f8fac7ec1ef4" />
 
 
   - - #### *A star topology is a computer network setup where every node (device) connects independently to a central device, such as a hub, switch, or router* 
@@ -130,6 +133,7 @@
 
 
   - #### **4) Mesh Topology**
+<img width="554" height="554" alt="images (3)" src="https://github.com/user-attachments/assets/44a193b5-a518-40f6-943d-8c119de1a099" />
 
 
   - - #### *Mesh topology is a network design where devices, called nodes, connect directly to multiple other nodes without relying on a single central hub.* 
@@ -150,6 +154,7 @@
 
   - #### **5) Ring Topology**
 
+<img width="300" height="259" alt="images (4)" src="https://github.com/user-attachments/assets/d9f40110-446f-46d9-9a1b-978836aedc24" />
 
   - - #### *A ring topology is a network setup where each device (node) connects to two other devices, forming a closed, circular loop.* 
  - - #### *Pros (Advantages)*
@@ -168,6 +173,7 @@
 
 
   - #### **6) Hydbrid Topology**
+ <img width="678" height="452" alt="images (4)" src="https://github.com/user-attachments/assets/fc597be3-0501-4658-91c2-05ac0470382f" />
 
 
   - - #### *A hybrid topology is a computer network structure that combines two or more different basic network topologies—such as star, ring, bus, or mesh—into a single unified system. This Topology is also the most used Topology due to the fact that it combines different topologies strength* 
@@ -187,6 +193,7 @@
 
 
   - #### **7) Tree Topology**
+![Uploading images (5).jpg…]()
 
 
   - - #### *Tree topology is a hierarchical network structure that combines elements of star and bus topologies, resembling a tree with a central root node, branches, and leaf nodes*
