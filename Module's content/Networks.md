@@ -211,8 +211,7 @@
  - - - #### *High Installation Costs: Requiring extensive cabling, backbone components, and multiple hubs makes initial setup expensive.*
  - - - #### *Complex Maintenance: As the hierarchy grows larger and more branches are added, cable management and troubleshooting upstream become difficult.*
  - - - #### *Performance Bottlenecks: Heavy traffic flowing from lower branches must pass through higher-level nodes, leading to potential slowdowns during peak usage*
-<<<<<<< Updated upstream
-=======
+
 
 
 ### ***Data Flow and Transmissions***
@@ -236,4 +235,4 @@
  - - - #### *Data can travel in both directions, but not at the same time.*
  - - - #### *One device sends data while the other receives it. Then they can switch roles.*
  - - - #### *Example: Walkie-talkies.*
->>>>>>> Stashed changes
+
