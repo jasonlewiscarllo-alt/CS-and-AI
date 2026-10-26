@@ -6,7 +6,7 @@
 
 #### *Use of Behavioural AI*
 
-#### *Mention all components of Hardware and also mention all reigters and buses.What are their purpose*
+#### *Mention all components of Hardware and also mention all reigters and buses.What are their purposes*
 
 #### *Learn how to convert binary to denary and hexadecimal and vice versa*
 
