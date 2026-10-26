@@ -1,0 +1,90 @@
+## *Intended Learning Outcome:*
+
+#### *Definition of Hardware*
+
+#### *Definition of Networks*
+
+#### *Use of Behavioural AI*
+
+#### *Mention all components of Hardware and also mention all reigters and buses.What are their purpose*
+
+#### *Learn how to convert binary to denary and hexadecimal and vice versa*
+
+#### *Mention all components of the Network.Talk about how Data is transferred and all methods of transmissions*
+
+#### *Be able to name at least 3 network architecture and how they are made as well as the topolgy they use*
+
+#### *Threats that roam the internet and what stops these threats*
+
+#### *What are the core parts of Behavioural AI*
+
+
+## **Prerequisite Knowledge:**
+
+### *Know about bits which is binary and would be explained in the Hardware module content which is currently WIP(work in progress)*
+
+
+## **Major Topics and Sub-Topics Networks:**
+
+### *Fundemental Knowledge about Network*
+
+ - #### *Definition of Networks and it's uses*
+ - #### *Nodes (devices) and links (wired vs wireless connections)*
+ - #### *Core networking hardware:Routers and Switches*
+
+
+###  *Packet*
+ - #### *Packets and it's method of transmission*
+ - #### *Data flow*
+ - #### *Transmission and synchronization*
+
+
+
+
+
+### *Protocols and Addressing*
+
+ - #### *Role of communication protocols*
+ - #### *Identification of devices*
+ - #### *Anatomy of a URL*
+
+
+### *Network Topologies*
+ - #### *Network Topologies*
+
+### *Data flow and Tranmission*
+ - #### *Data flow*
+ - #### *Data transmission and synchronization*
+
+
+
+### *Network Architecture and it's types*
+ - #### *Types of Networks*
+
+
+ 
+
+
+### *Network Security and Threats*
+
+ - #### *Malware types*
+
+ - #### *Common cyberattacks*
+
+ - #### *System vulnerabilities and defense mechanisms*
+
+
+
+### ***Planned questions***
+ - #### *Definition of network*
+ - #### *What are packets*
+ - #### *State all methods for data transmission*
+ - #### *List down all components of the Network and state it's purpose or uses* *(This might be split into several questions)
+ - #### *What makes up the URL*
+ - #### *List 3 malware and 2 cyberattacks and all defenses to these threats and cyberattacks*
+ - #### *name 4 networks with the topology it uses and why they use that topology*
+
+
+
+
+## Current Development status:[**Draft**]
