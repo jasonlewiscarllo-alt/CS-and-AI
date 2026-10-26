@@ -247,3 +247,11 @@
  - - - #### *Data travels in only one direction.*
  - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
  - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
+
+  - - #### **2) Serial Transmission**
+
+
+
+ - - - #### *Data travels in only one direction.*
+ - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
+ - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
