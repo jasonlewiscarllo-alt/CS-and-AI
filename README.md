@@ -4,17 +4,14 @@
 # **Module:Hardware,Networks,Behaviorist AI**
 
 
-# **Members and their Github usernames**:
 
-## *1)Jason Lewis Carllo,jasonlewiscarllo-alt*
-
-## *2)Kelton James Mahendra,keltonjamess*
-
-## *3)Kenzo Vernard,ghoststorm-afk*
-
-## *4)Rysen Reicania Santosa,santosarysen-777*
-
-## *5)Louis Tjoekro Pranata,Looouuuiiisss*
+| **Members** | **Github usernames** | **ID number** | **Roles** |
+| :-- | :--: | :---: | :--: |
+| *Jason Lewis Carllo* | *jasonlewiscarllo-alt* | *1820262145* | 
+| *Kelton James Mahendra* | *keltonjamess* |
+| *Kenzo Vernard* | *ghoststorm-afk* |
+| *Rysen Reicania Santosa* | *santosarysen-777* |
+| *Louis Tjoekro Pranata* | *Looouuuiiisss* |
 
 
 # Purpose & Intended Learners:
