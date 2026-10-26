@@ -236,3 +236,10 @@
  - - - #### *One device sends data while the other receives it. Then they can switch roles.*
  - - - #### *Example: Walkie-talkies.*
 
+ - #### **Methods of Data Transmission**
+  - - #### **1) Simplex(One Way)**
+
+
+ - - - #### *Data travels in only one direction.*
+ - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
+ - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
