@@ -290,6 +290,7 @@
 
  - #### **Network Service Models**
  - - #### **Client-Server Model**
+<img width="499" height="300" alt="images (7)" src="https://github.com/user-attachments/assets/a573d1bf-cc3c-44d5-833a-1d7e0c85123b" />
 
 
  - - - #### *Client-Server Model is a centralized network architecture where a dedicated computer system (the server) stores data, manages resources, and processes requests, while other devices (the clients) request and consume those services. Client and server roles are fixed.*
@@ -297,6 +298,7 @@
  - - - #### *What it is used for: Managing heavy user traffic, enforcing centralized security and firewalls, running enterprise databases, and handling regular backups from a single location.*
 
  - - #### **Peer-to-Peer Model**
+<img width="430" height="465" alt="images (10)" src="https://github.com/user-attachments/assets/3ed8da96-00b7-4642-894a-454fa8ca88d0" />
 
  
  - - - #### *A decentralized network where every participant (called a "peer") has equal status and acts as both a client and a server at the same time. Peers share resources directly with each other without needing a central authority.*
