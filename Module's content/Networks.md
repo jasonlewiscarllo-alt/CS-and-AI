@@ -28,6 +28,12 @@
  - - #### *Key Function: Directs data specifically to the intended device rather than sending it unnecessarily to every connected device. It uses MAC addresses[It wil explained at the bottom as well] to identify devices on a local network, checking the destination MAC address and forwarding the data through the appropriate port.*
  - - #### *Example: In a school computer lab, when one computer sends a document to a network printer connected to the same switch, the switch forwards the data directly toward the printer.*
 
+
+
+
+
+
+
 ### ***Packets***
 <img width="738" height="237" alt="image-1" src="https://github.com/user-attachments/assets/06815940-666a-479b-b6ba-5bd465a1e12d" />
 
@@ -46,10 +52,12 @@
  - - - #### *IP: is the identity of the devices that will send information or receive them it acts similar to a mailbox where the router is the one who leads it to its proper destination at the most efficient route but that will sometimes cause the information to be jumbled up or mismatched that is why TCP is used*
  - - - #### *HTTP/HTTPS: Protocols used to transfer website information between web browsers and web servers. HTTPS also encrypts the connection to ensure it is secure.*
  - - - #### *FTP: A protocol used to transfer files between computers over a network.*
- - - - #### *DNS: A system that translates domain names, such as google.com, into IP addresses that computers use to locate servers.*
+ - - - #### *DNS: A system that translates human-readable domain names, such as google.com, into machinese-readable IP addresses that computers use to locate servers.*
  - - - #### *Ethernet:It connects computers, routers, and other devices to build a local area network (LAN) and link them to the internet.*
  - - #### *For example, when you visit a website, DNS helps your device find the website's server, while TCP/IP helps move data between your device and that server.In conclusion, packets divide information into smaller pieces so it can be sent efficiently, while protocols provide the rules that allow devices to communicate and understand the data they receive. Both are important for making the internet work properly.*
-
+ #
+>Quick Review:What is the definition of computer Networks?and it's key components?
+#
  - ### ***Method of Identification within devices***
  - #### ***1) MAC Address(Media Access Control)***
  - - #### *MAC Address is a unique, hardcoded **48-bit** physical identifier burned into a Network Interface Card (NIC) by the hardware manufacturer.*
@@ -71,8 +79,10 @@
  - - - #### *Subdomain:It is used to identify each area of the website and www is the most commonly used where www stands for world wide web*
  - - - #### *Domain Names:The unique, human-readable name of a specific website. It acts as an easy-to-remember alias for a complex numerical IP address*
  - - - #### *Top-Level Domain: It categorizes the website by its purpose, industry, or geographic location.e.g.: .com(commercial), .org(organizations) , .edu(education), .uk(united kingdom)*
+>  Quick Review:What is an IP address and what are the two main versions in use?
+>>What is a MAC Address and how does it differ from an IP Address?
 
-
+>Review: How does the Domain Name System (DNS) work?
 ### ***Network Topologies***
  - #### **1) Bus Topology**
 <img width="726" height="422" alt="images (1)" src="https://github.com/user-attachments/assets/0e5488f7-ad58-41a1-9c59-784db3c6ead3" />
@@ -176,7 +186,7 @@
  <img width="678" height="452" alt="images (4)" src="https://github.com/user-attachments/assets/fc597be3-0501-4658-91c2-05ac0470382f" />
 
 
-  - - #### *A hybrid topology is a computer network structure that combines two or more different basic network topologies—such as star, ring, bus, or mesh—into a single unified system. This Topology is also the most used Topology due to the fact that it combines different topologies strength* 
+  - - #### *A hybrid topology is a computer network structure that combines two or more different basic network topologies—such as star, ring, bus, or mesh—into a single unified system. This Topology is also the most commonly used Topology due to the fact that it combines different topologies strength* 
  - - #### *Pros (Advantages)*
  - - - #### *High Flexibility & Customization: You can tailor different sections of the network to match specific department workflows, traffic loads, and physical environments.*
  - - - #### *Effective Fault Isolation: Problems or failures in one segment are usually contained to that specific section without crashing the entire network.*
@@ -272,7 +282,7 @@
 	 - - - #### *The conversation happens in bursts.*
 	 - - - #### *You might send a text at 2:00 PM, and they reply at 2:05 PM.*
 	 - - - #### *The time gaps between messages are completely random and irregular.*
-
+>What is Network Topology and what are the common types?
 ### ***Network Architecture and it's types***
  - #### **Types of Networks**
  - - #### **1) LAN(Local Area Network)**
@@ -306,7 +316,7 @@
  - - - #### *Examples:File Sharing (BitTorrent): When downloading a popular software update or media file via torrent, you are not downloading it from a single company's computer. You are pulling fragments of the file from hundreds of other everyday internet users who already have it, while simultaneously uploading fragments to new users. Home Wi-Fi Networks: In a simple home setup, two laptops can connect directly over the local network to transfer a photo or print a document without needing an external corporate server to process the request.*
 
  - - - #### *What it is used for: Managing heavy user traffic, enforcing centralized security and firewalls, running enterprise databases, and handling regular backups from a single location.*
-
+>Sudden Review:What is the difference between a LAN and a WAN?
 
 ### ***Network Threats***
  - #### **Malware:**
@@ -364,3 +374,11 @@
  - - - #### *Creates an encrypted connection between a device and a VPN endpoint, helping protect data while it travels across an untrusted network.*
  - - #### **6. Intrusion Detection and Prevention Systems (IDS/IPS):**
  - - - #### *Monitor network traffic for suspicious activity. An IDS detects and reports potential threats, while an IPS can also block certain malicious traffic.*
+ - ### *Countermeasures to malware*
+ - - #### *They are Firewall`Blocks unauthorized outbound communication, preventing spyware and trojans from leaking stolen data or downloading payload updates from command-and-control servers.` and Antivirus and Anti-malware`Continuously scans files and memory to detect, quarantine, and remove viruses, worms, trojans, and spyware based on signature databases and heuristic analysis.`*
+
+ - ### *Countermeasures Against Cyberattacks*
+  - - #### *They are Authentication`Defeats Brute-Force & Dictionary Attacks and Hacking. Even if an attacker guesses a password, MFA requires a second verification step (like an authenticator app or hardware token). Account lockout policies also stop rapid password-guessing scripts.`,Encryption & VPN`Defeats Data Interception (Packet Sniffing). By scrambling data in transit (e.g., using HTTPS or a VPN tunnel), eavesdroppers only see unreadable ciphertext even if they capture the packets.`, and Intrusion Detection and Prevention Systems (IDS/IPS) `Defeats DoS & Distributed Denial of Service (DDoS) attacks by monitoring traffic patterns, identifying abnormal flood requests, and automatically filtering or rate-limiting malicious traffic.`*
+
+ - ### *Countermeasures Against System & Network Vulnerabilities*
+ - - #### *They are Robust Password Policies & Password Managers`Weak or Default Passwords. Enforcing minimum length, complexity, and prohibiting factory-default credentials.` and Automated Patch Management`Unpatched / Outdated Software. Regularly updating operating systems, firmware, and applications ensures that newly discovered security flaws are quickly patched before attackers can exploit them.`*
