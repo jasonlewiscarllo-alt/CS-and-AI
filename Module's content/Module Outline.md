@@ -86,8 +86,6 @@
 
 
 
-
-
 ### *Protocols and Addressing*
  - #### *Role of communication protocols*
  - #### *Identification of devices*
@@ -102,11 +100,9 @@
  - #### *Data transmission and synchronization*
 
 
-
 ### *Network Architecture and it's types*
  - #### *Types of Networks*
-
-
+ - #### *Network Service models*
  
 
 
