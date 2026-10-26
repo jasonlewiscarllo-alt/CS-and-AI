@@ -217,12 +217,14 @@
 ### ***Data Flow and Transmissions***
  - #### **Types of Data Flow**
  - - #### **1) Simplex(One Way)**
+<img width="515" height="388" alt="images (5)" src="https://github.com/user-attachments/assets/a6d2268c-d2b5-49b4-8342-00c5042b2584" />
 
 
  - - - #### *Data travels in only one direction.*
  - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
  - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
  - - #### **2) Full-Duplex(One Way)**
+<img width="359" height="136" alt="images (6)" src="https://github.com/user-attachments/assets/75772075-200d-4701-a97a-dadc764392f9" />
 
 
  - - - #### *Data travels in both directions at the same time.*
@@ -230,6 +232,7 @@
  - - - #### *Example: A telephone conversation.*
 
   - - #### **3) Half-Duplex(One Way)**
+<img width="359" height="109" alt="images (7)" src="https://github.com/user-attachments/assets/09115fb2-014b-4257-ae1a-73a62f031afc" />
 
 
  - - - #### *Data can travel in both directions, but not at the same time.*
