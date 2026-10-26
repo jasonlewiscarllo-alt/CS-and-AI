@@ -64,4 +64,3 @@
  - - ##### *While IPv4 offers widespread compatibility and mature deployment, its major disadvantage compared to IPv6 is its severely limited address space and lack of native security features.*
 
  - ### ***URL***
-<img width="1021" height="303" alt="urlparts" src="https://github.com/user-attachments/assets/887559b6-19a7-4929-9c9b-1650a1ea67c6" />
