@@ -241,6 +241,7 @@
 
  - #### **Methods of Data Transmission**
   - - #### **1) Serial Transmission**
+<img width="660" height="330" alt="images (8)" src="https://github.com/user-attachments/assets/447bd65c-bfc0-4c3d-8389-ae817c81a22a" />
 
 
  - - - #### *Data travels in only one direction.*
