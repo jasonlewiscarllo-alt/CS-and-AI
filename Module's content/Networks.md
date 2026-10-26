@@ -58,8 +58,8 @@
  - #### ***2) IP Address (Internet Protocol Address)***
  - - #### *IP Address A software-assigned numerical label given to a device whenever it connects to a network*
  - - #### *Types of IP address:*
-  - - - #### *IPv4(Internet Protocol version 4):It is the original and widely used version of the Internet Protocol and it has a **Address Length of 32 bits e.g. 93.184.216.34  written in denary***
-  - - - #### *IPv6(Internet Protocol version 6):The newer version of the Internet Protocol designed to permanently replace IPv4 and it has a **Address Length of 128 bits e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334 written in hexadecimal***
+  - - - #### *IPv4(Internet Protocol version 4):It is the original and widely used version of the Internet Protocol and it has a ***Address Length of 32 bits e.g. 93.184.216.34  written in denary***
+  - - - #### *IPv6(Internet Protocol version 6):The newer version of the Internet Protocol designed to permanently replace IPv4 and it has a ***Address Length of 128 bits e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334 written in hexadecimal***
  - - #### *Key Function: Enables data to be routed across multiple interconnected networks, guiding packets from a source device across the global internet to a destination device.*
  - - ##### *While IPv4 offers widespread compatibility and mature deployment, its major disadvantage compared to IPv6 is its severely limited address space and lack of native security features.*
 
@@ -211,3 +211,29 @@
  - - - #### *High Installation Costs: Requiring extensive cabling, backbone components, and multiple hubs makes initial setup expensive.*
  - - - #### *Complex Maintenance: As the hierarchy grows larger and more branches are added, cable management and troubleshooting upstream become difficult.*
  - - - #### *Performance Bottlenecks: Heavy traffic flowing from lower branches must pass through higher-level nodes, leading to potential slowdowns during peak usage*
+<<<<<<< Updated upstream
+=======
+
+
+### ***Data Flow and Transmissions***
+ - #### **Types of Data Flow**
+ - - #### **1) Simplex(One Way)**
+
+
+ - - - #### *Data travels in only one direction.*
+ - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
+ - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
+ - - #### **2) Full-Duplex(One Way)**
+
+
+ - - - #### *Data travels in both directions at the same time.*
+ - - - #### *Both devices can send and receive data simultaneously.*
+ - - - #### *Example: A telephone conversation.*
+
+  - - #### **3) Half-Duplex(One Way)**
+
+
+ - - - #### *Data can travel in both directions, but not at the same time.*
+ - - - #### *One device sends data while the other receives it. Then they can switch roles.*
+ - - - #### *Example: Walkie-talkies.*
+>>>>>>> Stashed changes
