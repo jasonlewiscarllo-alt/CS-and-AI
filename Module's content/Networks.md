@@ -38,7 +38,7 @@
 #### *This picture shows the available paths where the packets will go and they will seperate to different routes since if a router or link fails, packets can automatically reroute around the problem so that the packets won't get lost and never received*
 
 
-### ***Identification of Devices***
+### ***Protocol and Addressing***
 
  - #### ***1)MAC Address(Media Access Control)***
  - - #### *MAC Address is a unique, hardcoded **48-bit** physical identifier burned into a Network Interface Card (NIC) by the hardware manufacturer.*
@@ -50,5 +50,6 @@
   - - - #### *IPv4(Internet Protocol version 4):It is the original and widely used version of the Internet Protocol and it has a **Address Length of 32 bits e.g. 93.184.216.34  written in denary***
   - - - #### *IPv6(Internet Protocol version 6):The newer version of the Internet Protocol designed to permanently replace IPv4 and it has a **Address Length of 128 bits e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334 written in hexadecimal***
  - - #### *Key Function: Enables data to be routed across multiple interconnected networks, guiding packets from a source device across the global internet to a destination device.*
+ - - ##### *While IPv4 offers widespread compatibility and mature deployment, its major disadvantage compared to IPv6 is its severely limited address space and lack of native security features.*
 
 

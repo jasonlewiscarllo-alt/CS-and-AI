@@ -1,25 +1,40 @@
 ## *Intended Learning Outcome:*
 
+#### *Define computer Hardware and name 3 primary components as well as their functions*
+
 #### *Definition of Networks*
 
-#### *To be able to mention all the types of networks such as LAN or WAN as well as understand the components of a URL*
+#### *Use of Behavioural AI*
 
-#### *Mention what the network is made up of*
+#### *Mention all components of Hardware and also mention all reigters and buses.What are their purpose*
 
-#### *All types of data tranmission and how are data transferred and how they reach the recipient*
+#### *Learn how to convert binary to denary and hexadecimal and vice versa*
+
+#### *Mention all components of the Network.Talk about how Data is transferred and all methods of transmissions*
+
+#### *Be able to name at least 3 network architecture and how they are made as well as the topolgy they use*
 
 #### *Threats that roam the internet and what stops these threats*
+
+#### *What are the core parts of Behavioural AI*
 
 
 ## **Prerequisite Knowledge:**
 
 ### *Know about bits which is binary and would be explained in the Hardware module content which is currently WIP(work in progress)*
 
+## **Major Topics and sub-Topics for Hardware:**
 
-## **Major Topics and Sub-Topics:**
+
+
+
+
+
+
+
+## **Major Topics and Sub-Topics Networks:**
 
 ### *Fundemental Knowledge about Network*
-
  - #### *Definition of Networks and it's uses*
  - #### *Nodes (devices) and links (wired vs wireless connections)*
  - #### *Core networking hardware:Routers and Switches*
@@ -30,14 +45,13 @@
  - #### *Data flow*
  - #### *Transmission and synchronization*
 
-### *Addressing and Identification*
- - #### *Identification of devices*
+
+
 
 
 ### *Protocols and Addressing*
-
  - #### *Role of communication protocols*
-
+ - #### *Identification of devices*
  - #### *Anatomy of a URL*
 
 
@@ -65,9 +79,6 @@
 
  - #### *System vulnerabilities and defense mechanisms*
 
-### *The Layered Network Architecture (OSI & TCP/IP)*
- - #### *The 7 Layer model*
- - #### *IP 4 Layer Model*
 
 
 ### ***Planned questions***
