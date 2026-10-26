@@ -81,6 +81,8 @@ Fundamentals
 
 *Mention all the components of network and their purpose*
 
+*Talk about 4 topologies and list each 2 advantage and 2 disadvantage*
+
 Review & Assessment
 
 
@@ -104,7 +106,7 @@ Translates abstract Markdown text into high-impact visual explanations, architec
 5-to-10-minute targeted screencasts focusing on complex processes (such as execution cycles or data flows) that benefit significantly from dynamic visual narration, live terminal/code demonstrations, and step-by-step walkthroughs.
 
 5. Live Mini Lecture
-Proposed Topic: Possibly about Network Security and Network Security
+Proposed Topic: Possibly about Network Threats and Network Security
 
 
 Teaching Approach: Using the ppt to help in teaching them and also 

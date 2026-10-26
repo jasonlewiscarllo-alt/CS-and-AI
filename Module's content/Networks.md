@@ -248,11 +248,116 @@
  - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
  - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
 
-  - - #### **2) Serial Transmission**
+  - - #### **2) Parallel Transmission**
 <img width="660" height="330" alt="images (9)" src="https://github.com/user-attachments/assets/a9ab9e0b-133b-4e4e-87f2-b81eef3c4e38" />
 
 
 
- - - - #### *Data travels in only one direction.*
- - - - #### *The sender can send data, but the receiver cannot send data back through that communication channel.*
- - - - #### *Example: Traditional TV broadcasting and a computer keyboard sending input to a computer.*
+ - - - #### *Parallel Transmission sends many bits of data at the same time from one computer to another. It's faster than Serial and works well for short distances. It fits well with how computers are built inside, as they use parallel systems. Computers and other devices can easily use Parallel Transmission.*
+ - - - #### *ParallelIt's easy to set up and fix problems with Parallel Transmission. It uses one cable with a 25-pin port. This port has 17 signal lines and 8 ground lines. The 17 lines are split into 4 lines to start the data transfer, 5 lines to talk and report errors, and 8 lines to move the data.*
+
+ - #### **Method of Data Synchronization**
+ - - #### **Synchronous Transmission**
+ - - - #### *Synchronous processing is the traditional way of processing in client-server communication. A client sends a request to a server and waits for the server to complete the job and send a response before the client can continue doing any other work. This process is often referred to as blocking (i.e. the client is blocked from doing any other work until a response is received).*
+ - - - #### *Both you and the other person must be on the line at the exact same time for the communication to work.*
+ - - - #### *Why it fits:*
+ - - - #### *You are perfectly synchronized in time.*
+ - - - #### *When you speak, the other person hears it instantly.*
+ - - - #### *If one person drops off or lags, the entire flow of the conversation stops or breaks up.*
+ - - #### **Asynchronous Transmission**
+ - - - #### *Asynchronous processing is the opposite of synchronous processing, as the client does not have to wait for a response after a request is made, and can continue other forms of processing. This process is referred to as non-blocking because the execution thread of the client is not blocked after the request is made. This allows systems to scale better as more work can be done in a given amount of time.*
+ - - - #### *Example:You send a message, and the other person opens it whenever they are ready. There is no real-time link or shared schedule between you.*
+ - - - #### *Why it fits:*
+	 - - - #### *The conversation happens in bursts.*
+	 - - - #### *You might send a text at 2:00 PM, and they reply at 2:05 PM.*
+	 - - - #### *The time gaps between messages are completely random and irregular.*
+
+### ***Network Architecture and it's types***
+ - #### **Types of Networks**
+ - - #### **1) LAN(Local Area Network)**
+ - - - #### *A LAN is a collection of connected devices in one physical location, such as a home or an office.Which uses the star topology since If a single Ethernet cable fails or a computer crashes, only that individual machine loses connection. The rest of the office keeps working perfectly or adding new employees you simply plug a new cable into the central switch. You don't have to take the network offline to expand it . A LAN can be small or large, ranging from a home network with one user to a large enterprise network with thousands of users and devices. A LAN may include both wired and wireless devices.*
+ - - - #### *Regardless of size, a LAN's particular characteristic is that it connects devices that are in a single, limited area.*
+
+ - - #### **2) WAN(Wide Area Network)**
+ - - - #### *A Wide Area Network (WAN) connects computers and smaller networks over large geographical areas, such as different cities, countries, or continents. It allows people and organizations in different locations to communicate and share information. It uses either Mesh or Hybrid topology since it connects distinct cities or countries using multiple redundant paths. If an undersea fiber-optic cable is cut, traffic automatically reroutes through another country.*
+ - - - #### *For example, a company may have offices in Tokyo, Singapore, and London. A WAN can connect the networks in these offices so employees can access company files and systems from different locations.*
+ - - - #### *The internet is the most well-known example of a WAN because it connects millions of networks around the world. WANs often rely on telecommunications companies and internet service providers (ISPs) to carry data over long distances. Compared with a LAN, a WAN usually requires more complex infrastructure and can be more expensive to maintain.*
+
+ - - #### **3) MAN(Metropolitan Area Network)**
+ - - - #### *A Metropolitan Area Network (MAN) connects multiple LANs across a city, town, or large campus. It is larger than a typical LAN but generally covers a smaller geographical area than a WAN. It uses Tree Topology as a tree topology allows a city government to act as the "root," branching down to individual municipal departments, schools, and police stations.*
+ - - - #### *For example, a university with several buildings across a city may use a MAN to connect the computer networks in its library, laboratories, administration offices, and other facilities. This allows students and staff to access shared resources across different locations.*
+ - - - #### *A MAN may use fibre-optic cables or other high-speed communication links to transfer data between locations. It is useful for universities, government offices, hospitals, and businesses that need to connect several buildings within the same metropolitan area.*
+
+ - #### **Network Service Models**
+ - - #### **Client-Server Model**
+
+
+ - - - #### *Client-Server Model is a centralized network architecture where a dedicated computer system (the server) stores data, manages resources, and processes requests, while other devices (the clients) request and consume those services. Client and server roles are fixed.*
+ - - - #### *Examples:Websites & Web Browsers (such as looking up pages hosted on Apache or Nginx servers via HTTP/HTTPS),Email Services (such as Gmail or Outlook connecting to mail servers),Streaming Services (such as Netflix serving video streams to user devices),Cloud Storage (such as Google Drive or Dropbox)*
+ - - - #### *What it is used for: Managing heavy user traffic, enforcing centralized security and firewalls, running enterprise databases, and handling regular backups from a single location.*
+
+ - - #### **Peer-to-Peer Model**
+
+ 
+ - - - #### *A decentralized network where every participant (called a "peer") has equal status and acts as both a client and a server at the same time. Peers share resources directly with each other without needing a central authority.*
+ - - - #### *Examples:File Sharing (BitTorrent): When downloading a popular software update or media file via torrent, you are not downloading it from a single company's computer. You are pulling fragments of the file from hundreds of other everyday internet users who already have it, while simultaneously uploading fragments to new users. Home Wi-Fi Networks: In a simple home setup, two laptops can connect directly over the local network to transfer a photo or print a document without needing an external corporate server to process the request.*
+
+ - - - #### *What it is used for: Managing heavy user traffic, enforcing centralized security and firewalls, running enterprise databases, and handling regular backups from a single location.*
+
+
+### ***Network Threats***
+ - #### **Malware:**
+ - - #### **Virus:** 
+ - - - #### *A program that attaches itself to a host file or program, replicates by copying itself, and corrupts, modifies, or deletes data.*
+ - - #### **VirusWorm:** 
+ - - - #### *A standalone program that self-replicates and spreads across networks without needing a host file or human interaction.*
+ - - #### **VirusTrojan Horse:** 
+ - - - #### *Malicious code disguised as or bundled inside a legitimate, useful piece of software; once installed, it creates backdoors for attackers.*
+ - - #### **VirusSpyware:** 
+ - - - #### *Secretive software that monitors user activity (such as keystrokes, screen captures, and browsing history) and transmits the data back to a third party.*
+ - - #### **VirusAdware:** 
+ - - - #### *Software that automatically displays unwanted, intrusive pop-up advertisements and may redirect browser traffic.*
+ - - #### **VirusRansomware:** 
+ - - - #### *Software that encrypts a victim's files or locks the hard drive, demanding a financial ransom (often in cryptocurrency) in exchange for the decryption key.*
+
+ - ### **Cyberattacks:**
+ - - #### **Brute-Force & Dictionary Attacks:** 
+ - - - #### *Trying every possible combination of a password or PIN (or using a list of common words) until the correct credentials are found.*
+ - - #### **Data Interception (Packet Sniffing):** 
+ - - - #### *Eavesdropping on data as it travels across a wired or wireless network using software or hardware "packet sniffers".* 
+ - - #### **Denial of Service (DoS) & Distributed Denial of Service (DDoS):** 
+ - - - #### *Overwhelming a server or network with a massive flood of data requests from a single source (DoS) or a botnet of multiple infected computers (DDoS) so it crashes or becomes unavailable.* 
+ - - #### **Hacking / Unauthorized Access:** 
+ - - - #### *Gaining illegal entry into a computer system or network to view, delete, or alter data.* 
+ - - #### **Phishing:** 
+ - - - #### *Sending fraudulent emails, SMS (smishing), or phone calls (vishing) that mimic legitimate organizations to trick users into revealing sensitive data or passwords.* 
+ - - #### **Pharming:** 
+ - - - #### *Using malicious code or DNS/browser manipulation to silently redirect a user from a legitimate website to a fake replica site designed to steal credentials.* 
+ - - #### **Social Engineering:** 
+ - - - #### *Manipulating human psychology (trust, fear, curiosity, or authority) to persuade individuals to break security procedures or reveal confidential information.*
+
+
+- ### **System & Network Vulnerabilities:**
+ - - #### **Weak or Default Passwords:**
+ - - - #### *Using easily guessed, short, or factory-default passwords (e.g., 123456, admin).*
+ - - #### **Unpatched / Outdated Software:** 
+ - - - #### *Running operating systems or applications missing critical security patches, leaving known vulnerabilities open to exploit.*
+ - - #### **Misconfigured Access Rights:** 
+ - - - #### *Setting file permissions or server roles too loosely (e.g., giving standard users administrative privileges).*
+ - - #### **Removable Media:** 
+ - - - #### *Using infected USB flash drives, CDs, or external hard drives that bypass network firewalls when plugged into a system.*
+
+
+ - ### **Common Types of Network Security**
+ - - #### **1. Firewall:** 
+ - - - #### *A security system that monitors and controls incoming and outgoing network traffic based on defined rules. It helps block unwanted or unauthorized connections.*
+ - - #### **2. Encryption:** 
+ - - - #### *Converts readable information into an encoded form so that unauthorized people cannot easily understand it. HTTPS is an example of technology that uses encryption to protect web communication.*
+ - - #### **3. Antivirus and Anti-malware:** 
+ - - - #### *Security software that detects, blocks, and removes malicious programs that could damage devices or steal information.*
+ - - #### **4. Authentication:** 
+ - - - #### *Verifies a user's identity before allowing access to a system or network. Examples include passwords, fingerprint scans, and multi-factor authentication (MFA).*
+ - - #### **5. VPN (Virtual Private Network):**
+ - - - #### *Creates an encrypted connection between a device and a VPN endpoint, helping protect data while it travels across an untrusted network.*
+ - - #### **6. Intrusion Detection and Prevention Systems (IDS/IPS):**
+ - - - #### *Monitor network traffic for suspicious activity. An IDS detects and reports potential threats, while an IPS can also block certain malicious traffic.*
