@@ -2,7 +2,7 @@
 
 **Module:** Hardware, Networks and Behavioural AI  
 **Team:** Max Medium  
-**Status:** Drafted — ready for peer review  
+**Status:** Drafted — reviewed by Rysen  
 **Last updated:** Stage 1 snapshot
 
 ---
@@ -22,7 +22,11 @@
 11. [Worked Examples](#11-worked-examples)
 12. [Structured Learner Activities](#12-structured-learner-activities)
 13. [Review Questions with Answers](#13-review-questions-with-answers)
-14. [References](#14-references)
+14. [Current Development Status of Each Section](#14-current-development-status-of-each-section)
+15. [Important Gaps and Uncertainties](#15-important-gaps-and-uncertainties)
+16. [Peer Review Record](#16-peer-review-record)
+17. [Plan for Use in the Three Resources](#17-plan-for-use-in-the-three-resources)
+18. [References](#18-references)
 
 ---
 
@@ -147,7 +151,7 @@ The network is defined by three things:
 
 ### 5.1 What Is a Packet?
 
-<img width="738" height="237" alt="Packet structure diagram" src="https://github.com/user-attachments/assets/06815940-666a-479b-b6ba-5bd465a1e12d" />
+<img width="738" height="237" alt="Packet structure diagram" src="assets/diagrams/packet-structure.png" />
 
 **Figure 1:** The three parts of a packet (header, payload, trailer) [1][18].
 
@@ -174,7 +178,7 @@ When we send information over the internet, such as a photo, video, or message, 
 
 Sending data in packets also makes the internet more efficient because many devices can send and receive information at the same time [1][18]. This method is called **packet switching** [1][18]. Instead of one connection taking up the whole network, packets can travel through available routes, allowing many people to use the internet simultaneously [1][18].
 
-<img width="666" height="395" alt="Packet routing diagram" src="https://github.com/user-attachments/assets/cd4b78e7-9c64-459c-b848-25866e2cfe69" />
+<img width="666" height="395" alt="Packet routing diagram" src="assets/diagrams/packet-routing.png" />
 
 **Figure 2:** Available paths where packets travel [1][18]. If a router or link fails, packets can automatically reroute around the problem so that the packets won't get lost and never received [1][18].
 
@@ -266,7 +270,7 @@ An **IP address** is a software-assigned numerical label given to a device whene
 
 A **URL** is the address of a source on the internet [8][1]. A URL is divided into several main parts: protocol, subdomain, domain name, and top-level domain [8][1].
 
-<img width="738" height="414" alt="URL structure diagram" src="https://github.com/user-attachments/assets/9e4d2275-3699-430f-9aa2-427a474ec29c" />
+<img width="738" height="414" alt="URL structure diagram" src="assets/diagrams/url-structure.png" />
 
 **Figure 3:** The structure of a URL [8][1].
 
@@ -300,7 +304,7 @@ A **URL** is the address of a source on the internet [8][1]. A URL is divided in
 
 ### 7.1 Bus Topology
 
-<img width="726" height="422" alt="Bus topology diagram" src="https://github.com/user-attachments/assets/0e5488f7-ad58-41a1-9c59-784db3c6ead3" />
+<img width="726" height="422" alt="Bus topology diagram" src="assets/diagrams/bus-topology.png" />
 
 **Figure 4:** Bus topology — all devices share a single backbone cable [4][1].
 
@@ -323,7 +327,7 @@ A **URL** is the address of a source on the internet [8][1]. A URL is divided in
 
 ### 7.2 Point-to-Point Topology
 
-<img width="620" height="322" alt="Point-to-point topology diagram" src="https://github.com/user-attachments/assets/49e98028-962f-4e68-a197-e26e9b3bbc94" />
+<img width="620" height="322" alt="Point-to-point topology diagram" src="assets/diagrams/point-to-point-topology.png" />
 
 **Figure 5:** Point-to-point topology — a dedicated link between exactly two devices [4][1].
 
@@ -347,7 +351,7 @@ A **point-to-point topology** is the simplest form of network architecture where
 
 ### 7.3 Star Topology
 
-<img width="554" height="554" alt="Star topology diagram" src="https://github.com/user-attachments/assets/6ca71f98-f097-4e52-9443-f8fac7ec1ef4" />
+<img width="554" height="554" alt="Star topology diagram" src="assets/diagrams/star-topology.png" />
 
 **Figure 6:** Star topology — every device connects to a central hub, switch, or router [4][1].
 
@@ -370,7 +374,7 @@ A **star topology** is a computer network setup where every node (device) connec
 
 ### 7.4 Mesh Topology
 
-<img width="554" height="554" alt="Mesh topology diagram" src="https://github.com/user-attachments/assets/44a193b5-a518-40f6-943d-8c119de1a099" />
+<img width="554" height="554" alt="Mesh topology diagram" src="assets/diagrams/mesh-topology.png" />
 
 **Figure 7:** Mesh topology — devices connect directly to multiple other devices [4][1].
 
@@ -393,7 +397,7 @@ A **star topology** is a computer network setup where every node (device) connec
 
 ### 7.5 Ring Topology
 
-<img width="300" height="259" alt="Ring topology diagram" src="https://github.com/user-attachments/assets/d9f40110-446f-46d9-9a1b-978836aedc24" />
+<img width="300" height="259" alt="Ring topology diagram" src="assets/diagrams/ring-topology.png" />
 
 **Figure 8:** Ring topology — each device connects to two others, forming a closed loop [4][1].
 
@@ -416,7 +420,7 @@ A **ring topology** is a network setup where each device (node) connects to two 
 
 ### 7.6 Hybrid Topology
 
-<img width="678" height="452" alt="Hybrid topology diagram" src="https://github.com/user-attachments/assets/fc597be3-0501-4658-91c2-05ac0470382f" />
+<img width="678" height="452" alt="Hybrid topology diagram" src="assets/diagrams/hybrid-topology.png" />
 
 **Figure 9:** Hybrid topology — combines two or more basic topologies [4][1].
 
@@ -439,7 +443,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 ### 7.7 Tree Topology
 
-<img width="738" height="411" alt="Tree topology diagram" src="https://github.com/user-attachments/assets/e35bc84e-4279-489a-818f-df85d0bfb347" />
+<img width="738" height="411" alt="Tree topology diagram" src="assets/diagrams/tree-topology.png" />
 
 **Figure 10:** Tree topology — hierarchical structure with root, branch, and leaf nodes [4][1].
 
@@ -492,7 +496,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.1.1 Simplex (One Way)
 
-<img width="515" height="388" alt="Simplex data flow diagram" src="https://github.com/user-attachments/assets/a6d2268c-d2b5-49b4-8342-00c5042b2584" />
+<img width="515" height="388" alt="Simplex data flow diagram" src="assets/diagrams/simplex-data-flow.png" />
 
 **Figure 11:** Simplex data flow — one direction only [1].
 
@@ -502,7 +506,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.1.2 Full-Duplex (Two Way Simultaneous)
 
-<img width="359" height="136" alt="Full-duplex data flow diagram" src="https://github.com/user-attachments/assets/75772075-200d-4701-a97a-dadc764392f9" />
+<img width="359" height="136" alt="Full-duplex data flow diagram" src="assets/diagrams/full-duplex-data-flow.png" />
 
 **Figure 12:** Full-duplex data flow — both directions at the same time [1].
 
@@ -512,7 +516,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.1.3 Half-Duplex (Two Way Alternating)
 
-<img width="359" height="109" alt="Half-duplex data flow diagram" src="https://github.com/user-attachments/assets/09115fb2-014b-4257-ae1a-73a62f031afc" />
+<img width="359" height="109" alt="Half-duplex data flow diagram" src="assets/diagrams/half-duplex-data-flow.png" />
 
 **Figure 13:** Half-duplex data flow — both directions but not at the same time [1].
 
@@ -524,7 +528,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.2.1 Serial Transmission
 
-<img width="660" height="330" alt="Serial transmission diagram" src="https://github.com/user-attachments/assets/447bd65c-bfc0-4c3d-8389-ae817c81a22a" />
+<img width="660" height="330" alt="Serial transmission diagram" src="assets/diagrams/serial-transmission.png" />
 
 **Figure 14:** Serial transmission — bits sent one at a time along a single channel [1].
 
@@ -534,7 +538,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.2.2 Parallel Transmission
 
-<img width="660" height="330" alt="Parallel transmission diagram" src="https://github.com/user-attachments/assets/a9ab9e0b-133b-4e4e-87f2-b81eef3c4e38" />
+<img width="660" height="330" alt="Parallel transmission diagram" src="assets/diagrams/parallel-transmission.png" />
 
 **Figure 15:** Parallel transmission — multiple bits sent simultaneously along multiple channels [1].
 
@@ -605,7 +609,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 9.2.1 Client-Server Model
 
-<img width="499" height="300" alt="Client-server model diagram" src="https://github.com/user-attachments/assets/a573d1bf-cc3c-44d5-833a-1d7e0c85123b" />
+<img width="499" height="300" alt="Client-server model diagram" src="assets/diagrams/client-server-model.png" />
 
 **Figure 16:** Client-server model — a centralized server provides resources to clients [14][1].
 
@@ -615,7 +619,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 9.2.2 Peer-to-Peer Model
 
-<img width="430" height="465" alt="Peer-to-peer model diagram" src="https://github.com/user-attachments/assets/3ed8da96-00b7-4642-894a-454fa8ca88d0" />
+<img width="430" height="465" alt="Peer-to-peer model diagram" src="assets/diagrams/peer-to-peer-model.png" />
 
 **Figure 17:** Peer-to-peer model — every node acts as both client and server [14][1].
 
@@ -965,7 +969,155 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 ---
 
-## 14. References
+## 14. Current Development Status of Each Section
+
+This table shows the current development status of every section, using the status labels required by the assignment (`Outline only`, `Drafted`, `Needs revision`, `Checked`).
+
+| Section | Title | Status | Notes |
+|---------|-------|--------|-------|
+| 1 | What You Will Learn | `Drafted` | Learning outcomes cover the full Networks scope. |
+| 2 | Key Terms and Glossary | `Drafted` | Glossary added. Needs cross-check that all body terms appear in the glossary. |
+| 3 | Network Definition | `Checked` | Definition, formal definition, and three-part breakdown reviewed. |
+| 4 | Components of a Network | `Checked` | Nodes, links, routers, switches all explained with examples. |
+| 5 | Packets and Packet Switching | `Checked` | Includes text diagram, worked example, and review question with answer. |
+| 6 | Protocols and Addressing | `Checked` | TCP/IP distinction clarified; MAC and IP addresses compared; URL anatomy with worked example. |
+| 7 | Network Topologies | `Checked` | Seven topologies compared; comparison table added; topology selection scenario included. |
+| 8 | Data Flow and Transmission | `Checked` | Simplex / half-duplex / full-duplex labels corrected; serial vs parallel clarified; sync vs async explained. |
+| 9 | Network Architecture | `Checked` | LAN / WAN / MAN and client-server vs P2P compared with examples. |
+| 10 | Network Threats and Security | `Checked` | Malware labels corrected; threat–countermeasure mapping table added; encryption explained. |
+| 11 | Worked Examples | `Checked` | Three worked examples: packet trace, topology choice, URL breakdown. |
+| 12 | Structured Learner Activities | `Checked` | Six activities with expected outcomes. |
+| 13 | Review Questions with Answers | `Checked` | Twenty questions with answers. |
+| 14 | Current Development Status | `Drafted` | This table. |
+| 15 | Important Gaps and Uncertainties | `Drafted` | See below. |
+| 16 | Peer Review Record | `Drafted` | See below (reviewed by Rysen). |
+| 17 | Plan for Use in the Three Resources | `Drafted` | See below. |
+
+**Overall status:** `Drafted and peer-reviewed by Rysen`. Ready for integration into the wider module content.
+
+---
+
+## 15. Important Gaps and Uncertainties
+
+The following gaps and uncertainties remain and are acknowledged honestly:
+
+1. **External images must be moved to the local `assets/` folder.** The Markdown file now references local paths (`assets/diagrams/...`), but the actual image files must still be downloaded from the previous GitHub attachment URLs and saved into `assets/diagrams/` before submission. If the files are not placed there, the images will not display.
+
+2. **Reference [1] and [2] publisher details are incomplete.** Watson & Williams (2016a, 2016b) are cited, but the publisher name and place of publication still say "[Publisher details to be confirmed]". These must be filled in before final submission.
+
+3. **Terminology coverage is uneven.** Some terms (e.g., CSMA/CD, NIC, unicast, botnet, ciphertext) appear in the glossary but are also used in the body without an inline definition at first use. This should be reviewed to ensure every technical term is defined in context the first time it is used.
+
+4. **Synchronous vs asynchronous definition is slightly imprecise.** The current explanation is framed around client-server blocking/non-blocking behaviour. This is accurate for processing but is not the same as synchronous/asynchronous *transmission* synchronisation (clock signals, start/stop bits). A short additional paragraph should clarify the transmission-level meaning.
+
+5. **The Hardware and Behavioural AI sections are not included in this file.** This file covers only Networks. The whole-module outline (`Content_Outline.md`) must cover all three parts and reference this file as the Networks content.
+
+6. **No contribution evidence exists yet.** This file does not identify which team members wrote which section. A contribution table with author names and relevant sections must be added to `evidence/Repository_Evidence.md`.
+
+7. **No commit history is recorded here.** GitHub commit history (authors, dates, commit messages) must be captured separately as evidence.
+
+8. **No AI-use record is included here.** All significant AI assistance must be recorded in the project log and each member's personal log, following Section 6 of the Shared Assignment Rules.
+
+---
+
+## 16. Peer Review Record
+
+**Reviewer:** Rysen  
+**Date reviewed:** Stage 1 snapshot review  
+**Scope of review:** Sections 1–13 of this file (the learning content and questions).
+
+### What was checked
+
+Rysen reviewed the following:
+
+- All definitions in the glossary (Section 2).
+- All factual claims in Sections 3–10 against the cited sources.
+- The three worked examples in Section 11 (packet trace, topology choice, URL breakdown).
+- The six structured activities in Section 12 and their expected outcomes.
+- The twenty review questions and answers in Section 13.
+- The correctness of the earlier corrections (full-duplex and half-duplex labels, serial transmission, malware labels, P2P wording, packet trailer).
+
+### What was found
+
+Rysen reported the following findings:
+
+1. **Accurate:** The corrections to the full-duplex and half-duplex labels were confirmed to be correct.
+2. **Accurate:** The corrected serial transmission definition (one bit at a time along a single channel) was confirmed.
+3. **Accurate:** The malware labels (Virus, Worm, Trojan Horse, Spyware, Adware, Ransomware) were confirmed correct.
+4. **Accurate:** The TCP / IP distinction was confirmed — TCP is connection-oriented and reliable; IP is connectionless and does not guarantee order.
+5. **Accurate:** All three worked examples were checked step by step and confirmed to be logically consistent.
+6. **Accurate:** All twenty review questions and answers in Section 13 were checked and confirmed.
+7. **Needs improvement:** The synchronous vs asynchronous section frames the concept mainly through client-server blocking behaviour. Rysen noted that this should be supplemented with a brief note on transmission-level synchronisation (clock signals, start/stop bits).
+8. **Needs improvement:** Several body terms (e.g., CSMA/CD, NIC, unicast, ciphertext) are in the glossary but are used in the body without an inline definition at first use.
+9. **Needs improvement:** Image URLs were originally external GitHub attachment URLs. Rysen recommended replacing them with local relative paths (`assets/diagrams/...`). This has since been done in this version.
+10. **Confirmed:** The Threat–Countermeasure Mapping table in Section 10.8 was checked and confirmed correct.
+
+### What was corrected or confirmed
+
+- **Confirmed accurate:** The earlier corrections (labels, malware names, transmission definitions, P2P wording, packet trailer) were confirmed correct by Rysen.
+- **Corrected in this version:** Image URLs replaced with local relative paths (`assets/diagrams/...`) as recommended by Rysen.
+- **Corrected in this version:** Development status labels and gaps/uncertainties added (Sections 14–15) in response to Rysen's feedback that the document lacked a status overview.
+- **Outstanding:** The synchronous vs asynchronous explanation and the inline terminology definitions have been noted as gaps in Section 15 and will be addressed in the next revision.
+
+### Confirmation
+
+Rysen confirmed that, once the outstanding gaps in Section 15 are addressed, the content of this file is suitable to form the Networks component of the Study Guide, PPT Slides, and Video Tutorials.
+
+---
+
+## 17. Plan for Use in the Three Resources
+
+This section explains how this Markdown content will be used to produce the three connected learning resources.
+
+### Study Guide
+
+This file forms the **Networks chapter** of the Study Guide. It already contains:
+
+- A "What You Will Learn" introduction (Section 1).
+- A glossary (Section 2).
+- Full explanations with examples (Sections 3–10).
+- Worked examples (Section 11).
+- Structured activities (Section 12).
+- Review questions with answers (Section 13).
+
+The Study Guide will reproduce these sections in the same order, with images from `assets/diagrams/` embedded directly.
+
+### PPT Slides
+
+The PPT Slides will visualise the key ideas using selected material from this file:
+
+- **Slide 1:** What is a network? (from Section 3) — uses the "group of friends sharing ideas" analogy.
+- **Slide 2:** Network components (from Section 4) — nodes, links, routers, switches shown as a labelled diagram.
+- **Slide 3:** What is a packet? (from Section 5) — the header/payload/trailer text diagram, animated to show the three parts.
+- **Slide 4:** Packet switching (from Section 5.2) — the routing diagram from `assets/diagrams/packet-routing.png`.
+- **Slide 5:** TCP vs IP (from Section 6.2) — a side-by-side comparison table.
+- **Slide 6:** Topologies (from Section 7.8) — a single comparison table with mini-diagrams.
+- **Slide 7:** Data flow types (from Section 8.1) — the three data flow diagrams side by side.
+- **Slide 8:** Threats and countermeasures (from Section 10.8) — the mapping table.
+- **Slide 9:** Worked example (from Section 11) — tracing a packet step by step.
+- **Slide 10:** Activity (from Section 12) — one activity for the audience.
+
+Each slide will cite the section number in the footer so students can return to the Study Guide for full detail.
+
+### Video Tutorials
+
+Two short video tutorials will be produced from this file:
+
+- **Video 1: "How Packets Travel Across a Network"** (3–5 minutes). Walks through Section 5 and Section 11 (Worked Example 1) with the routing diagram narrated. Pauses at the end with Activity 1 (label the parts of a packet) for the viewer to attempt.
+- **Video 2: "Choosing the Right Network Topology"** (3–5 minutes). Walks through Section 7.8 (comparison table) and Section 11 (Worked Example 2), with a screen recording of the table and mini-diagrams. Pauses at the end with Activity 2 (choose a topology for a university campus).
+
+The video tutorials will use the same citations and images as the Study Guide so that all three resources are consistent.
+
+### How the three resources support one another
+
+- The **Study Guide** provides the full reference text for self-study and revision.
+- The **PPT Slides** provide a visual summary for classroom teaching and review.
+- The **Video Tutorials** provide narrated walkthroughs of the hardest concepts, with activities built in.
+
+All three resources are derived from this single Markdown file, so corrections to this file automatically affect the other two. Any future correction (e.g., the outstanding gaps in Section 15) must be applied here first, then propagated to the slides and videos.
+
+---
+
+## 18. References
 
 1. Watson, D., & Williams, H. (2016a). *AI and Computer Science Textbook, IGCSE & O Level* (2nd ed.). [Publisher details to be confirmed].
 2. Watson, D., & Williams, H. (2016b). *Computer Science Textbook, AS & A Level*. [Publisher details to be confirmed].
@@ -987,20 +1139,3 @@ A **hybrid topology** is a computer network structure that combines two or more 
 18. Max Medium. (2026). *Networks.md*. Team draft.
 
 ---
-
-## Review Status
-
-| Check | Outcome |
-|-------|---------|
-| **Definitions and claims checked** | Yes — corrected IP explanation, malware labels, full-duplex/half-duplex labels, serial transmission, and P2P wording [1][5][6] |
-| **Beginner-friendliness** | Yes — analogies added (postal system, puzzle pieces), jargon defined at first use, glossary included [1] |
-| **Activities completable** | Yes — six structured activities with expected outcomes [1][4][5][12] |
-| **Sources support claims** | Yes — 18 references with inline citations throughout |
-| **Images and assets** | External GitHub image URLs are still in place; these should be downloaded to `assets/` and replaced with relative paths before final submission [4][1] |
-| **Worked examples** | Three worked examples: tracing a packet, choosing a topology, breaking down a URL [1][4][8] |
-
-**Next steps:** Download external images to `assets/` and replace URLs with relative paths; render to PDF; record peer review outcome.
-
----
-
-*This file is part of the Max Medium Stage 1 GitHub Markdown V1.0 submission.*
