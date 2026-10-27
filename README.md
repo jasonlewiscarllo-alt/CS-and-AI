@@ -20,4 +20,4 @@
 
 # File directory:
 ## all content about the module including the outline is placed within the folder called Module's content folder.The images used within the content would be placed the assests folder that is inside the module content file and the module outline and learning goals & scope boundaries is inside the folder Module outline
-## project and personal logs are placed within the folder called All logs and planning same as the plans.
+## project plan and the to do list are placed within the folder called All logs and planning named as the plans.The project log and meeting summaries are also placed within the all logs and plan folder
