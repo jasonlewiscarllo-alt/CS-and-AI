@@ -25,6 +25,8 @@
 
 ## **Major Topics and sub-Topics for Hardware:**
 
+## Current Development status:[**Draft**]
+
 #### **1. Hardware Module Outline**
 
 #### *Major Topics and Sub-Topics* 
@@ -73,6 +75,8 @@
 
 ## **Major Topics and Sub-Topics Networks:**
 
+## Current Development status:[**Draft**]
+
 ### *Fundemental Knowledge about Network*
  - #### *Definition of Networks and it's uses*
  - #### *Nodes (devices) and links (wired vs wireless connections)*
@@ -116,6 +120,9 @@
 
 #### **2. Behavioural AI Module Outline**
 #### *Major Topics and Sub-Topics*
+
+## Current Development status:[**Draft**]
+
 #### *Introduction to Behavioural AI*
 
 #### *Definition of Behavioural AI and how it differs from traditional rule-based software or generative AI*
