@@ -74,7 +74,6 @@ The AMAT formula and AMAT worked calculations are deliberately omitted.
 17. Compare DRAM and SRAM.
 18. Compare PROM, EPROM and EEPROM.
 19. Compare HDMI and VGA.
-20. Explain why the AMAT formula is **not** part of this outline.
 
 ---
 
