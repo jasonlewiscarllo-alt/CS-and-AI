@@ -151,7 +151,7 @@ The network is defined by three things:
 
 ### 5.1 What Is a Packet?
 
-![alt text](image.png)
+![alt text](./Assests/image.png)
 
 **Figure 1:** The three parts of a packet (header, payload, trailer) [1][18].
 
@@ -178,7 +178,7 @@ When we send information over the internet, such as a photo, video, or message, 
 
 Sending data in packets also makes the internet more efficient because many devices can send and receive information at the same time [1][18]. This method is called **packet switching** [1][18]. Instead of one connection taking up the whole network, packets can travel through available routes, allowing many people to use the internet simultaneously [1][18].
 
-![alt text](image-1.png)
+![alt text](./Assests/image-1.png)
 
 **Figure 2:** Available paths where packets travel [1][18]. If a router or link fails, packets can automatically reroute around the problem so that the packets won't get lost and never received [1][18].
 
@@ -270,7 +270,7 @@ An **IP address** is a software-assigned numerical label given to a device whene
 
 A **URL** is the address of a source on the internet [8][1]. A URL is divided into several main parts: protocol, subdomain, domain name, and top-level domain [8][1].
 
-![alt text](image-2.png)
+![alt text](./Assests/image-2.png)
 
 **Figure 3:** The structure of a URL [8][1].
 
@@ -304,7 +304,7 @@ A **URL** is the address of a source on the internet [8][1]. A URL is divided in
 
 ### 7.1 Bus Topology
 
-![alt text](image-3.png)
+![alt text](./Assests/image-3.png)
 
 **Figure 4:** Bus topology — all devices share a single backbone cable [4][1].
 
@@ -327,7 +327,7 @@ A **URL** is the address of a source on the internet [8][1]. A URL is divided in
 
 ### 7.2 Point-to-Point Topology
 
-![alt text](image-4.png)
+![alt text](./Assests/image-4.png)
 
 **Figure 5:** Point-to-point topology — a dedicated link between exactly two devices [4][1].
 
@@ -351,7 +351,7 @@ A **point-to-point topology** is the simplest form of network architecture where
 
 ### 7.3 Star Topology
 
-![alt text](image-5.png)
+![alt text](./Assests/image-5.png)
 
 **Figure 6:** Star topology — every device connects to a central hub, switch, or router [4][1].
 
@@ -374,7 +374,7 @@ A **star topology** is a computer network setup where every node (device) connec
 
 ### 7.4 Mesh Topology
 
-![alt text](image-6.png)
+![alt text](./Assests/image-6.png)
 
 **Figure 7:** Mesh topology — devices connect directly to multiple other devices [4][1].
 
@@ -397,7 +397,7 @@ A **star topology** is a computer network setup where every node (device) connec
 
 ### 7.5 Ring Topology
 
-![alt text](image-7.png)
+![alt text](./Assests/image-7.png)
 
 **Figure 8:** Ring topology — each device connects to two others, forming a closed loop [4][1].
 
@@ -420,7 +420,7 @@ A **ring topology** is a network setup where each device (node) connects to two 
 
 ### 7.6 Hybrid Topology
 
-![alt text](image-8.png)
+![alt text](./Assests/image-8.png)
 
 **Figure 9:** Hybrid topology — combines two or more basic topologies [4][1].
 
@@ -443,7 +443,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 ### 7.7 Tree Topology
 
-![alt text](image-9.png)
+![alt text](./Assests/image-9.png)
 
 **Figure 10:** Tree topology — hierarchical structure with root, branch, and leaf nodes [4][1].
 
@@ -496,7 +496,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.1.1 Simplex (One Way)
 
-![alt text](image-10.png)
+![alt text](./Assests/image-10.png)
 
 **Figure 11:** Simplex data flow — one direction only [1].
 
@@ -506,7 +506,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.1.2 Full-Duplex (Two Way Simultaneous)
 
-![alt text](image-11.png)
+![alt text](./Assests/image-11.png)
 
 **Figure 12:** Full-duplex data flow — both directions at the same time [1].
 
@@ -516,7 +516,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.1.3 Half-Duplex (Two Way Alternating)
 
-![alt text](image-12.png)
+![alt text](./Assests/image-12.png)
 
 **Figure 13:** Half-duplex data flow — both directions but not at the same time [1].
 
@@ -528,7 +528,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.2.1 Serial Transmission
 
-![alt text](image-13.png)
+![alt text](./Assests/image-13.png)
 
 **Figure 14:** Serial transmission — bits sent one at a time along a single channel [1].
 
@@ -538,7 +538,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 8.2.2 Parallel Transmission
 
-![alt text](image-14.png)
+![alt text](./Assests/image-14.png)
 
 **Figure 15:** Parallel transmission — multiple bits sent simultaneously along multiple channels [1].
 
@@ -609,7 +609,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 9.2.1 Client-Server Model
 
-![alt text](image-15.png)
+![alt text](./Assests/image-15.png)
 
 **Figure 16:** Client-server model — a centralized server provides resources to clients [14][1].
 
@@ -619,7 +619,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 #### 9.2.2 Peer-to-Peer Model
 
-![alt text](image-16.png)
+![alt text](./Assests/image-16.png)
 
 **Figure 17:** Peer-to-peer model — every node acts as both client and server [14][1].
 
