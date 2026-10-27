@@ -59,7 +59,7 @@ By the end of this section, you should be able to:
 | **Packet** | A small chunk of a larger piece of data, containing a header, payload, and trailer [1][18]. |
 | **Header** | The part of a packet that stores control information such as source address, destination address, and sequence number [1][18]. |
 | **Payload** | The actual data being transmitted (e.g., part of a photo or message) [1][18]. |
-| **Trailer** | The part of a packet that marks the end and contains error detection bits [1][18]. |
+| **Trailer** | The part of a packet that marks the end and contains error detection bits `IP doesn't have a trailer` [1][18]. |
 | **Packet switching** | The method of breaking data into packets, sending them along available routes, and reassembling them at the destination [1][18]. |
 | **Protocol** | Rules and standards that devices follow to communicate [1][6]. |
 | **TCP** | A connection-oriented protocol that ensures reliable, in-order delivery of data [6][1]. |
