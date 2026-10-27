@@ -553,6 +553,7 @@ A **hybrid topology** is a computer network structure that combines two or more 
 
 - Synchronous processing is the traditional way of processing in client-server communication [15][16]. A client sends a request to a server and waits for the server to complete the job and send a response before the client can continue doing any other work [15][16]. This process is often referred to as **blocking** (i.e., the client is blocked from doing any other work until a response is received) [15][16].
 - Both you and the other person must be on the line at the exact same time for the communication to work [15][16].
+- **Example:** Two people marching to the same drumbeat — they share the beat, so no one needs to signal each step.
 - **Why it fits:**
   - You are perfectly synchronized in time [15][16].
   - When you speak, the other person hears it instantly [15][16].
