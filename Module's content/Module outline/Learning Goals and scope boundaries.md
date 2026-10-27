@@ -67,7 +67,7 @@ By the end of the module, absolute beginners should be able to:
 8. Compare serial and parallel transmission, and synchronous and asynchronous transmission.
 9. Compare LAN, WAN and MAN, and client-server and peer-to-peer models.
 10. Identify common malware and cyberattacks — virus, worm, Trojan, spyware, adware, ransomware; brute-force, packet sniffing, DoS/DDoS, phishing, pharming, social engineering — and match them to appropriate countermeasures.
-11. Explain why encryption is important — symmetric vs asymmetric encryption, and how HTTPS uses both.
+
 
 ### Part C — Behavioural AI
 
