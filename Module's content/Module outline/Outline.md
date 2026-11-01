@@ -3,8 +3,8 @@
 ## PART 1: HARDWARE
 
 ## 1.1 Physical Parts of a Computer
-### 1.1.1 The CPU
-* The "brain," containing CU, ALU, registers, and cache.
+###  - 1.1.1 The CPU
+ - * The "brain," containing CU, ALU, registers, and cache.
 ### 1.1.2 RAM
 * Short-term, volatile workspace.
 ### 1.1.3 Motherboard
