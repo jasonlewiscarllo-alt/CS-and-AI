@@ -2,99 +2,147 @@
 
 ## PART 1: HARDWARE
 
-### 1.1 FOUNDATIONS
-#### 1.1.1 What Is Computer Hardware?
-* Computer hardware is the physical parts of a computer that can be seen and touched.
-* These parts work together to process data at high speed, store information, and allow user interaction.
-* Hardware is distinct from software, which consists of the instructions and programs.
+## 1.1 Physical Parts of a Computer
+### 1.1.1 The CPU
+* The "brain," containing CU, ALU, registers, and cache.
+### 1.1.2 RAM
+* Short-term, volatile workspace.
+### 1.1.3 Motherboard
+* Main circuit board holding components and traces.
+### 1.1.4 Wi-Fi Card
+* Converts digital data to radio waves and vice versa.
+### 1.1.5 ROM
+* Non-volatile memory for firmware (BIOS/UEFI).
+### 1.1.6 GPU and TPU
+* Specialised processors for parallel workloads (GPU) and machine learning matrix operations (TPU).
+### 1.1.7 The System Clock
+* *(Note: Section heading is present on page 4, but text for this subsection is missing/blank in the PDF).*
 
-#### 1.1.2 Main Hardware Components
-* **CPU:** The "main brain" that processes instructions.
-* **RAM:** Short-term, volatile workspace.
-* **Motherboard:** Connects parts using traces.
-* **Wi-Fi card:** Sends and receives radio signals.
-* **ROM:** Non-volatile memory for firmware and persistent instructions (Note: PDF correction needed, ROM is not high-speed working memory).
-* **GPU:** Handles many parallel tasks for graphics.
-* **TPU:** A specialized AI chip.
+## 1.2 Number Systems + Units
+### 1.2.1 What Is a Bit?
+* Abstraction of high/low voltage levels.
+### 1.2.2 Units of Data
+* Bit, nibble, byte, KB, MB, GB, TB (using the 1024 convention).
+### 1.2.3 Denary (Decimal)
+* Base 10.
+### 1.2.4 Binary
+* Base 2, place-value chart, and binary-to-denary worked examples.
+### 1.2.5 Hexadecimal
+* Base 16 (0–9, A–F).
+### 1.2.6 Why Hexadecimal Matters
+* Compact shorthand for binary (nibbles), used for memory addresses and colour codes.
+### 1.2.7 Conversion Examples
+* Checked binary-to-denary worked examples.
+### 1.2.8 Activity: Conversion Practice
+* 6 questions with checked answers.
+### 1.2.9 Exam-Style Practice
+* 2-mark question on why hex is used for memory addresses.
 
-#### 1.1.3 Binary Logic and Circuits
-* **Bits and Voltage:** 1 represents high voltage, 0 represents low voltage.
-* **Logic Gates:** AND, OR, XOR, NAND, NOR, and XNOR.
-* **Combinational Circuits:** Adders and multiplexers.
-* **Sequential Circuits:** Flip-flops and latches that lock voltage on clock ticks.
+## 1.3 Binary Logic
+### 1.3.1 From Transistors to Logic Gates
+* Symbols and truth tables for AND, OR, XOR, NAND, NOR, XNOR.
+### 1.3.2 Combinational Circuits
+* Half-adders (sum and carry), full adders, and multiplexers.
+### 1.3.3 Sequential Circuits
+* Flip-flops and latches (storing a single bit).
+### 1.3.4 Activity: Build a Half-adder
+* Drawing circuits and completing truth tables. Addresses the misconception that a bit is a physical object.
 
-### 1.2 ARCHITECTURE AND EXECUTION
-#### 1.2.1 Von Neumann Architecture
-* Instructions and data share memory connected by system buses.
-* **Control Unit (CU):** Fetches and decodes instructions and emits control signals.
-* **Arithmetic Logic Unit (ALU):** Performs arithmetic and bitwise logical operations.
-* **System Clock:** Produces timing signals on the control bus.
-* **Immediate Access Store (IAS):** Holds data/programs the CPU needs.
+## 1.4 System Architecture & the Von Neumann Engine
+### 1.4.1 Core Subcomponents
+* Control Unit (CU), Arithmetic Logic Unit (ALU), Immediate Access Store (IAS), and System Clock.
+### 1.4.2 Registers
+* PC, MAR, MDR, CIR, ACC, SR. Includes a table of their functions in the FDE cycle.
+### 1.4.3 System Bus Architecture
+* Table breaking down the Data Bus (bi-directional), Address Bus (uni-directional), and Control Bus (READ/WRITE/CLOCK).
+* **Status Flag Meanings:** Explicit AS/A Level definitions for Carry, Overflow, Zero, and Negative flags.
 
-#### 1.2.2 Registers and Status Flags
-* **PC:** Stores the address of the next instruction.
-* **MAR:** Stores the RAM address being read/written.
-* **MDR:** Holds data retrieved from or waiting to be written to RAM.
-* **CIR:** Holds the current instruction being decoded.
-* **ACC:** Holds ALU results.
-* **SR:** Records status flags (carry, overflow, zero, negative).
+## 1.5 The Fetch-Decode-Execute (FDE) Machine Cycle
+### 1.5.1 The Cycle Step by Step
+* Fetch, Decode, Execute, Writeback. Includes a 7-step breakdown of bus activity for exam answers.
+### 1.5.2 Interrupts and the Interrupt Service Routine (ISR)
+* Causes of interrupts, saving state, priority, and restoring state. Addresses the misconception that interrupts "restart" the computer.
+### 1.5.3 Worked Activity: Complete the FDE Diagram
+* Scrambled stages to place in order with the associated registers/buses.
+### 1.5.4 Exam-Style Practice
+* 3 questions (PC role, Fetch stage, Interrupts) with marking points.
 
-#### 1.2.3 Fetch-Decode-Execute (FDE) Cycle and Interrupts
-* **Fetch:** MAR → PC; MDR → RAM[MAR]; IR → MDR; PC → PC + 1.
-* **Decode:** CU decodes the opcode in IR and generates control signals.
-* **Execute:** ALU computes operands and updates status flags.
-* **Writeback:** Result saved.
-* **Interrupts:** Signals from devices/software; priority is set; ISR services the highest-priority interrupt; the interrupted task continues.
+## 1.6 Memory Hierarchy
+* **Memory Hierarchy Pyramid:** Diagram and table comparing Registers, L1/L2/L3 Cache, System RAM, and Secondary Storage (SSD).
+### 1.6.1 Activity: Rank the Access
+* Ranking register, L1 cache, RAM, and SSD by speed.
+### 1.6.2 Exam-Style Practice
+* 2-mark question on why cache sits between CPU and main memory.
 
-### 1.3 MEMORY AND STORAGE
-#### 1.3.1 Memory Hierarchy
-* **Tier 1 (CPU Registers):** Flip-flops, ~1–2 KB, under 0.5 ns.
-* **Tier 2 (Cache):** L1/L2/L3 (SRAM), 32 KB–128 MB, 1–15 ns.
-* **Tier 3 (System Memory):** DRAM, 8–128 GB, 50–100 ns.
-* **Tier 4 (Secondary Storage):** NVMe flash SSD, 512 GB–4 TB, ~50,000 ns.
-* *(Note: AMAT formula and calculation are intentionally excluded).*
+## 1.7 Processor Specialisation: CPU vs GPU vs TPU
+### 1.7.1 Architecture Comparison
+* CPU (low latency, branch prediction), GPU (high throughput, SIMT), and TPU (systolic array, ASIC for matrix multiplication).
+### 1.7.2 Activity: Choose the Right Processor
+* 4 scenarios to match with CPU, GPU, or TPU.
 
-#### 1.3.2 RAM: DRAM vs SRAM
-* **DRAM:** Transistor + capacitor, needs refresh, higher density, cheaper, used for main memory.
-* **SRAM:** Multiple transistors per bit, no refresh while powered, very fast, lower density, more expensive, used for CPU cache.
-* Both are volatile.
+## 1.8 Input / Output (I/O) Systems
+### 1.8.1 Main Components
+* Input devices, processing unit, memory, output devices, and I/O controllers.
+### 1.8.2 Worked Example: Mouse Click
+* A 4-step trace from input signal to monitor update.
+### 1.8.3 Activity: Trace an I/O Path
+* Tracing a smart speaker voice command.
 
-#### 1.3.3 ROM Types and Flash Memory
-* **PROM:** Can normally be programmed once.
-* **EPROM:** Erased with UV light and reprogrammed.
-* **EEPROM:** Erased/reprogrammed electrically, often without removing the chip.
-* **Flash Memory:** Erases/writes in blocks; used in SSDs, USB drives, and memory cards.
+## 1.9 Embedded Systems
+### 1.9.1 Main Components
+* Microcontroller, memory, sensors, actuators, I/O interfaces.
+### 1.9.2 Examples
+* Washing machine, automotive control system.
+### 1.9.3 Real-Time Constraints
+* Hard real-time deadlines (e.g., anti-lock braking system).
+### 1.9.4 Exam-Style Practice
+* 3-mark question on washing machine components.
 
-### 1.4 PROCESSORS AND SYSTEMS
-#### 1.4.1 Processor Specialisation: CPU vs GPU vs TPU
-* **CPU:** Low latency, complex branch prediction, deep out-of-order execution, large cache.
-* **GPU:** High throughput, thousands of smaller arithmetic units, SIMT.
-* **TPU:** ASIC for matrix multiplication, systolic array of processing elements.
+## 1.10 CPU Core Types and Performance
+### 1.10.1 Classification by Performance Design
+* P-cores vs. E-cores.
+### 1.10.2 Classification by Instruction Execution
+* Single-core vs. multi-core.
+### 1.10.3 Worked Scenario
+* OS scheduling a game and background music across P-cores and E-cores.
+### 1.10.4 Activity: Match the Core
+* 4 tasks to match to P-cores or E-cores.
 
-#### 1.4.2 Input/Output (I/O) Systems
-* Allow users/external devices to communicate with the computer.
-* Input devices send data/instructions; output devices present results.
-* I/O controllers manage communication with peripherals.
+## 1.11 RAM: DRAM vs SRAM
+### 1.11.1 DRAM
+* Transistor + capacitor, needs refresh.
+### 1.11.2 SRAM
+* Multi-transistor latch, no refresh needed.
+### 1.11.3 DRAM vs SRAM Comparison
+* Table comparing mechanism, refresh, speed, cost, and use.
+### 1.11.4 Activity: Justify the Choice
+* Choosing DRAM for main memory and SRAM for L3 cache.
 
-#### 1.4.3 Embedded Systems
-* Perform a specific function inside a larger device with a limited task set.
-* Examples include washing machines (receiving programs, monitoring water levels, controlling motors).
+## 1.12 ROM Types: PROM, EPROM and EEPROM
+### 1.12.1 PROM
+* Programmable once.
+### 1.12.2 EPROM
+* Erased with UV light.
+### 1.12.3 EEPROM
+* Erased/reprogrammed electrically.
+### 1.12.4 Comparison
+* Table comparing the three types.
+### 1.12.5 Flash Memory
+* Erases in blocks, used in SSDs and USB drives.
+### 1.12.6 Exam-Style Practice
+* 2-mark question on choosing ROM for in-circuit firmware updates.
 
-#### 1.4.4 CPU Core Types
-* **P-cores:** Handle demanding tasks (gaming, complex calculations).
-* **E-cores:** Deliver good performance with less power for background/lighter workloads.
-* **Multi-core:** Improves multitasking, but performance also depends on clock speed, architecture, and software.
-
-### 1.5 DATA REPRESENTATION AND DISPLAYS
-#### 1.5.1 Number Systems
-* **Denary:** Base 10 (0–9).
-* **Binary:** Base 2 (0–1).
-* **Hexadecimal:** Base 16 (0–9, A–F). Binary to hex by grouping four bits.
-* Hex is compact and used for memory addresses, machine code, and colour values.
-
-#### 1.5.2 Display Connections: HDMI vs VGA
-* **HDMI:** Digital video and audio through one cable; used for modern monitors, TVs, and projectors.
-* **VGA:** Analogue video only, no audio, older interface; quality affected by signal quality and cable length.
+## 1.13 Display Connections: HDMI vs VGA
+### 1.13.1 HDMI
+* Digital video and audio.
+### 1.13.2 VGA
+* Analogue video only.
+### 1.13.3 Comparison
+* Table comparing signal type, audio, connectors, and use.
+### 1.13.4 Worked Example
+* Connecting to a modern vs. older projector.
+### 1.13.5 Activity: Diagnose the Connection
+* Explaining why a VGA connection has no sound and a blurry image.
 
 ---
 
