@@ -170,7 +170,7 @@ A **form factor** is a standard that defines a motherboard's physical dimensions
 | Micro-ATX (mATX) | ~244 × 244 mm | Up to 4 | Smaller desktops, budget builds |
 | Mini-ITX / Mini-ATX | ~170 × 170 mm or smaller | 1–2 slots | Small-form-factor PCs, home theatre, embedded |
 
-![Figure 1.13 — Relative sizes of the four main motherboard form factors](figure-1.13-form-factors.png)
+![alt text](./Assests/Screenshot%202026-11-02%20204730.png)
 
 **Figure 1.13 — Relative sizes of the four main motherboard form factors.**
 
@@ -213,7 +213,7 @@ A user needs a gaming PC with two graphics cards, four RAM modules, and a large 
 
 The power supply unit (PSU) converts the high-voltage alternating current (AC) from a wall socket into the low-voltage direct current (DC) that the computer's components need. The conversion happens in four stages.
 
-![Figure 1.14 — The four stages of AC-to-DC conversion inside a PSU](figure-1.14-psu-conversion.png)
+![alt text](./Assests/Screenshot%202026-11-02%20204949.png)
 
 **Figure 1.14 — The four stages of AC-to-DC conversion inside a PSU.**
 
@@ -264,7 +264,7 @@ Opening a PSU (only safely, with the unit unplugged and discharged) reveals a ci
 | Fan | Moves air through the unit to keep components within safe temperatures. |
 | Protection circuits | Shut down the PSU on over-voltage, over-current or short-circuit. |
 
-![Figure 1.15 — Typical internal layout of a PSU](figure-1.15-psu-internal.png)
+![alt text](./Assests/Screenshot%202026-11-02%20205125.png)
 
 **Figure 1.15 — Typical internal layout of a PSU.**
 
@@ -312,7 +312,7 @@ A graphics card is an expansion card that contains a GPU and its supporting comp
 | 6. Monitor outputs | HDMI, DisplayPort, DVI and other connectors that send video to displays. |
 | 7. Video BIOS | Firmware that initialises the card at startup and controls clock speeds and voltages. |
 
-![Figure 1.16 — The seven main parts of a graphics card](figure-1.16-graphics-card.png)
+![alt text](./Assests/Screenshot%202026-11-02%20205333.png)
 
 **Figure 1.16 — The seven main parts of a graphics card.**
 
@@ -377,7 +377,7 @@ In this module, `1 KB = 1024` bytes because `1024 = 2^10`. Storage manufacturers
 
 ### 1.2.3 Binary Place Values
 
-![Figure 1.2 — Binary place-value chart](figure-1.2-binary-place-values.png)
+![alt text](./Assests/Screenshot%202026-11-02%20193032.png)
 
 **Figure 1.2 — Binary place-value chart.**
 
@@ -409,7 +409,7 @@ Each hex digit represents four bits (one nibble). Hex is used for memory address
 
 #### Binary ↔ Hexadecimal Grouping
 
-![Figure 1.3 — Binary to hex grouping: 1101 0110 = D6](figure-1.3-binary-to-hex.png)
+![alt text](./Assests/Screenshot%202026-11-02%20193122.png)
 
 **Figure 1.3 — Binary to hex grouping: `1101 0110 = D6`.**
 
@@ -449,14 +449,16 @@ Explain how transistors form logic gates, state the function of standard gates, 
 ### 1.3.1 From Transistors to Gates
 
 A **transistor** is a tiny electronic switch. Combining transistors forms **logic gates** — circuits whose output depends on the logical combination of their inputs.
+![alt text](./Assests/Screenshot%202026-11-02%20193437.png)
 
+![alt text](./Assests/Screenshot%202026-11-03%20222909.png)
 ### 1.3.2 Combinational and Sequential Circuits
 
 **Combinational circuits** depend only on current inputs (adders, multiplexers, decoders). **Sequential circuits** depend on current inputs and stored state, updated on clock ticks (flip-flops, latches). Flip-flops are the physical basis of registers and memory cells.
 
 ### 1.3.3 The Half-adder
 
-![Figure 1.5 — Half-adder: XOR for Sum, AND for Carry](figure-1.5-half-adder.png)
+![alt text](./Assests/Screenshot%202026-11-02%20193533.png)
 
 **Figure 1.5 — Half-adder: XOR for Sum, AND for Carry.**
 
@@ -500,7 +502,7 @@ The Von Neumann architecture stores both instructions and data in the same memor
 
 Because instructions and data share the same memory and buses, the CPU cannot fetch an instruction and a data value at exactly the same instant. Cache memory (Section 1.6) reduces its impact.
 
-![Figure 1.6 — Von Neumann architecture](figure-1.6-von-neumann.png)
+![alt text](./Assests/Screenshot%202026-11-02%20193602.png)
 
 **Figure 1.6 — Von Neumann architecture.**
 
@@ -582,7 +584,7 @@ With `n` lines, the address bus carries `2^n` addresses. An 8-bit bus addresses 
 
 Describe each FDE stage, name the registers and buses used, explain interrupts and the ISR.
 
-![Figure 1.7 — The FDE cycle](figure-1.7-fde-cycle.png)
+![alt text](./Assests/Screenshot%202026-11-02%20194235.png)
 
 **Figure 1.7 — The FDE cycle.**
 
@@ -629,7 +631,7 @@ ALU performs the operation; SR flags updated.
 
 An **interrupt** is a signal that causes the processor to suspend its current task and service an event. Causes: timing signal, I/O completion, user action, hardware fault, software error.
 
-![Figure 1.8 — Interrupt handling](figure-1.8-interrupt-handling.png)
+![alt text](./Assests/Screenshot%202026-11-02%20194303.png)
 
 **Figure 1.8 — Interrupt handling.**
 
@@ -666,7 +668,7 @@ The **Interrupt Service Routine (ISR)** services the highest-priority interrupt.
 
 Explain why a hierarchy exists, compare registers, cache, RAM and storage, explain locality, and explain cache.
 
-![Figure 1.9 — Memory hierarchy pyramid](figure-1.9-memory-hierarchy.png)
+![alt text](./Assests/Screenshot%202026-11-02%20194330.png)
 
 **Figure 1.9 — Memory hierarchy pyramid.**
 
@@ -727,7 +729,7 @@ Compare DRAM and SRAM, explain their uses, distinguish PROM, EPROM and EEPROM, a
 
 **SRAM** uses multiple transistors (commonly six) per bit; it does not need refresh while powered. It is fast and expensive, used for cache.
 
-![Figure 1.10 — DRAM vs SRAM cells](figure-1.10-dram-vs-sram.png)
+![alt text](./Assests/Screenshot%202026-11-02%20194414.png)
 
 **Figure 1.10 — DRAM vs SRAM cells.**
 
@@ -782,7 +784,7 @@ Define a buffer, distinguish buffers from cache, explain virtual memory, paging 
 
 A **buffer** is temporary storage during data transfer between devices with different speeds. Examples: keyboard buffer, printer buffer, video streaming buffer, double buffering.
 
-![Figure 1.11 — Buffer smoothing speed differences](figure-1.11-buffer.png)
+![alt text](./Assests/Screenshot%202026-11-02%20194454.png)
 
 **Figure 1.11 — Buffer smoothing speed differences.**
 
@@ -796,7 +798,7 @@ Without the buffer, the fast device would wait or data would be lost.
 
 **Virtual memory** uses secondary storage as extra RAM. The OS moves pages between RAM and a swap file. A **page fault** occurs when a required page is not in RAM. **Thrashing** is excessive swapping.
 
-![Figure 1.12 — Virtual memory: pages swapped between RAM and swap file](figure-1.12-virtual-memory.png)
+![alt text](./Assests/Screenshot%202026-11-02%20194500.png)
 
 **Figure 1.12 — Virtual memory: pages swapped between RAM and swap file.**
 
