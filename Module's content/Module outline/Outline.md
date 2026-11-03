@@ -205,60 +205,130 @@
 ## PART 3: BEHAVIOURIST AI
 
 ### 3.1 FOUNDATIONS
-#### 3.1.1 Introduction to Behaviourist AI
-* Behaviourist AI (also called behaviour-based AI or reactive AI) builds intelligent autonomous systems by coupling sensory inputs directly to motor actions.
-* It does not rely on complex internal world models or formal logical deliberation.
-* Pioneered by Rodney Brooks in the late 1980s.
+#### 3.1.1 Behavioural AI and RL
+* **Behavioural AI:** Learns what to do by interacting with an environment and receiving reward feedback.
+* **Behaviourism:** Behaviour shaped by consequences — reward increases actions, punishment decreases them.
+* **Three ML families:** Supervised (labelled data), unsupervised (unlabelled structure), reinforcement (reward signal only).
+* **Key terms:** Agent, environment, state, action, reward, policy.
 
-#### 3.1.2 The Symbolic Crisis
-* Classical symbolic AI relied on manipulating abstract symbols and failed in real physical environments due to:
-* **Frame Problem:** Impossibility of efficiently updating a central world model with every non-change.
-* **Symbol Grounding Problem:** Abstract symbols have no natural link to real sensor signals.
-* **SMPA Latency Bottleneck:** Deliberative loops spend too long updating maps and calculating routes, causing physical robots to freeze or crash when environments change mid-calculation.
+#### 3.1.2 Agent–Environment Loop
+* **Observe:** Agent receives state \(S_t\).
+* **Act:** Agent chooses action \(A_t\).
+* **Transition:** Environment moves to \(S_{t+1}\).
+* **Reward:** Environment emits \(R_{t+1}\).
+* **Learn:** Agent updates policy or value estimates.
+* **Grid world example:** \(2\times2\) states, actions Right/Up, reward \(+1\) at goal, \(\gamma=0.9\).
 
-#### 3.1.3 Core Axioms of Behaviourist AI
-* Four principles (Brooks, "Intelligence Without Representation"):
-* **The World is Its Own Best Model:** Query the real environment with sensors instead of maintaining an inaccurate internal map.
-* **Embodied and Situated Cognition:** Intelligence must be in a physical body interacting with a physical environment.
-* **Tight Sensorimotor Coupling:** Connect sensors directly to actuators via fast parallel channels (Sense → Act).
-* **Emergent Behaviour:** Complex smart-looking behaviour emerges from simple reactive rules interacting with an unpredictable environment.
+#### 3.1.3 RL Characteristics
+* **Trial and error:** Agent is not told the correct action.
+* **Delayed reward:** Credit assignment problem.
+* **Environment responds to agent:** Data depends on behaviour.
+* **Exploration vs exploitation:** Try new actions vs choose best-known action.
+* **\(\epsilon\)-greedy:** With probability \(\epsilon\) choose random action; otherwise greedy.
 
-### 3.2 SUBSYMPTION ARCHITECTURE
-#### 3.2.1 Layered Behaviours
-* Subsumption organises control into parallel task-achieving layers built from Augmented Finite State Machines (AFSMs).
-* Higher layers run concurrently above lower survival behaviours.
-* **Layers:** Layer 0 basic survival (collision avoidance), Layer 1 wandering and exploration, Layer 2 goal seeking.
+### 3.2 MARKOV DECISION PROCESSES AND VALUES
+#### 3.2.1 MDP Components
+* **States \(S\):** All possible situations.
+* **Actions \(A\):** All available choices.
+* **Reward \(R(s,a,s')\):** Reward for transition.
+* **Markov property:** Current state contains all information needed to predict the future.
+* **State sufficiency:** Poor state representation makes learning harder.
 
-#### 3.2.2 Suppression and Inhibition
-* **Suppression:** A higher layer intercepts and replaces the input signal flowing into a lower layer.
-* **Inhibition:** A higher layer blocks or silences the output command emitted by a lower layer.
-* **Robotic Vacuum Example:** Layer 0 bumper → stop/reverse/rotate 45°; Layer 1 drive forward; Layer 2 dirt sensor → outward spiral.
+#### 3.2.2 Probabilities, Policy, Value Function
+* **Transition probability \(P(s'|s,a)\):** Probability of landing in \(s'\) after action \(a\) in \(s\).
+* **Policy \(\pi(a|s)\):** Rule or probability distribution for choosing actions.
+* **Optimal policy \(\pi^*\):** Maximises expected return.
+* **Discount factor \(\gamma\):** Future rewards worth less; \(\gamma\in[0,1)\).
+* **State value \(V^\pi(s)\):** Expected discounted return from state \(s\).
+* **Action value \(Q^\pi(s,a)\):** Expected discounted return from taking action \(a\) in \(s\).
 
-### 3.3 NAVIGATION AND DECISION MECHANICS
-#### 3.3.1 Motor Schema and Artificial Potential Fields (APF)
-* Motor Schema Architecture (Arkin) models control as continuous vector fields.
-* **Net velocity:** Sum of attractive force (pull toward goal) and repulsive forces (push from obstacles).
-* Repulsion activates only within obstacle influence distance Q*.
-* **Local Minima Trap:** When attractive and repulsive vectors cancel (F_total = 0) before the goal, the robot gets stuck.
-* **Solutions:** Inject random noise vectors (random walks) or switch to wall-following until the gradient clears.
+#### 3.2.3 Model-Based vs Model-Free
+* **Model:** Estimate of \(P(s'|s,a)\) and \(R(s,a,s')\).
+* **Model-based:** Learns model, then plans/simulates.
+* **Model-free:** Learns values or policy directly.
+* **Trade-off:** Model-based is data-efficient; model-free avoids model errors but needs more interaction.
 
-#### 3.3.2 Finite State Machines (FSM) and Q-Learning
-* **FSM:** Restricts the agent to one active state at a time and switches on environmental triggers (e.g., PATROL → CHASE → FLEE based on player spotted / health under 20%).
-* **Model-Free Q-Learning (Operant Conditioning):** Learns an optimal policy matrix Q(s,a) directly from environmental rewards using a learning rate α and discount factor γ.
+#### 3.2.4 Bellman Equation
+* **Idea:** Value now = immediate reward + discounted value of next state.
+* **Expectation form:** Averages over actions and next states under fixed policy.
+* **Optimality form:** Uses \(\max_a\) over actions.
+* **One-step update:** Compute \(Q\) from reward plus discounted next-state value.
 
-### 3.4 LIMITATIONS, ETHICS, AND INTEGRATION
-#### 3.4.1 Limitations and Ethics
-* Reactive systems lack internal state representation; struggle with generalisation and dynamic/partially observable environments.
-* Raise ethical issues around privacy, consent, and unintended consequences in modern applications (camera-equipped robots, telemetry from delivery bots).
+### 3.3 DYNAMIC PROGRAMMING
+#### 3.3.1 Policy Evaluation
+* **Purpose:** Given fixed policy \(\pi\), compute \(V^\pi\).
+* **Method:** Iterate Bellman expectation equation over all states.
+* **Stopping:** Largest value change below threshold.
+* **Requirement:** Known model \(P\) and \(R\).
 
-#### 3.4.2 Integration: Autonomous Edge Robotics Pod
-* **Hardware:** SoC with CPU + GPU + TPU/NPU systolic array, SRAM and NVMe storage, LiDAR, ultrasonic proximity sensors, drive motors, connected via system buses.
-* **Networking:** 5G NR transceiver / UDP socket stack; sends telemetry via UDP, receives high-level target coordinates from the Fleet Central Server via reliable TCP.
-* **Behaviourist AI:** Onboard Subsumption / APF navigation inside GPU/NPU memory arrays; Layer 0 collision avoidance overrides all remote commands; APF calculates motion vectors toward the target while repelling obstacles; Layer 0 Subsumption instantly halts motors if a pedestrian steps in front, regardless of network delay.
+#### 3.3.2 Policy Improvement
+* **Idea:** Use \(V^\pi\) to check if another action is better.
+* **Update:** \(\pi'(s)=\arg\max_a Q^\pi(s,a)\).
+* **Theorem:** New policy is at least as good as old policy.
 
-#### 3.4.3 Future Trends (Brief Enrichment)
-* Advanced RL, neuromorphic computing, quantum computing, 5G, federated learning, distributed AI, AI hardware.
-* AI hardware (CPU vs GPU vs TPU; ASIC, FPGA); distributed and federated learning; 5G and edge AI.
+#### 3.3.3 Value Iteration
+* **Idea:** Merge evaluation and improvement.
+* **Update:** \(V_{k+1}(s)\leftarrow \max_a\sum_{s'}P(s'|s,a)[R+\gamma V_k(s')]\).
+* **Convergence:** Bellman optimality operator is a contraction; converges to fixed point.
+* **Policy extraction:** Greedy action from converged values.
+
+#### 3.3.4 Policy Iteration
+* **Algorithm:** Initialise policy → evaluate → improve → repeat until policy stops changing.
+* **Value iteration vs policy iteration:** Value iteration has many cheap sweeps; policy iteration has fewer expensive outer iterations.
+
+### 3.4 MODEL-FREE ALGORITHMS
+#### 3.4.1 On-Policy vs Off-Policy
+* **Behaviour policy:** Policy actually used to select actions.
+* **Target policy:** Policy being learned or improved.
+* **On-policy:** Behaviour policy = target policy; update uses actual next action \(a'\).
+* **Off-policy:** Behaviour policy ≠ target policy; update uses best next action \(\max_{a'}\).
+* **Examples:** SARSA and REINFORCE are on-policy; Q-learning and DQN are off-policy.
+
+#### 3.4.2 Algorithm Families
+* **Value-based:** Learns \(V(s)\) or \(Q(s,a)\); uses TD error.
+* **Policy-based:** Learns policy parameters \(\theta\) directly; uses return or advantage.
+* **Actor–critic:** Learns policy and value function together; uses advantage estimate.
+* **Continuous actions:** Policy-based or actor–critic preferred.
+
+#### 3.4.3 Q-Learning
+* **Idea:** Learn optimal action-value function \(Q^*(s,a)\) from sampled transitions.
+* **Update:** \(Q(s,a)\leftarrow Q(s,a)+\alpha[r+\gamma\max_{a'}Q(s',a')-Q(s,a)]\).
+* **TD error:** Target minus old estimate.
+* **Off-policy:** Learns optimal policy while behaving exploratorily.
+* **Exploration:** \(\epsilon\)-greedy.
+
+#### 3.4.4 SARSA and DQN
+* **SARSA:** On-policy update using actual next action \(a'\).
+* **Q-learning vs SARSA:** Q-learning is optimistic/risky; SARSA is realistic/safer in cliff-walk.
+* **DQN:** Neural network replaces Q-table for high-dimensional states.
+* **Stability tricks:** Experience replay and target network.
+
+#### 3.4.5 Policy Gradient and REINFORCE
+* **Policy gradient:** Adjust \(\theta\) to make high-return actions more likely.
+* **REINFORCE:** Complete episode, compute return \(G_t\), update policy parameters.
+* **Variance problem:** High variance across episodes.
+* **Remedies:** Baseline subtraction and actor–critic.
+
+#### 3.4.6 Actor–Critic
+* **Actor:** Policy updated by policy gradients.
+* **Critic:** Value function evaluates actor’s choices.
+* **Advantage:** \(A^\pi(s,a)=Q^\pi(s,a)-V^\pi(s)\).
+* **TD error estimate:** \(\delta=r+\gamma V_w(s')-V_w(s)\).
+* **Benefit:** Dense learning signal; lower variance; faster learning.
+
+### 3.5 APPLICATIONS AND ETHICS
+#### 3.5.1 Real-World Applications
+* **Recommender systems:** Ranking policy; reward = engagement signals.
+* **Robotics:** Control policy; reward = task success with penalties.
+* **Healthcare/rehabilitation:** Personalisation policy; reward = clinical outcomes.
+* **Game playing:** Policy/value function; reward = score or win/loss.
+* **Energy management:** Control policy; reward = energy cost minus comfort penalty.
+* **Traffic signals:** Signalling policy; reward = negative average vehicle delay.
+
+#### 3.5.2 Ethical Implications
+* **Reward design:** Every RL system shapes behaviour by optimising a reward.
+* **Unintended behaviour:** Recommenders reinforce clicks; robots may learn unsafe shortcuts.
+* **Key questions:** What is the reward, who chose it, and whose behaviour does it shape?
 
 ---
 
