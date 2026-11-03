@@ -81,7 +81,7 @@ Connections between components are made by **traces** — thin copper pathways p
 A fast CPU connected by a slow or narrow pathway cannot perform at its full speed. The motherboard and its traces are part of the performance story.
 
 
-![alt text](/Assests/Screenshot%202026-11-02%20190346.png)
+![alt text](/Assests/Screenshot%202026-11-02%20190346.png<Screenshot 2026-11-02 190346.png>)
 
 
 **Figure 1.1 — Motherboard block diagram. Traces carry both electricity and signals between components.**
