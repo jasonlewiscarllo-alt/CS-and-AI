@@ -761,6 +761,7 @@ SRAM cell: cross-coupled inverters — No refresh needed while powered
 | Main memory | ? | ? |
 | L3 cache | ? | ? |
 | Firmware updated in-circuit | ? | ? |
+|USB drive | ? | ? |
 
 #### Checked Answers
 
