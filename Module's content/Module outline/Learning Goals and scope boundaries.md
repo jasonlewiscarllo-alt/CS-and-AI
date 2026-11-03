@@ -1,4 +1,4 @@
-# Scope and Learning Goals - Hardware, Networks and Behaviourist AI
+# Scope and Learning Goals - Hardware, Networks and Behavioural AI
 
 ## Target Learners and Prerequisites
 
@@ -48,17 +48,22 @@ We assume only basic digital literacy: files, folders, browsers, and common devi
 
 ### Behaviourist AI
 
-31. Define Behaviourist AI as building autonomous systems that couple sensory inputs directly to motor actions without complex internal world models.
-32. Distinguish Behaviourist AI from classical deliberative (cognitivist) AI and from static rule-based software.
-33. Explain the Sense-Model-Plan-Act (SMPA) loop and its latency bottleneck.
-34. Explain the frame problem and the symbol grounding problem.
-35. State Brooks' four core axioms — the world is its own best model; embodied and situated cognition; tight sensorimotor coupling; emergent behaviour.
-36. Describe the subsumption architecture — layered behaviours, the difference between suppression and inhibition, and the robotic vacuum example.
-37. Explain motor schema / artificial potential fields conceptually — attraction to goal, repulsion from obstacles, and the local minima trap.
-38. Explain how a finite state machine controls agent behaviour, and explain Q-learning conceptually as learning from rewards.
-39. Give one real-world example of Behaviourist AI (e.g., a robotic vacuum).
-40. State one limitation and one ethical concern of Behaviourist AI (including privacy in modern edge robotics).
-41. Explain how hardware, networking and Behaviourist AI connect in the autonomous edge robotics pod.
+### Behavioural AI
+
+31.Define Behavioural AI and distinguish it from supervised and unsupervised learning using the three-family frame.
+32.Describe the agent–environment loop and identify its five components in a concrete scenario, using correct notation (\(S_t, A_t, R_{t+1}, S_{t+1}\)).
+33.Explain trial and error, delayed reward and the credit assignment problem, and the exploration vs exploitation trade-off with \(\epsilon\)-greedy.
+34.Write down a small Markov Decision Process — states, actions, rewards, transition probabilities — and explain the Markov property and why an insufficient state definition matters.
+35.Distinguish model-based from model-free learning, and state the trade-offs in data efficiency and model error.
+36.State the Bellman equation in both expectation and optimality forms, and apply it to compute a one-step value update by hand.
+37.Explain dynamic programming — policy evaluation and policy improvement — and trace sweeps on a small grid.
+38.Compare value iteration and policy iteration — what is iterated, policy extraction, typical behaviour and convergence.
+39.Distinguish on-policy and off-policy learning — behaviour policy vs target policy — and predict the behavioural consequence in the cliff-walk scenario.
+40.Describe the three model-free algorithm families — value-based, policy-based, actor–critic — in terms of what each stores, what it updates, and what learning signal it uses.
+41.Compare Q-learning and SARSA — optimistic vs realistic updates — using the cliff-walk example.
+42.Explain the policy gradient idea, the REINFORCE update, and the high-variance problem with baseline subtraction as a remedy.
+43.Explain actor–critic — actor, critic, advantage function and TD error — and why it learns faster than REINFORCE.
+44.Design a reward function for a stated application and critique it, identifying at least one unintended behaviour it might produce and one ethical consequence.
 
 ## Main Topics
 
@@ -68,7 +73,7 @@ The module is built around three main topics, each with its own focus and purpos
 
 **Topic 2 - Networks.** This topic defines what a computer network is and identifies its key components, such as nodes, routers, and switches. It explains how data is broken into packets and reassembled, distinguishes between TCP and IP, and covers MAC and IP addressing. It also explores network topologies, data transmission methods, and introduces network threats and basic defences, including encryption.
 
-**Topic 3 - Behaviourist AI.** This topic explains what Behaviourist AI is: Brooks-style reactive robotics where sensory inputs are coupled directly to motor actions. It contrasts this with classical deliberative AI and covers the Sense-Model-Plan-Act loop, Brooks' four core axioms, and the subsumption architecture. It also introduces motor schemas (artificial potential fields), finite state machines, and Q-learning conceptually, finishing with the limitations and ethical concerns of reactive systems.
+**Topic 3 - Behaviourist AI.** This topic explains Behavioural AI in the reinforcement-learning sense: AI that learns what to do by interacting with an environment and receiving reward feedback. It covers the agent–environment loop, Markov Decision Processes, the Bellman equation, dynamic programming, and value and policy iteration. It then introduces the on-policy/off-policy distinction and the model-free algorithm families — Q-learning, SARSA, DQN, REINFORCE and actor–critic — and finishes with real-world applications and the ethical implications of reward design.
 
 ## Scope Boundaries
 
@@ -77,8 +82,10 @@ Binary logic, simple truth tables for logic gates, and the Von Neumann architect
 The fetch-decode-execute cycle and the role of key registers.
 Network components, packet switching, and the difference between TCP and IP.
 Network topologies, data flow types, and common network threats with basic countermeasures.
-The definition of Behaviourist AI, the sense-act loop, and Brooks' four axioms.
-The subsumption architecture, artificial potential fields (conceptually), and finite state machines.
+The definition of Behavioural AI as reinforcement learning from reward feedback, and the agent–environment loop.
+Markov Decision Processes, the Bellman equation, dynamic programming, and value and policy iteration.
+The on-policy/off-policy distinction and the model-free algorithm families — Q-learning, SARSA, DQN, REINFORCE and actor–critic.
+Real-world applications of Behavioural AI and the ethical implications of reward design.
 
 What gets brief mention only:
 
