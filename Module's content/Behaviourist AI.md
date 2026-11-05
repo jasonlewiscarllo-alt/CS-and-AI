@@ -148,7 +148,7 @@ The name comes from **behaviourism**, the psychology tradition of Pavlov, Thornd
 
 Every RL system follows the same five-step cycle. Read the subscripts using the notation box.
 
-![alt](./Assets/IMG-20261105-WA0007.jpg)
+![alt](./Assets/IMG-20261105-WA0014.jpg)
 
 *Figure 2 — The agent–environment loop.*
 
@@ -162,7 +162,7 @@ Every RL system follows the same five-step cycle. Read the subscripts using the 
 
 We use this tiny environment throughout the module so every later concept can be checked against the same picture.
 
-![alt](./Assets/IMG-20261105-WA0008.jpg)
+![alt](./Assets/IMG-20261105-WA0010.jpg)
 
 *Figure 3 — The 2×2 grid world. The goal (1,1) is terminal.*
 
@@ -324,7 +324,7 @@ A **value function** is the expected return. Because the future is uncertain, we
 
 A **model** is the agent’s estimate of how the environment behaves: “if I am in state s and take action a, I will probably end up in s′ and get reward r.” Formally, it is the pair P(s′ \| s, a) and R(s, a, s′) from Sections 4.2 and 5.1.
 
-![alt](./Assets/IMG-20261105-WA0009.jpg)
+![alt](./Assets/IMG-20261105-WA0008.jpg)
 
 *Figure 4 — Model-based versus model-free learning.*
 
@@ -543,7 +543,7 @@ For γ \< 1, the Bellman optimality operator is a **contraction**: a mapping tha
 3.  **Policy improvement:** set π′(s) = argmax<sub>a</sub> Q<sub>π</sub>(s, a) for every state.
 4.  If π′ = π, stop. Otherwise set π ← π′ and return to step 2.
 
-![alt](./Assets/IMG-20261105-WA0010.jpg)
+![alt](./Assets/IMG-20261105-WA0012.jpg)
 
 *Figure 5 — Two routes to the same optimal policy.*
 
@@ -630,7 +630,7 @@ On-policy learning is like learning the value of the strategy you are actually p
 
 Everything up to Section 11 assumed the model (P and R) was known. From here on the agent learns from **sampled experience** and does not know P or R in advance. Model-free RL splits into three families.
 
-![alt](./Assets/IMG-20261105-WA0011.jpg)
+![alt](./Assets/IMG-20261105-WA0007.jpg)
 
 *Figure 6 — The three model-free families and example algorithms.*
 
@@ -712,7 +712,7 @@ The name comes from the quintuple (s, a, r, s′, a′). Because the update uses
 
 ## 15.2 The cliff-walk intuition
 
-![alt](./Assets/IMG-20261105-WA0012.jpg)
+![alt](./Assets/IMG-20261105-WA0009.jpg)
 
 *Figure 7 — The cliff-walk. Falling into the cliff costs a large penalty and returns the agent to the start.*
 
@@ -801,7 +801,7 @@ REINFORCE is **unbiased** (correct on average across many episodes) but has **hi
 
 Actor–critic combines policy-based and value-based learning. Two components learn together: the **actor**, the policy π<sub>θ</sub>(a \| s) updated by policy gradients; and the **critic**, a value function V<sub>w</sub>(s) that evaluates the actor’s choices and provides a lower-variance signal.
 
-![alt](./Assets/IMG-20261105-WA0013.jpg)
+![alt](./Assets/IMG-20261105-WA0011.jpg)
 
 *Figure 8 — The actor–critic loop: the critic’s TD error tells the actor how good its action was.*
 
@@ -886,7 +886,7 @@ For each application, identify **what is learned** and **what reward is optimise
 
 # 19. Mind Map and Summary
 
-![alt](./Assets/IMG-20261105-WA0014.jpg)
+![alt](./Assets/IMG-20261105-WA0013.jpg)
 
 *Figure 9 — Mind map of the Behavioural AI module.*
 
