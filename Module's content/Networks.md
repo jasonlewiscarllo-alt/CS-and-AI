@@ -82,7 +82,7 @@ A more formal definition: a computer network is a collection of computing device
 
 # 2. Components of a Network
 
-![Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.](figures/networks/fig-01.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170044.png)
 
 *Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.*
 
@@ -119,7 +119,7 @@ A **switch** connects multiple devices within a local area network (LAN). It lea
 
 A **packet** is a small part of a larger piece of data sent over a network. Each packet has a **header**, a **payload** and a **trailer**.
 
-![Figure 2 — The three parts of a packet.](figures/networks/fig-02.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170056.png)
 
 *Figure 2 — The three parts of a packet.*
 
@@ -135,7 +135,7 @@ A **packet** is a small part of a larger piece of data sent over a network. Each
 
 When a photo, video or message is sent, the data is divided into packets. They travel through routers until they reach the destination, where the receiving device puts them back together, like building a puzzle whose pieces were posted separately. Because many devices can send packets at the same time over shared links, the network is used efficiently: one connection does not hog the whole network. This method is called **packet switching**.
 
-![Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.](figures/networks/fig-03.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170103.png)
 
 *Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.*
 
@@ -186,7 +186,7 @@ When a photo, video or message is sent, the data is divided into packets. They t
 
 Network software is organised in layers, each doing one job and using the layer below. When you send data, each layer adds its own header (the model in Section 3); the receiver removes them in reverse order.
 
-![Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.](figures/networks/fig-04.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170118.png)
 
 *Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.*
 
@@ -225,7 +225,7 @@ An **IP address** is a logical address given to a device when it joins a network
 
 A **URL (Uniform Resource Locator)** is the address of a resource on the internet. It is divided into: **protocol** (how data is transferred, e.g. HTTP or HTTPS), **subdomain** (an area of a site, `www` being the most common), **domain name** (the human-readable name of the site), **top-level domain** (purpose or country, e.g. .com, .org, .edu, .uk) and optionally a **path** to a page.
 
-![Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.](figures/networks/fig-05.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170126.png)
 
 *Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.*
 
@@ -252,7 +252,7 @@ Computers route by IP address, not by name, so the **Domain Name System (DNS)** 
 
 **Network topology** is the physical or logical arrangement of nodes and links in a network. The choice affects performance, scalability, reliability and cost. *Physical* topology is how cables are laid out; *logical* topology is how data actually flows.
 
-![Figure 6 — Six basic topologies (a hybrid is a combination of these).](figures/networks/fig-06.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170139.png)
 
 *Figure 6 — Six basic topologies (a hybrid is a combination of these).*
 
@@ -356,7 +356,7 @@ Combines two or more basic topologies, such as stars joined in a ring or a mesh.
 > - Complex design and setup
 > - Hard to diagnose across different layouts
 
-![Figure 7 — A hybrid topology.](figures/networks/fig-07.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170147.png)
 
 *Figure 7 — A hybrid topology.*
 
@@ -408,25 +408,25 @@ A hierarchy of root, branch and leaf nodes combining star and bus ideas, like a 
 
 ### Simplex
 
-![Diagram](figures/networks/fig-13.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20171254.png)
 
 Data travels in one direction only. *Examples:* traditional TV broadcast; a keyboard sending input to a computer.
 
 ### Half-duplex
 
-![Diagram](figures/networks/fig-14.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20171301.png)
 
 Both directions, but not at the same time; the devices take turns. *Example:* walkie-talkies.
 
 ### Full-duplex
 
-![Diagram](figures/networks/fig-15.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20171307.png)
 
 Both directions at the same time. *Examples:* a telephone conversation; a video call; a switched Ethernet link.
 
 ## 6.2 Methods of data transmission
 
-![Figure 8 — Serial and parallel transmission.](figures/networks/fig-08.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20171313.png)
 
 *Figure 8 — Serial and parallel transmission.*
 
@@ -449,7 +449,7 @@ The words *synchronous* and *asynchronous* are used at two levels. Do not mix th
 | Speed            | Fast                                                                                                   | Slower                                                                    |
 | Typical use      | High-speed links, large transfers                                                                      | Keyboards, serial ports, simple devices                                   |
 
-![Figure 9 — An asynchronous frame carrying one byte.](figures/networks/fig-09.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170215.png)
 
 *Figure 9 — An asynchronous frame carrying one byte.*
 
@@ -477,7 +477,7 @@ In **synchronous communication** (blocking), a client sends a request to a serve
 
 ## 7.1 Types of network by size
 
-![Figure 10 — Networks classified by the area they cover.](figures/networks/fig-10.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170244.png)
 
 *Figure 10 — Networks classified by the area they cover.*
 
@@ -507,7 +507,7 @@ Connects multiple LANs across a city, town or large campus; larger than a LAN bu
 
 ## 7.2 Network service models
 
-![Figure 11 — Client–server and peer-to-peer models.](figures/networks/fig-11.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170253.png)
 
 *Figure 11 — Client–server and peer-to-peer models.*
 
@@ -708,7 +708,7 @@ A decentralised architecture in which every participant (a **peer**) has equal s
 
 # 11. Mind Map and Summary
 
-![Figure 12 — Mind map of the Networks module.](figures/networks/fig-12.svg)
+![alt text](./Assets/Screenshot%202026-11-05%20170304.png)
 
 *Figure 12 — Mind map of the Networks module.*
 
