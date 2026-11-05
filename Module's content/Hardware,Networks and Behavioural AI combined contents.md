@@ -109,7 +109,7 @@ Connections between components are made by **traces**: thin copper pathways prin
 >
 > A fast CPU connected by a slow or narrow pathway cannot perform at its full speed. The motherboard and its traces are part of the performance story.
 
-![Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.](figures/hardware/fig-01.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163034.png)
 
 *Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.*
 
@@ -187,7 +187,7 @@ A **form factor** is a standard that defines a motherboard's physical dimensions
 | Micro-ATX (mATX)    | ~244 x 244 mm | Up to 4         | Smaller desktops, budget builds               |
 | Mini-ITX            | ~170 x 170 mm | 1–2             | Small-form-factor PCs, home theatre, embedded |
 
-![Figure 2 — Relative sizes of the four main motherboard form factors.](figures/hardware/fig-02.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163051.png)
 
 *Figure 2 — Relative sizes of the four main motherboard form factors.*
 
@@ -223,7 +223,7 @@ A **form factor** is a standard that defines a motherboard's physical dimensions
 
 The **power supply unit (PSU)** converts the high-voltage alternating current (AC) from a wall socket into the low-voltage direct current (DC) that the computer's components need. The conversion happens in four stages.
 
-![Figure 3 — The four stages of AC-to-DC conversion inside a PSU.](figures/hardware/fig-03.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163059.png)
 
 *Figure 3 — The four stages of AC-to-DC conversion inside a PSU.*
 
@@ -298,7 +298,7 @@ A graphics card is an expansion card that contains a GPU and its supporting comp
 | 6\. Monitor outputs                    | HDMI, DisplayPort, DVI and other connectors that send video to displays.                                  |
 | 7\. Video BIOS                         | Firmware that initialises the card at start-up and controls clock speeds and voltages.                    |
 
-![Figure 4 — The seven main parts of a graphics card.](figures/hardware/fig-04.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163108.png)
 
 *Figure 4 — The seven main parts of a graphics card.*
 
@@ -369,7 +369,7 @@ A **bit** is a single binary digit: 0 or 1. In hardware these are two voltage le
 
 Each bit position has a value that is double the one to its right. To convert binary to denary, add the place values wherever there is a 1.
 
-![Figure 5 — Binary place-value chart: 10110101 = 181.](figures/hardware/fig-05.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163120.png)
 
 *Figure 5 — Binary place-value chart: 10110101 = 181.*
 
@@ -389,7 +389,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 >
 > B7<sub>16</sub> = 11 × 16 + 7 = 176 + 7 = 183<sub>10</sub>
 
-![Figure 6 — Binary to hex grouping: 1101 0110 = D6.](figures/hardware/fig-06.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163127.png)
 
 *Figure 6 — Binary to hex grouping: 1101 0110 = D6.*
 
@@ -441,7 +441,7 @@ A **transistor** is a tiny electronic switch. Combining transistors forms **logi
 > <https://www.youtube.com/watch?v=gI-qXk7XojA>
 >
 
-![Figure 7 — Standard logic gate symbols.](figures/hardware/fig-07.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163136.png)
 
 *Figure 7 — Standard logic gate symbols.*
 
@@ -462,7 +462,7 @@ A **transistor** is a tiny electronic switch. Combining transistors forms **logi
 
 A half-adder adds two single bits, producing a **Sum** and a **Carry**.
 
-![Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.](figures/hardware/fig-08.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163517.png)
 
 *Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.*
 
@@ -503,7 +503,7 @@ The **Von Neumann architecture** stores both instructions and data in the same m
 >
 > Because instructions and data share the same memory and buses, the CPU cannot fetch an instruction and a data value at exactly the same instant. Cache memory (Section 1.6) reduces its impact.
 
-![Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).](figures/hardware/fig-09.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163528.png)
 
 *Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).*
 
@@ -582,7 +582,7 @@ Flags let the CPU make decisions such as “jump if zero”.
 >
 > Describe each FDE stage, name the registers and buses used, explain interrupts and the ISR, and explain how instructions are encoded and how pipelining improves throughput.
 
-![Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.](figures/hardware/fig-10.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163540.png)
 
 *Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.*
 
@@ -634,7 +634,7 @@ The result is stored in the ACC or written to memory.
 
 An **interrupt** is a signal that causes the processor to suspend its current task and service an event. Causes: a timing signal, I/O completion, a user action, a hardware fault or a software error. At the end of each FDE cycle the processor checks for interrupts. The **Interrupt Service Routine (ISR)** services the highest-priority interrupt: the processor saves its state, runs the ISR, restores the state and continues. An interrupt does **not** restart the computer.
 
-![Figure 11 — Interrupt handling.](figures/hardware/fig-11.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163549.png)
 
 *Figure 11 — Interrupt handling.*
 
@@ -651,7 +651,7 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 
 **Pipelining** overlaps the stages of consecutive instructions so that, while one instruction is being executed, the next is being decoded and the one after is being fetched. It raises *throughput* (instructions completed per unit time) but does not shorten the time for a single instruction. Branches can disrupt a pipeline because the CPU may have fetched the wrong instructions.
 
-![Figure 12 — Pipelining five instructions through a three-stage pipeline.](figures/hardware/fig-12.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163558.png)
 
 *Figure 12 — Pipelining five instructions through a three-stage pipeline.*
 
@@ -704,7 +704,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 > <https://www.youtube.com/watch?v=fpnE6UAfbtU>
 >
 
-![Figure 13 — Memory hierarchy pyramid.](figures/hardware/fig-13.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163607.png)
 
 *Figure 13 — Memory hierarchy pyramid.*
 
@@ -753,7 +753,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 **DRAM** (dynamic RAM) uses one transistor and one capacitor per bit. The capacitor leaks charge, so each cell must be **refreshed** periodically. DRAM is dense and cheap, so it is used for main memory. **SRAM** (static RAM) uses several transistors (commonly six) per bit; it needs no refresh while powered. It is fast but expensive and bulky, so it is used for cache and registers.
 
-![Figure 14 — DRAM versus SRAM cells (simplified).](figures/hardware/fig-14.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163615.png)
 
 *Figure 14 — DRAM versus SRAM cells (simplified).*
 
@@ -815,7 +815,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 A **buffer** is temporary storage used during data transfer between devices with different speeds. Examples: keyboard buffer, printer buffer, video-streaming buffer and double buffering of display frames.
 
-![Figure 15 — A buffer smoothing speed differences.](figures/hardware/fig-15.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163624.png)
 
 *Figure 15 — A buffer smoothing speed differences.*
 
@@ -827,7 +827,7 @@ A **buffer** is temporary storage used during data transfer between devices with
 
 **Virtual memory** uses secondary storage as extra RAM. The operating system divides memory into fixed-size **pages** and moves them between RAM and a **swap file** (page file). A **page fault** occurs when a required page is not in RAM. **Thrashing** is excessive swapping, where the system spends more time moving pages than running programs.
 
-![Figure 16 — Virtual memory: pages swapped between RAM and the swap file.](figures/hardware/fig-16.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163633.png)
 
 *Figure 16 — Virtual memory: pages swapped between RAM and the swap file.*
 
@@ -1013,7 +1013,7 @@ A **monitoring system** observes and reports. A **control system** observes and 
 
 Temperature sensor → microcontroller compares with the target → heater actuator switched on if too cold → vent/fan switched on if too warm → repeat (feedback). Note that the sensor produces an analogue signal, so an ADC converts it to digital before the microcontroller can use it.
 
-![Figure 17 — A monitoring-and-control feedback loop.](figures/hardware/fig-17.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163646.png)
 
 *Figure 17 — A monitoring-and-control feedback loop.*
 
@@ -1085,7 +1085,7 @@ Temperature sensor → microcontroller compares with the target → heater actua
 
 # Section 1.13 — Module Summary and Mind Map
 
-![Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.](figures/hardware/fig-18.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163657.png)
 
 *Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.*
 
@@ -1307,8 +1307,6 @@ Revision notes (v3.0): corrected the definition of the IAS (main memory, not reg
 
 **Module 2**
 
-**A beginner-first study guide — Version 2.0 (revised)**
-
 Part of: Hardware, Networks and Behaviourist AI
 
 Aligned with Cambridge IGCSE / O Level / AS & A Level Computer Science networking content
@@ -1392,7 +1390,7 @@ A more formal definition: a computer network is a collection of computing device
 
 # 2. Components of a Network
 
-![Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.](figures/networks/fig-01.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170044.png)
 
 *Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.*
 
@@ -1447,7 +1445,7 @@ A **packet** is a small part of a larger piece of data sent over a network. Each
 > <https://www.youtube.com/watch?v=AEaKrq3SpW8>
 >
 
-![Figure 2 — The three parts of a packet.](figures/networks/fig-02.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170056.png)
 
 *Figure 2 — The three parts of a packet.*
 
@@ -1463,7 +1461,7 @@ A **packet** is a small part of a larger piece of data sent over a network. Each
 
 When a photo, video or message is sent, the data is divided into packets. They travel through routers until they reach the destination, where the receiving device puts them back together, like building a puzzle whose pieces were posted separately. Because many devices can send packets at the same time over shared links, the network is used efficiently: one connection does not hog the whole network. This method is called **packet switching**.
 
-![Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.](figures/networks/fig-03.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170103.png)
 
 *Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.*
 
@@ -1518,7 +1516,7 @@ When a photo, video or message is sent, the data is divided into packets. They t
 
 Network software is organised in layers, each doing one job and using the layer below. When you send data, each layer adds its own header (the model in Section 3); the receiver removes them in reverse order.
 
-![Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.](figures/networks/fig-04.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170118.png)
 
 *Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.*
 
@@ -1557,7 +1555,7 @@ An **IP address** is a logical address given to a device when it joins a network
 
 A **URL (Uniform Resource Locator)** is the address of a resource on the internet. It is divided into: **protocol** (how data is transferred, e.g. HTTP or HTTPS), **subdomain** (an area of a site, `www` being the most common), **domain name** (the human-readable name of the site), **top-level domain** (purpose or country, e.g. .com, .org, .edu, .uk) and optionally a **path** to a page.
 
-![Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.](figures/networks/fig-05.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170126.png)
 
 *Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.*
 
@@ -1592,7 +1590,7 @@ Computers route by IP address, not by name, so the **Domain Name System (DNS)** 
 
 **Network topology** is the physical or logical arrangement of nodes and links in a network. The choice affects performance, scalability, reliability and cost. *Physical* topology is how cables are laid out; *logical* topology is how data actually flows.
 
-![Figure 6 — Six basic topologies (a hybrid is a combination of these).](figures/networks/fig-06.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170139.png)
 
 *Figure 6 — Six basic topologies (a hybrid is a combination of these).*
 
@@ -1696,7 +1694,7 @@ Combines two or more basic topologies, such as stars joined in a ring or a mesh.
 > - Complex design and setup
 > - Hard to diagnose across different layouts
 
-![Figure 7 — A hybrid topology.](figures/networks/fig-07.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170147.png)
 
 *Figure 7 — A hybrid topology.*
 
@@ -1748,25 +1746,25 @@ A hierarchy of root, branch and leaf nodes combining star and bus ideas, like a 
 
 ### Simplex
 
-![Diagram](figures/networks/fig-13.svg)
+![alt](./Assets/Screenshot%202026-11-05%20171254.png)
 
 Data travels in one direction only. *Examples:* traditional TV broadcast; a keyboard sending input to a computer.
 
 ### Half-duplex
 
-![Diagram](figures/networks/fig-14.svg)
+![alt](./Assets/Screenshot%202026-11-05%20171301.png)
 
 Both directions, but not at the same time; the devices take turns. *Example:* walkie-talkies.
 
 ### Full-duplex
 
-![Diagram](figures/networks/fig-15.svg)
+![alt](./Assets/Screenshot%202026-11-05%20171307.png)
 
 Both directions at the same time. *Examples:* a telephone conversation; a video call; a switched Ethernet link.
 
 ## 6.2 Methods of data transmission
 
-![Figure 8 — Serial and parallel transmission.](figures/networks/fig-08.svg)
+![alt](./Assets/Screenshot%202026-11-05%20171313.png)
 
 *Figure 8 — Serial and parallel transmission.*
 
@@ -1789,7 +1787,7 @@ The words *synchronous* and *asynchronous* are used at two levels. Do not mix th
 | Speed            | Fast                                                                                                   | Slower                                                                    |
 | Typical use      | High-speed links, large transfers                                                                      | Keyboards, serial ports, simple devices                                   |
 
-![Figure 9 — An asynchronous frame carrying one byte.](figures/networks/fig-09.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170215.png)
 
 *Figure 9 — An asynchronous frame carrying one byte.*
 
@@ -1817,7 +1815,7 @@ In **synchronous communication** (blocking), a client sends a request to a serve
 
 ## 7.1 Types of network by size
 
-![Figure 10 — Networks classified by the area they cover.](figures/networks/fig-10.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170244.png)
 
 *Figure 10 — Networks classified by the area they cover.*
 
@@ -1847,7 +1845,7 @@ Connects multiple LANs across a city, town or large campus; larger than a LAN bu
 
 ## 7.2 Network service models
 
-![Figure 11 — Client–server and peer-to-peer models.](figures/networks/fig-11.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170253.png)
 
 *Figure 11 — Client–server and peer-to-peer models.*
 
@@ -2065,7 +2063,7 @@ A decentralised architecture in which every participant (a **peer**) has equal s
 
 # 11. Mind Map and Summary
 
-![Figure 12 — Mind map of the Networks module.](figures/networks/fig-12.svg)
+![alt](./Assets/Screenshot%202026-11-05%20170304.png)
 
 *Figure 12 — Mind map of the Networks module.*
 
@@ -2324,10 +2322,6 @@ Revision notes (v2.0): removed project-management sections and inline citation t
 
 # Behavioural AI
 
-**Stage 8 · Behavioural AI**
-
-**Reinforcement Learning: A Complete Beginner’s Module — Version 2.0 (revised and expanded)**
-
 From the agent–environment loop and Markov Decision Processes, through the Bellman equation and dynamic programming,
 
 to Q-learning, SARSA, DQN, REINFORCE, actor–critic and real-world applications.
@@ -2437,7 +2431,7 @@ Behavioural AI in this module means AI that learns **what to do** by interacting
 
 The name comes from **behaviourism**, the psychology tradition of Pavlov, Thorndike and Skinner. Its core claim is that behaviour is shaped by its consequences: actions followed by reward become more frequent; actions followed by punishment become less frequent. **Reinforcement learning (RL)** is the computational version of that idea.
 
-![Figure 1 — Three families of machine learning. This module is about the third.](figures/behavioural_ai/fig-01.svg)
+![alt](./Assets/IMG-20261105-WA0006.jpg)
 
 *Figure 1 — Three families of machine learning. This module is about the third.*
 
@@ -2480,7 +2474,7 @@ The name comes from **behaviourism**, the psychology tradition of Pavlov, Thornd
 
 Every RL system follows the same five-step cycle. Read the subscripts using the notation box.
 
-![Figure 2 — The agent–environment loop.](figures/behavioural_ai/fig-02.svg)
+![alt](./Assets/IMG-20261105-WA0014.jpg)
 
 *Figure 2 — The agent–environment loop.*
 
@@ -2494,7 +2488,7 @@ Every RL system follows the same five-step cycle. Read the subscripts using the 
 
 We use this tiny environment throughout the module so every later concept can be checked against the same picture.
 
-![Figure 3 — The 2×2 grid world. The goal (1,1) is terminal.](figures/behavioural_ai/fig-03.svg)
+![alt](./Assets/IMG-20261105-WA0010.jpg)
 
 *Figure 3 — The 2×2 grid world. The goal (1,1) is terminal.*
 
@@ -2678,7 +2672,7 @@ A **value function** is the expected return. Because the future is uncertain, we
 
 A **model** is the agent’s estimate of how the environment behaves: “if I am in state s and take action a, I will probably end up in s′ and get reward r.” Formally, it is the pair P(s′ \| s, a) and R(s, a, s′) from Sections 4.2 and 5.1.
 
-![Figure 4 — Model-based versus model-free learning.](figures/behavioural_ai/fig-04.svg)
+![alt](./Assets/IMG-20261105-WA0008.jpg)
 
 *Figure 4 — Model-based versus model-free learning.*
 
@@ -2901,7 +2895,7 @@ For γ \< 1, the Bellman optimality operator is a **contraction**: a mapping tha
 3.  **Policy improvement:** set π′(s) = argmax<sub>a</sub> Q<sub>π</sub>(s, a) for every state.
 4.  If π′ = π, stop. Otherwise set π ← π′ and return to step 2.
 
-![Figure 5 — Two routes to the same optimal policy.](figures/behavioural_ai/fig-05.svg)
+![alt](./Assets/IMG-20261105-WA0012.jpg)
 
 *Figure 5 — Two routes to the same optimal policy.*
 
@@ -2988,7 +2982,7 @@ On-policy learning is like learning the value of the strategy you are actually p
 
 Everything up to Section 11 assumed the model (P and R) was known. From here on the agent learns from **sampled experience** and does not know P or R in advance. Model-free RL splits into three families.
 
-![Figure 6 — The three model-free families and example algorithms.](figures/behavioural_ai/fig-06.svg)
+![alt](./Assets/IMG-20261105-WA0007.jpg)
 
 *Figure 6 — The three model-free families and example algorithms.*
 
@@ -3090,7 +3084,7 @@ The name comes from the quintuple (s, a, r, s′, a′). Because the update uses
 
 ## 15.2 The cliff-walk intuition
 
-![Figure 7 — The cliff-walk. Falling into the cliff costs a large penalty and returns the agent to the start.](figures/behavioural_ai/fig-07.svg)
+![alt](./Assets/IMG-20261105-WA0009.jpg)
 
 *Figure 7 — The cliff-walk. Falling into the cliff costs a large penalty and returns the agent to the start.*
 
@@ -3199,7 +3193,7 @@ REINFORCE is **unbiased** (correct on average across many episodes) but has **hi
 
 Actor–critic combines policy-based and value-based learning. Two components learn together: the **actor**, the policy π<sub>θ</sub>(a \| s) updated by policy gradients; and the **critic**, a value function V<sub>w</sub>(s) that evaluates the actor’s choices and provides a lower-variance signal.
 
-![Figure 8 — The actor–critic loop: the critic’s TD error tells the actor how good its action was.](figures/behavioural_ai/fig-08.svg)
+![alt](./Assets/IMG-20261105-WA0011.jpg)
 
 *Figure 8 — The actor–critic loop: the critic’s TD error tells the actor how good its action was.*
 
@@ -3288,7 +3282,7 @@ For each application, identify **what is learned** and **what reward is optimise
 
 # 19. Mind Map and Summary
 
-![Figure 9 — Mind map of the Behavioural AI module.](figures/behavioural_ai/fig-09.svg)
+![alt](./Assets/IMG-20261105-WA0013.jpg)
 
 *Figure 9 — Mind map of the Behavioural AI module.*
 
