@@ -110,7 +110,7 @@ Connections between components are made by **traces**: thin copper pathways prin
 >
 > A fast CPU connected by a slow or narrow pathway cannot perform at its full speed. The motherboard and its traces are part of the performance story.
 
-![alt](./Assests/Screenshot%202026-11-02%20190346.png)
+![alt](./Assets/Screenshot%202026-11-05%20163034.png)
 
 *Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.*
 
@@ -188,7 +188,7 @@ A **form factor** is a standard that defines a motherboard's physical dimensions
 | Micro-ATX (mATX)    | ~244 x 244 mm | Up to 4         | Smaller desktops, budget builds               |
 | Mini-ITX            | ~170 x 170 mm | 1–2             | Small-form-factor PCs, home theatre, embedded |
 
-![Figure 2 — Relative sizes of the four main motherboard form factors.](figures/hardware/fig-02.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163051.png)
 
 *Figure 2 — Relative sizes of the four main motherboard form factors.*
 
@@ -224,7 +224,7 @@ A **form factor** is a standard that defines a motherboard's physical dimensions
 
 The **power supply unit (PSU)** converts the high-voltage alternating current (AC) from a wall socket into the low-voltage direct current (DC) that the computer's components need. The conversion happens in four stages.
 
-![Figure 3 — The four stages of AC-to-DC conversion inside a PSU.](figures/hardware/fig-03.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163059.png)
 
 *Figure 3 — The four stages of AC-to-DC conversion inside a PSU.*
 
@@ -299,7 +299,7 @@ A graphics card is an expansion card that contains a GPU and its supporting comp
 | 6\. Monitor outputs                    | HDMI, DisplayPort, DVI and other connectors that send video to displays.                                  |
 | 7\. Video BIOS                         | Firmware that initialises the card at start-up and controls clock speeds and voltages.                    |
 
-![Figure 4 — The seven main parts of a graphics card.](figures/hardware/fig-04.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163108.png)
 
 *Figure 4 — The seven main parts of a graphics card.*
 
@@ -357,7 +357,7 @@ A **bit** is a single binary digit: 0 or 1. In hardware these are two voltage le
 
 Each bit position has a value that is double the one to its right. To convert binary to denary, add the place values wherever there is a 1.
 
-![Figure 5 — Binary place-value chart: 10110101 = 181.](figures/hardware/fig-05.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163120.png)
 
 *Figure 5 — Binary place-value chart: 10110101 = 181.*
 
@@ -377,7 +377,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 >
 > B7<sub>16</sub> = 11 × 16 + 7 = 176 + 7 = 183<sub>10</sub>
 
-![Figure 6 — Binary to hex grouping: 1101 0110 = D6.](figures/hardware/fig-06.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163127.png)
 
 *Figure 6 — Binary to hex grouping: 1101 0110 = D6.*
 
@@ -416,7 +416,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 
 A **transistor** is a tiny electronic switch. Combining transistors forms **logic gates**: circuits whose output depends on the inputs according to a fixed rule. A **truth table** lists every input combination and the corresponding output.
 
-![Figure 7 — Standard logic gate symbols.](figures/hardware/fig-07.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163136.png)
 
 *Figure 7 — Standard logic gate symbols.*
 
@@ -437,7 +437,7 @@ A **transistor** is a tiny electronic switch. Combining transistors forms **logi
 
 A half-adder adds two single bits, producing a **Sum** and a **Carry**.
 
-![Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.](figures/hardware/fig-08.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163517.png)
 
 *Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.*
 
@@ -478,7 +478,7 @@ The **Von Neumann architecture** stores both instructions and data in the same m
 >
 > Because instructions and data share the same memory and buses, the CPU cannot fetch an instruction and a data value at exactly the same instant. Cache memory (Section 1.6) reduces its impact.
 
-![Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).](figures/hardware/fig-09.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163528.png)
 
 *Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).*
 
@@ -553,7 +553,7 @@ Flags let the CPU make decisions such as “jump if zero”.
 >
 > Describe each FDE stage, name the registers and buses used, explain interrupts and the ISR, and explain how instructions are encoded and how pipelining improves throughput.
 
-![Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.](figures/hardware/fig-10.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163540.png)
 
 *Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.*
 
@@ -596,7 +596,7 @@ The result is stored in the ACC or written to memory.
 
 An **interrupt** is a signal that causes the processor to suspend its current task and service an event. Causes: a timing signal, I/O completion, a user action, a hardware fault or a software error. At the end of each FDE cycle the processor checks for interrupts. The **Interrupt Service Routine (ISR)** services the highest-priority interrupt: the processor saves its state, runs the ISR, restores the state and continues. An interrupt does **not** restart the computer.
 
-![Figure 11 — Interrupt handling.](figures/hardware/fig-11.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163549.png)
 
 *Figure 11 — Interrupt handling.*
 
@@ -613,7 +613,7 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 
 **Pipelining** overlaps the stages of consecutive instructions so that, while one instruction is being executed, the next is being decoded and the one after is being fetched. It raises *throughput* (instructions completed per unit time) but does not shorten the time for a single instruction. Branches can disrupt a pipeline because the CPU may have fetched the wrong instructions.
 
-![Figure 12 — Pipelining five instructions through a three-stage pipeline.](figures/hardware/fig-12.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163558.png)
 
 *Figure 12 — Pipelining five instructions through a three-stage pipeline.*
 
@@ -653,7 +653,7 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 
 Fast memory is expensive and small; large memory is cheap and slow. Computers therefore combine several kinds of memory in layers, keeping the most-needed data in the fastest layer. This is the **memory hierarchy**.
 
-![Figure 13 — Memory hierarchy pyramid.](figures/hardware/fig-13.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163607.png)
 
 *Figure 13 — Memory hierarchy pyramid.*
 
@@ -698,7 +698,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 **DRAM** (dynamic RAM) uses one transistor and one capacitor per bit. The capacitor leaks charge, so each cell must be **refreshed** periodically. DRAM is dense and cheap, so it is used for main memory. **SRAM** (static RAM) uses several transistors (commonly six) per bit; it needs no refresh while powered. It is fast but expensive and bulky, so it is used for cache and registers.
 
-![Figure 14 — DRAM versus SRAM cells (simplified).](figures/hardware/fig-14.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163615.png)
 
 *Figure 14 — DRAM versus SRAM cells (simplified).*
 
@@ -756,7 +756,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 A **buffer** is temporary storage used during data transfer between devices with different speeds. Examples: keyboard buffer, printer buffer, video-streaming buffer and double buffering of display frames.
 
-![Figure 15 — A buffer smoothing speed differences.](figures/hardware/fig-15.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163624.png)
 
 *Figure 15 — A buffer smoothing speed differences.*
 
@@ -768,7 +768,7 @@ A **buffer** is temporary storage used during data transfer between devices with
 
 **Virtual memory** uses secondary storage as extra RAM. The operating system divides memory into fixed-size **pages** and moves them between RAM and a **swap file** (page file). A **page fault** occurs when a required page is not in RAM. **Thrashing** is excessive swapping, where the system spends more time moving pages than running programs.
 
-![Figure 16 — Virtual memory: pages swapped between RAM and the swap file.](figures/hardware/fig-16.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163633.png)
 
 *Figure 16 — Virtual memory: pages swapped between RAM and the swap file.*
 
@@ -954,7 +954,7 @@ A **monitoring system** observes and reports. A **control system** observes and 
 
 Temperature sensor → microcontroller compares with the target → heater actuator switched on if too cold → vent/fan switched on if too warm → repeat (feedback). Note that the sensor produces an analogue signal, so an ADC converts it to digital before the microcontroller can use it.
 
-![Figure 17 — A monitoring-and-control feedback loop.](figures/hardware/fig-17.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163646.png)
 
 *Figure 17 — A monitoring-and-control feedback loop.*
 
@@ -1026,7 +1026,7 @@ Temperature sensor → microcontroller compares with the target → heater actua
 
 # Section 1.13 — Module Summary and Mind Map
 
-![Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.](figures/hardware/fig-18.svg)
+![alt](./Assets/Screenshot%202026-11-05%20163657.png)
 
 *Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.*
 
