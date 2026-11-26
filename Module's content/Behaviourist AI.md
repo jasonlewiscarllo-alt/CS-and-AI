@@ -1,1133 +1,1577 @@
-# Behavioural AI
+# Behavioural AI: Reinforcement Learning for Beginners
 
-From the agent–environment loop and Markov Decision Processes, through the Bellman equation and dynamic programming,
+**Stage 8 · Part of *Hardware, Networks and Behavioural AI***
+Version 3.0, beginner edition (24 November 2026)
 
-to Q-learning, SARSA, DQN, REINFORCE, actor–critic and real-world applications.
+> **Start here**
+>
+> This module teaches how a computer can **learn by trial and error**, the same way you learn a new video game: try something, see what happens, and do more of what works. You do not need any programming or machine-learning knowledge. If you can add, multiply and work out an average, you can follow every example.
+>
+> Every section starts with **The big idea** in one or two sentences. Read that first. The maths always comes *after* the explanation in words, and every number in the examples is worked out step by step.
 
-Part of: Hardware, Networks and Behavioural AI
+## Contents
 
-------------------------------------------------------------------------
-
-# Contents
-
-- Module overview and learning outcomes
+- Module overview, learners and learning outcomes
 - How to study this module
-- Reading the notation (read first)
-- 1\. Definition
-- 2\. Basic process and example
-- 3\. Reinforcement learning
-- 4\. MDP: states, actions, rewards
-- 5\. MDP: probabilities, policy, value function
-- 6\. Model-based vs model-free
-- 7\. Bellman equation
-- 8\. Dynamic programming (1): policy evaluation
-- 9\. Dynamic programming (2): policy improvement
+- Our two running examples
+- The eight symbols you need (read first)
+- 1\. What Behavioural AI is
+- 2\. The learning loop and the grid world
+- 3\. What makes reinforcement learning different
+- 4\. Describing a problem: states, actions, rewards (the MDP)
+- 5\. Chance, plans and values
+- 6\. Learning with or without a map (model-based vs model-free)
+- 7\. The Bellman equation: the one idea behind everything
+- 8\. Dynamic programming (1): measuring a plan
+- 9\. Dynamic programming (2): improving a plan
 - 10\. Value iteration
 - 11\. Policy iteration
 - 12\. On-policy and off-policy
-- 13\. Algorithms overview
+- 13\. Learning from experience: the algorithm families, Monte Carlo and TD
 - 14\. Q-learning
-- 15\. DQN and SARSA
-- 16\. REINFORCE and policy gradient
+- 15\. SARSA and Deep Q-Networks
+- 16\. Learning the plan directly: REINFORCE
 - 17\. Actor–critic
-- 18\. Real-world applications
+- 18\. Real-world applications and reward design
 - 19\. Mind map and summary
 - 20\. Case studies
 - 21\. Mixed practice
-- 22\. End-of-module test
+- 22\. End-of-module test with mark scheme
 - 23\. Learning material list
-- 24\. Master glossary
+- 24\. Glossary
 - 25\. References and revision notes
 
-Learning path: Overview → Notation box → 18 topics in an order where no term is used before it is taught → mind map → case studies → mixed practice → test → learning materials → glossary.
+---
 
-# Module Overview and Learning Outcomes
+# Module Overview
 
-This module develops a beginner’s understanding of Behavioural AI in the reinforcement-learning sense: AI that learns what to do by interacting with an environment and receiving reward feedback. It moves from the definition and the agent–environment loop, through Markov Decision Processes and the Bellman equation, through dynamic programming and the two classical iteration algorithms, into the on-/off-policy distinction, and then into the model-free families (Q-learning, SARSA, DQN, REINFORCE, actor–critic). It closes with real-world applications, a mind map, case studies and a test.
+## What this module is about
 
-| \#  | Outcome: by the end of this module you can…                                                                                                                         | Assessed in                              |
-|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
-| LO1 | Explain what Behavioural AI is and distinguish it from supervised and unsupervised learning.                                                                        | S1; Activity 1.1; Q1.1                   |
-| LO2 | Describe the agent–environment loop and identify its five components, using correct notation (S<sub>t</sub>, A<sub>t</sub>, R<sub>t+1</sub>, S<sub>t+1</sub>).      | S2; Activity 2.1                         |
-| LO3 | Write down a small Markov Decision Process (states, actions, rewards, transition probabilities) and explain the Markov property.                                    | S4–5; Activities 4.1, 5.2                |
-| LO4 | State the Bellman equation in expectation and optimality forms and compute a one-step update by hand.                                                               | S7; Activity 7.1                         |
-| LO5 | Distinguish model-based from model-free learning; trace policy evaluation, value iteration and policy iteration on a small grid.                                    | S6, S8–11; Activities 8.1, 10.1, 11.1    |
-| LO6 | Describe the three model-free families in terms of what each stores, updates and learns from; explain on-/off-policy learning and predict the cliff-walk behaviour. | S12–17; Activities 12.1, 15.1            |
-| LO7 | Design a reward function for an application and critique it, naming an unintended behaviour and an ethical consequence.                                             | S18; Activities 18.1, 18.2; case studies |
+**Behavioural AI** (in this module) means AI that learns *what to do* by acting in a world and getting a score, called a **reward**, for how well things went. Nobody tells it the right answer. It has to find out by trying. The technical name for this is **reinforcement learning (RL)**.
 
-**Traceability.** Every outcome has at least one worked example (a skill demonstrated), one activity (a skill performed, with an answer) and one check question (a quick confirmation). The end-of-module test samples all seven.
+The module follows one path: first we describe a problem clearly (Sections 1–6), then we learn the single equation that every method uses (Section 7), then we solve small problems when we know all the rules (Sections 8–11), and finally we learn when the rules are unknown and the agent must learn from experience (Sections 12–17). We finish with real uses, ethics, case studies and a test (Sections 18–25).
 
-**Prerequisites.** Basic arithmetic and the idea of an average. No programming and no prior machine-learning knowledge are needed.
+## Who this is for
+
+- **Intended learners:** first- and second-year college students, including those outside computer science, who want to understand how game-playing and robot-controlling AI learns.
+- **Prerequisites:** basic arithmetic (adding, multiplying decimals), the idea of an average, and reading a simple table. No programming. No calculus: the only formulas with advanced symbols are in boxes marked **Going deeper (optional)**, which you can skip.
+
+## Learning outcomes
+
+| # | By the end of this module you can… | Where it is assessed |
+|---|---|---|
+| LO1 | Explain what Behavioural AI is and how it differs from supervised and unsupervised learning. | Section 1; Activity 1.1; Test Q1 |
+| LO2 | Describe the agent–environment loop and name its five parts. | Section 2; Activity 2.1; Test Q2 |
+| LO3 | Write down a small problem as states, actions, rewards and chances (an MDP) and explain the Markov property. | Sections 4–5; Activities 4.1, 5.2; Test Q4 |
+| LO4 | Explain the Bellman equation in words and do a one-step calculation by hand. | Section 7; Activity 7.1; Test Q7–Q8 |
+| LO5 | Tell model-based from model-free learning, and trace policy evaluation, value iteration and policy iteration on a small grid. | Sections 6, 8–11; Activities 8.1, 10.1, 11.1; Test Q5–Q6, Q9–Q10 |
+| LO6 | Explain how an agent learns from experience (Monte Carlo, TD, Q-learning, SARSA, DQN, REINFORCE, actor–critic), say which are on- or off-policy, and predict the cliff-walk behaviour. | Sections 12–17; Activities 12.1, 13.3, 14.1, 15.1, 17.1; Test Q11–Q19, Q21 |
+| LO7 | Design a reward for a real application, predict one behaviour you did not intend, and name an ethical consequence. | Section 18; Activities 18.1, 18.2; Case studies; Test Q20 |
+
+**How the parts fit together.** Every outcome has a worked example (watch it done), an activity with a checked answer (do it yourself) and a quick check question. The end-of-module test covers all seven outcomes.
 
 ## How to study this module
 
-> **Important: read the explanation before the equation**
->
-> Do not look at an equation first. Read the plain-English explanation that follows it, then come back to the symbols. Every symbol is defined in the notation box on the next page.
-
-| Week | Sections | Focus                                           | Do this                                             |
-|------|----------|-------------------------------------------------|-----------------------------------------------------|
-| 1    | 1–3      | What RL is; the loop; exploration               | Do Activities 1.1–3.1; explain the loop to a friend |
-| 2    | 4–6      | MDPs; policy and value; models                  | Write an MDP for a board game you know              |
-| 3    | 7–9      | Bellman; policy evaluation and improvement      | Redo the 2×2 tables by hand without looking         |
-| 4    | 10–12    | Value and policy iteration; on/off-policy       | Do the corridor exercise; classify four algorithms  |
-| 5    | 13–17    | Q-learning, SARSA, DQN, REINFORCE, actor–critic | Trace one update of each by hand                    |
-| 6    | 18–22    | Applications, case studies, test                | Take the test closed-book, then mark it             |
+| Week | Sections | Focus | Do this |
+|---|---|---|---|
+| 1 | 1–3 | What RL is; the loop; exploring | Activities 1.1–3.1; explain the loop to a friend in two minutes |
+| 2 | 4–6 | Describing problems; values; maps | Write the states, actions and rewards for a game you know |
+| 3 | 7–9 | Bellman; measuring and improving a plan | Redo the 2×2 grid tables by hand without looking |
+| 4 | 10–12 | Value and policy iteration; on/off-policy | Do the corridor activities; classify four algorithms |
+| 5 | 13–17 | Learning from experience | Trace one update of each algorithm by hand |
+| 6 | 18–22 | Real uses, case studies, test | Take the test closed-book, then mark it |
 
 > **Learning suggestions**
 >
-> \(1\) Keep one 2×2 grid sketch on paper and re-use it for every section. (2) Always compute before you read the answer. (3) Teach each section to someone in two minutes: if you cannot, re-read it. (4) Reproduce the algorithm table in Section 13.2 from memory. (5) After Section 15, run a small Q-learning example in Gymnasium (see the learning material list) and watch the values change. (6) Keep a running list of every symbol you forget; the list is your personal glossary.
+> - Draw the 2×2 grid on paper once and keep it beside you for every section.
+> - Always try the calculation **before** you read the answer.
+> - Read the words first, then the formula. If a formula scares you, read the **Formula in words** line again.
+> - After each section, try to say **Remember** from memory. If you cannot, re-read the big idea.
+> - Skip every **Going deeper (optional)** box on your first read. Come back to them later if you want more.
+> - After Section 15, try the free CliffWalking or FrozenLake environment in Gymnasium (see Section 23) and watch the values change.
 
-# Reading the Notation — Read This First
+### Core path and optional boxes
 
-Every symbol is defined here once. You do not need to memorise this box; flip back whenever you need it.
+Everything outside a **Going deeper (optional)** box is the core course: it is complete, checked and enough for the test. The optional boxes show the full mathematical form for readers who want it. The test never requires them.
 
-| Symbol                                        | Meaning                                                                                                                    |
-|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| S<sub>t</sub>, A<sub>t</sub>, R<sub>t+1</sub> | The state, action and reward at time step t. Subscript t means “at this step”; t+1 means “the next step”.                  |
-| Σ (sigma)                                     | Sum over all values. Σ<sub>a</sub> sums over all actions; Σ<sub>s′</sub> over all next states.                             |
-| π(a \| s)                                     | Probability of choosing action a in state s. The bar “\|” means “given”.                                                   |
-| P(s′ \| s, a)                                 | Probability of landing in state s′ after taking action a in state s.                                                       |
-| R(s, a, s′)                                   | The reward for moving from s to s′ by action a.                                                                            |
-| G<sub>t</sub> (return)                        | Total discounted reward from step t onward: G<sub>t</sub> = R<sub>t+1</sub> + γR<sub>t+2</sub> + γ²R<sub>t+3</sub> + …     |
-| E\[·\]                                        | Expected value: the long-run average if the process were repeated many times.                                              |
-| max<sub>a</sub>                               | The largest value over all choices of a.                                                                                   |
-| argmax<sub>a</sub>                            | The action a that makes the expression largest (the action, not its value). If Q(Left)=2 and Q(Right)=5, argmax Q = Right. |
-| ←                                             | “Update to”: x ← x + 1 means increase x by 1.                                                                              |
-| ∇ (nabla)                                     | Gradient: the direction in which a quantity increases fastest.                                                             |
-| γ (gamma)                                     | Discount factor: how much future rewards count compared with immediate ones.                                               |
-| α (alpha)                                     | Learning rate: how far each update moves the estimate.                                                                     |
-| δ (delta)                                     | TD error: the “surprise” (target minus current estimate).                                                                  |
-| θ (theta)                                     | Policy parameters: the adjustable numbers that define the policy.                                                          |
-| w                                             | Critic parameters: the adjustable numbers that define the value function in actor–critic methods.                          |
+---
 
-# 1. Definition
+# Our Two Running Examples
 
-## 1.1 What Behavioural AI means here
-
-Behavioural AI in this module means AI that learns **what to do** by interacting with an environment and receiving reward feedback. It is not given the correct answer for each situation, and it is not asked to find hidden structure in unlabelled data. It is told, after the fact, how good the outcome was — and it adjusts its behaviour to get more reward.
-
-The name comes from **behaviourism**, the psychology tradition of Pavlov, Thorndike and Skinner. Its core claim is that behaviour is shaped by its consequences: actions followed by reward become more frequent; actions followed by punishment become less frequent. **Reinforcement learning (RL)** is the computational version of that idea.
-
-![alt](./Assets/IMG-20261105-WA0006.jpg)
-
-*Figure 1 — Three families of machine learning. This module is about the third.*
-
-> **Three families of machine learning — one line each**
+> **The big idea**
 >
-> **Supervised** learning is given labelled examples. **Unsupervised** learning is given unlabelled data and looks for structure. **Reinforcement** learning is given neither labels nor structure — only a reward signal after acting.
+> We use one friendly story (Minecraft) to build intuition, and one tiny puzzle (the 2×2 grid) for every calculation. Keep both in mind.
 
-## 1.2 Key terms
+## Example 1: an AI learning to speedrun Minecraft
 
-| Term           | Definition                                                                                 |
-|----------------|--------------------------------------------------------------------------------------------|
-| Agent          | The learner or decision-maker (a robot, a program, a game character).                      |
-| Environment    | Everything outside the agent that it interacts with.                                       |
-| State (s)      | A description of the current situation, sufficient to decide what to do next.              |
-| Action (a)     | A choice the agent can make.                                                               |
-| Reward (r)     | A number the environment gives after an action; higher is better.                          |
-| Policy (π)     | The agent’s rule for choosing actions in each state.                                       |
-| Value function | A prediction of how much total future reward to expect (formal definition in Section 5.4). |
-| Episode        | A run of interaction from a start state to a terminal state (e.g. one game).               |
+Imagine an AI player dropped into a new Minecraft world. It can move, jump, mine and craft. Nobody tells it how to beat the game. It only gets points (rewards) when it reaches milestones: for example +1 for collecting wood, +1 for a stone pickaxe, +1 for iron, and +10 for defeating the Ender Dragon.
 
-> **Check Q1.1. A chess program is given millions of positions with the “correct” move. Is that behavioural AI?**
+- At first it wanders randomly and earns almost nothing.
+- Slowly it notices that some actions lead to points sooner, and does them more often.
+- After many runs it has learned a plan that reaches the dragon quickly.
+
+That is reinforcement learning. Minecraft is also the theme of our team's video tutorial, so you will see the same ideas there.
+
+## Example 2: the 2×2 grid world
+
+Minecraft is far too big to calculate by hand, so for every worked example we shrink the world to four squares.
+
+![The 2×2 grid world. The agent starts at (0,0); the goal (1,1) is the top-right square.](figures/grid-world-2x2.png)
+
+*Figure 1. The 2×2 grid world. Squares are named (x, y): x counts across, y counts up.*
+
+| Part | In the grid world |
+|---|---|
+| Squares (states) | (0,0) start, (1,0), (0,1), (1,1) goal |
+| Moves (actions) | **Right** (x + 1) or **Up** (y + 1). Walking into the edge leaves you where you are. |
+| Points (reward) | +1 for stepping onto the goal (1,1); 0 for every other move |
+| End | The game ends as soon as you reach the goal |
+| Discount γ | 0.9 (Section 5.3 explains this) |
+
+**Two Minecraft ↔ grid matches to remember:** reaching the goal square is like beating the dragon; a move into the wall is like walking into a block: you stay put and waste time.
+
+---
+
+# The Eight Symbols You Need
+
+You do not need to memorise this. Come back whenever a symbol appears.
+
+| Symbol | Say it as | Meaning in plain words |
+|---|---|---|
+| s, s′ | "s", "s-prime" | The current situation (state) and the next one |
+| a | "a" | An action (a move) |
+| r | "r" | The reward (points) just received |
+| γ | "gamma" | The **discount**: how much a reward one step in the future is worth now (e.g. 0.9 = 90%) |
+| α | "alpha" | The **learning rate**: how big a step each update takes (e.g. 0.5 = halfway) |
+| V(s) | "V of s" | The **value** of a state: how many points you expect to collect from here on |
+| Q(s, a) | "Q of s, a" | The value of taking action a in state s, then carrying on |
+| ← | "becomes" | Update: x ← x + 1 means "x becomes x + 1" |
+
+> **Going deeper (optional): the other symbols**
 >
-> **Answer.** No — that is supervised learning. A behavioural-AI chess program would play games and receive only win/loss/draw as feedback, then work out which moves contributed to the outcome.
+> These appear only in optional boxes. **G<sub>t</sub>**: the return from step t. **π(a | s)**: the chance the plan picks action a in state s ("|" means "given"). **P(s′ | s, a)**: the chance of landing in s′ after doing a in s. **Σ**: "add up over all". **max<sub>a</sub>**: "the biggest over all actions". **E[·]**: the average in the long run. **δ** (delta): the surprise, target minus estimate. **θ** (theta): the adjustable numbers inside a plan. **∇** (nabla): the direction that increases a quantity fastest.
 
-> **Activity 1.1 — Identify the components**
+---
+
+# 1. What Behavioural AI Is
+
+> **The big idea**
 >
-> A robot vacuum learns to clean a room. It can move forward, turn left, turn right or stop. It receives +1 when it covers a dirty patch, −5 when it bumps into furniture and 0 otherwise. Identify the agent, environment, actions, rewards and one possible state.
+> Behavioural AI learns what to do from rewards, by trial and error, without being shown the right answer.
+
+## 1.1 Learning from consequences
+
+Most AI you hear about learns from examples with answers attached: "this photo is a cat". Behavioural AI is different. It is never told the right move. It acts, gets a reward afterwards, and changes its behaviour to get more reward next time.
+
+The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner): behaviour that is followed by a reward happens more often; behaviour followed by punishment happens less. A dog that gets a treat for sitting learns to sit. **Reinforcement learning** is the computer version of that idea.
+
+![Three families of machine learning: supervised, unsupervised and reinforcement learning.](figures/three-families-of-ml.png)
+
+*Figure 2. The three families of machine learning. This module is about the third.*
+
+| Family | What it is given | Everyday example |
+|---|---|---|
+| Supervised learning | Examples **with** the right answer | A spam filter trained on emails marked "spam" or "not spam" |
+| Unsupervised learning | Examples **without** answers; it finds groups | Grouping shoppers by what they buy |
+| Reinforcement learning | **No** answers, only a reward after acting | A Minecraft AI that gets points for milestones |
+
+## 1.2 Key words
+
+| Word | Meaning | In Minecraft |
+|---|---|---|
+| **Agent** | The learner that makes decisions | The AI player |
+| **Environment** | Everything outside the agent | The Minecraft world |
+| **State (s)** | A description of the situation right now | What is on screen, health, inventory |
+| **Action (a)** | A choice the agent can make | Move, jump, mine, craft |
+| **Reward (r)** | Points given after an action; higher is better | +1 for a pickaxe |
+| **Policy (π)** | The agent's plan: which action to take in each state | "If I see a tree and have no wood, mine it" |
+| **Value** | How many points the agent expects from here on | "From here I can probably reach iron soon" |
+| **Episode** | One complete run from start to finish | One attempt at the speedrun |
+
+> **Check Q1.1. A chess program is trained on millions of positions, each with the "correct" move. Is that behavioural AI?**
+>
+> **Answer.** No, that is supervised learning (it is given the right answers). A behavioural-AI chess program would play games and only be told win, lose or draw, then work out which moves helped.
+
+> **Activity 1.1 — Name the parts**
+>
+> A robot vacuum learns to clean a room. It can go forward, turn left, turn right or stop. It gets +1 when it cleans a dirty patch, −5 when it bumps furniture and 0 otherwise. Name the agent, environment, actions, rewards and one possible state.
 
 > **Answer**
 >
-> Agent = the vacuum’s control program. Environment = the room, furniture, dirt. Actions = forward, left, right, stop. Rewards = +1, −5, 0. One possible state = “current position, heading and dirt-sensor reading”.
+> Agent = the vacuum's control program. Environment = the room, furniture and dirt. Actions = forward, left, right, stop. Rewards = +1, −5, 0. One possible state = "where I am, which way I face, and what my dirt sensor reads".
 
-# 2. Basic Process and Example
+> **Remember**
+>
+> RL = learn from rewards by trial and error. No right answers are given.
+
+---
+
+# 2. The Learning Loop and the Grid World
+
+> **The big idea**
+>
+> Every RL system repeats one loop: look, act, the world changes, get a reward, learn. Then do it again.
 
 ## 2.1 The agent–environment loop
 
-Every RL system follows the same five-step cycle. Read the subscripts using the notation box.
+![The agent–environment loop: the agent sends an action; the environment returns a new state and a reward.](figures/agent-environment-loop.png)
 
-![alt](./Assets/IMG-20261105-WA0014.jpg)
+*Figure 3. The agent–environment loop.*
 
-*Figure 2 — The agent–environment loop.*
+1. **Look** — the agent sees the current state s.
+2. **Act** — it picks an action a using its current policy.
+3. **Change** — the world moves to a new state s′.
+4. **Reward** — the world gives a reward r.
+5. **Learn** — the agent updates what it knows, then the loop repeats from the new state.
 
-1.  **Observe** — the agent receives the current state S<sub>t</sub>.
-2.  **Act** — it selects an action A<sub>t</sub> according to its current policy.
-3.  **Transition** — the environment moves to a new state S<sub>t+1</sub>.
-4.  **Reward** — the environment emits a reward R<sub>t+1</sub>.
-5.  **Learn** — the agent updates its policy or value estimates from the experience.
+In Minecraft: see a tree → punch it → a wood block drops → +1 → "punching trees is good" → look again.
 
-## 2.2 Worked example: the 2×2 grid world
+> **Going deeper (optional): time-step notation**
+>
+> Textbooks number the steps. S<sub>t</sub> is the state at step t, A<sub>t</sub> the action, and R<sub>t+1</sub> and S<sub>t+1</sub> the reward and state that follow. One step of experience is written (S<sub>t</sub>, A<sub>t</sub>, R<sub>t+1</sub>, S<sub>t+1</sub>), or simply (s, a, r, s′).
 
-We use this tiny environment throughout the module so every later concept can be checked against the same picture.
-
-![alt](./Assets/IMG-20261105-WA0010.jpg)
-
-*Figure 3 — The 2×2 grid world. The goal (1,1) is terminal.*
-
-| Component      | Definition in this world                                                 |
-|----------------|--------------------------------------------------------------------------|
-| States         | Four cells: (0,0), (1,0), (0,1), (1,1).                                  |
-| Actions        | Right (x+1) and Up (y+1). A move off the grid leaves the agent in place. |
-| Rewards        | +1 on entering (1,1); 0 otherwise.                                       |
-| Terminal state | (1,1): the episode ends on arrival.                                      |
-| Discount       | γ = 0.9.                                                                 |
+## 2.2 Worked example: one game in the grid world
 
 > **Worked example — one episode**
 >
-> Start (0,0). Action Right → state (1,0), reward 0. Action Up → state (1,1), reward +1. Episode ends. The transition tuple (S<sub>t</sub>, A<sub>t</sub>, R<sub>t+1</sub>, S<sub>t+1</sub>) for each step: Step 1: ((0,0), Right, 0, (1,0)). Step 2: ((1,0), Up, +1, (1,1)).
+> Start at (0,0). Move **Right** → now at (1,0), reward 0. Move **Up** → now at (1,1), the goal, reward +1. The game ends.
+>
+> Written as steps of experience (s, a, r, s′): Step 1: ((0,0), Right, 0, (1,0)). Step 2: ((1,0), Up, +1, (1,1)).
 
 > **Check Q2.1. The agent is at (1,0) and chooses Up. What is the next state and reward?**
 >
-> **Answer.** Next state (1,1); reward +1; the episode ends.
+> **Answer.** Next state (1,1); reward +1; the game ends.
 
-> **Activity 2.1 — Trace an episode**
+> **Activity 2.1 — Trace a game**
 >
-> Starting at (0,0), the agent follows Right, Right, Up. (a) List the state after each action. (b) List the reward after each action. (c) What is the total undiscounted reward?
+> Starting at (0,0), the agent does Right, Right, Up. (a) Write the square after each move. (b) Write the reward after each move. (c) What is the total reward?
 
 > **Answer**
 >
-> \(a\) Start (0,0) → Right → (1,0) → Right → (1,0) (blocked, stays) → Up → (1,1). (b) Rewards 0, 0, +1. (c) Total = 1. The second Right was wasted — exactly why learning is needed.
+> (a) (0,0) → Right → (1,0) → Right → (1,0) (hit the edge, stayed) → Up → (1,1). (b) 0, 0, +1. (c) Total = 1. The second Right was wasted: exactly the kind of mistake learning should remove.
 
-# 3. Reinforcement Learning
-
-## 3.1 What makes RL different
-
-1.  **Trial and error.** The agent is not told the correct action; it must try actions and observe consequences.
-2.  **Delayed reward.** The reward for a good action may arrive many steps later. The agent must solve the **credit assignment problem**: which earlier actions deserve credit for the final outcome?
-3.  **The environment responds to the agent.** The agent’s choices change future states, so the data it collects depends on its own behaviour.
-
-> **Common misconception**
+> **Remember**
 >
-> “RL is supervised learning with rewards as labels.” No. A supervised label tells you the correct output for this input. A reward tells you how good the outcome was, not which action was correct. If a chess agent wins, every move gets some credit, even the bad ones.
+> Look → act → change → reward → learn, again and again.
+
+---
+
+# 3. What Makes Reinforcement Learning Different
+
+> **The big idea**
+>
+> RL is hard for three reasons: nobody gives the right answer, rewards often come late, and the agent must choose between using what it knows and trying something new.
+
+## 3.1 Three special features
+
+1. **Trial and error.** The agent is never told the correct action; it must try things and see what happens.
+2. **Delayed reward.** The reward for a good move may come much later. In Minecraft, crafting a pickaxe early is what makes beating the dragon possible an hour later. Working out which earlier actions deserve the credit is called the **credit assignment problem**.
+3. **The agent's actions change what it sees next.** If it never goes into a cave, it never learns what is inside.
+
+> **Common mistake**
+>
+> "RL is just supervised learning with rewards as labels." No. A label says *what the right answer was*. A reward only says *how good the result was*. If a chess agent wins, every move gets some credit, even the bad ones.
 
 ## 3.2 Exploration vs exploitation
 
-**Exploitation** means choosing the action currently believed to be best (the highest estimated value). **Exploration** means trying other actions, because one might be better. The standard compromise is **ε-greedy**: with probability ε (e.g. 0.1) choose a random action; otherwise choose the best-known action. ε is often reduced over time so the agent explores early and exploits later.
+- **Exploitation:** do what currently looks best.
+- **Exploration:** try something else, because it might be better.
 
-> **Worked example — a two-slot-machine agent**
->
-> Machine A paid out 1 on the first pull, so its estimate is 1. Machine B has never been tried (estimate 0). A purely greedy agent pulls A forever. Suppose B actually pays 5 on average. The greedy agent never finds out. With ε = 0.1, about one pull in ten is random, so B is tried, its estimate rises, and the agent switches.
+A player who only ever mines in the first cave they found (exploiting) may never discover the diamond cave next door (exploring). The usual compromise is called **ε-greedy** (say "epsilon-greedy"): most of the time do the best-known action, but with a small chance ε (for example 0.1, so 1 time in 10) do a random action instead. ε is often lowered over time: explore a lot early, then mostly exploit.
 
-> **Check Q3.1. Why is pure exploitation dangerous?**
+> **Worked example — two slot machines**
 >
-> **Answer.** The agent may never discover a better action. If it always takes the first action that looked good, it can get stuck in a mediocre policy forever.
+> Machine A paid 1 on its first pull, so the agent's estimate for A is 1. Machine B has never been tried, so its estimate is 0. A purely greedy agent pulls A forever. Suppose B really pays 5 on average: the greedy agent never finds out. With ε = 0.1, about one pull in ten is random, so B gets tried, its estimate rises, and the agent switches to B.
 
-> **Activity 3.1 — Predict the outcome prediction**
+> **Check Q3.1. Why is "always exploit" dangerous?**
 >
-> A learner sets ε = 0 from the very start. Predict what happens to learning, then propose one fix.
+> **Answer.** The agent may never discover a better action and can get stuck with a mediocre plan for ever.
+
+> **Activity 3.1 — Predict what happens**
+>
+> A learner sets ε = 0 from the very start. Predict what happens to learning, then suggest one fix.
 
 > **Answer**
 >
-> With ε = 0 the agent never explores. If all value estimates start equal (e.g. zero) it picks one arbitrary action forever; if that action happens to be poor it never finds the good one, so the learned policy depends on tie-breaking and the first reward. Fix: keep ε \> 0 for a period, or use optimistic initialisation (start estimates high so unexplored actions look attractive).
+> With ε = 0 the agent never explores. If all estimates start equal (for example 0) it keeps picking the same arbitrary action; if that action is poor it never finds the good one. Fix: keep ε above 0 for a while, or start all estimates high ("optimistic") so untried actions look attractive and get tried.
 
-# 4. Markov Decision Process: States, Actions, Rewards
+> **Remember**
+>
+> No right answers, late rewards, and a balance between exploring and exploiting.
 
-## 4.1 Why a formal framework?
+---
 
-The grid world is easy to describe in words, but to compute values and policies we need a precise mathematical object. The **Markov Decision Process (MDP)** is that object. Every algorithm in this module operates on an MDP (or learns without knowing it).
+# 4. Describing a Problem: States, Actions, Rewards
 
-## 4.2 The components
+> **The big idea**
+>
+> Before a computer can learn, we must describe the problem precisely: the situations, the moves, the points and the chances. That description is called a Markov Decision Process (MDP).
 
-| Symbol        | Meaning                                   |
-|---------------|-------------------------------------------|
-| S             | The set of all states.                    |
-| A             | The set of all actions.                   |
-| P(s′ \| s, a) | Transition probabilities (Section 5.1).   |
-| R(s, a, s′)   | The reward for moving from s to s′ via a. |
-| γ             | Discount factor (Section 5.3).            |
+## 4.1 Why we need a precise description
 
-An MDP is therefore the tuple (S, A, P, R, γ). In the 2×2 grid: S = {(0,0), (1,0), (0,1), (1,1)}; A = {Right, Up}; R = +1 for any transition into (1,1) and 0 otherwise; P is deterministic (every move succeeds, or is blocked at the edge).
+"Get to the goal" is clear to a person but not to a computer. To calculate anything, we list exactly what the situations are, what moves exist and what each move earns. Every method in this module works on such a list.
+
+## 4.2 The five parts of an MDP
+
+| Part | Question it answers | 2×2 grid |
+|---|---|---|
+| **States** | What situations can happen? | (0,0), (1,0), (0,1), (1,1) |
+| **Actions** | What can the agent do? | Right, Up |
+| **Transitions** | Where does each move lead (and with what chance)? | Every move works for certain, or is blocked by the edge |
+| **Rewards** | How many points does each move earn? | +1 for entering (1,1), otherwise 0 |
+| **Discount γ** | How much is a later reward worth now? | 0.9 |
+
+> **Going deeper (optional): the formal tuple**
+>
+> An MDP is written (S, A, P, R, γ): the set of states S, the set of actions A, the transition probabilities P(s′ | s, a), the reward R(s, a, s′) and the discount γ.
 
 ## 4.3 The Markov property
 
-The **Markov property** says: the current state contains all the information needed to predict the future. The past adds nothing beyond the present state.
+The **Markov property** means: *the current state tells you everything you need to decide what happens next; the history adds nothing extra.*
+
+In the grid, knowing your square is enough. In chess, the board position is enough. But in a card game, the cards in your hand are **not** enough, because you also need to know which cards have already been played.
 
 > **Why this matters**
 >
-> Choosing the state representation is a design decision. In the grid, the coordinate is a perfect state. For a robot with only a forward camera, one image may not satisfy the Markov property because the robot cannot see behind it. If the state is insufficient, learning becomes much harder.
+> Choosing what goes into the state is a design decision. If the state leaves out something important, the agent cannot tell apart two situations that need different actions, and learning becomes much harder.
 
-> **Check Q4.1. In a card game, is “the cards in my hand” a sufficient state?**
+> **Check Q4.1. In a card game, is "the cards in my hand" a good enough state?**
 >
-> **Answer.** Not by itself — you also need to know which cards have been played, because that affects what can still be drawn. A sufficient state includes that history or a summary of it.
+> **Answer.** No. You also need which cards have been played, because that changes what can still be drawn.
 
-> **Activity 4.1 — Write down an MDP**
+> **Activity 4.1 — Describe a corridor**
 >
-> A 1×3 corridor has cells 1, 2, 3. Cell 3 is the goal (+1, terminal). Actions: Left, Right. Moving into a wall leaves you in place (reward 0). (a) State set. (b) Action set. (c) Two transition probabilities: one successful move, one blocked move. (d) Reward for moving from cell 2 to cell 3 via Right.
+> A 1×3 corridor has cells 1, 2, 3. Cell 3 is the goal (+1 for entering, game ends). Actions: Left, Right. Walking into a wall leaves you in place (reward 0). Write (a) the states, (b) the actions, (c) where Right from cell 1 leads and where Left from cell 1 leads, (d) the reward for Right from cell 2.
 
 > **Answer**
 >
-> \(a\) S = {1, 2, 3}. (b) A = {Left, Right}. (c) P(2 \| 1, Right) = 1 (successful); P(1 \| 1, Left) = 1 (blocked, stays). (d) R(2, Right, 3) = +1.
+> (a) {1, 2, 3}. (b) {Left, Right}. (c) Right from 1 → cell 2 (for certain); Left from 1 → stays in 1 (blocked). (d) +1, because it enters the goal.
 
-# 5. Markov Decision Process: Probabilities, Policy, Value Function
+> **Remember**
+>
+> An MDP = states + actions + transitions + rewards + discount. "Markov" = the present state is enough.
 
-## 5.1 Transition probabilities
+---
 
-Real environments are rarely deterministic. A robot’s wheels may slip; a user may click or not. Uncertainty is captured by transition probabilities P(s′ \| s, a): the probability of landing in s′ after action a in state s.
+# 5. Chance, Plans and Values
+
+> **The big idea**
+>
+> Moves can be uncertain, a plan (policy) says what to do in each state, and a value says how many points a state is worth if you follow the plan.
+
+## 5.1 When moves are uncertain
+
+Real worlds are not perfectly predictable: a robot's wheels slip, Minecraft gravel falls. We describe this with chances.
 
 > **Worked example — a slippery grid**
 >
-> Modify the grid so Right succeeds with probability 0.8, and with probability 0.2 the agent slips and stays in place. Then P((1,0) \| (0,0), Right) = 0.8 and P((0,0) \| (0,0), Right) = 0.2. The probabilities for one (state, action) pair always sum to 1.
+> Suppose Right works 8 times out of 10, and 2 times out of 10 the agent slips and stays put. Then from (0,0), Right leads to (1,0) with chance 0.8 and stays at (0,0) with chance 0.2. The chances for one move always add up to 1 (0.8 + 0.2 = 1).
 
-## 5.2 Policy
+## 5.2 Policy: the agent's plan
 
-A policy π(a \| s) is a probability distribution over actions given a state. A **deterministic** policy always picks the same action in a state; a **stochastic** policy assigns probabilities. An **optimal policy** π\* maximises expected return from every state.
+A **policy** is the agent's plan: for every state, which action to take. "In (0,0) go Right; in (1,0) go Up" is a policy. A plan can also be random, for example "go Right 70% of the time". The **optimal policy** is the plan that collects the most reward.
 
-## 5.3 Discount factor γ
+## 5.3 The discount γ: why later points are worth less
 
-The discount factor γ ∈ \[0, 1) makes future rewards worth less than immediate ones, for three reasons: **uncertainty** (a far-off reward is less certain), **mathematical convenience** (with γ \< 1 the infinite sum of rewards is finite) and **preference for sooner** (reaching the goal sooner is often genuinely better). With γ = 0.9, +1 received two steps in the future is worth 0.9² = 0.81 now.
+Points you get later count for a little less than points you get now. With γ = 0.9, a reward one step away is worth 90% of its size, two steps away 0.9 × 0.9 = 0.81 (81%), and so on. There are three reasons:
 
-## 5.4 Return and value functions
+1. **Uncertainty:** something far in the future might not happen.
+2. **Sooner is better:** reaching the goal in fewer moves is usually what we want.
+3. **Maths:** in a game that never ends, the total stays a finite number.
 
-The **return** G<sub>t</sub> is the total discounted reward from time t onward:
+> **Worked example — the Minecraft milestone**
+>
+> The AI earns 0, 0, 0 and then +10 for beating the dragon on the fourth step. With γ = 0.9 that +10, three steps after the first reward, is worth 0.9 × 0.9 × 0.9 × 10 = 0.729 × 10 = **7.29** now. With γ = 0.5 it would be worth only 0.125 × 10 = **1.25**: a smaller γ makes the agent care much less about far-away rewards.
 
-> G<sub>t</sub> = R<sub>t+1</sub> + γR<sub>t+2</sub> + γ²R<sub>t+3</sub> + …
+## 5.4 The return and the value
 
-A **value function** is the expected return. Because the future is uncertain, we take an average:
+The **return** is the total of all the rewards from now on, each one discounted by how far away it is:
 
-> State value: V<sub>π</sub>(s) = E<sub>π</sub>\[ G<sub>t</sub> \| S<sub>t</sub> = s \]
+**Formula in words:** return = this reward + 0.9 × next reward + 0.81 × the one after + …
 
-> Action value: Q<sub>π</sub>(s, a) = E<sub>π</sub>\[ G<sub>t</sub> \| S<sub>t</sub> = s, A<sub>t</sub> = a \]
-
-**Symbols.** E<sub>π</sub> = expected value when following π; G<sub>t</sub> as defined above. **Plain English.** V(s) is the average total discounted reward the agent expects starting from s under π. Q(s, a) is the average total discounted reward from taking a in s and then following π.
+The **value** V(s) of a state is the return you expect if you start there and follow your plan. **Q(s, a)** is the same, but you first take action a and then follow the plan.
 
 > **Worked example — computing a value by hand**
 >
-> In the deterministic 2×2 grid, policy: “in (0,0) go Right; in (1,0) go Up.” Path (0,0) → (1,0) → (1,1) with rewards 0 then +1. So V<sub>π</sub>((0,0)) = 0 + 0.9 × 1 = **0.9**. Also V<sub>π</sub>((1,0)) = 1 (the next move earns +1 immediately) and V<sub>π</sub>((1,1)) = 0 (terminal: nothing more is collected).
+> Plan: "in (0,0) go Right; in (1,0) go Up". From (0,0) you get 0 (moving to (1,0)) and then +1 (moving into the goal). So V((0,0)) = 0 + 0.9 × 1 = **0.9**.
 >
-> **Teaching note:** the reward for entering the goal is counted in the value of the *previous* state, not the goal state. This is the most common beginner trap in this module.
+> From (1,0) the very next move earns +1, so V((1,0)) = **1**. The goal itself has V((1,1)) = **0**, because the game is over and nothing more can be collected.
 
-> **Check Q5.1. Under a policy that goes Right from (0,1), what is V π ((0,1))?**
+> **Common mistake**
 >
-> **Answer.** Right enters (1,1) and earns +1, so V = 1 + 0.9 × 0 = 1.
+> The +1 for reaching the goal belongs to the square **before** the goal, not to the goal. That is why V((1,0)) = 1 but V((1,1)) = 0. This is the most common beginner error in this module.
+
+> **Going deeper (optional): the formal definitions**
+>
+> Return: G<sub>t</sub> = R<sub>t+1</sub> + γR<sub>t+2</sub> + γ²R<sub>t+3</sub> + … State value: V<sub>π</sub>(s) = E<sub>π</sub>[G<sub>t</sub> | S<sub>t</sub> = s]. Action value: Q<sub>π</sub>(s, a) = E<sub>π</sub>[G<sub>t</sub> | S<sub>t</sub> = s, A<sub>t</sub> = a]. E means "average over many runs", needed when moves are uncertain.
+
+> **Check Q5.1. With a plan that goes Right from (0,1), what is V((0,1))?**
+>
+> **Answer.** Right enters the goal and earns +1, then nothing more: V = 1 + 0.9 × 0 = 1.
 
 > **Activity 5.1 — Change the discount**
 >
-> With the policy from the worked example, what is V<sub>π</sub>((0,0)) if γ = 0.5? Explain the change in one sentence.
+> Using the plan from the worked example, what is V((0,0)) if γ = 0.5? Explain the change in one sentence.
 
 > **Answer**
 >
-> V<sub>π</sub>((0,0)) = 0 + 0.5 × 1 = 0.5. The reward is one step in the future, so a smaller γ shrinks its present value more.
+> V((0,0)) = 0 + 0.5 × 1 = 0.5. The reward is one step away, so a smaller γ shrinks it more.
 
-> **Activity 5.2 — Find the error find the error**
+> **Activity 5.2 — Find the error**
 >
-> A student defines an MDP for a card game. The state is “the cards in the player’s hand.” A second student says: “This violates the Markov property.” Find the error and fix the state definition.
+> A student describes a card game with the state "the cards in the player's hand". A classmate says this breaks the Markov property. Who is right, and how should the state be fixed?
 
 > **Answer**
 >
-> The state is insufficient: the hand does not include which cards were played, the discard pile or the opponent’s visible cards. Two situations with identical hands but different histories need different optimal actions. Fix: extend the state to include played cards, the discard pile and the opponent’s visible information.
+> The classmate is right. Two situations with the same hand but different cards already played need different actions. Fix: add the cards already played, the discard pile and the opponent's visible cards to the state.
 
-# 6. Model-Based vs Model-Free
-
-## 6.1 The distinction
-
-A **model** is the agent’s estimate of how the environment behaves: “if I am in state s and take action a, I will probably end up in s′ and get reward r.” Formally, it is the pair P(s′ \| s, a) and R(s, a, s′) from Sections 4.2 and 5.1.
-
-![alt](./Assets/IMG-20261105-WA0008.jpg)
-
-*Figure 4 — Model-based versus model-free learning.*
-
-**Model-based** learning: the agent learns (or is given) this model, then uses it to plan by simulating ahead. **Model-free** learning: the agent learns values or a policy directly, without an explicit model.
-
-## 6.2 An analogy
-
-A model-based learner is like someone who builds a mental *map* of a new city: “this street connects to that one.” Once the map is good, new routes can be planned without walking them. A model-free learner learns by repetition: “when I leave home and turn left, I get to work.” No map, but the habit works — until a road closes, and then it must discover the detour by trial.
-
-> **Check Q6.1. A robot vacuum has a stored floor plan and computes a route from it. Model-based or model-free?**
+> **Remember**
 >
-> **Answer.** Model-based. The floor plan is an explicit model and the route is planned over it.
+> Policy = plan. γ makes later rewards smaller. Value = the points you expect from here if you follow the plan.
 
-> **Activity 6.1 — Compare approaches comparison**
+---
+
+# 6. Learning With or Without a Map
+
+> **The big idea**
 >
-> Robot A works in a fixed warehouse with a stored, accurate floor plan. Robot B works in a new building every week with no map. For each, decide model-based or model-free and justify in one sentence each.
+> A "model" is the agent's map of how the world works. Model-based agents plan with the map; model-free agents learn good habits directly from experience.
+
+## 6.1 What a model is
+
+A **model** answers: "if I am here and do this, where will I end up and how many points will I get?" For the grid, the model is the table in Example 2 (Our Two Running Examples).
+
+![Model-based learning plans with a map of the world; model-free learning learns values or habits directly from experience.](figures/model-based-vs-model-free.png)
+
+*Figure 4. Model-based versus model-free learning.*
+
+- **Model-based:** the agent has (or learns) the map, then plans by imagining moves ahead.
+- **Model-free:** the agent never builds a map; it learns which actions are good straight from experience.
+
+## 6.2 An everyday comparison
+
+A **model-based** person in a new city studies the map first, then plans routes without walking them. A **model-free** person just learns "leave home, turn left, arrive at work" by repetition. No map, but the habit works, until a road closes and they have to find a detour by trial and error.
+
+A Minecraft player who reads the wiki for crafting recipes is model-based; one who presses every button combination until something gets crafted is model-free.
+
+> **Check Q6.1. A robot vacuum has a stored floor plan and calculates a route from it. Model-based or model-free?**
+>
+> **Answer.** Model-based: the floor plan is the model, and the route is planned on it.
+
+> **Activity 6.1 — Choose an approach**
+>
+> Robot A works in a fixed warehouse with an accurate stored floor plan. Robot B works in a new building every week with no map. Which should be model-based and which model-free? Give one reason each.
 
 > **Answer**
 >
-> Robot A: model-based; the model is already available, so planning over it is efficient. Robot B: model-free; no model exists and learning one from scratch every week is expensive, so it learns values or a policy from experience. The deciding question is whether a reliable model exists.
+> Robot A: model-based, because an accurate map already exists, so planning on it is efficient. Robot B: model-free, because there is no map and building one every week is costly, so it learns directly from experience.
 
-# 7. Bellman Equation
+> **Remember**
+>
+> Model = map of the world. Sections 8–11 have the map; Sections 13–17 do not.
+
+---
+
+# 7. The Bellman Equation: The One Idea Behind Everything
+
+> **The big idea**
+>
+> The value of where you are = the reward for your next step + the discounted value of where you land. Every method in this module is a way of using this one sentence.
 
 ## 7.1 The idea in one sentence
 
-> **Bellman, in words**
+Think of a Minecraft run: "how good is it to be standing next to iron ore?" equals "the points I get for mining it now" plus "90% of how good my situation is after that". You do not have to think about the whole game at once, only one step plus the value of what comes next.
+
+**Formula in words:** value here = reward now + γ × value of the next state.
+
+For the grid, where every move has a certain result, that is simply:
+
+**V(s) = r + γ × V(s′)**
+
+## 7.2 The best possible value
+
+If you can choose your action, work out "reward + γ × next value" for **each** action and keep the **biggest**:
+
+**best V(s) = the largest of ( r + γ × V(s′) ) over all actions**
+
+The best possible values are written V\* (say "V-star").
+
+> **Worked example — one Bellman step**
 >
-> The value of where you are now equals the reward you get for the next step plus the discounted value of where you land. Everything else is notation.
-
-## 7.2 The expectation form (fixed policy)
-
-> V<sub>π</sub>(s) = Σ<sub>a</sub> π(a \| s) Σ<sub>s′</sub> P(s′ \| s, a) \[ R(s, a, s′) + γ V<sub>π</sub>(s′) \]
-
-Read it left to right. The value of s under π = the average over actions the policy might take (weighted by π(a \| s)) of the average over next states (weighted by P) of \[immediate reward + discounted value of the next state\]. For a terminal state, V = 0.
-
-## 7.3 The optimality form
-
-> V\*(s) = max<sub>a</sub> Σ<sub>s′</sub> P(s′ \| s, a) \[ R(s, a, s′) + γ V\*(s′) \]
-
-The only change: max<sub>a</sub> instead of averaging over actions. The agent picks the best action rather than following a fixed policy. The same idea for action values is Q\*(s, a) = Σ<sub>s′</sub> P(s′ \| s, a)\[ R + γ max<sub>a′</sub> Q\*(s′, a′) \], which Q-learning (Section 14) approximates from samples.
-
-## 7.4 Worked example
-
-> **One Bellman update**
+> In the 2×2 grid, suppose we already know V\*((1,0)) = 1 and V\*((0,1)) = 1. What is V\*((0,0))?
 >
-> In the 2×2 grid suppose V\*((1,0)) = 1 and V\*((0,1)) = 1. What is V\*((0,0))? Right gives Q = 0 + 0.9 × 1 = 0.9. Up gives Q = 0 + 0.9 × 1 = 0.9. So V\*((0,0)) = max(0.9, 0.9) = **0.9**. Both actions are optimal: optimal policies need not be unique.
-
-## 7.5 Why it is powerful
-
-The Bellman equation turns an infinite-horizon problem (“maximise reward over all future steps”) into a recursive one-step problem (“what is the best immediate action, given the value of the next state?”). Every algorithm in this module is a way of solving or approximating this recursion.
-
-> **Check Q7.1. Suppose V\*((1,0)) = 1 but V\*((0,1)) = 0. What is the optimal action from (0,0) and V\*((0,0))?**
+> - Right: reward 0, land in (1,0) → 0 + 0.9 × 1 = 0.9
+> - Up: reward 0, land in (0,1) → 0 + 0.9 × 1 = 0.9
 >
-> **Answer.** Right gives 0 + 0.9 × 1 = 0.9; Up gives 0 + 0.9 × 0 = 0. Right is optimal and V\*((0,0)) = 0.9.
+> The biggest is 0.9, so V\*((0,0)) = **0.9**. Both moves are equally good: there can be more than one best plan.
 
-> **Activity 7.1 — Break the equation find the error**
+> **Going deeper (optional): the general Bellman equations**
 >
-> A classmate writes V(s) = R(s,a,s′) + V(s′). Identify three things wrong or missing compared with the correct Bellman equation.
+> When moves are uncertain and the plan may be random, we average over both. Expectation form (fixed plan π): V<sub>π</sub>(s) = Σ<sub>a</sub> π(a | s) Σ<sub>s′</sub> P(s′ | s, a) [ R(s, a, s′) + γ V<sub>π</sub>(s′) ]. Optimality form: V\*(s) = max<sub>a</sub> Σ<sub>s′</sub> P(s′ | s, a) [ R(s, a, s′) + γ V\*(s′) ]. The action-value version, Q\*(s, a) = Σ<sub>s′</sub> P(s′ | s, a) [ R + γ max<sub>a′</sub> Q\*(s′, a′) ], is what Q-learning (Section 14) learns from experience.
+
+## 7.3 Why it is so powerful
+
+"Get the most points over the whole game" sounds impossible to calculate. Bellman turns it into a small step repeated many times: "best next move, given how good the next state is". Sections 8–17 are all different ways of repeating that small step.
+
+> **Check Q7.1. Suppose V\*((1,0)) = 1 but V\*((0,1)) = 0. What is the best action from (0,0), and V\*((0,0))?**
+>
+> **Answer.** Right: 0 + 0.9 × 1 = 0.9. Up: 0 + 0.9 × 0 = 0. Right is best and V\*((0,0)) = 0.9.
+
+> **Activity 7.1 — Find the error**
+>
+> A classmate writes the Bellman equation as "V(s) = r + V(s′)". Compared with this section, what is missing? Give three things (one is in the main text, two are in the optional box).
 
 > **Answer**
 >
-> \(1\) No average over actions (or no max<sub>a</sub>). (2) No average over next states, weighted by P(s′ \| s, a). (3) No discount factor γ on the future value.
+> (1) The discount γ in front of V(s′). (2) The choice of the best action (or, for a fixed plan, the average over the plan's actions). (3) The average over the possible next states when moves are uncertain.
 
-# 8. Dynamic Programming (1): Policy Evaluation
+> **Remember**
+>
+> Value here = reward now + γ × value next. For the best value, try every action and keep the biggest.
 
-## 8.1 What dynamic programming means here
+---
 
-**Dynamic programming (DP)** solves problems by breaking them into overlapping subproblems and reusing the solutions. In RL, DP computes value functions by iterating the Bellman equation over the whole state space until values stop changing. This requires knowing the model (P and R), so DP is model-based.
+# 8. Dynamic Programming (1): Measuring a Plan
 
-## 8.2 The question policy evaluation answers
+> **The big idea**
+>
+> If we have the map, we can work out how good a plan is by applying the Bellman sentence to every square, over and over, until the numbers stop changing.
 
-Given a fixed policy π, what is V<sub>π</sub>? It measures how good the policy is; it does not try to improve it.
+## 8.1 What "dynamic programming" means here
 
-## 8.3 The algorithm
+**Dynamic programming (DP)** means solving a big problem by solving small pieces and reusing the answers. Here the small piece is the Bellman step from Section 7. DP needs the map (the model), so it is **model-based**.
 
-Recall that ← means “update to”.
+## 8.2 The question: how good is this plan?
 
-1.  Initialise V(s) = 0 for all states.
-2.  Repeat: for each state s, update
+**Policy evaluation** answers one question: *for a fixed plan, what is the value of each square?* It measures the plan; it does not change it.
 
-> V(s) ← Σ<sub>a</sub> π(a \| s) Σ<sub>s′</sub> P(s′ \| s, a) \[ R(s, a, s′) + γ V(s′) \]
+## 8.3 The method, step by step
 
-3.  Stop when the largest change across all states is below a small threshold (e.g. 0.001).
-
-In the tables below each sweep uses the *old* values from the previous sweep for the right-hand side (a “synchronous” sweep).
+1. Start with every value at 0.
+2. Do a **sweep**: for every square, recompute value = reward + γ × value of the square the plan leads to. Use the values from the *previous* sweep on the right-hand side.
+3. Repeat sweeps until no value changes (or changes by less than a tiny amount, such as 0.001).
 
 ## 8.4 Worked example: sweeps on the 2×2 grid
 
-Policy: “always go Right if possible; otherwise Up.” γ = 0.9. Initialise V = 0.
+Plan: "go Right if you can; otherwise go Up". So (0,0) goes Right, (1,0) goes Up (Right is blocked) and (0,1) goes Right. γ = 0.9.
 
-| Sweep    | V((1,1)) | V((1,0)) | V((0,1)) | V((0,0))        |
-|----------|----------|----------|----------|-----------------|
-| 0 (init) | 0        | 0        | 0        | 0               |
-| 1        | 0        | 1        | 1        | 0               |
-| 2        | 0        | 1        | 1        | 0.9             |
-| 3        | 0        | 1        | 1        | 0.9 (converged) |
+| Sweep | V((1,1)) goal | V((1,0)) | V((0,1)) | V((0,0)) |
+|---|---|---|---|---|
+| 0 (start) | 0 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 | 0 |
+| 2 | 0 | 1 | 1 | 0.9 |
+| 3 | 0 | 1 | 1 | 0.9 (no change: finished) |
 
-> **How the sweeps were computed**
+> **Worked example — how each number was found**
 >
-> **Sweep 1.** V((1,0)): the policy takes Up, entering (1,1) with reward +1, so V = 1 + 0.9 × 0 = 1. V((0,1)): the policy takes Right, same result, 1. V((0,0)): the policy takes Right to (1,0) with reward 0, so V = 0 + 0.9 × V<sub>old</sub>((1,0)) = 0.9 × 0 = 0. **Sweep 2.** Only V((0,0)) changes: 0 + 0.9 × 1 = 0.9. Further sweeps change nothing. Note how value travels *backwards* from the goal, one step per sweep.
-
-> **Check Q8.1. Why does V((1,0)) become 1 in sweep 1, not 0?**
+> **Sweep 1.** (1,0): the plan goes Up into the goal, reward +1, so V = 1 + 0.9 × 0 = **1**. (0,1): the plan goes Right into the goal, so V = **1**. (0,0): the plan goes Right to (1,0), reward 0, and the *old* value of (1,0) is still 0, so V = 0 + 0.9 × 0 = **0**.
 >
-> **Answer.** The reward for entering the goal is earned on the transition from (1,0) to (1,1). The value of (1,0) includes that +1 immediately; the terminal state (1,1) has value 0.
+> **Sweep 2.** Only (0,0) changes: 0 + 0.9 × 1 = **0.9**, now using the sweep-1 value of (1,0).
+>
+> **Sweep 3.** Nothing changes, so we stop.
+
+![Value spreads backwards from the goal, one square per sweep.](figures/value-spreads-backwards.png)
+
+*Figure 5. Value travels backwards from the goal, one step per sweep. Squares next to the goal fill in first.*
+
+> **Check Q8.1. Why does V((1,0)) become 1 in sweep 1, and not 0?**
+>
+> **Answer.** The +1 is earned on the move from (1,0) into the goal, so it counts in the value of (1,0). The goal itself is worth 0.
 
 > **Activity 8.1 — One more sweep**
 >
-> Starting from the converged values above, suppose γ changes to 0.5. Perform one sweep. What are the new values?
+> Start from the finished values above, but change γ to 0.5. Do one sweep. What are the new values?
 
 > **Answer**
 >
-> V((1,1)) = 0; V((1,0)) = 1; V((0,1)) = 1; V((0,0)) = 0 + 0.5 × 1 = 0.5. The goal-adjacent states keep value 1; the start state’s value shrinks because its reward is delayed and discounted more.
+> V((1,1)) = 0; V((1,0)) = 1; V((0,1)) = 1; V((0,0)) = 0 + 0.5 × 1 = 0.5. The squares next to the goal keep 1; the start square drops because its reward is one step away and is discounted more.
 
-> **Activity 8.2 — Find the error find the error**
+> **Activity 8.2 — Find the error**
 >
-> A student reports sweep-2 values for the 2×2 grid with γ = 0.9, given V<sub>old</sub>((1,0)) = 1: V((1,0)) = 0, V((0,1)) = 1, V((0,0)) = 0.5. Find the error and give the corrected values.
+> A student reports these sweep-2 values with γ = 0.9 (and V((1,0)) = 1 from sweep 1): V((1,0)) = 0, V((0,1)) = 1, V((0,0)) = 0.5. Find the errors and correct them.
 
 > **Answer**
 >
-> V((1,0)) = 0 is wrong: the policy takes Up into the goal, so V((1,0)) = 1 + 0.9 × 0 = 1. With that, V((0,0)) = 0 + 0.9 × 1 = 0.9, not 0.5. Corrected: V((1,1)) = 0, V((1,0)) = 1, V((0,1)) = 1, V((0,0)) = 0.9.
+> V((1,0)) = 0 is wrong: the plan goes Up into the goal, so V((1,0)) = 1 + 0.9 × 0 = 1. Then V((0,0)) = 0 + 0.9 × 1 = 0.9, not 0.5. Correct values: 0, 1, 1, 0.9.
 
-# 9. Dynamic Programming (2): Policy Improvement
+> **Going deeper (optional): the update as a formula**
+>
+> V(s) ← Σ<sub>a</sub> π(a | s) Σ<sub>s′</sub> P(s′ | s, a) [ R(s, a, s′) + γ V(s′) ], applied to every state in each sweep. Using the previous sweep's values on the right is called a synchronous sweep.
+
+> **Remember**
+>
+> Policy evaluation = sweep the Bellman sentence over every square until the values settle. Value flows backwards from the goal.
+
+---
+
+# 9. Dynamic Programming (2): Improving a Plan
+
+> **The big idea**
+>
+> Once you know the values, look at each square and ask: "is there a move that does better than my plan's move?" If yes, switch to it.
 
 ## 9.1 The idea
 
-Once V<sub>π</sub> is known, ask at each state: if I take action a now and then follow π, is that better or worse than what π would do? If some action looks better, switch to it.
+At each square, try every action once, using the values you already have: score = reward + γ × value of where you land. Pick the action with the highest score. This is called being **greedy** with respect to the values.
 
-## 9.2 The update rule
+## 9.2 Why it always helps
 
-> π′(s) = argmax<sub>a</sub> Σ<sub>s′</sub> P(s′ \| s, a) \[ R(s, a, s′) + γ V<sub>π</sub>(s′) \]
+The **policy improvement theorem** promises that the new plan is never worse than the old one, in any square. If nothing changes, the plan was already the best possible. This is why "measure, then improve" works.
 
-**Plain English.** In each state choose the action that maximises one-step reward plus the discounted value of the next state. argmax returns the *action*, not the value.
-
-## 9.3 The policy improvement theorem
-
-The theorem guarantees that the new policy π′ is at least as good as π from every state. It cannot be worse. If it is exactly as good, π was already optimal. This is the mathematical justification for the whole evaluate–improve cycle.
-
-> **Worked example**
+> **Worked example — improving the Section 8.4 plan**
 >
-> Using the converged values from Section 8.4: V((0,0)) = 0.9, V((1,0)) = 1, V((0,1)) = 1, V((1,1)) = 0, γ = 0.9.
+> Values: V((0,0)) = 0.9, V((1,0)) = 1, V((0,1)) = 1, goal = 0. γ = 0.9.
 >
-> At (0,0): Q(Right) = 0 + 0.9 × 1 = 0.9; Q(Up) = 0 + 0.9 × 1 = 0.9. They tie, so the policy is already optimal there. At (1,0): Q(Up) = 1 + 0.9 × 0 = 1; Right is blocked, so the agent stays and Q(Right) = 0 + 0.9 × 1 = 0.9 \< 1. Up is optimal. At (0,1): Q(Right) = 1; Q(Up) (blocked) = 0 + 0.9 × 1 = 0.9. Right is optimal.
+> - **At (0,0):** Right → 0 + 0.9 × 1 = 0.9; Up → 0 + 0.9 × 1 = 0.9. A tie, so the plan is already as good as possible here.
+> - **At (1,0):** Up → 1 + 0.9 × 0 = 1; Right is blocked, so you stay: 0 + 0.9 × 1 = 0.9. Up is best (1 > 0.9).
+> - **At (0,1):** Right → 1; Up is blocked: 0 + 0.9 × 1 = 0.9. Right is best.
+>
+> No square changes, so this plan is already optimal.
 
-> **Check Q9.1. Suppose V((0,1)) were 0.5 instead of 1. Which action would policy improvement choose at (0,0)?**
+> **Going deeper (optional): argmax**
+>
+> The improved plan is π′(s) = argmax<sub>a</sub> Σ<sub>s′</sub> P(s′ | s, a) [ R(s, a, s′) + γ V<sub>π</sub>(s′) ]. "argmax" means "the action that gives the biggest value" (the action itself, not the number). If Q(Left) = 2 and Q(Right) = 5, argmax is Right.
+
+> **Check Q9.1. If V((0,1)) were 0.5 instead of 1, which action would improvement choose at (0,0)?**
 >
 > **Answer.** Right: 0 + 0.9 × 1 = 0.9, versus Up: 0 + 0.9 × 0.5 = 0.45. Right wins.
 
+> **Remember**
+>
+> Improve = at every square, switch to the move with the best "reward + γ × next value". It can never make things worse.
+
+---
+
 # 10. Value Iteration
 
-## 10.1 The idea
-
-Policy iteration (Section 11) does two full phases: evaluate a policy completely, then improve it. **Value iteration** merges them: at every state, immediately take the best action (using current value estimates) and update the value. There is no separate evaluation phase.
-
-## 10.2 The update
-
-> V<sub>k+1</sub>(s) ← max<sub>a</sub> Σ<sub>s′</sub> P(s′ \| s, a) \[ R(s, a, s′) + γ V<sub>k</sub>(s′) \]
-
-Each sweep updates every state using the best one-step lookahead. Repeat until the maximum change is below a threshold. Then extract the policy **greedily** from V\*: at each state choose the action with the highest one-step lookahead value.
-
-## 10.3 Worked example: sweeps on the 2×2 grid
-
-γ = 0.9. Initialise all V = 0. The terminal (1,1) stays 0.
-
-| Sweep    | V((1,1)) | V((1,0)) | V((0,1)) | V((0,0))        |
-|----------|----------|----------|----------|-----------------|
-| 0 (init) | 0        | 0        | 0        | 0               |
-| 1        | 0        | 1        | 1        | 0               |
-| 2        | 0        | 1        | 1        | 0.9             |
-| 3        | 0        | 1        | 1        | 0.9 (converged) |
-
-**Extract the policy.** At (0,0) both actions give 0.9, so either is optimal. At (1,0) Up is optimal. At (0,1) Right is optimal.
-
-> **Worked example — value iteration on a 1×3 corridor**
+> **The big idea**
 >
-> Cells 1, 2, 3; cell 3 is the terminal goal (+1 on entering); actions Left/Right; walls leave you in place; γ = 0.9. V(3) = 0 always.
->
-> | Sweep | V(1) | V(2) | V(3)          |
-> |-------|------|------|---------------|
-> | 0     | 0    | 0    | 0             |
-> | 1     | 0    | 1    | 0             |
-> | 2     | 0.9  | 1    | 0             |
-> | 3     | 0.9  | 1    | 0 (converged) |
->
-> Sweep 1: V(2) = max(Right: 1 + 0.9×0 = 1, Left: 0 + 0.9×V<sub>old</sub>(1) = 0) = 1; V(1) = max(Right: 0.9×V<sub>old</sub>(2) = 0, Left: 0.9×V<sub>old</sub>(1) = 0) = 0. Sweep 2: V(1) = max(Right: 0.9×1 = 0.9, Left: 0) = 0.9. The greedy policy is Right in cells 1 and 2.
+> Value iteration skips the separate "measure the plan" stage: at every square it immediately uses the best move. It is the Bellman "keep the biggest" step, swept again and again.
 
-## 10.4 Why it converges
+## 10.1 How it works
 
-For γ \< 1, the Bellman optimality operator is a **contraction**: a mapping that brings any two points closer together. Repeated application therefore converges to a unique **fixed point**, a value function that no longer changes when the update is applied. This is the mathematical guarantee that value iteration works.
+1. Start with every value at 0.
+2. In each sweep, for every square, try every action and keep the **biggest** reward + γ × next value (using last sweep's values).
+3. Stop when the values stop changing.
+4. Read off the plan: in each square, pick the action that gave the biggest number.
+
+## 10.2 Worked example: the 2×2 grid
+
+| Sweep | V((1,1)) goal | V((1,0)) | V((0,1)) | V((0,0)) |
+|---|---|---|---|---|
+| 0 (start) | 0 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 | 0 |
+| 2 | 0 | 1 | 1 | 0.9 |
+| 3 | 0 | 1 | 1 | 0.9 (finished) |
+
+**Reading off the plan.** At (0,0) Right and Up both give 0.9, so either is best. At (1,0) Up is best. At (0,1) Right is best.
+
+> **Worked example — value iteration on the 1×3 corridor**
+>
+> Cells 1, 2, 3; cell 3 is the goal (+1 for entering); actions Left and Right; walls leave you in place; γ = 0.9. The goal's value is always 0.
+>
+> | Sweep | V(1) | V(2) | V(3) |
+> |---|---|---|---|
+> | 0 | 0 | 0 | 0 |
+> | 1 | 0 | 1 | 0 |
+> | 2 | 0.9 | 1 | 0 |
+> | 3 | 0.9 | 1 | 0 (finished) |
+>
+> **Sweep 1.** Cell 2: Right = 1 + 0.9 × 0 = 1; Left = 0 + 0.9 × 0 = 0 → keep 1. Cell 1: Right = 0 + 0.9 × 0 = 0 (cell 2 was still 0); Left = 0 → 0.
+> **Sweep 2.** Cell 1: Right = 0 + 0.9 × 1 = 0.9 → 0.9. The best plan is Right in both cells.
+
+> **Going deeper (optional): why it always finishes**
+>
+> The update is V<sub>k+1</sub>(s) ← max<sub>a</sub> Σ<sub>s′</sub> P(s′ | s, a) [ R(s, a, s′) + γ V<sub>k</sub>(s′) ]. When γ < 1, each sweep shrinks the difference between any two guesses by at least the factor γ (mathematicians call this a **contraction**), so the values must settle on one final answer (a **fixed point**).
 
 > **Check Q10.1. Why does V((0,0)) stay 0 in sweep 1?**
 >
-> **Answer.** The update uses the old values of the next states, and V<sub>old</sub>((1,0)) and V<sub>old</sub>((0,1)) were both 0 at the start of sweep 1. Value propagates backward one step per sweep.
+> **Answer.** Sweep 1 uses the old values, and at the start (1,0) and (0,1) were both 0. Value moves back one square per sweep.
 
 > **Activity 10.1 — Change the discount**
 >
-> Re-run value iteration with γ = 0.5. What is V\*((0,0)) after convergence? Explain in one sentence why it changed.
+> Run value iteration on the 2×2 grid with γ = 0.5. What is the final V\*((0,0))? Why did it change?
 
 > **Answer**
 >
-> V\*((1,0)) = 1, V\*((0,1)) = 1, V\*((0,0)) = 0 + 0.5 × 1 = 0.5. The start state’s value is lower because its reward is one step away and is discounted more heavily when γ is smaller.
+> V\*((1,0)) = 1, V\*((0,1)) = 1, V\*((0,0)) = 0 + 0.5 × 1 = 0.5. It is smaller because its reward is one step away and is discounted more when γ is smaller.
 
-> **Activity 10.2 — Compare approaches comparison**
+> **Activity 10.2 — Choose a method**
 >
-> A grid world has 10,000 states. Compare value iteration and policy iteration. Which would you try first, and why?
+> A grid world has 10,000 squares. Would you try value iteration or policy iteration (Section 11) first? Why?
 
 > **Answer**
 >
-> Value iteration has many cheap sweeps; policy iteration has fewer outer iterations, each more expensive because evaluation runs to convergence. For a large state space try value iteration first for its lower per-iteration cost; fall back to policy iteration if convergence is slow or a good initial policy is available (then policy iteration finishes in very few iterations).
+> Value iteration first: each sweep is cheap, while each round of policy iteration must fully measure the plan, which is expensive with 10,000 squares. Policy iteration is worth trying if you already have a good starting plan, because it then finishes in very few rounds.
+
+> **Remember**
+>
+> Value iteration = repeat "keep the biggest reward + γ × next value" everywhere until it settles, then read off the plan.
+
+---
 
 # 11. Policy Iteration
 
-## 11.1 The algorithm
+> **The big idea**
+>
+> Policy iteration alternates two stages, measure the plan, then improve it, until the plan stops changing.
 
-1.  Initialise a policy π (e.g. always Right).
-2.  **Policy evaluation:** compute V<sub>π</sub> by iterating the Bellman expectation equation until convergence.
-3.  **Policy improvement:** set π′(s) = argmax<sub>a</sub> Q<sub>π</sub>(s, a) for every state.
-4.  If π′ = π, stop. Otherwise set π ← π′ and return to step 2.
+## 11.1 The method
 
-![alt](./Assets/IMG-20261105-WA0012.jpg)
+1. Start with any plan (for example "always Right").
+2. **Measure:** work out the plan's values (Section 8).
+3. **Improve:** at each square switch to the best move (Section 9).
+4. If no square changed, stop: the plan is optimal. Otherwise go back to step 2.
 
-*Figure 5 — Two routes to the same optimal policy.*
+![Value iteration and policy iteration are two routes to the same optimal plan.](figures/value-vs-policy-iteration.png)
+
+*Figure 6. Two routes to the same optimal plan.*
 
 ## 11.2 Value iteration vs policy iteration
 
-|                   | Value iteration                                    | Policy iteration                                            |
-|-------------------|----------------------------------------------------|-------------------------------------------------------------|
-| What is iterated  | The value function directly                        | The policy, with full evaluation inside each iteration      |
-| Policy extraction | After convergence                                  | At every improvement step                                   |
-| Typical behaviour | Many cheap sweeps                                  | Fewer outer iterations, each more expensive                 |
-| Conceptual focus  | Fixed-point iteration of the optimality operator   | Alternation of evaluation and improvement                   |
-| When to prefer    | Large state spaces where full evaluation is costly | A good policy is found quickly and evaluation is affordable |
+| | Value iteration | Policy iteration |
+|---|---|---|
+| What repeats | One "keep the biggest" sweep | Full measuring, then improving |
+| When is the plan read off? | At the end | At every improve step |
+| Cost per round | Cheap, but many rounds | Expensive, but few rounds |
+| Stops when | Values stop changing | The plan stops changing |
+| Good for | Very large worlds | When measuring is affordable or a good starting plan exists |
 
-Both converge to the same optimal policy. The choice is an engineering trade-off, not a correctness issue.
+Both reach the same best plan. Choosing between them is about speed, not correctness.
 
 > **Worked example — policy iteration on the 2×2 grid (γ = 0.9)**
 >
-> **Start:** policy π<sub>0</sub> = “always Right”.
+> **Start:** plan = "always Right".
 >
-> **Evaluate π<sub>0</sub>.** V(1,1) = 0. V(0,1): Right enters the goal, so V = 1. V(1,0): Right is blocked, so the agent stays forever and never earns anything: V = 0 + 0.9×V(1,0), which gives V(1,0) = 0. V(0,0): Right goes to (1,0): V = 0 + 0.9×0 = 0.
+> **Measure.** (0,1): Right enters the goal → V = 1. (1,0): Right is blocked, so the agent stays for ever and earns nothing → V = 0. (0,0): Right leads to (1,0), worth 0 → V = 0 + 0.9 × 0 = 0.
 >
-> **Improve.** At (1,0): Up gives 1 + 0.9×0 = 1 versus Right 0.9×0 = 0, so choose Up. At (0,1): Right gives 1, Up (blocked) gives 0.9×1 = 0.9, keep Right. At (0,0): Right gives 0.9×0 = 0, Up gives 0.9×1 = 0.9, so choose Up. New policy π<sub>1</sub>: (0,0) Up, (1,0) Up, (0,1) Right.
+> **Improve.** At (1,0): Up = 1 + 0.9 × 0 = 1 versus Right = 0 + 0.9 × 0 = 0 → switch to **Up**. At (0,1): Right = 1 versus Up (blocked) = 0.9 × 1 = 0.9 → keep **Right**. At (0,0): Right = 0.9 × 0 = 0 versus Up = 0.9 × 1 = 0.9 → switch to **Up**.
 >
-> **Evaluate π<sub>1</sub>:** V(1,0) = 1, V(0,1) = 1, V(0,0) = 0.9×1 = 0.9. **Improve:** at (0,0) Right = 0.9 and Up = 0.9 tie; keep Up. No action changes, so π<sub>1</sub> is optimal. Policy iteration stops after two improvement steps.
+> **Measure the new plan.** V((1,0)) = 1, V((0,1)) = 1, V((0,0)) = 0.9 × 1 = 0.9.
+>
+> **Improve again.** At (0,0) Right = 0.9 and Up = 0.9 tie, so keep Up. Nothing changes, so the plan is optimal. It took two improve steps.
 
-> **Check Q11.1. Why does policy iteration stop when the policy stops changing, while value iteration stops when value changes become small?**
+> **Check Q11.1. Why does policy iteration stop when the plan stops changing, but value iteration stops when the values stop changing?**
 >
-> **Answer.** Policy iteration has an explicit policy to compare, so “no action changed” is a clean stopping condition. Value iteration has no explicit policy during the loop, so it uses the size of value changes as a proxy: small changes imply the greedy policy is (nearly) stable.
+> **Answer.** Policy iteration keeps an explicit plan, so "no move changed" is a clear stopping signal. Value iteration has no explicit plan until the end, so it watches the values instead.
 
 > **Activity 11.1 — Policy iteration on the corridor**
 >
-> On the 1×3 corridor (goal +1 on entering cell 3, γ = 0.9) start with policy “always Left”. Run policy iteration. (Break ties by keeping the current action.)
+> On the 1×3 corridor (goal +1 for entering cell 3, γ = 0.9), start with the plan "always Left". Run policy iteration. If two actions tie, keep the current one.
 
 > **Answer**
 >
-> Evaluate: V(1) = V(2) = V(3) = 0 (the agent never reaches the goal). Improve: at 2, Right = 1 beats Left = 0, so Right; at 1, Right = 0.9×0 = 0 ties with Left, keep Left. Evaluate (1: Left, 2: Right): V(2) = 1, V(1) = 0.9×V(1) = 0. Improve: at 1, Right = 0.9×1 = 0.9 beats Left = 0, so Right. Evaluate (Right, Right): V(2) = 1, V(1) = 0.9. Improve: no change. Optimal policy: Right in both cells; V = (0.9, 1).
+> **Measure:** V(1) = V(2) = V(3) = 0 (the agent never reaches the goal). **Improve:** at 2, Right = 1 beats Left = 0 → Right; at 1, Right = 0.9 × 0 = 0 ties Left → keep Left. **Measure** (1: Left, 2: Right): V(2) = 1, V(1) = 0 (Left keeps it stuck). **Improve:** at 1, Right = 0.9 × 1 = 0.9 beats Left = 0 → Right. **Measure** (Right, Right): V(2) = 1, V(1) = 0.9. **Improve:** no change. Best plan: Right in both cells, with values (0.9, 1).
 
-# 12. On-Policy and Off-Policy: The Core Distinction
-
-> **Why this section comes before the algorithms**
+> **Remember**
 >
-> The next sections describe algorithms classified as on-policy or off-policy. The two terms are defined here so that they are already taught when the algorithms use them.
+> Policy iteration = measure → improve → repeat until the plan stops changing.
 
-## 12.1 The definitions
+---
 
-Every RL agent has two policies. The **behaviour policy** is the policy the agent actually uses to select actions during learning (e.g. ε-greedy, which sometimes picks a random action). The **target policy** is the policy the agent is trying to learn or improve. They may be the same or different.
+# 12. On-Policy and Off-Policy
 
-- **On-policy:** behaviour and target policy are the same. The update uses the action actually taken next (a′). Examples: SARSA, REINFORCE.
-- **Off-policy:** behaviour and target policy differ. The update uses the best possible next action (max<sub>a′</sub>). Examples: Q-learning, DQN.
-
-## 12.2 Comparison table
-
-|                         | On-policy                                                                          | Off-policy                                                  |
-|-------------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| Behaviour policy        | Same as target policy                                                              | Different from target policy                                |
-| Update target           | Uses the actual next action a′                                                     | Uses the best next action max<sub>a′</sub>                  |
-| Examples                | SARSA, REINFORCE                                                                   | Q-learning, DQN                                             |
-| Data reuse              | Each update must be based on the current policy’s actions                          | Can learn from old or exploratory data                      |
-| Behavioural consequence | Learns the value of the policy it actually follows, including exploratory mistakes | Learns the optimal policy even while exploring suboptimally |
-
-## 12.3 A beginner-friendly summary
-
-On-policy learning is like learning the value of the strategy you are actually playing. Off-policy learning is like learning the value of the *best* strategy even while you experiment with worse ones. Neither is universally better: off-policy is more data-efficient and can learn from old experience; on-policy is often more stable and naturally accounts for the exploration the agent will really do.
-
-> **Check Q12.1. A robot uses ε-greedy exploration and Q-learning. Is the policy it follows the same as the policy it is learning?**
+> **The big idea**
 >
-> **Answer.** No. It follows an ε-greedy behaviour policy (sometimes random) but learns the greedy optimal policy via the max in the update. This is off-policy learning.
+> While learning, an agent may *behave* one way (with some random exploring) but be *learning about* a different plan (the best one). If the two are the same, it is on-policy; if they differ, it is off-policy.
+
+> **Why this comes before the algorithms**
+>
+> The algorithms in Sections 13–17 are described as on-policy or off-policy, so we define the words first.
+
+## 12.1 Two plans inside one agent
+
+- The **behaviour policy** is the plan the agent actually follows while learning, for example ε-greedy with its random moves.
+- The **target policy** is the plan the agent is trying to learn.
+
+**On-policy:** the two are the same. The agent learns the value of exactly what it is doing, random mistakes included. Examples: SARSA, REINFORCE.
+
+**Off-policy:** the two are different. The agent explores, but learns about the best plan. Examples: Q-learning, DQN.
+
+| | On-policy | Off-policy |
+|---|---|---|
+| Behaviour vs target | The same | Different |
+| What the update looks at next | The action actually taken next | The best possible next action |
+| Examples | SARSA, REINFORCE | Q-learning, DQN |
+| Can it learn from old data or another agent's data? | Not directly | Yes |
+| What it learns | The value of the plan it really follows, mistakes included | The best plan, even while exploring |
+
+## 12.2 In everyday terms
+
+Learning Minecraft **on-policy** is like rating your own playing style honestly, including the times you fall in lava while experimenting. Learning **off-policy** is like watching your experiments (or someone else's videos) but always asking "what would the *best* move have been?". Neither is always better: off-policy can reuse old experience; on-policy is often steadier and more realistic about the mistakes you will really make.
+
+> **Check Q12.1. A robot explores with ε-greedy and learns with Q-learning. Is the plan it follows the same as the plan it is learning?**
+>
+> **Answer.** No. It behaves ε-greedily (sometimes random) but learns the best, fully greedy plan. That is off-policy.
 
 > **Activity 12.1 — Classify the algorithm**
 >
-> For each algorithm state whether it is on-policy or off-policy and give the update target in one line: (a) SARSA, (b) Q-learning, (c) REINFORCE, (d) DQN.
+> Say whether each is on-policy or off-policy and what its update "looks at next": (a) SARSA, (b) Q-learning, (c) REINFORCE, (d) DQN.
 
 > **Answer**
 >
-> \(a\) On-policy; target = r + γQ(s′, a′) with the action actually taken. (b) Off-policy; target = r + γ max<sub>a′</sub> Q(s′, a′). (c) On-policy; target = the return G<sub>t</sub> from the episode, using the actions actually taken. (d) Off-policy; target = r + γ max<sub>a′</sub> Q(s′, a′; θ<sup>−</sup>) using the target network.
+> (a) On-policy; the next action actually taken. (b) Off-policy; the best next action. (c) On-policy; the full return from its own episode. (d) Off-policy; the best next action, using a slowly updated copy of its network (Section 15.3).
 
-# 13. Reinforcement Learning Algorithms: Overview
-
-> **This section is a map, not a lesson**
+> **Remember**
 >
-> The three families below are explained in Sections 14–17. Reading this section first gives you the landscape; do not expect to understand the algorithms yet.
+> On-policy learns about what it does. Off-policy learns about the best thing it could do.
 
-## 13.1 From model-based to model-free
+---
 
-Everything up to Section 11 assumed the model (P and R) was known. From here on the agent learns from **sampled experience** and does not know P or R in advance. Model-free RL splits into three families.
+# 13. Learning From Experience: The Algorithm Families, Monte Carlo and TD
 
-![alt](./Assets/IMG-20261105-WA0007.jpg)
-
-*Figure 6 — The three model-free families and example algorithms.*
-
-## 13.2 What each family stores, updates and learns from
-
-| Family       | Stores                                      | Updates             | Learning signal                         |
-|--------------|---------------------------------------------|---------------------|-----------------------------------------|
-| Value-based  | A table or network of values V(s) or Q(s,a) | The values          | TD error (target − current estimate)    |
-| Policy-based | The policy parameters θ                     | The policy directly | Return G<sub>t</sub> (or advantage)     |
-| Actor–critic | Policy parameters θ and a value function    | Both, together      | Advantage estimate (often the TD error) |
-
-> **Check Q13.1. Which family would you choose for a continuous action space (e.g. a steering angle), and why?**
+> **The big idea**
 >
-> **Answer.** Policy-based or actor–critic. Value-based methods need a max over actions, which is awkward in continuous spaces; a policy can output a continuous action directly.
+> Without a map, an agent must learn values from what actually happens. It can wait for the end of a game and average the real total (Monte Carlo), or update after every single step using its next guess (TD). Everything after this section builds on TD.
 
-# 14. Value Based: Q-Learning
+## 13.1 The three families (a map of the rest of the module)
 
-## 14.1 The idea
+Up to Section 11 the agent knew the map. From now on it does not: it only has its own **experience**.
 
-Q-learning learns the optimal action-value function Q\*(s, a) directly from sampled transitions (s, a, r, s′). Once Q\* is known the optimal policy is simple: in each state pick the action with the highest Q-value. It needs no model and learns from experience as it happens.
+![The three model-free families: value-based, policy-based and actor–critic, with example algorithms.](figures/three-model-free-families.png)
+
+*Figure 7. The three model-free families and their example algorithms.*
+
+| Family | What it keeps | What it learns from | Sections |
+|---|---|---|---|
+| **Value-based** | A score Q(s, a) for each move | The surprise (TD error) after each step | 14–15 |
+| **Policy-based** | The plan itself, as adjustable numbers | The total reward of whole games | 16 |
+| **Actor–critic** | Both a plan (actor) and a score-keeper (critic) | The critic's surprise after each step | 17 |
+
+> **Check Q13.1. Which family suits a smooth action such as a steering angle, and why?**
+>
+> **Answer.** Policy-based or actor–critic. Value-based methods must find the best of all actions, which is awkward when there are infinitely many angles; a plan can output an angle directly.
+
+## 13.2 The learning rate: the step every update takes
+
+All the methods from here on update in the same way: they nudge the old estimate part of the way towards a better guess called the **target**.
+
+**Formula in words:** new estimate = old estimate + α × (target − old estimate)
+
+The gap "target − old estimate" is the **surprise**: how wrong we were. α, the learning rate, says how much of the gap to close. With α = 0.5 we move halfway; with α = 0.1 we move a tenth of the way, which is slower but steadier.
+
+![An update moves the old estimate part of the way towards the target.](figures/update-step-toward-target.png)
+
+*Figure 8. One update with α = 0.5: the old estimate 0.2 moves halfway towards the target 1.0, giving 0.6.*
+
+## 13.3 Monte Carlo: wait until the end and average
+
+**Monte Carlo (MC)** learning plays a whole game, then looks back: for each square it visited, it adds up the actual discounted rewards that followed (the **return**). That return is the target. Over many games, the values become the average of what really happened. No map is needed.
+
+**Formula in words:** new V(square) = old V + α × (actual return after that square − old V)
+
+Because the return is only known when the game ends, MC **updates only after the game finishes**, and so it only works for tasks that end.
+
+> **Worked example — Monte Carlo on the 2×2 grid**
+>
+> The game from Activity 2.1: (0,0) —Right→ (1,0), reward 0; (1,0) —Right (blocked)→ (1,0), reward 0; (1,0) —Up→ goal, reward +1. γ = 0.9, α = 0.5, all values start at 0.
+>
+> | Step | Square | Actual return after this step | Return |
+> |---|---|---|---|
+> | 1 | (0,0) | 0 + 0.9 × 0 + 0.81 × 1 | 0.81 |
+> | 2 | (1,0) | 0 + 0.9 × 1 | 0.9 |
+> | 3 | (1,0) | 1 | 1 |
+>
+> **Updates** (using the first time each square was visited): V((0,0)) = 0 + 0.5 × (0.81 − 0) = **0.405**. V((1,0)) = 0 + 0.5 × (0.9 − 0) = **0.45**.
+>
+> After just one game, the reward at the end has already reached the start square.
+
+> **Going deeper (optional): first-visit and every-visit**
+>
+> If a square is visited twice in one game, **first-visit MC** uses only the return after the first visit (as above); **every-visit MC** uses all of them. Every-visit would average 0.9 and 1 for (1,0), giving 0.95. Formally: V(S<sub>t</sub>) ← V(S<sub>t</sub>) + α [G<sub>t</sub> − V(S<sub>t</sub>)].
+
+## 13.4 TD learning: update after every step
+
+Waiting until the end is slow, and impossible if the game never ends. **Temporal-difference (TD)** learning updates after **every single step**. It does not know the full return yet, so it uses a shortcut target: the reward it just got plus γ × its *current guess* for the next square.
+
+**Formula in words:** new V(here) = old V(here) + α × (reward + γ × V(next) − old V(here))
+
+The bracket, target minus old guess, is the **TD error**, written δ ("delta"). It is the surprise from Figure 8. Using a guess to improve a guess is called **bootstrapping**; dynamic programming did the same (Section 8), but with the map instead of real experience. The goal's value is always 0.
+
+> **Worked example — TD on the same game, played twice**
+>
+> γ = 0.9, α = 0.5, all values start at 0. Each row is one step, and the value changes immediately.
+>
+> | Game | Step | Target = reward + 0.9 × V(next) | δ = target − old | New value |
+> |---|---|---|---|---|
+> | 1 | (0,0) → (1,0) | 0 + 0.9 × 0 = 0 | 0 − 0 = 0 | V((0,0)) = 0 |
+> | 1 | (1,0) → (1,0) | 0 + 0.9 × 0 = 0 | 0 − 0 = 0 | V((1,0)) = 0 |
+> | 1 | (1,0) → goal | 1 (goal is worth 0) | 1 − 0 = 1 | V((1,0)) = 0.5 |
+> | 2 | (0,0) → (1,0) | 0 + 0.9 × 0.5 = 0.45 | 0.45 − 0 = 0.45 | V((0,0)) = 0.225 |
+> | 2 | (1,0) → (1,0) | 0 + 0.9 × 0.5 = 0.45 | 0.45 − 0.5 = −0.05 | V((1,0)) = 0.475 |
+> | 2 | (1,0) → goal | 1 | 1 − 0.475 = 0.525 | V((1,0)) = 0.7375 |
+>
+> In game 1 only (1,0) changes, because only the last step had a reward. In game 2 the value spreads one more step back, to (0,0). This is the same "value flows backwards" pattern as Figure 5, but learned from experience instead of the map. With more games (and α made smaller over time), a learner following the Section 8.4 plan reaches the Section 8.4 values: V((1,0)) = 1 and V((0,0)) = 0.9.
+
+> **Going deeper (optional): TD(0) in symbols**
+>
+> V(S<sub>t</sub>) ← V(S<sub>t</sub>) + α [ R<sub>t+1</sub> + γ V(S<sub>t+1</sub>) − V(S<sub>t</sub>) ], and δ = R<sub>t+1</sub> + γV(S<sub>t+1</sub>) − V(S<sub>t</sub>). The "0" in TD(0) means it looks just one step ahead.
+
+## 13.5 From scoring squares to choosing moves
+
+Sections 13.3–13.4 *score* squares for a fixed plan (**prediction**). To *improve* the plan without a map (**control**), the agent scores moves, Q(s, a), instead of squares, because choosing a move from square values would need the map to look ahead. Using the TD idea on Q gives the next two algorithms:
+
+- **SARSA** (on-policy): target = reward + γ × Q(next square, the move actually taken next).
+- **Q-learning** (off-policy): target = reward + γ × Q(next square, the best next move).
+
+REINFORCE (Section 16) instead uses the Monte Carlo idea: the full return of the game.
+
+## 13.6 DP vs Monte Carlo vs TD
+
+| | Dynamic programming | Monte Carlo | TD |
+|---|---|---|---|
+| Needs the map? | Yes | No | No |
+| Learns from | The map: all possible next squares | Whole games | Single steps |
+| Target | Reward + γ × next value, averaged using the map | The actual return | Reward + γ × current guess of next value |
+| Updates | Each sweep | After each game | After each step |
+| Uses a guess to update a guess? | Yes | No | Yes |
+| Works if the game never ends? | Yes | No | Yes |
+| How noisy? | Not noisy (no sampling) | Noisy: one game's return can vary a lot | Steadier, but starts from rough guesses |
+| Leads to | Value and policy iteration (10–11) | REINFORCE (16) | SARSA, Q-learning, DQN, actor–critic (14–17) |
+
+![How far each method looks: DP looks one step at every possibility; MC follows one game to the end; TD takes one real step.](figures/dp-mc-td-compared.png)
+
+*Figure 9. How far each method looks ahead to build its target.*
+
+> **Check Q13.3. Why can Monte Carlo not be used for a task that never ends?**
+>
+> **Answer.** The return is only known when the game ends, so MC would never get to make an update.
+
+> **Activity 13.3 — One MC update and one TD update**
+>
+> V(s) = 0.4, γ = 0.9, α = 0.1. (a) A game from s produced a return of 1.0. What is the new V(s) with Monte Carlo? (b) Instead, one step from s gave reward 0 and the next square has V = 0.8. What are δ and the new V(s) with TD?
+
+> **Answer**
+>
+> (a) 0.4 + 0.1 × (1.0 − 0.4) = 0.4 + 0.06 = **0.46**. (b) Target = 0 + 0.9 × 0.8 = 0.72; δ = 0.72 − 0.4 = 0.32; new V = 0.4 + 0.1 × 0.32 = **0.432**.
+
+> **Exam-style practice**
+>
+> **Question (4 marks).** Compare Monte Carlo and TD learning, giving one advantage of each.
+>
+> **Checked answer.** MC updates from the actual full return at the end of a game **(1)**; TD updates after every step using reward + γ × the current guess of the next value **(1)**. MC advantage: it does not rely on other guesses, so it is correct on average **(1)**. TD advantage: it learns during the game, works when the game never ends, and is less noisy **(1)**.
+
+> **Remember**
+>
+> Every update: new = old + α × (target − old). MC's target is the real total at the end; TD's target is reward + γ × next guess, after every step.
+
+---
+
+# 14. Q-Learning
+
+> **The big idea**
+>
+> Q-learning keeps a score for every move in every square. After each step it nudges that score towards "the reward I just got + γ × the best score available next". In the end, the best move in each square is simply the one with the highest score.
+
+## 14.1 The Q-table
+
+Think of a table with a row for every square and a column for every move. Each cell holds Q(s, a): "how good is this move here?". At the start every cell is 0. The agent plays, and after every step it updates one cell.
+
+| Square | Q(·, Right) | Q(·, Up) |
+|---|---|---|
+| (0,0) | starts 0 | starts 0 |
+| (1,0) | starts 0 | starts 0 |
+| (0,1) | starts 0 | starts 0 |
+
+Once learning is done, the plan is: in each square, pick the column with the bigger number.
 
 ## 14.2 The update rule
 
-> Q(s, a) ← Q(s, a) + α \[ r + γ max<sub>a′</sub> Q(s′, a′) − Q(s, a) \]
+**Formula in words:** new Q(here, move) = old Q + α × (reward + γ × best Q in the next square − old Q)
 
-**Symbols.** α = learning rate (e.g. 0.1); r = reward just received; s′ = next state; max<sub>a′</sub> Q(s′, a′) = value of the best action in the next state. **Read it as:** *old estimate* Q(s, a); *target* r + γ max Q(s′, a′) (reward plus discounted best next value); *TD error* (temporal-difference error) = target − old estimate, the “surprise”; *update*: move the old estimate a fraction α of the way toward the target. For a terminal next state, max Q(s′, ·) = 0.
+It is the same "step towards the target" as Figure 8. The target uses the **best** score in the next square. For the goal, the best next score is 0 because the game is over.
 
 > **Worked example — one Q-learning update**
 >
-> Q(s, a) = 0.2, r = 1, γ = 0.9, max Q(s′, a′) = 0 (terminal next state), α = 0.5. Target = 1 + 0.9 × 0 = 1. TD error = 1 − 0.2 = 0.8. New Q = 0.2 + 0.5 × 0.8 = **0.6**.
-
-## 14.3 Exploration with ε-greedy
-
-If the agent always picks the highest Q-value it may never discover a better action. With ε-greedy it picks a random action with probability ε, otherwise the greedy action; ε is usually reduced over time.
-
-## 14.4 Q-learning is off-policy
-
-The update target r + γ max<sub>a′</sub> Q(s′, a′) is the value of the best possible next action. Q-learning learns the optimal policy even while following an exploratory behaviour policy: that is the off-policy distinction of Section 12.
-
-> **Common misconception**
+> Old Q(s, a) = 0.2. The agent gets reward r = 1 and lands on the goal, so the best next score is 0. γ = 0.9, α = 0.5.
 >
-> “Q-learning always follows the greedy action.” No. It *learns about* the optimal policy, but the agent *behaves* using an exploratory policy such as ε-greedy. The separation of behaviour and target policy is the essence of off-policy learning.
-
-> **Check Q14.1. Why is Q-learning called “off-policy”?**
+> 1. Target = 1 + 0.9 × 0 = 1
+> 2. Surprise (TD error) = 1 − 0.2 = 0.8
+> 3. New Q = 0.2 + 0.5 × 0.8 = **0.6**
 >
-> **Answer.** Its target uses max<sub>a′</sub> Q(s′, a′), the best possible next action, regardless of what the agent will actually do next. It learns the optimal policy while behaving exploratorily.
+> These are exactly the numbers in Figure 8.
+
+> **Going deeper (optional): the update in symbols**
+>
+> Q(s, a) ← Q(s, a) + α [ r + γ max<sub>a′</sub> Q(s′, a′) − Q(s, a) ]. max<sub>a′</sub> Q(s′, a′) means "the biggest Q-value over all moves a′ in the next state s′".
+
+## 14.3 Exploring while learning
+
+If the agent always picked its highest score, it might never try a move that is secretly better (Section 3.2). So it behaves ε-greedily: mostly the best move, sometimes a random one, with ε lowered over time.
+
+## 14.4 Why Q-learning is off-policy
+
+Its target uses the **best** next move, even if the agent is about to take a random one. So it learns about the best plan while behaving in an exploratory way: off-policy (Section 12).
+
+> **Common mistake**
+>
+> "Q-learning always takes the greedy move." No. It *learns about* the greedy (best) plan, but it *behaves* ε-greedily so that it keeps exploring.
+
+> **Check Q14.1. Why is Q-learning called off-policy?**
+>
+> **Answer.** Its target uses the best possible next move, whatever the agent actually does next, so it learns the best plan while behaving exploratorily.
 
 > **Activity 14.1 — Trace a Q-learning update**
 >
-> With Q(s, a) = 1.5, r = 0, γ = 0.9, max Q(s′, a′) = 2 and α = 0.1, compute the TD error and the new Q value.
+> Old Q(s, a) = 1.5, reward r = 0, γ = 0.9, best Q in the next square = 2, α = 0.1. Find the target, the surprise and the new Q.
 
 > **Answer**
 >
-> Target = 0 + 0.9 × 2 = 1.8. TD error = 1.8 − 1.5 = 0.3. New Q = 1.5 + 0.1 × 0.3 = 1.53.
+> Target = 0 + 0.9 × 2 = 1.8. Surprise = 1.8 − 1.5 = 0.3. New Q = 1.5 + 0.1 × 0.3 = **1.53**.
 
-> **Activity 14.2 — Explain a decision explain a decision**
+> **Activity 14.2 — Explain a decision**
 >
-> An engineer building a robot vacuum wants to learn from historical data collected by other vacuums in the building. She chooses Q-learning over SARSA. Explain her decision.
+> An engineer wants a robot vacuum to learn from data already recorded by other vacuums in the building. She chooses Q-learning, not SARSA. Explain why.
 
 > **Answer**
 >
-> Q-learning is off-policy, so it can learn from data collected under a different behaviour policy (the other vacuums’). SARSA is on-policy: its updates assume the learner’s own actions and cannot reuse old-policy data without correction. Since she wants to reuse existing data, Q-learning is right.
+> Q-learning is off-policy, so it can learn from data produced by a different behaviour (the other vacuums). SARSA is on-policy: its updates assume the actions came from its own current plan, so it cannot directly reuse other agents' data.
 
-# 15. Value Based: Deep Q-Network and SARSA
+> **Remember**
+>
+> Q-learning: score every move; target = reward + γ × best next score; learns the best plan while exploring.
+
+---
+
+# 15. SARSA and Deep Q-Networks
+
+> **The big idea**
+>
+> SARSA is Q-learning's careful twin: its target uses the move it will *really* take next, mistakes included. DQN replaces the Q-table with a neural network so the idea works in huge worlds like Atari games or Minecraft.
 
 ## 15.1 SARSA
 
-SARSA updates using the action the agent actually takes next, not the best possible action:
+**Formula in words:** new Q(here, move) = old Q + α × (reward + γ × Q(next square, the move actually taken next) − old Q)
 
-> Q(s, a) ← Q(s, a) + α \[ r + γ Q(s′, a′) − Q(s, a) \]
+The name lists the five things one update uses: **S**tate, **A**ction, **R**eward, next **S**tate, next **A**ction. Because it uses the move it really takes, SARSA is **on-policy**.
 
-The name comes from the quintuple (s, a, r, s′, a′). Because the update uses the action actually taken, SARSA is **on-policy**.
-
-> **Worked contrast — Q-learning vs SARSA**
+> **Worked example — Q-learning and SARSA side by side**
 >
-> In the 2×2 grid the agent is at (0,0) and takes Up to (0,1), reward 0. Q((0,0), Up) = 0.5, α = 0.1, γ = 0.9. In (0,1): Q(Right) = 1 and Q(Up) = 0 (Up is blocked there). The exploring behaviour policy chooses **Up** this time.
+> In the 2×2 grid the agent is at (0,0), moves Up to (0,1) and gets reward 0. Old Q((0,0), Up) = 0.5, α = 0.1, γ = 0.9. In (0,1) the scores are Q(Right) = 1 and Q(Up) = 0 (Up hits the edge). This time the exploring agent is going to choose **Up** next.
 >
-> Q-learning target: 0 + 0.9 × max(1, 0) = 0.9, so new Q = 0.5 + 0.1 × (0.9 − 0.5) = **0.54**. SARSA target: 0 + 0.9 × Q((0,1), Up) = 0, so new Q = 0.5 + 0.1 × (0 − 0.5) = **0.45**. Q-learning is optimistic: it updates as if the agent will act optimally next. SARSA is realistic: it updates from what the agent actually did, including exploratory mistakes.
-
-## 15.2 The cliff-walk intuition
-
-![alt](./Assets/IMG-20261105-WA0009.jpg)
-
-*Figure 7 — The cliff-walk. Falling into the cliff costs a large penalty and returns the agent to the start.*
-
-A grid has a cliff along the bottom. The shortest path hugs the cliff; the safe path is further away. **Q-learning** learns the cliff-edge path, because its target assumes optimal future actions; this is optimal if exploration stops at deployment. **SARSA** learns the safer path, because its target accounts for the exploratory actions the agent really takes, including the occasional fall.
-
-## 15.3 Deep Q-Network (DQN)
-
-A Q-table is impossible when states are images with millions of pixels. DQN replaces the table with a **neural network**: a model made of layers of simple units connected by adjustable weights. It takes a state as input and outputs one Q-value per action, and is trained to minimise the squared TD error. Two stabilising innovations are standard:
-
-- **Experience replay:** store transitions in a buffer and sample random **minibatches** (small random samples). This breaks the correlation between consecutive samples.
-- **Target network:** use a separate, slowly updated copy of the network to compute the TD target, so the target does not move every time the main network updates.
-
-> **Check Q15.1. In the cliff-walk, which algorithm would a safety engineer prefer if the robot keeps exploring during deployment?**
+> - **Q-learning** uses the *best* next score, 1: target = 0 + 0.9 × 1 = 0.9; new Q = 0.5 + 0.1 × (0.9 − 0.5) = **0.54**.
+> - **SARSA** uses the move it *will* take, Up, worth 0: target = 0 + 0.9 × 0 = 0; new Q = 0.5 + 0.1 × (0 − 0.5) = **0.45**.
 >
-> **Answer.** SARSA. Its on-policy updates account for the exploratory actions the robot really takes, so it learns a policy that is safe given continued exploration. Q-learning’s cliff-edge path is only optimal if exploration stops.
+> Q-learning is optimistic ("I will play perfectly next"). SARSA is realistic ("I know I sometimes explore badly").
+
+> **Going deeper (optional): SARSA in symbols**
+>
+> Q(s, a) ← Q(s, a) + α [ r + γ Q(s′, a′) − Q(s, a) ], where a′ is the action the agent actually chooses in s′.
+
+## 15.2 The cliff walk: where the difference matters
+
+![The cliff walk: the shortest path runs along the cliff edge; a safer path goes further away.](figures/cliff-walk.png)
+
+*Figure 10. The cliff walk. Falling off the cliff gives a big penalty and sends the agent back to the start.*
+
+A grid has a cliff along the bottom. The shortest path hugs the edge; a safer path stays further away.
+
+- **Q-learning** learns the edge path, because its target assumes perfect play from now on. That is best *if exploring stops* when the robot is used for real.
+- **SARSA** learns the safer path, because its target includes the occasional random step that could fall off the edge.
+
+In Minecraft terms: Q-learning happily walks along a lava lake's edge because the shortest route is optimal "in theory"; SARSA keeps a block of distance because it knows it sometimes presses the wrong key.
+
+> **Check Q15.1. In the cliff walk, which algorithm would a safety engineer prefer if the robot keeps exploring while in use?**
+>
+> **Answer.** SARSA. Its on-policy updates include the random steps the robot really takes, so it learns a path that is safe even with continued exploring.
+
+## 15.3 Deep Q-Networks (DQN)
+
+A Q-table needs one row per state. A Minecraft screen has millions of pixels, so there are far too many states to list. A **Deep Q-Network (DQN)** replaces the table with a **neural network**: a function made of layers of simple adjustable units that takes the screen as input and outputs one score per move. Similar screens get similar scores, so the network can handle states it has never seen exactly before.
+
+Two tricks keep DQN stable:
+
+- **Experience replay:** store past steps in a memory and learn from small random handfuls (**minibatches**) of them, rather than only from the very latest steps, which are all very similar to each other.
+- **Target network:** compute targets with a separate copy of the network that is updated only now and then, so the target does not shift every time the main network learns.
+
+DQN learned to play many Atari games from the screen alone (Mnih et al., 2015).
 
 > **Activity 15.1 — DQN vs Q-table**
 >
-> Why can a DQN be used where a Q-table cannot? Give one example domain.
+> Why can a DQN be used where a Q-table cannot? Give one example.
 
 > **Answer**
 >
-> A Q-table needs one entry per state–action pair, impossible for high-dimensional states such as raw pixels. A DQN generalises across similar states using a neural network. Example: Atari games played from screen pixels.
+> A Q-table needs one entry per state–move pair, which is impossible for states such as raw screen pixels. A DQN uses a neural network that gives similar scores to similar states, so it does not need a row for each one. Example: Atari games played from the screen.
 
-> **Activity 15.2 — Compare approaches comparison**
+> **Activity 15.2 — Choose a method**
 >
-> A robot’s state is a 512-dimensional continuous sensor reading. Compare a Q-table and a DQN. Which is feasible?
+> A robot's state is 512 continuous sensor readings. Is a Q-table or a DQN feasible? Why?
 
 > **Answer**
 >
-> A Q-table needs an entry per (state, action) pair; with continuous 512-dimensional states there are infinitely many, so it is not feasible. A DQN approximates Q with a neural network and generalises across similar states, so it is the feasible choice, at the cost of being harder to train and debug.
+> A DQN. With 512 continuous numbers there are infinitely many states, so a table is impossible. The network approximates the scores and generalises between similar readings, at the cost of being harder to train and debug.
 
-# 16. Policy Based: REINFORCE and Policy Gradient
-
-## 16.1 Why learn the policy directly?
-
-- When the action space is continuous (e.g. a steering angle), taking a max over actions is awkward.
-- When the best policy is stochastic (e.g. games with mixed strategies).
-- When small changes in values should produce small changes in behaviour (smooth policies).
-
-## 16.2 The core idea
-
-Parameterise the policy π<sub>θ</sub>(a \| s) by parameters θ (e.g. the weights of a neural network) and adjust θ so that actions that led to high return become more likely. The **policy gradient** has the form
-
-> ∇<sub>θ</sub>J(θ) = E\[ G<sub>t</sub> ∇<sub>θ</sub> ln π<sub>θ</sub>(A<sub>t</sub> \| S<sub>t</sub>) \]
-
-**Symbols.** ∇<sub>θ</sub> = gradient with respect to θ, the direction in which the quantity increases fastest; J(θ) = expected return; G<sub>t</sub> = the return from step t (Section 5.4); ln = the natural logarithm (the computer evaluates it; you need not by hand); E\[·\] = expected value. (Some textbooks also include a factor γ<sup>t</sup>; practical implementations usually drop it.) **Plain English.** ∇ ln π points in the direction that makes the taken action more likely; multiplying by G<sub>t</sub> scales the push by how good the outcome was.
-
-## 16.3 REINFORCE
-
-REINFORCE is the simplest policy-gradient algorithm and a **Monte-Carlo method**: it learns from complete episodes rather than step by step. It runs an episode, computes the return G<sub>t</sub> for each step, and updates
-
-> θ ← θ + α G<sub>t</sub> ∇<sub>θ</sub> ln π<sub>θ</sub>(A<sub>t</sub> \| S<sub>t</sub>) for each step t
-
-> **Worked example — computing returns**
+> **Remember**
 >
-> An episode has three actions a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub> with rewards r<sub>1</sub> = 0, r<sub>2</sub> = 0, r<sub>3</sub> = 1 and γ = 0.9. G<sub>2</sub> = r<sub>3</sub> = 1. G<sub>1</sub> = r<sub>2</sub> + γr<sub>3</sub> = 0.9. G<sub>0</sub> = r<sub>1</sub> + γr<sub>2</sub> + γ²r<sub>3</sub> = 0.81. All three actions are reinforced, but later actions (closer to the reward) more strongly. REINFORCE assigns credit to every action in the episode, including bad ones.
+> SARSA = on-policy, uses the move it really takes, safer. DQN = Q-learning with a neural network instead of a table.
 
-## 16.4 The variance problem
+---
 
-REINFORCE is **unbiased** (correct on average across many episodes) but has **high variance** (the estimate fluctuates a lot from episode to episode), which makes learning noisy. Two standard remedies: **baseline subtraction**, replacing G<sub>t</sub> by G<sub>t</sub> − b(s) where b(s) is often an estimate of V(s). This does not change the expected gradient but reduces variance; G<sub>t</sub> − b(s) estimates the *advantage*. And **actor–critic**, which uses a learned value function as the baseline (next section).
+# 16. Learning the Plan Directly: REINFORCE
 
-> **Check Q16.1. In the worked example, why does a 0 get less credit than a 2 ?**
+> **The big idea**
 >
-> **Answer.** The reward is further in the future from a<sub>0</sub>, so it is discounted more heavily. a<sub>2</sub> comes immediately before the reward and gets full credit.
+> Instead of scoring moves, adjust the plan itself: after each game, make the moves you took more likely if the game went well and less likely if it went badly.
 
-> **Activity 16.1 — Compute a return**
+## 16.1 Why learn the plan directly?
+
+- When actions are smooth quantities (a steering angle, how hard to jump), picking "the best of all actions" from a table is awkward.
+- When the best plan is deliberately random (in rock–paper–scissors, being predictable loses).
+- When we want behaviour to change smoothly as learning goes on.
+
+## 16.2 The idea in words
+
+The plan is a set of adjustable numbers that give a probability for each move. **REINFORCE** plays a whole game, works out the return after each move, and then nudges the numbers so that each move it took becomes more likely in proportion to how good the return after it was. Moves followed by big returns are pushed up strongly; moves followed by poor returns are pushed up only a little (or pushed down, with a baseline, Section 16.3).
+
+Because it uses whole-game returns, REINFORCE is a **Monte Carlo** method (Section 13.3) and is **on-policy**.
+
+> **Worked example — the returns REINFORCE uses**
 >
-> Rewards (r<sub>1</sub>…r<sub>4</sub>) are 0, 2, 0, 1 and γ = 0.5. Compute G<sub>0</sub>, G<sub>1</sub>, G<sub>2</sub>, G<sub>3</sub>.
+> A game has three moves with rewards 0, 0, then 1, and γ = 0.9. Work backwards from the end:
+>
+> - Return after the last move = 1
+> - Return after the middle move = 0 + 0.9 × 1 = 0.9
+> - Return after the first move = 0 + 0.9 × 0.9 = 0.81
+>
+> All three moves are made more likely, the last one most strongly because it was closest to the reward. Notice that every move gets some credit, even if one of them was actually a poor move.
+
+> **Going deeper (optional): the policy gradient formula**
+>
+> With the plan written π<sub>θ</sub>(a | s) (θ = its adjustable numbers), REINFORCE updates θ ← θ + α G<sub>t</sub> ∇<sub>θ</sub> ln π<sub>θ</sub>(A<sub>t</sub> | S<sub>t</sub>) for each step t. ∇<sub>θ</sub> ln π<sub>θ</sub> points in the direction that makes the chosen action more likely, and G<sub>t</sub> scales the push by how good the result was. This comes from the policy gradient theorem, ∇<sub>θ</sub>J(θ) = E[ G<sub>t</sub> ∇<sub>θ</sub> ln π<sub>θ</sub>(A<sub>t</sub> | S<sub>t</sub>) ], where J(θ) is the expected return. (Some books include an extra factor γ<sup>t</sup>; practical code usually leaves it out.)
+
+## 16.3 The noise problem and the fix
+
+The return from one game can vary a lot just by luck, so REINFORCE's pushes are **noisy** (statisticians say it has *high variance*): correct on average, but jumpy from game to game, which makes learning slow.
+
+The standard fix is a **baseline**: instead of the return, use "return minus what we normally expect here". A move then only gets pushed up if it did *better than usual*, and down if it did worse. The quantity "better than usual" is called the **advantage**. Actor–critic (Section 17) learns that baseline automatically.
+
+> **Check Q16.1. In the worked example, why does the first move get less credit than the last one?**
+>
+> **Answer.** The reward is further away from the first move, so it is discounted more (0.81 versus 1).
+
+> **Activity 16.1 — Compute returns**
+>
+> Rewards after moves 1 to 4 are 0, 2, 0, 1 and γ = 0.5. Find the return after each move (work backwards).
 
 > **Answer**
 >
-> Work backwards: G<sub>3</sub> = 1. G<sub>2</sub> = 0 + 0.5 × 1 = 0.5. G<sub>1</sub> = 2 + 0.5 × 0.5 = 2.25. G<sub>0</sub> = 0 + 0.5 × 2.25 = 1.125.
+> After move 4: 1. After move 3: 0 + 0.5 × 1 = 0.5. After move 2: 2 + 0.5 × 0.5 = 2.25. After move 1: 0 + 0.5 × 2.25 = **1.125**.
 
-> **Activity 16.2 — Predict the outcome prediction**
+> **Activity 16.2 — Predict what happens**
 >
-> A learner uses a constant baseline b(s) = 100 when typical returns are 0–10. Predict what happens to learning.
+> A learner uses a fixed baseline of 100 when returns are usually between 0 and 10. Predict what happens.
 
 > **Answer**
 >
-> The expected gradient is unchanged (the average of ∇ ln π over actions is zero, so a constant baseline adds no bias). But G<sub>t</sub> − 100 is about −90 to −100 for every action, so every update is large and pushes down whatever was taken; with a fixed learning rate this makes learning noisy and unstable. Fix: learn the baseline alongside the policy so it tracks typical returns.
+> On average the direction of learning is unchanged, but every "return − 100" is about −90 to −100, so every move taken is pushed down hard each game. The updates are huge and jumpy, so learning becomes unstable. Fix: learn the baseline so that it tracks the returns you normally get.
 
-# 17. Actor–Critic Algorithms
-
-## 17.1 The idea
-
-Actor–critic combines policy-based and value-based learning. Two components learn together: the **actor**, the policy π<sub>θ</sub>(a \| s) updated by policy gradients; and the **critic**, a value function V<sub>w</sub>(s) that evaluates the actor’s choices and provides a lower-variance signal.
-
-![alt](./Assets/IMG-20261105-WA0011.jpg)
-
-*Figure 8 — The actor–critic loop: the critic’s TD error tells the actor how good its action was.*
-
-## 17.2 The advantage function
-
-> A<sub>π</sub>(s, a) = Q<sub>π</sub>(s, a) − V<sub>π</sub>(s)
-
-It measures how much better action a is than the average action under the policy in state s. Positive means “better than usual”; negative “worse than usual”. A practical estimate is the TD error:
-
-> δ = r + γ V<sub>w</sub>(s′) − V<sub>w</sub>(s)
-
-If δ \> 0 the outcome was better than the critic expected, so the actor increases the probability of that action; if δ \< 0 it decreases it. The two updates are
-
-> Actor: θ ← θ + α δ ∇<sub>θ</sub> ln π<sub>θ</sub>(a \| s) Critic: w ← w + β δ ∇<sub>w</sub> V<sub>w</sub>(s)
-
-where β is the critic’s learning rate.
-
-> **Worked example — one actor–critic update**
+> **Remember**
 >
-> V<sub>w</sub>(s) = 0.5, reward r = 1, V<sub>w</sub>(s′) = 0.4, γ = 0.9. δ = 1 + 0.9 × 0.4 − 0.5 = 1 + 0.36 − 0.5 = **0.86**. δ is positive, so the actor increases the probability of that action in s. The critic moves V<sub>w</sub>(s) toward the target r + γV<sub>w</sub>(s′) = 1.36, reducing future error.
+> REINFORCE: after each game, make the moves you took more likely, in proportion to how well things went. Noisy; a baseline helps.
 
-## 17.3 Why this helps
+---
 
-The critic gives the actor a **dense** learning signal (every step produces a TD error) whereas REINFORCE learns only at the end of an episode. This reduces variance and speeds learning. Modern algorithms such as A2C and PPO are actor–critic methods.
+# 17. Actor–Critic
 
-> **Check Q17.1. If δ = −0.3, what should the actor do to the probability of the taken action? Why?**
+> **The big idea**
 >
-> **Answer.** Decrease it. A negative TD error means the outcome was worse than the critic expected, so the action was worse than average.
+> Two parts learn together: the **actor** chooses moves (the plan) and the **critic** judges them after every step ("better or worse than I expected?"). The actor listens to the critic.
 
-> **Activity 17.1 — Compute a TD error**
+## 17.1 How it works
+
+![The actor–critic loop: the actor picks an action; the critic's TD error tells the actor how good it was.](figures/actor-critic-loop.png)
+
+*Figure 11. The actor–critic loop.*
+
+- The **actor** is a plan, like REINFORCE's.
+- The **critic** keeps a value V(s) for each state, learned by TD (Section 13.4).
+
+After every step, the critic works out its surprise:
+
+**Formula in words:** δ = reward + γ × V(next) − V(here)
+
+- If δ > 0, things went **better** than expected, so the actor makes that move **more** likely.
+- If δ < 0, things went **worse** than expected, so the actor makes that move **less** likely.
+- The critic also moves V(here) towards its target, so its predictions improve.
+
+This δ is the same TD error as in Section 13.4, and it plays the role of the "better than usual" advantage from Section 16.3.
+
+> **Worked example — one actor–critic step**
 >
-> V(s) = 2.0, r = 1, V(s′) = 1.5, γ = 0.9. Compute δ. Should the actor increase or decrease the action’s probability?
+> V(here) = 0.5, reward = 1, V(next) = 0.4, γ = 0.9.
+>
+> δ = 1 + 0.9 × 0.4 − 0.5 = 1 + 0.36 − 0.5 = **0.86**.
+>
+> δ is positive, so the actor makes this move more likely. The critic moves V(here) towards its target, 1 + 0.36 = 1.36.
+
+> **Going deeper (optional): the two update rules**
+>
+> Advantage: A<sub>π</sub>(s, a) = Q<sub>π</sub>(s, a) − V<sub>π</sub>(s), estimated by δ = r + γV<sub>w</sub>(s′) − V<sub>w</sub>(s). Actor: θ ← θ + α δ ∇<sub>θ</sub> ln π<sub>θ</sub>(a | s). Critic: w ← w + β δ ∇<sub>w</sub> V<sub>w</sub>(s), where w are the critic's numbers and β its learning rate.
+
+## 17.2 Why it learns faster than REINFORCE
+
+REINFORCE waits until the end of a game and then uses one noisy total. Actor–critic gets a judgement after **every** step, and each one-step surprise is much less noisy than a whole-game total. More, steadier feedback means faster learning. Modern methods such as A2C and PPO, which have been used to train game-playing and robot agents, are actor–critic methods.
+
+> **Check Q17.1. If δ = −0.3, what should the actor do to the probability of the move it took? Why?**
+>
+> **Answer.** Lower it: the result was worse than the critic expected.
+
+> **Activity 17.1 — Compute a surprise**
+>
+> V(here) = 2.0, reward = 1, V(next) = 1.5, γ = 0.9. Find δ. Should the actor make the move more or less likely?
 
 > **Answer**
 >
-> δ = 1 + 0.9 × 1.5 − 2.0 = 1 + 1.35 − 2.0 = 0.35. Positive, so increase the probability.
+> δ = 1 + 0.9 × 1.5 − 2.0 = 1 + 1.35 − 2.0 = **0.35**. Positive, so more likely.
 
-> **Activity 17.2 — Explain a decision explain a decision**
+> **Activity 17.2 — Explain in your own words**
 >
-> In your own words, explain why actor–critic typically learns faster than REINFORCE. Do not use the word “variance” without explaining it.
+> Explain why actor–critic usually learns faster than REINFORCE. If you use the word "variance", explain what it means.
 
 > **Answer**
 >
-> REINFORCE learns only at the end of an episode: it collects a return and then updates. Actor–critic learns at every step: the critic produces a TD error each step telling the actor “this action was better or worse than expected right now”. So the actor makes many more updates from the same experience. “Variance” here means how much a single return fluctuates from episode to episode; REINFORCE’s per-episode return fluctuates a lot, so its updates are noisy, whereas a one-step TD error fluctuates less.
+> REINFORCE updates once per game, using the game's total reward. Actor–critic updates after every step, using the critic's surprise, so it gets many more learning signals from the same play. "Variance" means how much a number jumps around from one try to the next: a whole game's total jumps around a lot, while a one-step surprise is steadier, so actor–critic's updates are less noisy.
 
-# 18. Examples of Applications in the Real World
-
-For each application, identify **what is learned** and **what reward is optimised**: that is the behavioural core of the system.
-
-| Domain                      | Example                                                                                                    | What is learned                                            | Reward optimised                                       |
-|-----------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|--------------------------------------------------------|
-| Recommender systems         | A content platform ranks items; the ranking policy is adjusted from user feedback                          | A ranking policy                                           | Engagement signals (clicks, watch time)                |
-| Robotics                    | A robot arm learns to pour, assemble or manipulate, trained in simulation and transferred to hardware      | A control policy mapping sensor readings to motor commands | Task success, with penalties for dropping or colliding |
-| Healthcare / rehabilitation | A prosthesis controller adapts to an individual patient; a rehabilitation robot adapts exercise difficulty | A personalisation policy                                   | Clinical outcome measures                              |
-| Game playing                | Agents learn Atari, Go or chess from pixels or board states                                                | A policy and/or value function                             | Game score or win/loss                                 |
-| Energy management           | A building’s heating/cooling controller learns when to pre-heat or pre-cool                                | A control policy                                           | Energy cost minus comfort penalty                      |
-| Traffic signal control      | Intersection signals learn timing that reduces waiting                                                     | A signalling policy                                        | Negative average vehicle delay                         |
-
-> **The ethical point, stated plainly**
+> **Remember**
 >
-> Every system above shapes behaviour by optimising a reward. A recommender optimised for clicks reinforces whatever increases clicks; a robot optimised for speed may learn unsafe shortcuts; a prosthesis optimised for one gait metric may produce a gait that is efficient by that metric but uncomfortable for the patient. The reward function is a design choice with ethical consequences. Leave this section able to ask: **“What is the reward, who chose it, and whose behaviour does it shape?”**
+> Actor = plan, critic = judge. The critic's surprise δ after each step tells the actor what to do more or less often.
 
-> **Check Q18.1. For the energy-management example, why is a comfort penalty needed in the reward?**
+---
+
+# 18. Real-World Applications and Reward Design
+
+> **The big idea**
 >
-> **Answer.** Without it the agent learns to minimise energy by switching heating and cooling off entirely: optimal for the stated reward but unacceptable for occupants. The penalty encodes the real trade-off.
+> RL is used wherever a system must make a sequence of decisions. In every case, the reward decides what behaviour is learned, so choosing the reward is a design decision with real consequences.
+
+## 18.1 Where RL is used
+
+For each example, ask two questions: **what is learned?** and **what reward is it chasing?**
+
+| Area | Example | What is learned | Reward |
+|---|---|---|---|
+| Games | Agents for Atari, Go, chess, Minecraft | A plan and/or a value function | Game score, or win/loss |
+| Recommendations | A video platform choosing what to show next | A ranking plan | Clicks, watch time |
+| Robotics | A robot arm learning to grasp or pour, trained in simulation first | A control plan from sensors to motors | Task success, minus penalties for drops or collisions |
+| Healthcare | A rehabilitation robot adjusting exercise difficulty | A personalisation plan | Measured patient progress |
+| Energy | A building's heating learning when to pre-heat | A control plan | Minus energy cost, minus a discomfort penalty |
+| Traffic | Traffic lights learning their timing | A signalling plan | Minus the average waiting time |
+
+## 18.2 Reward design: "you get what you reward"
+
+An RL agent will find **any** way to collect reward, including ways nobody intended. This is called **reward hacking**.
+
+- A Minecraft agent rewarded for "items collected" may just dig and re-place the same dirt block over and over instead of progressing.
+- A recommender rewarded only for watch time may push extreme or repetitive videos that keep people watching but leave them feeling worse.
+- A robot rewarded only for speed may learn unsafe shortcuts.
+
+> **Why this matters**
+>
+> The reward is chosen by people, and it shapes the behaviour of the agent and, often, of the people using it. Before you trust an RL system, ask: **"What is the reward, who chose it, and whose behaviour does it shape?"**
+
+> **Check Q18.1. In the heating example, why is a discomfort penalty needed?**
+>
+> **Answer.** Without it, the cheapest plan is to switch the heating off completely: "optimal" for the reward but unacceptable for the people in the building.
 
 > **Activity 18.1 — Design a reward, predict the behaviour**
 >
-> A delivery drone is trained with RL. Propose a reward function, predict one behaviour it will learn, then identify one behaviour you did not intend.
+> A delivery drone is trained with RL. Propose a reward, predict one behaviour it will learn, then name one behaviour you did *not* intend.
 
 > **Answer**
 >
-> Reward: +10 for on-time delivery, −20 for a crash, −1 per minute late, −0.1 per unit of energy. Intended: efficient, punctual routes. Unintended: it may fly aggressively fast or cut close to obstacles to save time, because near-misses are not penalised. Fix: add a proximity penalty and test in simulation before deployment.
+> Reward: +10 for an on-time delivery, −20 for a crash, −1 per minute late, −0.1 per unit of battery used. Intended: quick, efficient routes. Unintended: flying very close to buildings or trees to save time, because near-misses are not penalised. Fix: add a penalty for coming too close to obstacles, and test in simulation first.
 
-> **Activity 18.2 — Find the error find the error**
+> **Activity 18.2 — Find the error**
 >
-> A cleaning robot is trained with: +10 for cleaning a dirty patch, −5 for bumping furniture, +1 per minute of operation. It learns to walk in circles and keep “cleaning” the same patch. Find the flaw and fix it.
+> A cleaning robot gets +10 for cleaning a dirty patch, −5 for bumping furniture and +1 per minute of running. It learns to circle and "clean" the same patch again and again. Find the flaw and fix it.
 
 > **Answer**
 >
-> The +1 per minute rewards staying on, and the +10 can be re-triggered if “dirty” is re-detected, so the robot farms the reward instead of cleaning. Fix: remove the per-minute bonus or make it a −1 per minute penalty; flag cleaned patches so they cannot be rewarded twice; add a completion bonus for cleaning all patches. Any term in the reward that can be exploited will be.
+> The +1 per minute rewards simply staying switched on, and the +10 can be earned repeatedly if the same patch is detected as dirty again. Fix: remove the per-minute bonus (or make it −1 per minute), mark patches as cleaned so they cannot pay twice, and add a bonus for finishing the whole room. Any part of a reward that can be exploited will be.
+
+> **Remember**
+>
+> The agent learns whatever the reward pays for. Design it carefully and check for loopholes.
+
+---
 
 # 19. Mind Map and Summary
 
-![alt](./Assets/IMG-20261105-WA0013.jpg)
+![Mind map of the Behavioural AI module.](figures/mind-map.png)
 
-*Figure 9 — Mind map of the Behavioural AI module.*
+*Figure 12. Mind map of the module.*
 
-| Idea          | One line to remember                                           |
-|---------------|----------------------------------------------------------------|
-| RL            | Learn from reward by trial and error; no labels                |
-| MDP           | (S, A, P, R, γ) plus the Markov property                       |
-| Return        | G<sub>t</sub> = R<sub>t+1</sub> + γR<sub>t+2</sub> + …         |
-| Value         | V = expected return; Q = expected return after a given action  |
-| Bellman       | Value = reward + γ × (value of next state)                     |
-| DP            | Needs the model: evaluate, improve, or merge (value iteration) |
-| Q-learning    | Off-policy; target uses max                                    |
-| SARSA         | On-policy; target uses the action actually taken               |
-| REINFORCE     | Policy gradient from complete episodes; high variance          |
-| Actor–critic  | Actor picks actions; critic’s TD error trains it               |
-| Reward design | The reward is a design choice with ethical consequences        |
+| Idea | One line to remember |
+|---|---|
+| Reinforcement learning | Learn from rewards by trial and error; no right answers given |
+| MDP | States, actions, transitions, rewards, discount; the present state is enough (Markov) |
+| Discount γ | Later rewards count less: 0.9, 0.81, 0.729, … |
+| Value | Points you expect from here if you follow the plan |
+| Bellman | Value here = reward now + γ × value next |
+| Dynamic programming | Have the map: measure the plan, improve it, or do both at once (value iteration) |
+| Update rule | new = old + α × (target − old) |
+| Monte Carlo | Target = real total at the end of the game |
+| TD | Target = reward + γ × next guess, after every step |
+| Q-learning | Off-policy; target uses the best next move |
+| SARSA | On-policy; target uses the move really taken next; safer |
+| DQN | Q-learning with a neural network instead of a table |
+| REINFORCE | Make taken moves more likely in proportion to the return; noisy |
+| Actor–critic | Actor = plan; critic's surprise δ trains it every step |
+| Reward design | You get what you reward; check for loopholes |
+
+---
 
 # 20. Case Studies
 
 > **Case study 1 — The video recommender**
 >
-> A streaming service trains an RL recommender whose reward is total watch time. After launch, users watch more hours but report feeling worse and complain of repetitive, extreme content.
+> A streaming service trains an RL recommender whose reward is total watch time. After launch, people watch more hours but report feeling worse and complain about repetitive, extreme content.
 >
-> **Tasks:** (a) identify agent, environment, action, state and reward; (b) explain what the agent has learned that nobody intended; (c) propose a better reward and one safeguard; (d) say who chose the reward and whose behaviour it shapes.
+> **Tasks:** (a) name the agent, environment, action, state and reward; (b) explain what the agent learned that nobody intended; (c) propose a better reward and one safeguard; (d) who chose the reward, and whose behaviour does it shape?
 
-> **Model answer**
+> **Answer**
 >
-> \(a\) Agent = recommendation policy; environment = users and the catalogue; action = which item to show; state = user history and context; reward = watch time. (b) Whatever maximises watch time: autoplay chains, sensational or repetitive content that keeps people watching, whether or not it benefits them. (c) Combine watch time with satisfaction signals (surveys, “not interested” clicks, diversity of content) and cap daily exposure; monitor for harmful drift and test changes on a small group first. (d) The company designed the reward; it shapes the behaviour of every user, so it carries an ethical responsibility.
+> (a) Agent = the recommendation plan; environment = the users and the video catalogue; action = which video to show; state = the user's history and context; reward = watch time. (b) It learned whatever keeps people watching, such as autoplay chains and sensational or repetitive content, whether or not it is good for them. (c) Combine watch time with satisfaction signals (surveys, "not interested" clicks, variety of content) and cap daily exposure; test changes on a small group first and monitor for harmful drift. (d) The company chose the reward; it shapes the behaviour of every user, so the company carries an ethical responsibility.
 
 > **Case study 2 — The cliff-side delivery robot**
 >
-> A delivery robot crosses a campus with a steep drop beside the shortest path. It is trained in simulation with ε-greedy exploration and keeps exploring (ε = 0.1) after deployment so it can adapt to new routes.
+> A delivery robot crosses a campus where the shortest path runs beside a steep drop. It is trained in simulation with ε-greedy exploring and keeps exploring (ε = 0.1) after it starts work, so that it can adapt to new routes.
 >
-> **Tasks:** (a) which of Q-learning and SARSA would you choose, and why; (b) what would the other algorithm learn; (c) name two further safeguards.
+> **Tasks:** (a) would you choose Q-learning or SARSA, and why? (b) what would the other algorithm learn? (c) name two more safeguards.
 
-> **Model answer**
+> **Answer**
 >
-> \(a\) SARSA: on-policy, so it learns the value of the policy it really follows, including the occasional random step, and therefore keeps away from the edge. (b) Q-learning would learn the shortest path along the edge, which is optimal only if exploration stops; with ε = 0.1 it would sometimes step off. (c) Reduce ε in dangerous areas (or explore only in simulation); add a large penalty for edge proximity; add a hardware safety layer (barrier or speed limit) that does not rely on the learning algorithm.
+> (a) SARSA: it is on-policy, so it learns the value of what it really does, including the occasional random step, and therefore keeps away from the edge. (b) Q-learning would learn the shortest path right along the edge, which is only safe if exploring stops; with ε = 0.1 the robot would sometimes step off. (c) Explore only in simulation or switch exploring off near danger; add a large penalty for being near the edge; add a physical barrier or speed limit that does not depend on the learning at all.
 
-> **Case study 3 — The smart thermostat**
+> **Case study 3 — The smart classroom thermostat**
 >
-> A school wants an RL controller for the heating in one classroom. Every 10 minutes it can set the heater to Off, Low or High. Sensors give the room temperature, the outside temperature, the time and whether the room is occupied.
+> A school wants an RL controller for one classroom's heating. Every 10 minutes it can set the heater to Off, Low or High. Sensors give the room temperature, the outside temperature, the time and whether the room is occupied.
 >
-> **Tasks:** (a) write the MDP: states, actions, reward; (b) say whether you would use a model-based or model-free method and why; (c) which family of algorithm would suit a discrete choice of three actions; (d) identify one unintended behaviour of the reward you chose.
+> **Tasks:** (a) write the states, actions and reward; (b) would you use a model-based or a model-free method, and why? (c) which algorithm family suits three discrete actions? (d) name one behaviour your reward might cause that you did not intend.
 
-> **Model answer**
+> **Answer**
 >
-> \(a\) State = (room temperature, outside temperature, time of day, occupied?). Actions = {Off, Low, High}. Reward per step = −(energy used) − (penalty for being outside 19–22°C while occupied). (b) Model-free is simpler if no accurate model of the building exists, but training would be done in a simulator because real exploration is slow and uncomfortable; a model-based method suits it if a good physical model is available. (c) Value-based (e.g. DQN, since the state is continuous) works well with three discrete actions. (d) If the comfort penalty applies only when occupied, the heater may switch off completely and leave the room cold at the start of each day; add a pre-heating term or a penalty for the temperature when people arrive.
+> (a) State = (room temperature, outside temperature, time of day, occupied?). Actions = Off, Low, High. Reward each step = −(energy used) − (a penalty for being outside 19–22 °C while the room is occupied). (b) Model-free is simpler if no accurate model of the building exists, but training should happen in a simulator because real-world trial and error is slow and uncomfortable; a model-based method is a good choice if a reliable physical model is available. (c) Value-based, for example DQN, because the temperature readings are continuous but there are only three actions. (d) If the comfort penalty only applies when the room is occupied, the heater may switch off overnight and leave the room cold when the first class arrives; add a penalty for the temperature at arrival time, or a pre-heating reward.
+
+---
 
 # 21. Mixed Practice
 
-Attempt each question before reading the answer.
+Try each question before you read the answer.
 
-P1. A policy receives rewards 1, 0, 3 on a three-step episode with γ = 0.5. Compute G<sub>0</sub>.
+**P1.** A game gives rewards 1, 0, 3 and γ = 0.5. What is the return from the start?
 
-> **Answer:** G<sub>0</sub> = 1 + 0.5×0 + 0.25×3 = 1.75.
+> **Answer:** 1 + 0.5 × 0 + 0.25 × 3 = **1.75**.
 
-P2. In a state, action A gives reward 0 and next-state value 4; action B gives reward 2 and next-state value 3. With γ = 0.9 which is better and what is V\*(s)?
+**P2.** In one state, action A gives reward 0 and leads to a state worth 4; action B gives reward 2 and leads to a state worth 3. With γ = 0.9, which is better, and what is the best value?
 
-> **Answer:** A: 0 + 0.9×4 = 3.6. B: 2 + 0.9×3 = 4.7. B is better; V\*(s) = 4.7.
+> **Answer:** A: 0 + 0.9 × 4 = 3.6. B: 2 + 0.9 × 3 = 4.7. B is better; best value = **4.7**.
 
-P3. An action succeeds with probability 0.8 (reward 10) and fails with probability 0.2 (reward 0), both leading to a terminal state. Compute its Q-value.
+**P3.** An action succeeds with chance 0.8 (reward 10) and fails with chance 0.2 (reward 0); both end the game. What is its Q-value?
 
-> **Answer:** Q = 0.8×10 + 0.2×0 = 8.
+> **Answer:** Q = 0.8 × 10 + 0.2 × 0 = **8** (the average reward).
 
-P4. Q(s,a) = 4, r = 2, γ = 0.9, max Q(s′,·) = 5, α = 0.5. Compute the new Q-learning value.
+**P4.** Q(s, a) = 4, reward = 2, γ = 0.9, best next score = 5, α = 0.5. What is the new Q with Q-learning?
 
-> **Answer:** Target = 2 + 4.5 = 6.5; TD error = 2.5; new Q = 4 + 1.25 = 5.25.
+> **Answer:** Target = 2 + 0.9 × 5 = 6.5; surprise = 6.5 − 4 = 2.5; new Q = 4 + 0.5 × 2.5 = **5.25**.
 
-P5. Same numbers as above, but the action actually taken next has Q(s′,a′) = 2. Compute the SARSA value.
+**P5.** Same numbers, but the move actually taken next has a score of 2. What is the new Q with SARSA?
 
-> **Answer:** Target = 2 + 0.9×2 = 3.8; TD error = −0.2; new Q = 4 − 0.1 = 3.9.
+> **Answer:** Target = 2 + 0.9 × 2 = 3.8; surprise = 3.8 − 4 = −0.2; new Q = 4 + 0.5 × (−0.2) = **3.9**.
 
-P6. State whether each is on- or off-policy: (a) learning the best policy from a log of another robot’s data; (b) REINFORCE; (c) SARSA.
+**P6.** On-policy or off-policy? (a) Learning the best plan from a log of another robot's moves; (b) REINFORCE; (c) SARSA.
 
 > **Answer:** (a) Off-policy. (b) On-policy. (c) On-policy.
 
-P7. Why does V(terminal state) = 0 in every example in this module?
+**P7.** Why is the goal (terminal) square always worth 0?
 
-> **Answer:** No further reward can be collected after the episode ends; the goal reward is counted in the value of the previous state.
+> **Answer:** The game is over, so no more reward can be collected; the reward for reaching the goal is counted in the square before it.
 
-P8. Give one reason to use γ \< 1 and one reason γ = 1 can cause problems.
+**P8.** Give one reason to use γ less than 1, and one problem with γ = 1.
 
-> **Answer:** γ \< 1 makes the infinite sum finite and prefers sooner rewards. With γ = 1 returns can be infinite or very large in tasks that never end.
+> **Answer:** γ < 1 prefers sooner rewards and keeps totals finite. With γ = 1, a game that never ends can have an endless (infinite) total.
+
+**P9.** V(s) = 0.6, reward = 0, V(next) = 1, γ = 0.9, α = 0.5. Do one TD update.
+
+> **Answer:** Target = 0 + 0.9 × 1 = 0.9; δ = 0.9 − 0.6 = 0.3; new V = 0.6 + 0.5 × 0.3 = **0.75**.
+
+---
 
 # 22. End-of-Module Test
 
-Total: 52 marks. Suggested time: 50 minutes. Attempt without notes, then mark yourself.
+Total: 55 marks. Suggested time: 55 minutes. Answer without notes, then mark yourself with the scheme below.
 
 ## Questions
 
-1.  Define reinforcement learning and say how it differs from supervised learning. \[3\]
-2.  A thermostat learns to control heating. Identify the agent, environment and one reward. \[3\]
-3.  Rewards in an episode are 0, 0, 4 and γ = 0.5. Compute G<sub>0</sub>. \[2\]
-4.  State the Markov property and give one example of a state that violates it. \[3\]
-5.  Corridor of cells 1, 2, 3 (goal +1 on entering 3), γ = 0.8, policy always Right. Compute V(1) and V(2). \[3\]
-6.  Distinguish model-based from model-free learning. \[2\]
-7.  Write the Bellman optimality equation in words and say what γ does in it. \[3\]
-8.  Action A: r = 1, next V\* = 2. Action B: r = 0, next V\* = 3. γ = 0.9. Find V\*(s) and the best action. \[3\]
-9.  Why does dynamic programming need the model? \[2\]
-10. Give two differences between value iteration and policy iteration. \[2\]
-11. Define behaviour policy and target policy. \[2\]
-12. Why is Q-learning off-policy? \[2\]
-13. Q(s,a) = 2, r = 1, γ = 0.9, max Q(s′,·) = 3, α = 0.2. Compute the new Q (Q-learning). \[3\]
-14. Same numbers but SARSA with Q(s′,a′) = 1. Compute the new Q. \[3\]
-15. In the cliff-walk which algorithm learns the safer path and why? \[2\]
-16. Name the two stabilising ideas in DQN and say what each does. \[2\]
-17. Why does REINFORCE have high variance? Give one remedy. \[2\]
-18. V(s) = 1.2, r = 0.5, V(s′) = 1, γ = 0.9. Compute δ and say what the actor does. \[3\]
-19. Explain the roles of actor and critic. \[3\]
-20. A recommender is rewarded for watch time. Describe two possible unintended behaviours and one ethical consequence. \[4\]
+1. Define reinforcement learning and say how it differs from supervised learning. [3]
+2. A thermostat learns to control heating. Identify the agent, the environment and one reward. [3]
+3. Rewards in a game are 0, 0, 4 and γ = 0.5. Compute the return from the start. [2]
+4. State the Markov property and give one example of a state that does not satisfy it. [3]
+5. Corridor of cells 1, 2, 3 (+1 for entering 3, the goal), γ = 0.8, plan "always Right". Compute V(1) and V(2). [3]
+6. Explain the difference between model-based and model-free learning. [2]
+7. Write the Bellman optimality equation in words and say what γ does in it. [3]
+8. Action A: reward 1, next best value 2. Action B: reward 0, next best value 3. γ = 0.9. Find the best value and the best action. [3]
+9. Why does dynamic programming need the model? [2]
+10. Give two differences between value iteration and policy iteration. [2]
+11. Define behaviour policy and target policy. [2]
+12. Why is Q-learning off-policy? [2]
+13. Q(s, a) = 2, reward = 1, γ = 0.9, best next score = 3, α = 0.2. Compute the new Q with Q-learning. [3]
+14. Same numbers, but SARSA, where the move actually taken next has score 1. Compute the new Q. [3]
+15. In the cliff walk, which algorithm learns the safer path, and why? [2]
+16. Name the two stabilising ideas in DQN and say what each does. [2]
+17. Why are REINFORCE's updates noisy? Give one remedy. [2]
+18. V(here) = 1.2, reward = 0.5, V(next) = 1, γ = 0.9. Compute δ and say what the actor does. [3]
+19. Explain the roles of the actor and the critic. [3]
+20. A recommender is rewarded for watch time. Describe two possible unintended behaviours and one ethical consequence. [4]
+21. V(s) = 0.5, reward = 1, the next state is the goal, γ = 0.9, α = 0.2. Do one TD update and say why TD can learn before the game ends but Monte Carlo cannot. [3]
 
 ## Mark scheme
 
-| \#  | Answer                                                                                                                                                                                                 |
-|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | An agent learns to act by interacting with an environment and receiving rewards; supervised learning is given the correct output for each input, RL only a reward telling how good the outcome was.    |
-| 2   | Agent: the controller; environment: the room (and weather); reward e.g. −energy used minus a penalty for being too cold.                                                                               |
-| 3   | 0 + 0 + 0.25 × 4 = 1.                                                                                                                                                                                  |
-| 4   | The current state contains all information needed to predict the future; e.g. a single camera frame that cannot show what is behind the robot, or only the cards in hand.                              |
-| 5   | V(2) = 1; V(1) = 0 + 0.8 × 1 = 0.8.                                                                                                                                                                    |
-| 6   | Model-based uses (or learns) P and R and plans; model-free learns values or a policy directly from experience.                                                                                         |
-| 7   | The value of a state is the best action’s expected immediate reward plus discounted value of the next state; γ weights future value less than immediate reward.                                        |
-| 8   | A: 1 + 1.8 = 2.8; B: 0 + 2.7 = 2.7; V\*(s) = 2.8, action A.                                                                                                                                            |
-| 9   | The update sums over P(s′\|s,a) and R(s,a,s′), so these must be known.                                                                                                                                 |
-| 10  | VI merges evaluation and improvement; PI alternates full evaluation and improvement; VI stops on small value change, PI when the policy is stable; VI sweeps cheap, PI iterations costlier.            |
-| 11  | Behaviour: the policy used to choose actions while learning. Target: the policy being learned.                                                                                                         |
-| 12  | Its target uses max over next actions, whatever the agent actually does next.                                                                                                                          |
-| 13  | Target 1 + 2.7 = 3.7; TD error 1.7; new Q = 2 + 0.34 = 2.34.                                                                                                                                           |
-| 14  | Target 1 + 0.9 = 1.9; TD error −0.1; new Q = 2 − 0.02 = 1.98.                                                                                                                                          |
-| 15  | SARSA: its on-policy target includes the exploratory steps that can fall off the cliff.                                                                                                                |
-| 16  | Experience replay: random minibatches break correlation. Target network: slowly updated copy keeps the target steady.                                                                                  |
-| 17  | Single-episode returns fluctuate a lot; remedy: baseline subtraction or a critic.                                                                                                                      |
-| 18  | δ = 0.5 + 0.9 − 1.2 = 0.2 \> 0, so increase the probability of the action.                                                                                                                             |
-| 19  | Actor: the policy that picks actions. Critic: a value function that evaluates them and supplies the TD error used to update the actor (and itself).                                                    |
-| 20  | Promotes sensational or addictive content; ignores user wellbeing or diversity; ethical: it shapes user behaviour for the platform’s benefit, so designers carry responsibility for the reward chosen. |
+| Q | Answer (marks) |
+|---|---|
+| 1 | An agent learns to act by interacting with an environment and receiving rewards (1); trial and error, no correct answers given (1); supervised learning is given the correct output for each input, RL only a reward saying how good the result was (1). |
+| 2 | Agent: the heating controller (1); environment: the room and the weather (1); reward, e.g. −energy used minus a penalty for being too cold (1). |
+| 3 | 0 + 0.5 × 0 + 0.25 × 4 (1) = 1 (1). |
+| 4 | The current state contains everything needed to predict what happens next; the history adds nothing (2); example: only the cards in your hand, or one camera image that cannot show what is behind a robot (1). |
+| 5 | V(2) = 1 + 0.8 × 0 = 1 (1); V(1) = 0 + 0.8 × 1 = 0.8 (2). |
+| 6 | Model-based uses or learns the map (transitions and rewards) and plans with it (1); model-free learns values or a plan directly from experience (1). |
+| 7 | The best value of a state is the best action's reward now plus the discounted value of the next state (2); γ makes future value count less than immediate reward (1). |
+| 8 | A: 1 + 0.9 × 2 = 2.8; B: 0 + 0.9 × 3 = 2.7 (2); best value 2.8, action A (1). |
+| 9 | Its update adds up over every possible next state using the transition chances and rewards, so these must be known (2). |
+| 10 | Any two: value iteration merges measuring and improving, policy iteration alternates them; value iteration stops when values settle, policy iteration when the plan stops changing; value iteration sweeps are cheap, policy iteration rounds are expensive (1 each). |
+| 11 | Behaviour policy: the plan used to choose actions while learning (1). Target policy: the plan being learned (1). |
+| 12 | Its target uses the best next move (1), whatever the agent actually does next, so it learns the best plan while exploring (1). |
+| 13 | Target = 1 + 0.9 × 3 = 3.7; surprise = 1.7 (1); new Q = 2 + 0.2 × 1.7 (1) = 2.34 (1). |
+| 14 | Target = 1 + 0.9 × 1 = 1.9; surprise = −0.1 (1); new Q = 2 + 0.2 × (−0.1) (1) = 1.98 (1). |
+| 15 | SARSA (1): its on-policy target includes the exploring steps that could fall off the cliff (1). |
+| 16 | Experience replay: learning from random handfuls of stored steps breaks the link between similar consecutive steps (1). Target network: a copy updated only now and then keeps the target steady (1). |
+| 17 | One game's return varies a lot by luck (1); remedy: subtract a baseline, or use a critic (actor–critic) (1). |
+| 18 | δ = 0.5 + 0.9 × 1 − 1.2 (1) = 0.2 (1); positive, so the actor makes the move more likely (1). |
+| 19 | Actor: the plan that chooses moves (1). Critic: a value function that judges them (1) and supplies the TD error used to update the actor and itself (1). |
+| 20 | Any two unintended behaviours, e.g. promoting sensational or addictive content, ignoring wellbeing, showing repetitive content (1 each); ethical consequence, e.g. it shapes users' behaviour for the platform's benefit, so its designers are responsible for the reward chosen (2). |
+| 21 | Target = 1 + 0.9 × 0 = 1; δ = 1 − 0.5 = 0.5; new V = 0.5 + 0.2 × 0.5 = 0.6 (2); TD's target uses the next state's current guess, available after one step, whereas MC needs the full return, known only at the end (1). |
+
+---
 
 # 23. Learning Material List
 
-Titles are given so you can find them; check availability before relying on a link.
+Titles are given so that you can find them; check availability before relying on a link.
 
-| Resource                                                                                          | Type         | Use it for                                                          |
-|---------------------------------------------------------------------------------------------------|--------------|---------------------------------------------------------------------|
-| Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed.), free online from the authors | Textbook     | The standard reference: MDPs, DP, TD, Q-learning, policy gradient   |
-| David Silver, *Introduction to Reinforcement Learning* lecture series (UCL / DeepMind, YouTube)   | Video        | Ten lectures matching Sections 4–17                                 |
-| OpenAI, *Spinning Up in Deep RL*                                                                  | Web tutorial | Plain-language introduction to policy gradients and actor–critic    |
-| Hugging Face, *Deep Reinforcement Learning Course*                                                | Course       | Hands-on Q-learning and DQN with exercises                          |
-| Gymnasium (library) and its documentation                                                         | Software     | Environments (e.g. FrozenLake, CliffWalking) to test the algorithms |
-| Stable-Baselines3                                                                                 | Software     | Ready-made DQN, A2C and PPO implementations                         |
-| Mnih et al. (2015), *Human-level control through deep reinforcement learning*                     | Paper        | The DQN paper (Section 15.3)                                        |
-| Computerphile and DeepMind channels (YouTube)                                                     | Video        | Short explainers and demonstrations of game-playing agents          |
-| Puterman, *Markov Decision Processes*                                                             | Textbook     | Rigorous treatment (beyond this module)                             |
+| Resource | Type | Use it for |
+|---|---|---|
+| Our team's video tutorial and slides on reinforcement learning in Minecraft (see the resource map in the README) | Video and slides | A visual walk-through of Sections 1–3 and 14 |
+| Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed.), free online from the authors | Textbook | The standard reference; chapters 1–6 match Sections 1–14 |
+| David Silver, *Introduction to Reinforcement Learning* lectures (UCL / DeepMind, YouTube) | Video lectures | Lectures 1–7 match Sections 4–17 |
+| Hugging Face, *Deep Reinforcement Learning Course* | Free online course | Hands-on Q-learning and DQN with exercises |
+| OpenAI, *Spinning Up in Deep RL* | Web tutorial | Policy gradients and actor–critic (Sections 16–17) |
+| Gymnasium (Python library) | Software | Try FrozenLake and CliffWalking (Sections 14–15) |
+| Stable-Baselines3 (Python library) | Software | Ready-made DQN, A2C and PPO |
+| MineRL project | Research project | Reinforcement learning research in Minecraft |
+| Mnih et al. (2015), *Human-level control through deep reinforcement learning* | Paper | The original DQN paper (Section 15.3) |
 
 ## Suggested path
 
-1.  Sections 1–7 with Sutton & Barto chapters 1–3.
-2.  Sections 8–11 with Silver lectures 2–3 (DP).
-3.  Sections 12–15: implement Q-learning on CliffWalking in Gymnasium and compare it with SARSA.
-4.  Sections 16–17 with Spinning Up.
+1. Sections 1–7 with Sutton & Barto chapters 1–3.
+2. Sections 8–11 with Silver lectures 2–3.
+3. Sections 12–15: run Q-learning on CliffWalking in Gymnasium and compare it with SARSA.
+4. Sections 16–17 with Spinning Up.
 
-# 24. Master Glossary
+---
 
-| Term                                  | Definition                                                                                 |
-|---------------------------------------|--------------------------------------------------------------------------------------------|
-| **Action (a)**                        | A choice available to the agent.                                                           |
-| **Actor–critic**                      | An RL method combining a policy (actor) and a value function (critic).                     |
-| **Advantage A(s,a)**                  | Q(s,a) − V(s): how much better an action is than average.                                  |
-| **Agent**                             | The learner or decision-maker.                                                             |
-| **Baseline**                          | A quantity subtracted from the return to reduce variance.                                  |
-| **Behaviour policy**                  | The policy used to select actions during learning.                                         |
-| **Bellman equation**                  | Value = immediate reward + discounted next-state value.                                    |
-| **Contraction**                       | A mapping that brings any two points closer; guarantees convergence of value iteration.    |
-| **Credit assignment**                 | Deciding which earlier actions contributed to a later reward.                              |
-| **Discount factor (γ)**               | Weight of future rewards relative to immediate ones, in \[0,1).                            |
-| **DQN**                               | Deep Q-Network: a neural network replacing a Q-table.                                      |
-| **Dynamic programming**               | Solving MDPs by iterating the Bellman equation over the full state space.                  |
-| **Environment**                       | Everything the agent interacts with.                                                       |
-| **Episode**                           | A run from a start state to a terminal state.                                              |
-| **ε-greedy**                          | With probability ε choose a random action; otherwise the best-known action.                |
-| **Experience replay**                 | Sampling random minibatches from a stored buffer of transitions.                           |
-| **Exploration / exploitation**        | Trying new actions / choosing the best-known action.                                       |
-| **Fixed point**                       | A value function that no longer changes when the update is applied.                        |
-| **Greedy policy**                     | Always choosing the action with the highest current value estimate.                        |
-| **Learning rate (α)**                 | How far each update moves the estimate.                                                    |
-| **Markov property**                   | The current state is sufficient to predict the future.                                     |
-| **MDP**                               | Markov Decision Process: (S, A, P, R, γ).                                                  |
-| **Minibatch**                         | A small random sample of stored transitions.                                               |
-| **Model-based / model-free**          | Learning or using an environment model / learning values or policy directly.               |
-| **Monte-Carlo method**                | An algorithm that learns from complete episodes rather than step by step (e.g. REINFORCE). |
-| **Neural network**                    | A model of layers of simple units connected by adjustable weights.                         |
-| **Off-policy / on-policy**            | Target policy differs from / equals the behaviour policy.                                  |
-| **Policy (π)**                        | A rule for choosing actions.                                                               |
-| **Policy evaluation**                 | Computing V<sub>π</sub> for a fixed policy.                                                |
-| **Policy gradient**                   | A method that adjusts policy parameters in the direction that increases expected return.   |
-| **Policy improvement**                | Making a policy greedy with respect to its value function.                                 |
-| **Policy iteration**                  | Alternating policy evaluation and policy improvement.                                      |
-| **Q-learning**                        | Off-policy value-based algorithm learning Q\*.                                             |
-| **Q-value Q(s,a)**                    | Expected return from taking a in s and then following a policy.                            |
-| **REINFORCE**                         | Policy-gradient algorithm that updates after each complete episode.                        |
-| **Return (G<sub>t</sub>)**            | Total discounted reward from time t.                                                       |
-| **Reward (r)**                        | Feedback signal in RL.                                                                     |
-| **SARSA**                             | On-policy value-based algorithm using (s, a, r, s′, a′).                                   |
-| **State (s)**                         | A description of the current situation.                                                    |
-| **State value V(s)**                  | Expected return from state s under a policy.                                               |
-| **Target network**                    | A slowly updated copy of the Q-network used for stable TD targets.                         |
-| **Target policy**                     | The policy the agent is trying to learn or improve.                                        |
-| **TD error (δ)**                      | Target minus current estimate: the “surprise”.                                             |
-| **Transition probability P(s′\|s,a)** | Chance of landing in s′ after action a in s.                                               |
-| **Unbiased**                          | An estimate that is correct on average across many episodes.                               |
-| **Value function**                    | Predicted total future reward (V or Q).                                                    |
-| **Value iteration**                   | Iterating the Bellman optimality equation until convergence.                               |
-| **Variance**                          | How much an estimate fluctuates from episode to episode.                                   |
+# 24. Glossary
+
+| Term | Meaning |
+|---|---|
+| **Action (a)** | A choice available to the agent. |
+| **Actor–critic** | A method with a plan (actor) and a value function (critic) that learn together. |
+| **Advantage** | How much better a move did than usual; estimated by the TD error δ. |
+| **Agent** | The learner and decision-maker. |
+| **Baseline** | "What we normally expect", subtracted from the return to make REINFORCE less noisy. |
+| **Behaviour policy** | The plan the agent actually follows while learning. |
+| **Bellman equation** | Value here = reward now + γ × value of the next state. |
+| **Bootstrapping** | Updating a guess using another guess (DP and TD do this; Monte Carlo does not). |
+| **Contraction** | (Optional) An update that always brings two guesses closer together; why value iteration settles. |
+| **Credit assignment** | Working out which earlier actions deserve credit for a later reward. |
+| **Discount (γ)** | How much a reward one step later is worth now (between 0 and 1). |
+| **DQN** | Deep Q-Network: Q-learning with a neural network instead of a table. |
+| **Dynamic programming** | Solving an MDP with the map, by sweeping the Bellman equation over all states. |
+| **Environment** | Everything the agent interacts with. |
+| **Episode** | One complete run from start to finish (one game). |
+| **ε-greedy** | With chance ε do a random action; otherwise the best-known action. |
+| **Experience replay** | Learning from random handfuls of stored past steps. |
+| **Exploration / exploitation** | Trying something new / using what currently looks best. |
+| **First-visit / every-visit MC** | Monte Carlo using only the first visit to a state in a game / every visit. |
+| **Fixed point** | (Optional) A set of values that no longer changes when updated. |
+| **Greedy** | Always choosing the action with the highest current score. |
+| **Learning rate (α)** | How much of the gap between the old estimate and the target each update closes. |
+| **Markov property** | The current state is enough to predict what happens next. |
+| **MDP** | Markov Decision Process: states, actions, transitions, rewards, discount. |
+| **Minibatch** | A small random handful of stored steps. |
+| **Model** | The agent's map of the world: where each move leads and what it earns. |
+| **Model-based / model-free** | Planning with a map / learning directly from experience without one. |
+| **Monte Carlo (MC)** | Learning values by averaging the actual returns of complete games. |
+| **Neural network** | A function made of layers of simple adjustable units; used in DQN. |
+| **On-policy / off-policy** | Learns about the plan it follows / learns about a different (usually the best) plan. |
+| **Policy (π)** | The agent's plan: which action to take in each state. |
+| **Policy evaluation** | Working out the value of every state for a fixed plan. |
+| **Policy gradient** | (Optional) Adjusting a plan's numbers in the direction that increases expected return. |
+| **Policy improvement** | Switching, in every state, to the action with the best "reward + γ × next value". |
+| **Policy iteration** | Repeating: evaluate the plan, then improve it, until it stops changing. |
+| **Prediction / control** | Scoring a fixed plan / improving the plan. |
+| **Q-learning** | Off-policy method that learns move scores using the best next move. |
+| **Q-value Q(s, a)** | Expected return from taking action a in state s, then following the plan. |
+| **REINFORCE** | Policy method that, after each game, makes the moves taken more likely in proportion to the return. |
+| **Return** | The total of the rewards from now on, each discounted by how far away it is. |
+| **Reward (r)** | The points given after an action. |
+| **Reward hacking** | The agent exploiting a loophole in the reward instead of doing the intended task. |
+| **SARSA** | On-policy method that learns move scores using the move actually taken next. |
+| **State (s)** | A description of the current situation. |
+| **Target** | The better guess an update moves towards. |
+| **Target network** | A copy of the DQN network, updated only occasionally, used to compute steady targets. |
+| **Target policy** | The plan the agent is trying to learn. |
+| **TD error (δ)** | The surprise: target minus current estimate. |
+| **TD learning** | Updating values after every step using reward + γ × the next state's current guess. |
+| **Transition** | Where a move leads (and, if uncertain, with what chance). |
+| **Value V(s)** | The return the agent expects from state s if it follows its plan. |
+| **Value iteration** | Sweeping "keep the biggest reward + γ × next value" over all states until it settles. |
+| **Variance** | How much a number jumps around from one try to the next ("noisiness"). |
+
+---
 
 # 25. References and Revision Notes
 
 ## 25.1 References
 
-1.  Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction* (2nd ed.). MIT Press.
-2.  Bellman, R. (1957). *Dynamic Programming*. Princeton University Press.
-3.  Watkins, C. J. C. H., & Dayan, P. (1992). Q-learning. *Machine Learning*, 8, 279–292.
-4.  Rummery, G. A., & Niranjan, M. (1994). *On-line Q-learning using connectionist systems*. Technical Report CUED/F-INFENG/TR 166, Cambridge University Engineering Department.
-5.  Williams, R. J. (1992). Simple statistical gradient-following algorithms for connectionist reinforcement learning. *Machine Learning*, 8, 229–256.
-6.  Konda, V. R., & Tsitsiklis, J. N. (2000). Actor-critic algorithms. *Advances in Neural Information Processing Systems*, 12.
-7.  Mnih, V., et al. (2015). Human-level control through deep reinforcement learning. *Nature*, 518, 529–533.
-8.  Puterman, M. L. (1994). *Markov Decision Processes*. Wiley.
-9.  Skinner, B. F. (1938). *The Behavior of Organisms*. Appleton-Century.
+1. Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction* (2nd ed.). MIT Press.
+2. Bellman, R. (1957). *Dynamic Programming*. Princeton University Press.
+3. Watkins, C. J. C. H., & Dayan, P. (1992). Q-learning. *Machine Learning*, 8, 279–292.
+4. Rummery, G. A., & Niranjan, M. (1994). *On-line Q-learning using connectionist systems* (Technical Report CUED/F-INFENG/TR 166). Cambridge University Engineering Department.
+5. Williams, R. J. (1992). Simple statistical gradient-following algorithms for connectionist reinforcement learning. *Machine Learning*, 8, 229–256.
+6. Konda, V. R., & Tsitsiklis, J. N. (2000). Actor-critic algorithms. *Advances in Neural Information Processing Systems*, 12.
+7. Mnih, V., et al. (2015). Human-level control through deep reinforcement learning. *Nature*, 518, 529–533.
+8. Puterman, M. L. (1994). *Markov Decision Processes*. Wiley.
+9. Skinner, B. F. (1938). *The Behavior of Organisms*. Appleton-Century.
+10. Guss, W. H., et al. (2019). MineRL: A large-scale dataset of Minecraft demonstrations. *Proceedings of IJCAI 2019*.
 
-## 25.2 Revision notes (version 2.0)
+**Attribution.** The grid world, corridor and cliff-walk examples follow the standard teaching examples in Sutton & Barto (2018); all numbers in them were recalculated for this module.
 
-| Change                                                                                                                                                                                                 | Where               |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| Corrected the policy-iteration worked example: “always Right” does *not* give the Section 8.4 values; the evaluation is recomputed and the policy-improvement steps shown in full                      | 11.2                |
-| Corrected the Q-learning vs SARSA example: the 2×2 grid has no Left action, so the exploratory action is now Up (blocked)                                                                              | 15.1                |
-| Return G<sub>t</sub> is now defined before it is used (it was referenced to Section 5.4 but not defined there); added to the notation box                                                              | Notation; 5.4       |
-| Blocked actions are now handled correctly in the policy-improvement example (staying in place has value γV(s))                                                                                         | 9.3                 |
-| Added the missing P(s′\|s,a) and γ entries to the MDP component table                                                                                                                                  | 4.2                 |
-| Policy-gradient formulas written in the standard form, with the γ<sup>t</sup> factor explained; added the actor and critic update rules and the corridor value-iteration and policy-iteration examples | 16; 17; 10.3; 11    |
-| Monte-Carlo, baseline and policy gradient are now defined where first used and in the glossary                                                                                                         | 16; 24              |
-| Added figures (loop, grid, model-based/model-free, algorithm map, cliff-walk, actor–critic) and a mind map                                                                                             | Throughout; 19      |
-| Added study plan, learning suggestions, three case studies, mixed practice, a 20-question test with mark scheme and a learning material list                                                           | How to study; 20–23 |
+## 25.2 Revision notes
 
-## 25.3 Topics not covered
+| Version | Change | Where |
+|---|---|---|
+| 3.0 | Rewritten for beginners: every section now opens with **The big idea** and closes with **Remember**; plain-words explanation before every formula, with a **Formula in words** line | All sections |
+| 3.0 | Symbols cut from 16 to the 8 needed for the core path; the rest moved into clearly labelled **Going deeper (optional)** boxes | Notation; Sections 2, 4, 5, 7–10, 13–17 |
+| 3.0 | Added Minecraft as a running analogy, matching the team's video tutorial, alongside the 2×2 grid used for all calculations | Running examples; Sections 1–3, 5–7, 12, 15, 18 |
+| 3.0 | Added two figures: value spreading back from the goal, and an update as a step towards a target | Sections 8 and 13 |
+| 3.0 | Merged the add-on Monte Carlo and TD material into Section 13, with a shared learning-rate explanation (13.2) used by Sections 14–17 | Section 13 |
+| 3.0 | Added a Q-table illustration, a reward-hacking subsection, Mixed Practice P9, and test Q21 (TD learning); test total now 55 marks | 14.1, 18.2, 21, 22 |
+| 3.0 | Mark scheme now shows how each mark is earned | 22 |
+| 3.0 | Merged the glossary and its supplement into one alphabetical list in plain language | 24 |
+| 3.0 | Removed edition labels (NEW badges, "What's new" page) from the learning path; duplicated activity titles fixed | Throughout |
+| 2.1 | Added Monte Carlo and TD learning between dynamic programming and Q-learning | 13 |
+| 2.0 | Corrected the policy-iteration and Q-learning vs SARSA examples; defined the return before first use; added figures, case studies, practice, test and learning material list | 5, 11, 15, 19–23 |
 
-Exploration strategies beyond ε-greedy (softmax, UCB), convergence conditions and the “deadly triad”, PPO/TRPO in detail, offline RL and multi-agent RL. Learner testing: have someone who did not write Sections 14–17 complete the activities as a beginner and record any remaining confusion.
+## 25.3 Optional extensions (beyond this module)
+
+These are not part of the completed module and are not tested: exploration methods beyond ε-greedy (softmax, UCB), multi-step TD and eligibility traces, PPO and TRPO in detail, offline RL and multi-agent RL.

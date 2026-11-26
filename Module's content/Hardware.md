@@ -1,15 +1,19 @@
+<!-- Hardware — Markdown edition. Figures are in the 'hardware_figures' folder. -->
 
-# Computer Hardware & Microarchitecture
 
-**Module 1**
+MODULE 1
 
-Aligned with Cambridge IGCSE Computer Science 0478 / O Level 2210 and AS & A Level 9618
+# Computer Hardware &amp; Microarchitecture
 
-Integrated with D. Watson & H. Williams, Cambridge IGCSE and O Level Computer Science and Cambridge International AS & A Level Computer Science
+Version 3.0 (revised)
 
-Part of: Hardware, Networks and Behaviourist AI
+Aligned with Cambridge IGCSE Computer Science 0478 / O Level 2210 and AS &amp; A Level 9618 Integrated with D. Watson &amp; H. Williams, *Cambridge IGCSE and O Level Computer Science* and *Cambridge International AS &amp; A Level*
 
-------------------------------------------------------------------------
+*Computer Science* Part of: Hardware, Networks and Behaviourist AI
+
+
+---
+
 
 # Contents
 
@@ -35,51 +39,103 @@ Part of: Hardware, Networks and Behaviourist AI
 - 1.18 Glossary
 - 1.19 References and attribution
 
+
+---
+
+
+# What's New in This Edition — Module 1: Computer Hardware
+
+This edition fills the gaps found when the module was checked against the Cambridge IGCSE 0478 and AS &amp; A Level 9618 syllabuses it is aligned with. Sections marked A Level go beyond IGCSE.
+
+| New section | Where it is | What it adds |
+|---|---|---|
+| 1.3.4–1.3.8 Truth tables | After Section 1.3 | NOT gate table, three-input truth tables, circuit → table, problem statement → expression, the full adder |
+| 1.3.9–1.3.11 Boolean algebra, Karnaugh maps, flip-flops (A Level) | After Section 1.3 | Laws incl. De Morgan, simplification, K-maps, SR and JK flip-flop truth tables |
+| 1.5.5–1.5.11 Assembly language | After Section 1.5 | The full Cambridge instruction set incl. ADD, LDD, LDR, LDM, LDI, LDX, STO, CMP, JPE/JPN; trace tables; bit manipulation; two-pass assembler |
+| 1.9.5 Sensors in detail | After Section 1.9 | Fourteen sensor types; the LDR (light-dependent resistor); automatic street light |
+| 1.12.3–1.12.4 RISC/CISC and parallel processing (A Level) | After Section 1.12 | RISC vs CISC; Flynn's SISD/SIMD/MISD/MIMD; massively parallel computers |
+| Glossary supplement | After Section 1.18 | New key terms |
+
+> **How to find the new material**
+>
+> New sections keep the module's numbering and are inserted straight after the section they extend, so cross- references in the original text still work. Every new heading carries a green `NEW` label, and new figures are numbered with a letter (for example Figure 8A follows Figure 8). New key terms are collected in a glossary supplement placed straight after the module glossary.
+
+
+---
+
+
 # Module overview and learning outcomes
 
-This module introduces the physical components of a computer and the microarchitectural principles that let those components execute instructions. It starts with the parts you can touch, establishes the binary number system (the language all hardware speaks), and builds upward through logic gates, the Von Neumann model, the fetch–decode–execute cycle, the memory hierarchy, input/output devices, networks, embedded systems, monitoring and control, and processor specialisation.
+This module introduces the physical components of a computer and the microarchitectural principles that let those components execute instructions. It starts with the parts you can touch, establishes the binary number system (the language all hardware speaks), and builds upward through logic gates, the Von Neumann model, the fetch–decode– execute cycle, the memory hierarchy, input/output devices, networks, embedded systems, monitoring and control, and processor specialisation.
 
 **Prerequisite knowledge:** none beyond everyday familiarity with a computer. Binary is taught in Section 1.2 before any section that uses it, and every new term is defined before it is used.
 
 > **By the end of this module you should be able to:**
 >
-> 1.  Identify the major internal components of a computer and state the role of each.
-> 2.  Convert between binary, denary and hexadecimal, and explain why hexadecimal is used.
-> 3.  State and use the units of data: bit, nibble, byte, KB, MB, GB, TB.
-> 4.  Explain how transistors form logic gates and how gates form combinational and sequential circuits.
-> 5.  Identify the registers and buses of the Von Neumann architecture and explain the role of each.
-> 6.  Trace the fetch–decode–execute (FDE) cycle stage by stage, naming the registers and buses active at each step.
-> 7.  Explain how interrupts and the interrupt service routine (ISR) work, and how pipelining speeds up instruction throughput.
-> 8.  Explain why the memory hierarchy exists and compare DRAM and SRAM.
-> 9.  Distinguish PROM, EPROM and EEPROM, and state appropriate uses for each.
+> 1. Identify the major internal components of a computer and state the role of each.
+>
+> 2. Convert between binary, denary and hexadecimal, and explain why hexadecimal is used.
+>
+> 3. State and use the units of data: bit, nibble, byte, KB, MB, GB, TB.
+>
+> 4. Explain how transistors form logic gates and how gates form combinational and sequential circuits.
+>
+> 5. Identify the registers and buses of the Von Neumann architecture and explain the role of each.
+>
+> 6. Trace the fetch–decode–execute (FDE) cycle stage by stage, naming the registers and buses active at each
+>
+> step.
+>
+> 7. Explain how interrupts and the interrupt service routine (ISR) work, and how pipelining speeds up instruction throughput.
+>
+> 8. Explain why the memory hierarchy exists and compare DRAM and SRAM.
+>
+> 9. Distinguish PROM, EPROM and EEPROM, and state appropriate uses for each.
+>
 > 10. Explain what buffers and virtual memory are, and why they exist.
+>
 > 11. Describe the principles of operation of common input and output devices, including sensors and actuators, and compare HDMI and VGA.
+>
 > 12. Compare local storage with cloud storage, and describe the network hardware that makes cloud storage possible.
+>
 > 13. Describe embedded systems, real-time constraints, and monitoring/control systems.
+>
 > 14. Compare CPU, GPU and TPU architectures in terms of latency and throughput.
 
 ## How to study this module
 
 Every section follows the same rhythm, so you always know what to do next:
 
-1.  **Read the objectives** (blue box) so you know the target.
-2.  **Read the explanation** and study each figure. Redraw the figure from memory when you finish the section.
-3.  **Follow the worked example** (purple box) line by line with a pencil.
-4.  **Do the activity** (orange box) *before* reading the checked answer (green box).
-5.  **Answer the exam-style question** (red box) in full sentences, then compare with the mark scheme.
+1. **Read the objectives** (blue box) so you know the target.
+
+2. **Read the explanation** and study each figure. Redraw the figure from memory when you finish the section.
+
+3. **Follow the worked example** (purple box) line by line with a pencil.
+
+4. **Do the activity** (orange box) *before* reading the checked answer (green box).
+
+5. **Answer the exam-style question** (red box) in full sentences, then compare with the mark scheme.
+
+
+---
+
 
 > **Suggested study plan (about 6 weeks, 3 sessions per week)**
 >
-> | Week | Sections         | Focus                                               | Self-check                                               |
-> |------|------------------|-----------------------------------------------------|----------------------------------------------------------|
-> | 1    | 1.1, 1.2         | Components; binary, denary, hex conversions         | Convert 10 numbers each way without a calculator         |
-> | 2    | 1.3, 1.4         | Logic gates, truth tables; registers and buses      | Draw the Von Neumann diagram from memory                 |
-> | 3    | 1.5, 1.6         | FDE trace, interrupts, pipelining; memory hierarchy | Trace an ADD instruction register by register            |
-> | 4    | 1.7, 1.8, 1.9    | RAM/ROM types; buffers, virtual memory; I/O devices | Make a one-page comparison table for DRAM/SRAM/ROM types |
-> | 5    | 1.10, 1.11, 1.12 | Networks, cloud, embedded systems, CPU/GPU/TPU      | Explain a washing machine as a control system            |
-> | 6    | 1.13 – 1.16      | Mind map, case studies, mixed practice, test        | Sit the end-of-module test under timed conditions        |
+> | Week | Sections | Focus | Self-check |
+> |---|---|---|---|
+> | 1 | 1.1, 1.2 | Components; binary, denary, hex conversions | Convert 10 numbers each way without a calculator |
+> | 2 | 1.3, 1.4 | Logic gates, truth tables; registers and buses | Draw the Von Neumann diagram from memory |
+> | 3 | 1.5, 1.6 | FDE trace, interrupts, pipelining; memory hierarchy | Trace an ADD instruction register by register |
+> | 4 | 1.7, 1.8, 1.9 | RAM/ROM types; buffers, virtual memory; I/O devices | Make a one-page comparison table for DRAM/SRAM/ROM types |
+> | 5 | 1.10, 1.11, 1.12 | Networks, cloud, embedded systems, CPU/GPU/TPU | Explain a washing machine as a control system |
+> | 6 | 1.13 – 1.16 | Mind map, case studies, mixed practice, test | Sit the end-of-module test under timed conditions |
 >
 > **Learning suggestions:** (1) Use *retrieval practice*: close the book and write down everything you remember, then check. (2) Use *spaced repetition*: re-do the activities after 1 day, 1 week and 1 month. (3) Explain each concept aloud to someone else — if you cannot, you have found a gap. (4) Always show working in conversions; marks are usually awarded for method. (5) Pair each new term with a one-line everyday analogy (for example: a register is a sticky note on your desk, RAM is the desk, storage is the filing cabinet).
+
+
+---
+
 
 # Section 1.1 — Physical Parts of a Computer
 
@@ -91,12 +147,12 @@ Every section follows the same rhythm, so you always know what to do next:
 
 **Hardware** is the set of physical parts of a computer that you can see, touch and (usually) move. It is contrasted with **software**, the instructions and data the hardware carries out and stores. Software has no physical form of its own; it exists as patterns stored in hardware.
 
-| Term     | Meaning                                                                     | Example                              |
-|----------|-----------------------------------------------------------------------------|--------------------------------------|
-| Hardware | The physical parts                                                          | The CPU chip                         |
-| Software | Programs and data stored as patterns in hardware                            | A web browser                        |
+| Term | Meaning | Example |
+|---|---|---|
+| Hardware | The physical parts | The CPU chip |
+| Software | Programs and data stored as patterns in hardware | A web browser |
 | Firmware | Software permanently stored in hardware, usually in ROM, and rarely changed | The BIOS/UEFI that starts a computer |
-| Data     | Raw facts that programs process                                             | The numbers in a spreadsheet         |
+| Data | Raw facts that programs process | The numbers in a spreadsheet |
 
 A computer works only when all four cooperate. The hardware provides the physical capability, the firmware starts the machine, the software tells the hardware what to do, and the data is what gets processed.
 
@@ -110,7 +166,11 @@ Connections between components are made by **traces**: thin copper pathways prin
 >
 > A fast CPU connected by a slow or narrow pathway cannot perform at its full speed. The motherboard and its traces are part of the performance story.
 
-![alt](./Assets/Screenshot%202026-11-05%20163034.png)
+
+---
+
+
+![Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.](hardware_figures/hardware-p007-1.png)
 
 *Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.*
 
@@ -124,7 +184,9 @@ The **Central Processing Unit (CPU)** fetches instructions, decodes them and exe
 
 > **Why RAM exists**
 >
-> SSDs and hard drives are much slower than the CPU. Without RAM, the CPU would spend most of its time waiting. RAM is the intermediate workspace fast enough to keep the CPU busy. Section 1.6 explains this speed gap.
+> SSDs and hard drives are much slower than the CPU. Without RAM, the CPU would spend most of its time waiting. RAM is the intermediate workspace fast enough to keep the CPU busy. Section 1.6 explains this speed
+>
+> gap.
 
 ## 1.1.5 ROM: permanent start-up instructions
 
@@ -133,12 +195,18 @@ The **Central Processing Unit (CPU)** fetches instructions, decodes them and exe
 ## 1.1.6 Secondary storage
 
 - **HDD (hard disk drive)**: magnetic spinning platters; large capacity, relatively cheap, slower, sensitive to movement.
+
 - **SSD (solid-state drive)**: flash memory chips, no moving parts; faster, quieter, more shock-resistant, more expensive per gigabyte.
+
 - **USB flash drives and memory cards**: portable flash storage.
 
 ## 1.1.7 GPU and TPU
 
-A **GPU (Graphics Processing Unit)** contains hundreds or thousands of small arithmetic units that operate concurrently, making it effective for graphics rendering and parallel numerical work. A **TPU (Tensor Processing Unit)** is an ASIC (application-specific integrated circuit) designed to accelerate machine-learning matrix operations. Its core is a **systolic array**: a grid of processing elements through which data flows in a regular rhythm.
+A **GPU (Graphics Processing Unit)** contains hundreds or thousands of small arithmetic units that operate concurrently, making it effective for graphics rendering and parallel numerical work. A **TPU (Tensor Processing Unit)** is an ASIC (application-specific integrated circuit) designed to accelerate machine-learning matrix operations. Its core is a **systolic** **array**: a grid of processing elements through which data flows in a regular rhythm.
+
+
+---
+
 
 ## 1.1.8 The system clock
 
@@ -147,29 +215,32 @@ The **system clock** produces timing signals measured in hertz (Hz); 1 GHz is on
 ## 1.1.9 Other common components
 
 - **PSU**: converts mains electricity into DC voltages.
+
 - **Cooling system**: fans, heat sinks or liquid cooling remove heat.
+
 - **Expansion cards**: add graphics, Wi-Fi, sound, etc.
+
 - **Case**: protects components and supports airflow.
 
 > **Activity 1.1 — Identify the component**
 >
-> | Job                                     | Component |
-> |-----------------------------------------|-----------|
-> | Holds the program currently running     | ?         |
-> | Starts the computer before the OS loads | ?         |
-> | Performs arithmetic                     | ?         |
-> | Connects all components                 | ?         |
-> | Keeps files when power is off           | ?         |
+> | Job | Component |
+> |---|---|
+> | Holds the program currently running | ? |
+> | Starts the computer before the OS loads | ? |
+> | Performs arithmetic | ? |
+> | Connects all components | ? |
+> | Keeps files when power is off | ? |
 
 > **Checked answers**
 >
-> | Job                                     | Component         |
-> |-----------------------------------------|-------------------|
-> | Holds the program currently running     | RAM               |
-> | Starts the computer before the OS loads | ROM / firmware    |
-> | Performs arithmetic                     | ALU               |
-> | Connects all components                 | Motherboard       |
-> | Keeps files when power is off           | Secondary storage |
+> | Job | Component |
+> |---|---|
+> | Holds the program currently running | RAM |
+> | Starts the computer before the OS loads | ROM / firmware |
+> | Performs arithmetic | ALU |
+> | Connects all components | Motherboard |
+> | Keeps files when power is off | Secondary storage |
 
 > **Exam-style practice**
 >
@@ -179,40 +250,55 @@ The **system clock** produces timing signals measured in hertz (Hz); 1 GHz is on
 
 ## 1.1.10 Motherboard form factors
 
-A **form factor** is a standard that defines a motherboard's physical dimensions, mounting-hole positions, and the layout of expansion slots and connectors. Form factors exist so that cases, power supplies and add-on cards from different manufacturers fit together. Without a recognised form factor, every case and PSU would have to be custom-made.
+A **form factor** is a standard that defines a motherboard's physical dimensions, mounting-hole positions, and the layout
 
-| Form factor         | Typical size  | Expansion slots | Typical use                                   |
-|---------------------|---------------|-----------------|-----------------------------------------------|
-| EATX (Extended ATX) | ~305 x 330 mm | Up to 7         | Workstations, servers, multi-GPU builds       |
-| ATX (standard)      | ~305 x 244 mm | Up to 7         | Desktop PCs, gaming builds                    |
-| Micro-ATX (mATX)    | ~244 x 244 mm | Up to 4         | Smaller desktops, budget builds               |
-| Mini-ITX            | ~170 x 170 mm | 1–2             | Small-form-factor PCs, home theatre, embedded |
+of expansion slots and connectors. Form factors exist so that cases, power supplies and add-on cards from different manufacturers fit together. Without a recognised form factor, every case and PSU would have to be custom-made.
 
-![alt](./Assets/Screenshot%202026-11-05%20163051.png)
+| Form factor | Typical size | Expansion slots | Typical use |
+|---|---|---|---|
+| EATX (Extended ATX) | ~305 x 330 mm | Up to 7 | Workstations, servers, multi-GPU builds |
+| ATX (standard) | ~305 x 244 mm | Up to 7 | Desktop PCs, gaming builds |
+
+
+---
+
+
+| Form factor | Typical size | Expansion slots | Typical use |
+|---|---|---|---|
+| Micro-ATX (mATX) | ~244 x 244 mm | Up to 4 | Smaller desktops, budget builds |
+| Mini-ITX | ~170 x 170 mm | 1–2 | Small-form-factor PCs, home theatre, embedded |
+
+![Figure 2 — Relative sizes of the four main motherboard form factors.](hardware_figures/hardware-p009-1.png)
 
 *Figure 2 — Relative sizes of the four main motherboard form factors.*
 
 > **Worked example — choosing a form factor**
 >
-> A user needs a gaming PC with two graphics cards, four RAM modules and a large air cooler. EATX or full ATX is best: more expansion slots, more RAM slots, and enough clearance for cooling. A user building a small home-theatre PC should choose Mini-ITX: it fits a compact case but limits slots and cooling options.
+> A user needs a gaming PC with two graphics cards, four RAM modules and a large air cooler. EATX or full ATX is best: more expansion slots, more RAM slots, and enough clearance for cooling. A user building a small home-
+>
+> theatre PC should choose Mini-ITX: it fits a compact case but limits slots and cooling options.
 
 > **Activity 1.1.10 — Match the form factor**
 >
-> | Scenario                        | Best form factor | Reason |
-> |---------------------------------|------------------|--------|
-> | Dual-GPU scientific workstation | ?                | ?      |
-> | Standard office desktop         | ?                | ?      |
-> | Small home-theatre PC           | ?                | ?      |
-> | Budget family PC                | ?                | ?      |
+> | Scenario | Best form factor | Reason |
+> |---|---|---|
+> | Dual-GPU scientific workstation | ? | ? |
+> | Standard office desktop | ? | ? |
+> | Small home-theatre PC | ? | ? |
+> | Budget family PC | ? | ? |
 
 > **Checked answers**
 >
-> | Scenario                        | Best form factor | Reason                                                    |
-> |---------------------------------|------------------|-----------------------------------------------------------|
-> | Dual-GPU scientific workstation | EATX or ATX      | Most expansion slots; room for cooling and power delivery |
-> | Standard office desktop         | ATX              | Standard, widely available, enough slots                  |
-> | Small home-theatre PC           | Mini-ITX         | Smallest footprint, fits compact cases                    |
-> | Budget family PC                | Micro-ATX        | Cheaper, smaller, enough slots for basic use              |
+> | Scenario | Best form factor | Reason |
+> |---|---|---|
+> | Dual-GPU scientific workstation | EATX or ATX | Most expansion slots; room for cooling and power delivery |
+> | Standard office desktop | ATX | Standard, widely available, enough slots |
+> | Small home-theatre PC | Mini-ITX | Smallest footprint, fits compact cases |
+> | Budget family PC | Micro-ATX | Cheaper, smaller, enough slots for basic use |
+
+
+---
+
 
 > **Exam-style practice**
 >
@@ -224,7 +310,7 @@ A **form factor** is a standard that defines a motherboard's physical dimensions
 
 The **power supply unit (PSU)** converts the high-voltage alternating current (AC) from a wall socket into the low-voltage direct current (DC) that the computer's components need. The conversion happens in four stages.
 
-![alt](./Assets/Screenshot%202026-11-05%20163059.png)
+![Figure 3 — The four stages of AC-to-DC conversion inside a PSU.](hardware_figures/hardware-p010-1.png)
 
 *Figure 3 — The four stages of AC-to-DC conversion inside a PSU.*
 
@@ -234,21 +320,25 @@ The **power supply unit (PSU)** converts the high-voltage alternating current (A
 
 > **Activity 1.1.11 — Order the stages**
 >
-> | Stage               | Position (1–4) | What it does |
-> |---------------------|----------------|--------------|
-> | Voltage regulator   | ?              | ?            |
-> | Transformer         | ?              | ?            |
-> | Smoothing capacitor | ?              | ?            |
-> | Rectifier           | ?              | ?            |
+> | Stage | Position (1–4) | What it does |
+> |---|---|---|
+> | Voltage regulator | ? | ? |
+> | Transformer | ? | ? |
+> | Smoothing capacitor | ? | ? |
+> | Rectifier | ? | ? |
 
 > **Checked answers**
 >
-> | Stage               | Position | What it does                |
-> |---------------------|----------|-----------------------------|
-> | Transformer         | 1        | Steps AC voltage down       |
-> | Rectifier           | 2        | Converts AC to pulsating DC |
-> | Smoothing capacitor | 3        | Removes ripple              |
-> | Voltage regulator   | 4        | Holds stable DC output      |
+> | Stage | Position | What it does |
+> |---|---|---|
+> | Transformer | 1 | Steps AC voltage down |
+> | Rectifier | 2 | Converts AC to pulsating DC |
+> | Smoothing capacitor | 3 | Removes ripple |
+> | Voltage regulator | 4 | Holds stable DC output |
+
+
+---
+
 
 > **Exam-style practice**
 >
@@ -260,16 +350,16 @@ The **power supply unit (PSU)** converts the high-voltage alternating current (A
 
 Opening a PSU (only safely, with the unit unplugged and discharged) reveals a circuit board with several distinct components. Each plays a role in conversion, filtering or protection.
 
-| Component           | Function                                                                    |
-|---------------------|-----------------------------------------------------------------------------|
-| Transformer         | Steps the AC voltage down using magnetic induction between coils.           |
-| Rectifier diodes    | Allow current to flow in one direction only, converting AC to pulsating DC. |
-| Capacitors          | Store charge and smooth out voltage ripple; also filter noise.              |
-| Resistors           | Limit current and divide voltage; used in sensing circuits.                 |
-| Rotary switch       | On some older PSUs, selects the input voltage (110 V or 230 V).             |
-| Heatsinks           | Dissipate heat from power transistors and diodes.                           |
-| Fan                 | Moves air through the unit to keep components within safe temperatures.     |
-| Protection circuits | Shut down the PSU on over-voltage, over-current or short-circuit.           |
+| Component | Function |
+|---|---|
+| Transformer | Steps the AC voltage down using magnetic induction between coils. |
+| Rectifier diodes | Allow current to flow in one direction only, converting AC to pulsating DC. |
+| Capacitors | Store charge and smooth out voltage ripple; also filter noise. |
+| Resistors | Limit current and divide voltage; used in sensing circuits. |
+| Rotary switch | On some older PSUs, selects the input voltage (110 V or 230 V). |
+| Heatsinks | Dissipate heat from power transistors and diodes. |
+| Fan | Moves air through the unit to keep components within safe temperatures. |
+| Protection circuits | Shut down the PSU on over-voltage, over-current or short-circuit. |
 
 > **Activity 1.1.12 — Match the component to its role**
 >
@@ -289,17 +379,24 @@ Opening a PSU (only safely, with the unit unplugged and discharged) reveals a ci
 
 A graphics card is an expansion card that contains a GPU and its supporting components. It handles graphics rendering and highly parallel numerical work. A modern graphics card has seven main parts.
 
-| Part                                   | Function                                                                                                  |
-|----------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| 1\. GPU chip                           | The processor itself; contains thousands of shader cores that execute rendering and parallel computation. |
-| 2\. VRAM                               | Dedicated video memory that stores textures, framebuffers and working data for the GPU.                   |
-| 3\. PCIe interface                     | The edge connector that plugs into the motherboard and carries data between CPU and GPU.                  |
-| 4\. Heatsink + fan                     | Removes heat generated by the GPU chip and VRAM.                                                          |
-| 5\. 6/8-pin auxiliary power connectors | Supply extra power beyond what the PCIe slot provides; needed for high-end GPUs.                          |
-| 6\. Monitor outputs                    | HDMI, DisplayPort, DVI and other connectors that send video to displays.                                  |
-| 7\. Video BIOS                         | Firmware that initialises the card at start-up and controls clock speeds and voltages.                    |
+| Part | Function |
+|---|---|
+| 1. GPU chip | The processor itself; contains thousands of shader cores that execute rendering and parallel computation. |
+| 2. VRAM | Dedicated video memory that stores textures, framebuffers and working data for the GPU. |
 
-![alt](./Assets/Screenshot%202026-11-05%20163108.png)
+
+---
+
+
+| Part | Function |
+|---|---|
+| 3. PCIe interface | The edge connector that plugs into the motherboard and carries data between CPU and GPU. |
+| 4. Heatsink + fan | Removes heat generated by the GPU chip and VRAM. |
+| 5. 6/8-pin auxiliary power connectors | Supply extra power beyond what the PCIe slot provides; needed for high-end GPUs. |
+| 6. Monitor outputs | HDMI, DisplayPort, DVI and other connectors that send video to displays. |
+| 7. Video BIOS | Firmware that initialises the card at start-up and controls clock speeds and voltages. |
+
+![Figure 4 — The seven main parts of a graphics card.](hardware_figures/hardware-p012-1.png)
 
 *Figure 4 — The seven main parts of a graphics card.*
 
@@ -309,23 +406,31 @@ A graphics card is an expansion card that contains a GPU and its supporting comp
 
 > **Activity 1.1.13 — Match the GPU part**
 >
-> | Function                             | Part |
-> |--------------------------------------|------|
-> | Stores textures and framebuffers     | ?    |
-> | Connects the card to the motherboard | ?    |
-> | Supplies extra power beyond the slot | ?    |
-> | Initialises the card at start-up     | ?    |
-> | Removes heat from the GPU            | ?    |
+> | Function | Part |
+> |---|---|
+> | Stores textures and framebuffers | ? |
+> | Connects the card to the motherboard | ? |
+> | Supplies extra power beyond the slot | ? |
+> | Initialises the card at start-up | ? |
+> | Removes heat from the GPU | ? |
 
 > **Checked answers**
 >
 > VRAM; PCIe interface; 6/8-pin connectors; Video BIOS; heatsink + fan.
+
+
+---
+
 
 > **Exam-style practice**
 >
 > **Question (2 marks).** Explain why high-end GPUs need auxiliary power connectors.
 >
 > **Checked answer.** They draw more power than the PCIe slot can supply **(1)**; the 6- or 8-pin connectors deliver the extra current from the PSU **(1)**.
+
+
+---
+
 
 # Section 1.2 — Number Systems and Data Units
 
@@ -339,31 +444,37 @@ A **bit** is a single binary digit: 0 or 1. In hardware these are two voltage le
 
 ## 1.2.2 Units of data
 
-| Unit          | Size           | Example use         |
-|---------------|----------------|---------------------|
-| bit           | 1 binary digit | one flag            |
-| nibble        | 4 bits         | one hex digit       |
-| byte          | 8 bits         | one ASCII character |
-| KB (kilobyte) | 1024 bytes     | short text file     |
-| MB            | 1024 KB        | photo               |
-| GB            | 1024 MB        | video / RAM         |
-| TB            | 1024 GB        | SSD / HDD           |
+| Unit | Size | Example use |
+|---|---|---|
+| bit | 1 binary digit | one flag |
+| nibble | 4 bits | one hex digit |
+| byte | 8 bits | one ASCII character |
+| KB (kilobyte) | 1024 bytes | short text file |
+| MB | 1024 KB | photo |
+| GB | 1024 MB | video / RAM |
+| TB | 1024 GB | SSD / HDD |
 
 > **Convention note**
 >
-> In this module 1 KB = 1024 bytes because 1024 = 2<sup>10</sup>. This is the convention used in Cambridge papers. Storage manufacturers sometimes use 1000 bytes per KB. The IEC names the power-of-two units kibibyte (KiB), mebibyte (MiB) and so on. Use 1024 in exams unless told otherwise.
+> In this module 1 KB = 1024 bytes because 1024 = 2<sup>10</sup>. This is the convention used in Cambridge papers. Storage manufacturers sometimes use 1000 bytes per KB. The IEC names the power-of-two units kibibyte (KiB), mebibyte
+>
+> (MiB) and so on. Use 1024 in exams unless told otherwise.
 
 ## 1.2.3 Binary place values
 
 Each bit position has a value that is double the one to its right. To convert binary to denary, add the place values wherever there is a 1.
 
-![alt](./Assets/Screenshot%202026-11-05%20163120.png)
+![Figure 5 — Binary place-value chart: 10110101 = 181.](hardware_figures/hardware-p014-1.png)
 
 *Figure 5 — Binary place-value chart: 10110101 = 181.*
 
 > **Worked example — 1011 to denary**
 >
 > 1011<sub>2</sub> = 1×2<sup>3</sup> + 0×2<sup>2</sup> + 1×2<sup>1</sup> + 1×2<sup>0</sup> = 8 + 0 + 2 + 1 = 11<sub>10</sub>
+
+
+---
+
 
 > **Worked example — 45 to binary**
 >
@@ -377,20 +488,20 @@ Each bit position has a value that is double the one to its right. To convert bi
 >
 > B7<sub>16</sub> = 11 × 16 + 7 = 176 + 7 = 183<sub>10</sub>
 
-![alt](./Assets/Screenshot%202026-11-05%20163127.png)
+![Figure 6 — Binary to hex grouping: 1101 0110 = D6.](hardware_figures/hardware-p015-1.png)
 
 *Figure 6 — Binary to hex grouping: 1101 0110 = D6.*
 
 ## 1.2.5 Conversion practice
 
-| Task                        | Answer                                 |
-|-----------------------------|----------------------------------------|
-| 10110<sub>2</sub> to denary | 16 + 4 + 2 = 22<sub>10</sub>           |
-| 45<sub>10</sub> to binary   | 101101<sub>2</sub>                     |
+| Task | Answer |
+|---|---|
+| 10110<sub>2</sub> to denary | 16 + 4 + 2 = 22<sub>10</sub> |
+| 45<sub>10</sub> to binary | 101101<sub>2</sub> |
 | 11101101<sub>2</sub> to hex | 1110 = E, 1101 = D, so ED<sub>16</sub> |
-| B7<sub>16</sub> to denary   | 183<sub>10</sub>                       |
-| 2C<sub>16</sub> to binary   | 0010 1100 = 00101100<sub>2</sub>       |
-| 3 bytes = ? bits / nibbles  | 24 bits, 6 nibbles                     |
+| B7<sub>16</sub> to denary | 183<sub>10</sub> |
+| 2C<sub>16</sub> to binary | 0010 1100 = 00101100<sub>2</sub> |
+| 3 bytes = ? bits / nibbles | 24 bits, 6 nibbles |
 
 > **Activity 1.2 — Try it yourself**
 >
@@ -398,13 +509,17 @@ Each bit position has a value that is double the one to its right. To convert bi
 
 > **Checked answers**
 >
-> \(a\) 16 + 8 + 1 = 25. (b) 64 + 32 + 4 = 01100100<sub>2</sub>. (c) 3 × 16 + 15 = 63. (d) 1010 = A, 1111 = F, so AF<sub>16</sub>.
+> (a) 16 + 8 + 1 = 25. (b) 64 + 32 + 4 = 01100100<sub>2</sub>. (c) 3 × 16 + 15 = 63. (d) 1010 = A, 1111 = F, so AF<sub>16</sub>.
 
 > **Exam-style practice**
 >
 > **Question (2 marks).** Explain why hexadecimal is used for memory addresses.
 >
 > **Checked answer.** Each hex digit represents four binary bits **(1)**, so long binary addresses become short and less error-prone **(1)**.
+
+
+---
+
 
 # Section 1.3 — Binary Logic
 
@@ -416,16 +531,16 @@ Each bit position has a value that is double the one to its right. To convert bi
 
 A **transistor** is a tiny electronic switch. Combining transistors forms **logic gates**: circuits whose output depends on the inputs according to a fixed rule. A **truth table** lists every input combination and the corresponding output.
 
-![alt](./Assets/Screenshot%202026-11-05%20163136.png)
+![Figure 7 — Standard logic gate symbols.](hardware_figures/hardware-p016-1.png)
 
 *Figure 7 — Standard logic gate symbols.*
 
-| A   | B   | AND | OR  | XOR | NAND | NOR | XNOR |
-|-----|-----|-----|-----|-----|------|-----|------|
-| 0   | 0   | 0   | 0   | 0   | 1    | 1   | 1    |
-| 0   | 1   | 0   | 1   | 1   | 1    | 0   | 0    |
-| 1   | 0   | 0   | 1   | 1   | 1    | 0   | 0    |
-| 1   | 1   | 1   | 1   | 0   | 0    | 0   | 1    |
+| A | B | AND | OR | XOR | NAND | NOR | XNOR |
+|---|---|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 | 0 | 0 |
+| 1 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 |
 
 **Memory aids:** AND outputs 1 only if *both* inputs are 1. OR outputs 1 if *at least one* input is 1. XOR outputs 1 if the inputs are *different*. NOT inverts a single input. NAND, NOR and XNOR are AND, OR and XOR followed by NOT.
 
@@ -437,18 +552,24 @@ A **transistor** is a tiny electronic switch. Combining transistors forms **logi
 
 A half-adder adds two single bits, producing a **Sum** and a **Carry**.
 
-![alt](./Assets/Screenshot%202026-11-05%20163517.png)
+
+---
+
+
+![Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.](hardware_figures/hardware-p017-1.png)
 
 *Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.*
 
-| A   | B   | Sum (XOR) | Carry (AND) |
-|-----|-----|-----------|-------------|
-| 0   | 0   | 0         | 0           |
-| 0   | 1   | 1         | 0           |
-| 1   | 0   | 1         | 0           |
-| 1   | 1   | 0         | 1           |
+| A | B | Sum (XOR) | Carry (AND) |
+|---|---|---|---|
+| 0 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 1 |
 
-This matches binary addition: 1 + 1 = 10<sub>2</sub> (sum 0, carry 1). A **full adder** adds three bits (A, B and a carry-in) and chaining full adders forms the adder inside the ALU.
+This matches binary addition: 1 + 1 = 10<sub>2</sub> (sum 0, carry 1). A **full adder** adds three bits (A, B and a carry-in) and
+
+chaining full adders forms the adder inside the ALU.
 
 > **Activity 1.3 — Build a half-adder**
 >
@@ -464,6 +585,246 @@ This matches binary addition: 1 + 1 = 10<sub>2</sub> (sum 0, carry 1). A **full 
 >
 > **Checked answer.** 0 XOR 1 = 1 **(1)**; 1 XOR 1 = 0 **(1)**; output is 1 only when the inputs differ **(1)**.
 
+
+---
+
+
+# Section 1.3 (continued) — Truth Tables, Boolean Algebra and Flip-Flops
+
+> **Learning objectives (new in this edition)**
+>
+> Complete truth tables for NOT and for any logic expression or circuit with up to three inputs; write a logic expression from a problem statement; explain the full adder; simplify expressions with Boolean algebra and Karnaugh maps; and complete truth tables for SR and JK flip-flops.
+
+## 1.3.4 The NOT gate and reading a truth table `NEW`
+
+The two-input table in Section 1.3.1 has no column for **NOT**, because NOT has only one input. Its truth table has just two rows: the output is always the opposite of the input. A NOT gate is also called an **inverter**.
+
+| A | NOT A |
+|---|---|
+| 0 | **1** |
+| 1 | **0** |
+
+| Gate | Cambridge written form | Boolean form |
+|---|---|---|
+| NOT | NOT A | A̅ |
+| AND | A AND B | A.B |
+| OR | A OR B | A + B |
+| XOR | A XOR B | A ⊕ B |
+| NAND | NOT (A AND B) | A̅.̅B̅ |
+| NOR | NOT (A OR B) | A̅ +̅ B̅ |
+
+**How many rows?** A truth table with *n* inputs needs 2<sup>n</sup> rows: 2 rows for one input, 4 for two inputs, 8 for three inputs. Always list the inputs in binary counting order (000, 001, 010 … 111) so that you never miss or repeat a row. In Cambridge papers the input columns are usually labelled A, B, C and the output X, Q or P.
+
+## 1.3.5 Truth tables for three-input expressions `NEW`
+
+For a longer expression, add a **working column** for each part, then combine the working columns. Working columns are not required in the exam, but they prevent most mistakes.
+
+
+---
+
+
+> **Worked example — X = (A AND B) OR (NOT C)**
+>
+> Step 1: write the 8 input rows. Step 2: work out A AND B. Step 3: work out NOT C. Step 4: X is 1 if either working column is 1.
+>
+> | A | B | C | A AND B | NOT C | X |
+> |---|---|---|---|---|---|
+> | 0 | 0 | 0 | 0 | 1 | **1** |
+> | 0 | 0 | 1 | 0 | 0 | **0** |
+> | 0 | 1 | 0 | 0 | 1 | **1** |
+> | 0 | 1 | 1 | 0 | 0 | **0** |
+> | 1 | 0 | 0 | 0 | 1 | **1** |
+> | 1 | 0 | 1 | 0 | 0 | **0** |
+> | 1 | 1 | 0 | 1 | 1 | **1** |
+> | 1 | 1 | 1 | 1 | 0 | **1** |
+
+## 1.3.6 From a logic circuit to a truth table `NEW`
+
+To work out what a circuit does, label the output of every gate with a letter, then fill in one working column per gate from left to right. The circuit below is P = (A OR B) AND NOT (B AND C).
+
+![Figure 8A — D = A OR B, E = B AND C, F = NOT E, P = D AND F.](hardware_figures/hardware-p019-1.png)
+
+*Figure 8A — D = A OR B, E = B AND C, F = NOT E, P = D AND F.*
+
+
+---
+
+
+| A | B | C | D = A OR B | E = B AND C | F = NOT E | P = D AND F |
+|---|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | 1 | **0** |
+| 0 | 0 | 1 | 0 | 0 | 1 | **0** |
+| 0 | 1 | 0 | 1 | 0 | 1 | **1** |
+| 0 | 1 | 1 | 1 | 1 | 0 | **0** |
+| 1 | 0 | 0 | 1 | 0 | 1 | **1** |
+| 1 | 0 | 1 | 1 | 0 | 1 | **1** |
+| 1 | 1 | 0 | 1 | 0 | 1 | **1** |
+| 1 | 1 | 1 | 1 | 1 | 0 | **0** |
+
+**Check by meaning:** when B = 0, P = A; when B = 1, P = NOT C. Reading a circuit for its meaning like this is a quick way to check your table.
+
+## 1.3.7 From a problem statement to an expression `NEW`
+
+Exam questions often describe a system in words. Turn each condition into a letter (1 = true), then join the conditions with AND, OR and NOT exactly as the words do.
+
+> **Worked example — a burglar alarm**
+>
+> An alarm X sounds if the system is armed (S = 1) *and* either the door is open (D = 1) *or* a window is open (W = 1). Expression: **X = S AND (D OR W)**.
+>
+> | S | D | W | D OR W | X |
+> |---|---|---|---|---|
+> | 0 | 0 | 0 | 0 | **0** |
+> | 0 | 0 | 1 | 1 | **0** |
+> | 0 | 1 | 0 | 1 | **0** |
+> | 0 | 1 | 1 | 1 | **0** |
+> | 1 | 0 | 0 | 0 | **0** |
+> | 1 | 0 | 1 | 1 | **1** |
+> | 1 | 1 | 0 | 1 | **1** |
+> | 1 | 1 | 1 | 1 | **1** |
+
+## 1.3.8 The full adder `NEW`
+
+A half-adder (Section 1.3.3) cannot accept a carry from the column to its right. A **full adder** adds three bits: A, B and a carry-in (C<sub>in</sub>). It is built from two half-adders and an OR gate.
+
+Sum = A ⊕ B ⊕ C<sub>in</sub>      C<sub>out</sub> = (A . B) + (C<sub>in</sub> . (A ⊕ B))
+
+
+---
+
+
+| A | B | Cin | A+B+Cin | Sum | Cout |
+|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | **0** | **0** |
+| 0 | 0 | 1 | 1 | **1** | **0** |
+| 0 | 1 | 0 | 1 | **1** | **0** |
+| 0 | 1 | 1 | 2 | **0** | **1** |
+| 1 | 0 | 0 | 1 | **1** | **0** |
+| 1 | 0 | 1 | 2 | **0** | **1** |
+| 1 | 1 | 0 | 2 | **0** | **1** |
+| 1 | 1 | 1 | 3 | **1** | **1** |
+
+![Figure 8B — A full adder = two half-adders + OR.](hardware_figures/hardware-p021-1.png)
+
+*Figure 8B — A full adder = two half-adders + OR.*
+
+The Sum column is 1 when an *odd* number of inputs are 1; C<sub>out</sub> is 1 when *two or more* are 1. Chaining eight full
+
+adders, each passing its C<sub>out</sub> to the next C<sub>in</sub>, gives an 8-bit adder: this is how the ALU adds binary numbers.
+
+## 1.3.9 Boolean algebra (A Level) `NEW`
+
+Boolean algebra lets you simplify an expression so the circuit needs fewer gates. Fewer gates mean lower cost, less power and less heat. Here . means AND, + means OR, and a bar means NOT.
+
+| Law | AND form | OR form |
+|---|---|---|
+| Identity | A . 1 = A | A + 0 = A |
+| Null (annulment) | A . 0 = 0 | A + 1 = 1 |
+| Idempotent | A . A = A | A + A = A |
+| Inverse (complement) | A . A̅ = 0 | A + A̅ = 1 |
+| Double complement | NOT (NOT A) = A | — |
+| Commutative | A . B = B . A | A + B = B + A |
+| Associative | (A . B) . C = A . (B . C) | (A + B) + C = A + (B + C) |
+| Distributive | A . (B + C) = A.B + A.C | A + B.C = (A + B) . (A + C) |
+| Absorption | A . (A + B) = A | A + A.B = A |
+| De Morgan | A̅ .̅ B̅ = A̅ + B̅ | A̅ +̅ B̅ = A̅ . B̅ |
+
+**De Morgan in words:** “break the bar, change the sign”. When you split a bar over a group, AND becomes OR (or OR becomes AND).
+
+> **Worked example — simplify X = A.B + A.B̅**
+>
+> X = A.B + A.B̅ = A.(B + B̅) *(distributive)* = A.1 *(inverse)* = **A** *(identity)*. Two AND gates, a NOT gate and an OR gate reduce to a single wire.
+>
+> Second example: A̅ +̅ B̅ + A = A̅.B̅ + A *(De Morgan)* = (A + A̅).(A + B̅) *(distributive, OR form)* = 1.(A + B̅) = **A + B̅**.
+
+
+---
+
+
+## 1.3.10 Karnaugh maps (A Level) `NEW`
+
+A **Karnaugh map (K-map)** is a truth table redrawn as a grid so that neighbouring cells differ by exactly one bit. You loop groups of 1s; each group becomes one simple AND term. The rules:
+
+- Columns and rows use **Gray code** order: 00, 01, 11, 10 (not 00, 01, 10, 11).
+
+- Groups must be rectangles containing 1, 2, 4 or 8 cells (powers of 2) and only 1s.
+
+- Make groups as large as possible and use as few groups as possible; groups may overlap.
+
+- The map wraps around: the left and right edges are neighbours.
+
+- In each group, keep only the variables that do *not* change; write them ANDed together. OR the groups.
+
+![Figure 8C — Two groups of two: P = A.B + B.C.](hardware_figures/hardware-p022-1.png)
+
+*Figure 8C — Two groups of two: P = A.B̅ + B.C̅.*
+
+> **Worked example — reading the map**
+>
+> **Green group** (row A = 1, columns 00 and 01): A stays 1, B stays 0, C changes → term A.B̅. **Orange group** (column 10, both rows): A changes, B stays 1, C stays 0 → term B.C̅. So **P = A.B̅ + B.C̅**, which matches the meaning found in Section 1.3.6 (B = 0 gives A; B = 1 gives NOT C).
+
+## 1.3.11 Flip-flop truth tables (A Level) `NEW`
+
+A **flip-flop** is a sequential circuit that stores one bit (Section 1.3.2). Its output Q depends on the inputs *and* on what Q was before, so its truth table includes the previous state. Q̅ is always the opposite of Q.
+
+### SR flip-flop (made from two NOR gates)
+
+| S | R | Q | Meaning |
+|---|---|---|---|
+| 0 | 0 | **Q (no change)** | **Hold / store** |
+| 1 | 0 | **1** | **Set** |
+| 0 | 1 | **0** | **Reset** |
+| 1 | 1 | **—** | **Invalid: avoid** |
+
+### JK flip-flop (clocked)
+
+| J | K | Q after clock pulse | Meaning |
+|---|---|---|---|
+| 0 | 0 | **Q (no change)** | **Hold** |
+| 1 | 0 | **1** | **Set** |
+| 0 | 1 | **0** | **Reset** |
+| 1 | 1 | **Q̅ (toggle)** | **Toggle** |
+
+The JK flip-flop fixes the SR flip-flop's invalid state: with J = K = 1 the output toggles on each clock pulse instead of becoming unpredictable. Because it changes only on a clock pulse, every flip-flop in a register updates at the same moment. A register of eight flip-flops stores one byte.
+
+
+---
+
+
+> **Activity 1.3B — Truth tables**
+>
+> (a) Complete the truth table for X = NOT (A OR B) AND C. (b) A greenhouse fan F turns on if the temperature is high (T = 1) or the humidity is high (H = 1), but never when the door is open (D = 1). Write the expression for F. (c) Simplify Y = A.B + A̅.B using Boolean algebra.
+
+> **Checked answers**
+>
+> | A | B | C | NOT (A OR B) | X |
+> |---|---|---|---|---|
+> | 0 | 0 | 0 | 1 | **0** |
+> | 0 | 0 | 1 | 1 | **1** |
+> | 0 | 1 | 0 | 0 | **0** |
+> | 0 | 1 | 1 | 0 | **0** |
+> | 1 | 0 | 0 | 0 | **0** |
+> | 1 | 0 | 1 | 0 | **0** |
+> | 1 | 1 | 0 | 0 | **0** |
+> | 1 | 1 | 1 | 0 | **0** |
+>
+> (a) X = 1 only for A = 0, B = 0, C = 1. (b) F = (T OR H) AND NOT D. (c) Y = B.(A + A̅) = B.1 = **B**.
+
+> **Exam-style practice**
+>
+> **Question (4 marks).** Draw the truth table for the full adder and explain why the ALU uses full adders rather than half-adders.
+>
+> **Checked answer.** Correct Sum column (0,1,1,0,1,0,0,1) **(1)**; correct C<sub>out</sub> column (0,0,0,1,0,1,1,1) **(1)**; a full adder
+>
+> accepts a carry-in from the previous column **(1)**, so adders can be chained to add multi-bit numbers **(1)**.
+>
+> **Question (3 marks).** Use a Karnaugh map to simplify X = A̅.B.C + A.B.C + A.B.C̅.
+>
+> **Checked answer.** 1s at 011, 111, 110 **(1)**; groups: column BC = 11 (both rows) gives B.C; row A = 1, columns 11 and 10 gives A.B **(1)**; X = B.C + A.B **(1)**.
+
+
+---
+
+
 # Section 1.4 — System Architecture and the Von Neumann Engine
 
 > **Learning objectives**
@@ -472,66 +833,81 @@ This matches binary addition: 1 + 1 = 10<sub>2</sub> (sum 0, carry 1). A **full 
 
 ## 1.4.1 The stored-program concept
 
-The **Von Neumann architecture** stores both instructions and data in the same memory. This is the **stored-program concept**, proposed in the 1940s. It made general-purpose computing possible: to change what a computer does you change the program in memory rather than rewire the machine.
+The **Von Neumann architecture** stores both instructions and data in the same memory. This is the **stored-program** **concept**, proposed in the 1940s. It made general-purpose computing possible: to change what a computer does you change the program in memory rather than rewire the machine.
 
 > **The Von Neumann bottleneck**
 >
 > Because instructions and data share the same memory and buses, the CPU cannot fetch an instruction and a data value at exactly the same instant. Cache memory (Section 1.6) reduces its impact.
 
-![alt](./Assets/Screenshot%202026-11-05%20163528.png)
+![Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).](hardware_figures/hardware-p024-1.png)
 
 *Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).*
 
 ## 1.4.2 Core subcomponents
 
 - **Control Unit (CU)**: fetches and decodes instructions and emits control signals that coordinate the other parts.
+
 - **ALU**: performs arithmetic and bitwise logical operations.
+
 - **Registers and cache**: very small, very fast storage inside the CPU.
+
 - **Immediate Access Store (IAS)**: the Cambridge term for **main memory (RAM)**, the memory the CPU can access directly. It holds the running program and its data.
+
 - **System clock**: timing signals sent on the control bus.
+
+
+---
+
 
 ## 1.4.3 Registers
 
-| Register                           | Purpose                                                                    |
-|------------------------------------|----------------------------------------------------------------------------|
-| PC (Program Counter)               | Address of the next instruction                                            |
-| MAR (Memory Address Register)      | Address currently being read or written                                    |
-| MDR (Memory Data Register)         | Data or instruction just retrieved from (or about to be written to) memory |
-| CIR (Current Instruction Register) | Instruction currently being decoded and executed                           |
-| ACC (Accumulator)                  | Intermediate ALU results                                                   |
-| SR (Status Register)               | Status flags: Carry, Overflow, Zero, Negative                              |
+| Register | Purpose |
+|---|---|
+| PC (Program Counter) | Address of the next instruction |
+| MAR (Memory Address Register) | Address currently being read or written |
+| MDR (Memory Data Register) | Data or instruction just retrieved from (or about to be written to) memory |
+| CIR (Current Instruction Register) | Instruction currently being decoded and executed |
+| ACC (Accumulator) | Intermediate ALU results |
+| SR (Status Register) | Status flags: Carry, Overflow, Zero, Negative |
 
 ## 1.4.4 Status flags
 
 - **Carry** = 1 if a carry out of the most significant bit (MSB) occurred.
+
 - **Overflow** = 1 if the signed result cannot be represented.
+
 - **Zero** = 1 if the result is zero.
+
 - **Negative** = 1 if the result is negative (MSB = 1 in two's complement).
 
 Flags let the CPU make decisions such as “jump if zero”.
 
 ## 1.4.5 System buses
 
-| Bus         | Direction               | Function                                                                             |
-|-------------|-------------------------|--------------------------------------------------------------------------------------|
-| Address bus | CPU to memory (one-way) | Carries the memory address; its width determines the maximum addressable memory.     |
-| Data bus    | Two-way                 | Carries data and instructions; its width determines the number of bits per transfer. |
-| Control bus | Two-way                 | Carries clock ticks and commands (READ, WRITE, INTERRUPT).                           |
+| Bus | Direction | Function |
+|---|---|---|
+| Address bus | CPU to memory (one-way) | Carries the memory address; its width determines the maximum addressable memory. |
+| Data bus | Two-way | Carries data and instructions; its width determines the number of bits per transfer. |
+| Control bus | Two-way | Carries clock ticks and commands (READ, WRITE, INTERRUPT). |
 
 > **Worked example — address bus width**
 >
-> With *n* address lines the bus can carry 2<sup>*n*</sup> different addresses. An 8-bit address bus addresses 2<sup>8</sup> = 256 locations. A 32-bit bus addresses 2<sup>32</sup> = 4 294 967 296 locations, which is 4 GiB if each location holds one byte.
+> With *n* address lines the bus can carry 2*<sup>n</sup>* different addresses. An 8-bit address bus addresses 2<sup>8</sup> = 256 locations. A 32-bit bus addresses 2<sup>32</sup> = 4 294 967 296 locations, which is 4 GiB if each location holds one byte.
 
 > **Activity 1.4 — Match the register**
 >
-> | Job                                       | Register |
-> |-------------------------------------------|----------|
-> | Holds the address of the next instruction | ?        |
-> | Holds the instruction being decoded       | ?        |
-> | Holds data read from memory               | ?        |
-> | Holds the address being read              | ?        |
-> | Holds ALU results                         | ?        |
-> | Holds Zero/Carry flags                    | ?        |
+> | Job | Register |
+> |---|---|
+> | Holds the address of the next instruction | ? |
+> | Holds the instruction being decoded | ? |
+> | Holds data read from memory | ? |
+> | Holds the address being read | ? |
+> | Holds ALU results | ? |
+> | Holds Zero/Carry flags | ? |
+
+
+---
+
 
 > **Checked answers**
 >
@@ -547,13 +923,17 @@ Flags let the CPU make decisions such as “jump if zero”.
 >
 > **Checked answer.** 2<sup>16</sup> **(1)** = 65 536 locations **(1)**.
 
+
+---
+
+
 # Section 1.5 — The Fetch–Decode–Execute Cycle, Interrupts and Pipelining
 
 > **Learning objectives**
 >
 > Describe each FDE stage, name the registers and buses used, explain interrupts and the ISR, and explain how instructions are encoded and how pipelining improves throughput.
 
-![alt](./Assets/Screenshot%202026-11-05%20163540.png)
+![Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.](hardware_figures/hardware-p027-1.png)
 
 *Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.*
 
@@ -561,11 +941,15 @@ Flags let the CPU make decisions such as “jump if zero”.
 
 ### Fetch
 
-1.  PC → MAR via the address bus.
-2.  READ signal on the control bus.
-3.  Memory → MDR via the data bus.
-4.  MDR → CIR.
-5.  PC incremented.
+1. PC → MAR via the address bus.
+
+2. READ signal on the control bus.
+
+3. Memory → MDR via the data bus.
+
+4. MDR → CIR.
+
+5. PC incremented.
 
 ### Decode
 
@@ -581,22 +965,29 @@ The result is stored in the ACC or written to memory.
 
 ## 1.5.2 Worked trace — ADD
 
-| Step | Action                                      | Registers / buses    |
-|------|---------------------------------------------|----------------------|
-| 1    | Copy address 200 from PC to MAR             | PC, MAR, address bus |
-| 2    | Send READ                                   | Control bus          |
-| 3    | Memory contents to MDR                      | Data bus, MDR        |
-| 4    | MDR to CIR; PC incremented                  | CIR, PC              |
-| 5    | CU decodes ADD                              | CU, CIR              |
-| 6    | Fetch the operand into MDR (address in MAR) | MAR, MDR, buses      |
-| 7    | ALU adds the operand to ACC                 | ALU, ACC             |
-| 8    | Update flags                                | SR                   |
+| Step | Action | Registers / buses |
+|---|---|---|
+| 1 | Copy address 200 from PC to MAR | PC, MAR, address bus |
+| 2 | Send READ | Control bus |
+| 3 | Memory contents to MDR | Data bus, MDR |
+| 4 | MDR to CIR; PC incremented | CIR, PC |
+| 5 | CU decodes ADD | CU, CIR |
+| 6 | Fetch the operand into MDR (address in MAR) | MAR, MDR, buses |
+
+
+---
+
+
+| Step | Action | Registers / buses |
+|---|---|---|
+| 7 | ALU adds the operand to ACC | ALU, ACC |
+| 8 | Update flags | SR |
 
 ## 1.5.3 Interrupts
 
 An **interrupt** is a signal that causes the processor to suspend its current task and service an event. Causes: a timing signal, I/O completion, a user action, a hardware fault or a software error. At the end of each FDE cycle the processor checks for interrupts. The **Interrupt Service Routine (ISR)** services the highest-priority interrupt: the processor saves its state, runs the ISR, restores the state and continues. An interrupt does **not** restart the computer.
 
-![alt](./Assets/Screenshot%202026-11-05%20163549.png)
+![Figure 11 — Interrupt handling.](hardware_figures/hardware-p028-1.png)
 
 *Figure 11 — Interrupt handling.*
 
@@ -604,16 +995,20 @@ An **interrupt** is a signal that causes the processor to suspend its current ta
 
 An **instruction** has two parts: an **opcode** (which operation to perform) and an **operand** (the data or the address of the data). The set of all instructions a CPU understands is its **instruction set architecture (ISA)**. **Machine code** is instructions in binary; **assembly language** uses short mnemonics (LDA, ADD, STO, JMP) that an **assembler** translates to machine code, one assembly instruction to one machine instruction.
 
-| Addressing mode | Operand meaning                                 | Example                                              |
-|-----------------|-------------------------------------------------|------------------------------------------------------|
-| Immediate       | The operand is the value itself                 | ADD \#5 adds the number 5                            |
-| Direct          | The operand is the address of the value         | ADD 200 adds the contents of address 200             |
-| Indirect        | The operand is the address of an address        | ADD (200): address 200 holds the address of the data |
-| Indexed         | Operand address + contents of an index register | Used for arrays                                      |
+| Addressing mode | Operand meaning | Example |
+|---|---|---|
+| Immediate | The operand is the value itself | ADD #5 adds the number 5 |
+| Direct | The operand is the address of the value | ADD 200 adds the contents of address 200 |
+| Indirect | The operand is the address of an address | ADD (200): address 200 holds the address of the data |
+| Indexed | Operand address + contents of an index register | Used for arrays |
 
 **Pipelining** overlaps the stages of consecutive instructions so that, while one instruction is being executed, the next is being decoded and the one after is being fetched. It raises *throughput* (instructions completed per unit time) but does not shorten the time for a single instruction. Branches can disrupt a pipeline because the CPU may have fetched the wrong instructions.
 
-![alt](./Assets/Screenshot%202026-11-05%20163558.png)
+
+---
+
+
+![Figure 12 — Pipelining five instructions through a three-stage pipeline.](hardware_figures/hardware-p029-1.png)
 
 *Figure 12 — Pipelining five instructions through a three-stage pipeline.*
 
@@ -623,13 +1018,13 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 
 > **Activity 1.5 — Order the FDE stages**
 >
-> | Scrambled step                   | Position |
-> |----------------------------------|----------|
-> | Instruction decoded and executed | ?        |
-> | Address copied PC → MAR          | ?        |
-> | PC incremented                   | ?        |
-> | Memory → MDR                     | ?        |
-> | MDR → CIR                        | ?        |
+> | Scrambled step | Position |
+> |---|---|
+> | Instruction decoded and executed | ? |
+> | Address copied PC → MAR | ? |
+> | PC incremented | ? |
+> | Memory → MDR | ? |
+> | MDR → CIR | ? |
 
 > **Checked answer**
 >
@@ -645,6 +1040,255 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 >
 > **Checked answer.** 3 + (4 − 1) **(1)** = 6 cycles **(1)**.
 
+
+---
+
+
+# Section 1.5 (continued) — Assembly Language and the Cambridge Instruction Set
+
+> **Learning objectives (new in this edition)**
+>
+> Use the Cambridge AS &amp; A Level (9618) assembly instruction set, including **ADD**, **LDD** and **LDR**; explain immediate, direct, indirect and indexed addressing with the matching load instruction; trace a program that uses compare and jump instructions; use bit manipulation; and describe the two-pass assembler.
+
+## 1.5.5 The Cambridge instruction set `NEW`
+
+Section 1.5.4 introduced mnemonics such as LDA. Real processors and different textbooks name instructions differently. Cambridge 9618 exam papers always use the set below, and it is printed in the question paper. It uses two registers you can program: the **accumulator (ACC)**, where results are formed, and the **index register (IX)**, which holds an offset for indexed addressing.
+
+**Operand notation:** `#n` = denary number (immediate), `Bn` = binary number, `&n` = hexadecimal number, `<address>` = a memory address. So `ADD #12`, `ADD B00001100` and `ADD &0C` all add twelve.
+
+| Instruction | Addressing | What it does |
+|---|---|---|
+| **LDM** #n | Immediate | Load the number n into ACC. |
+| **LDD** &lt;address&gt; | Direct | Load the *contents* of the given address into ACC. |
+| **LDI** &lt;address&gt; | Indirect | The given address holds another address; load the contents of that second address into ACC. |
+| **LDX** &lt;address&gt; | Indexed | Form the address &lt;address&gt; + IX; load the contents of that address into ACC. |
+| **LDR** #n | Immediate | Load the number n into **IX** (not ACC). |
+| **MOV** &lt;register&gt; | Register | Copy the contents of ACC into the given register (IX). |
+| **STO** &lt;address&gt; | Direct | Store the contents of ACC at the given address. |
+| **ADD** &lt;address&gt; | Direct | Add the contents of the given address to ACC. |
+| **ADD** #n / Bn / &amp;n | Immediate | Add the number n to ACC. |
+| **SUB** &lt;address&gt; | Direct | Subtract the contents of the given address from ACC. |
+| **SUB** #n / Bn / &amp;n | Immediate | Subtract the number n from ACC. |
+| **INC** &lt;register&gt; | Register | Add 1 to ACC or IX. |
+| **DEC** &lt;register&gt; | Register | Subtract 1 from ACC or IX. |
+| **JMP** &lt;address&gt; | Direct | Jump to the given address (unconditional). |
+| **CMP** &lt;address&gt; | Direct | Compare ACC with the contents of the given address. |
+| **CMP** #n | Immediate | Compare ACC with the number n. |
+| **CMI** &lt;address&gt; | Indirect | The given address holds another address; compare ACC with the contents of that second address. |
+
+
+---
+
+
+| Instruction | Addressing | What it does |
+|---|---|---|
+| **JPE** &lt;address&gt; | Direct | After a compare: jump to the address if the compare was **True** (equal). |
+| **JPN** &lt;address&gt; | Direct | After a compare: jump to the address if the compare was **False** (not equal). |
+| **IN** | — | Key in a character and store its ASCII value in ACC. |
+| **OUT** | — | Output the character whose ASCII value is in ACC. |
+| **END** | — | Return control to the operating system. |
+
+> **Common confusion — LDD vs LDM vs LDR**
+>
+> **LDM #200** puts the *number* 200 into ACC. **LDD 200** goes to *address* 200 and puts whatever is stored there into ACC. **LDR #2** puts the number 2 into the *index register*, not ACC. The extra letter tells you the mode: M = iMmediate value, D = Direct, I = Indirect, X = indeXed, R = index Register. (Do not confuse the instruction LDR with an LDR light sensor, Section 1.9.5.)
+
+## 1.5.6 The load instructions side by side `NEW`
+
+All five worked examples below use the same memory contents.
+
+| Address | Contents |
+|---|---|
+| 200 | 205 |
+| 201 | 3 |
+| 202 | 17 |
+| 203 | 9 |
+| 204 | 12 |
+| 205 | 42 |
+| 206 | 7 |
+
+| Instruction | Reasoning | Result |
+|---|---|---|
+| LDM #200 | Immediate: the operand is the value | ACC = 200 |
+| LDD 200 | Direct: contents of 200 | ACC = 205 |
+| LDI 200 | Address 200 holds 205; contents of 205 | ACC = 42 |
+| LDR #2 | Immediate into the index register | IX = 2 |
+| LDR #2 then LDX 200 | Address 200 + IX = 202; contents of 202 | ACC = 17 |
+
+**Why indexed addressing exists.** LDR and LDX together let one instruction step through an array: set IX to 0 with LDR #0, read element 0 with LDX, then INC IX and repeat. The base address in the instruction never changes; only IX does.
+
+## 1.5.7 ADD and SUB: direct and immediate `NEW`
+
+| Instruction | Meaning | ACC after |
+|---|---|---|
+| LDM #10 | load the number 10 | 10 |
+| ADD 201 | add contents of 201 (3) | 13 |
+| ADD #5 | add the number 5 | 18 |
+| SUB B00000100 | subtract binary 100 = 4 | 14 |
+| ADD &amp;0A | add hex 0A = 10 | 24 |
+
+
+---
+
+
+The ADD in the FDE trace of Section 1.5.2 is `ADD <address>`: the address goes PC → MAR, the value comes back through the MDR, and the ALU adds it to ACC.
+
+## 1.5.8 Worked trace — LDD, ADD, STO `NEW`
+
+> **Worked example — add two numbers and store the total**
+>
+> Memory before: 200 = 25, 201 = 17, 202 = 0. The program starts at address 100.
+>
+> | Address | Instruction | ACC | Memory 202 |
+> |---|---|---|---|
+> | 100 | LDD 200 | 25 | 0 |
+> | 101 | ADD 201 | 42 | 0 |
+> | 102 | STO 202 | 42 | 42 |
+> | 103 | END | 42 | 42 |
+>
+> LDD copies 25 into ACC; ADD adds the contents of 201 to give 42; STO writes 42 into address 202.
+
+## 1.5.9 Loops: compare and jump with indexed addressing `NEW`
+
+A loop needs three things: something that changes each time (IX and a counter), a compare (CMP) and a conditional jump (JPN or JPE). This program totals four numbers stored at addresses 310–313.
+
+| Address | Instruction | Comment |
+|---|---|---|
+| 100 | LDR #0 | IX ← 0 (start of the array) |
+| 101 | LDX 310 | ACC ← contents of (310 + IX) |
+| 102 | ADD 300 | ACC ← ACC + running total |
+| 103 | STO 300 | store the new running total |
+| 104 | INC IX | move to the next array element |
+| 105 | LDD 302 | ACC ← counter |
+| 106 | INC ACC | counter + 1 |
+| 107 | STO 302 | store the counter |
+| 108 | CMP #4 | have we added 4 numbers? |
+| 109 | JPN 101 | if not, go back to 101 |
+| 110 | END | stop |
+
+> **Worked example — full trace table**
+>
+> Memory before: 300 (total) = 0, 302 (counter) = 0, 310–313 = 5, 8, 2, 6. Each row shows the values after that instruction has executed.
+>
+> | Addr | Instruction | ACC | IX | 300 | 302 | Compare / jump |
+> |---|---|---|---|---|---|---|
+> | 100 | LDR #0 | 0 | 0 | 0 | 0 |  |
+
+
+---
+
+
+> | Addr | Instruction | ACC | IX | 300 | 302 | Compare / jump |
+> |---|---|---|---|---|---|---|
+> | 101 | LDX 310 | 5 | 0 | 0 | 0 |  |
+> | 102 | ADD 300 | 5 | 0 | 0 | 0 |  |
+> | 103 | STO 300 | 5 | 0 | 5 | 0 |  |
+> | 104 | INC IX | 5 | 1 | 5 | 0 |  |
+> | 105 | LDD 302 | 0 | 1 | 5 | 0 |  |
+> | 106 | INC ACC | 1 | 1 | 5 | 0 |  |
+> | 107 | STO 302 | 1 | 1 | 5 | 1 |  |
+> | 108 | CMP #4 | 1 | 1 | 5 | 1 | False |
+> | 109 | JPN 101 | 1 | 1 | 5 | 1 | jump to 101 |
+> | 101 | LDX 310 | 8 | 1 | 5 | 1 |  |
+> | 102 | ADD 300 | 13 | 1 | 5 | 1 |  |
+> | 103 | STO 300 | 13 | 1 | 13 | 1 |  |
+> | 104 | INC IX | 13 | 2 | 13 | 1 |  |
+> | 105 | LDD 302 | 1 | 2 | 13 | 1 |  |
+> | 106 | INC ACC | 2 | 2 | 13 | 1 |  |
+> | 107 | STO 302 | 2 | 2 | 13 | 2 |  |
+> | 108 | CMP #4 | 2 | 2 | 13 | 2 | False |
+> | 109 | JPN 101 | 2 | 2 | 13 | 2 | jump to 101 |
+> | 101 | LDX 310 | 2 | 2 | 13 | 2 |  |
+> | 102 | ADD 300 | 15 | 2 | 13 | 2 |  |
+> | 103 | STO 300 | 15 | 2 | 15 | 2 |  |
+> | 104 | INC IX | 15 | 3 | 15 | 2 |  |
+> | 105 | LDD 302 | 2 | 3 | 15 | 2 |  |
+> | 106 | INC ACC | 3 | 3 | 15 | 2 |  |
+> | 107 | STO 302 | 3 | 3 | 15 | 3 |  |
+> | 108 | CMP #4 | 3 | 3 | 15 | 3 | False |
+> | 109 | JPN 101 | 3 | 3 | 15 | 3 | jump to 101 |
+> | 101 | LDX 310 | 6 | 3 | 15 | 3 |  |
+> | 102 | ADD 300 | 21 | 3 | 15 | 3 |  |
+> | 103 | STO 300 | 21 | 3 | 21 | 3 |  |
+> | 104 | INC IX | 21 | 4 | 21 | 3 |  |
+
+
+---
+
+
+> | Addr | Instruction | ACC | IX | 300 | 302 | Compare / jump |
+> |---|---|---|---|---|---|---|
+> | 105 | LDD 302 | 3 | 4 | 21 | 3 |  |
+> | 106 | INC ACC | 4 | 4 | 21 | 3 |  |
+> | 107 | STO 302 | 4 | 4 | 21 | 4 |  |
+> | 108 | CMP #4 | 4 | 4 | 21 | 4 | True |
+> | 109 | JPN 101 | 4 | 4 | 21 | 4 | no jump |
+> | 110 | END | 4 | 4 | 21 | 4 |  |
+
+> Final total in address 300 = **21** (5 + 8 + 2 + 6). The loop ran four times because JPN jumped back while the counter was not equal to 4.
+
+## 1.5.10 Bit manipulation `NEW`
+
+The 9618 set also contains logical and shift instructions. They work on ACC one bit at a time and are used to test, set or clear individual bits, for example status flags from a sensor or device.
+
+| Instruction | What it does | Example: ACC = 01101100 before | ACC after |
+|---|---|---|---|
+| **AND** #n / Bn / &amp;n, or AND &lt;address&gt; | Bitwise AND: a **mask** that clears bits (keep only bits where the mask is 1) | AND B00001111 | 00001100 |
+| **OR** #n / Bn / &amp;n, or OR &lt;address&gt; | Bitwise OR: **sets** bits to 1 where the mask is 1 | OR B10000000 | 11101100 |
+| **XOR** #n / Bn / &amp;n, or XOR &lt;address&gt; | Bitwise XOR: **toggles** bits where the mask is 1 | XOR B11111111 | 10010011 |
+| **LSL** #n | Logical shift left n places; zeros enter on the right | LSL #2 (on 00010110 = 22) | 01011000 = 88 |
+| **LSR** #n | Logical shift right n places; zeros enter on the left | LSR #1 (on 01011000 = 88) | 00101100 = 44 |
+
+A logical shift left by n multiplies an unsigned number by 2<sup>n</sup>; a shift right divides by 2<sup>n</sup> (any remainder is lost). Bits shifted off the end are lost, so a large number shifted left can overflow.
+
+> **Worked example — testing one bit**
+>
+> A sensor stores its status in address 400. Bit 3 (value 8) is 1 when the sensor is faulty. `LDD 400`, `AND #8`, `CMP #8`,
+>
+> `JPE 500`. The AND clears every bit except bit 3; if the result equals 8, bit 3 was set and the program jumps to the fault routine at 500.
+
+## 1.5.11 The two-pass assembler `NEW`
+
+Programmers write **labels** (names such as LOOP or TOTAL) instead of numeric addresses. A label can be used before it is defined (a forward reference), so the assembler reads the program twice.
+
+
+---
+
+
+| Pass | What the assembler does |
+|---|---|
+| Pass 1 | Reads every line; removes comments and white space; adds each label to the **symbol table** with the address it stands for; keeps a count of addresses as it goes. |
+| Pass 2 | Reads the program again; replaces each mnemonic with its binary opcode (from the opcode table); replaces each label with its address from the symbol table; outputs the machine code (object code). |
+
+| Label (symbol) | Address |
+|---|---|
+| LOOP | 101 |
+| TOTAL | 300 |
+| COUNT | 302 |
+
+Symbol table for the program in Section 1.5.9 if it were written with labels: `LOOP: LDX 310` … `JPN LOOP`.
+
+> **Activity 1.5B — Load and add**
+>
+> Memory: 50 = 53, 51 = 4, 52 = 9, 53 = 20. IX = 1. Give ACC after each instruction, starting again each time: (a) LDM #50 (b) LDD 50 (c) LDI 50 (d) LDX 51 (e) LDD 51 then ADD 52 (f) LDD 53 then SUB #5.
+
+> **Checked answers**
+>
+> (a) 50 (b) 53 (c) 20 (address 50 holds 53, which holds 20) (d) 9 (address 51 + 1 = 52) (e) 4 + 9 = 13 (f) 20 − 5 = 15.
+
+> **Exam-style practice**
+>
+> **Question (4 marks).** Explain the difference between `LDD 200` and `LDR #200`, and describe how LDR is used with LDX to process an array.
+>
+> **Checked answer.** LDD uses direct addressing: it loads the contents of address 200 into ACC **(1)**. LDR uses immediate addressing: it loads the number 200 into the index register **(1)**. LDR #0 sets IX to the first element; LDX &lt;base&gt; loads the element at base + IX **(1)**; INC IX moves to the next element and a CMP/JPN loop repeats it **(1)**.
+>
+> **Question (2 marks).** ACC holds 00110101. State the contents of ACC after LSL #1 and explain the effect on the denary value.
+>
+> **Checked answer.** 01101010 **(1)**; the value is doubled, 53 → 106 **(1)**.
+
+
+---
+
+
 # Section 1.6 — Memory Hierarchy and Cache
 
 > **Learning objectives**
@@ -653,16 +1297,16 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 
 Fast memory is expensive and small; large memory is cheap and slow. Computers therefore combine several kinds of memory in layers, keeping the most-needed data in the fastest layer. This is the **memory hierarchy**.
 
-![alt](./Assets/Screenshot%202026-11-05%20163607.png)
+![Figure 13 — Memory hierarchy pyramid.](hardware_figures/hardware-p036-1.png)
 
 *Figure 13 — Memory hierarchy pyramid.*
 
-| Tier | Type      | Technology | Capacity       | Latency    |
-|------|-----------|------------|----------------|------------|
-| 1    | Registers | Flip-flops | ~1–2 KB        | \< 0.5 ns  |
-| 2    | Cache     | SRAM       | 32 KB – 128 MB | 1–15 ns    |
-| 3    | RAM       | DRAM       | 8–128 GB       | 50–100 ns  |
-| 4    | Storage   | Flash SSD  | 512 GB – 4 TB  | ~50 000 ns |
+| Tier | Type | Technology | Capacity | Latency |
+|---|---|---|---|---|
+| 1 | Registers | Flip-flops | ~1–2 KB | &lt; 0.5 ns |
+| 2 | Cache | SRAM | 32 KB – 128 MB | 1–15 ns |
+| 3 | RAM | DRAM | 8–128 GB | 50–100 ns |
+| 4 | Storage | Flash SSD | 512 GB – 4 TB | ~50 000 ns |
 
 ## 1.6.1 Locality
 
@@ -670,13 +1314,17 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 > **Worked example — cache benefit**
 >
-> If 90% of accesses hit cache (1 ns) and 10% miss and go to RAM (80 ns):  
-> Average = 0.9 × 1 + 0.1 × 80 = 0.9 + 8 = **8.9 ns**.  
+> If 90% of accesses hit cache (1 ns) and 10% miss and go to RAM (80 ns): Average = 0.9 × 1 + 0.1 × 80 = 0.9 + 8 = **8.9 ns**.
+>
 > This is far better than 80 ns for every access.
 
 > **Activity 1.6 — Rank the access**
 >
 > Rank register, L1 cache, RAM and SSD from fastest to slowest. Then recalculate the average access time if the hit rate falls to 80%.
+
+
+---
+
 
 > **Checked answer**
 >
@@ -686,7 +1334,13 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 >
 > **Question (2 marks).** Explain why cache sits between the CPU and main memory.
 >
-> **Checked answer.** Cache is faster and holds frequently used data close to the CPU **(1)**, reducing the average wait time **(1)**.
+> **Checked answer.** Cache is faster and holds frequently used data close to the CPU **(1)**, reducing the average wait
+>
+> time **(1)**.
+
+
+---
+
 
 # Section 1.7 — RAM, ROM and Storage Technologies
 
@@ -696,55 +1350,69 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 ## 1.7.1 DRAM vs SRAM
 
-**DRAM** (dynamic RAM) uses one transistor and one capacitor per bit. The capacitor leaks charge, so each cell must be **refreshed** periodically. DRAM is dense and cheap, so it is used for main memory. **SRAM** (static RAM) uses several transistors (commonly six) per bit; it needs no refresh while powered. It is fast but expensive and bulky, so it is used for cache and registers.
+**DRAM** (dynamic RAM) uses one transistor and one capacitor per bit. The capacitor leaks charge, so each cell must be **refreshed** periodically. DRAM is dense and cheap, so it is used for main memory. **SRAM** (static RAM) uses several transistors (commonly six) per bit; it needs no refresh while powered. It is fast but expensive and bulky, so it is used
 
-![alt](./Assets/Screenshot%202026-11-05%20163615.png)
+for cache and registers.
+
+![Figure 14 — DRAM versus SRAM cells (simplified).](hardware_figures/hardware-p038-1.png)
 
 *Figure 14 — DRAM versus SRAM cells (simplified).*
 
-| Feature      | DRAM                       | SRAM                   |
-|--------------|----------------------------|------------------------|
-| Storage      | 1 transistor + 1 capacitor | Multi-transistor latch |
-| Refresh      | Yes                        | No (while powered)     |
-| Speed        | Slower                     | Faster                 |
-| Cost per bit | Lower                      | Higher                 |
-| Density      | High                       | Lower                  |
-| Typical use  | Main memory                | Cache                  |
+| Feature | DRAM | SRAM |
+|---|---|---|
+| Storage | 1 transistor + 1 capacitor | Multi-transistor latch |
+| Refresh | Yes | No (while powered) |
+| Speed | Slower | Faster |
+| Cost per bit | Lower | Higher |
+| Density | High | Lower |
+| Typical use | Main memory | Cache |
 
 ## 1.7.2 ROM types
 
-| Type       | Programmed        | Erased                                  | Typical use                                   |
-|------------|-------------------|-----------------------------------------|-----------------------------------------------|
-| ROM (mask) | At the factory    | Never                                   | Fixed firmware in mass-produced devices       |
-| PROM       | Once, by the user | Cannot be erased                        | Small production runs                         |
-| EPROM      | By the user       | Ultraviolet light; chip usually removed | Prototyping                                   |
-| EEPROM     | By the user       | Electrically, often in-circuit          | Firmware updated in place, e.g. BIOS settings |
+| Type | Programmed | Erased | Typical use |
+|---|---|---|---|
+| ROM (mask) | At the factory | Never | Fixed firmware in mass-produced devices |
+| PROM | Once, by the user | Cannot be erased | Small production runs |
+| EPROM | By the user | Ultraviolet light; chip usually removed | Prototyping |
+| EEPROM | By the user | Electrically, often in-circuit | Firmware updated in place, e.g. BIOS settings |
 
 **Flash memory** is EEPROM-related, erased and written in blocks. It is used in SSDs, USB drives and memory cards.
 
+
+
+---
+
+
+
 > **Activity 1.7 — Choose the memory**
 >
-> | Situation                   | Best choice | Reason |
-> |-----------------------------|-------------|--------|
-> | Main memory                 | ?           | ?      |
-> | L3 cache                    | ?           | ?      |
-> | Firmware updated in-circuit | ?           | ?      |
-> | USB drive                   | ?           | ?      |
+> | Situation | Best choice | Reason |
+> |---|---|---|
+> | Main memory | ? | ? |
+> | L3 cache | ? | ? |
+> | Firmware updated in-circuit | ? | ? |
+> | USB drive | ? | ? |
 
 > **Checked answers**
 >
-> | Situation                   | Best choice | Reason                              |
-> |-----------------------------|-------------|-------------------------------------|
-> | Main memory                 | DRAM        | Dense and cheap per bit             |
-> | L3 cache                    | SRAM        | Fast, no refresh                    |
-> | Firmware updated in-circuit | EEPROM      | Electrically erasable in place      |
-> | USB drive                   | Flash       | Non-volatile, block erase, portable |
+> | Situation | Best choice | Reason |
+> |---|---|---|
+> | Main memory | DRAM | Dense and cheap per bit |
+> | L3 cache | SRAM | Fast, no refresh |
+> | Firmware updated in-circuit | EEPROM | Electrically erasable in place |
+> | USB drive | Flash | Non-volatile, block erase, portable |
 
 > **Exam-style practice**
 >
 > **Question (2 marks).** Firmware must be updated without removing the chip. State the ROM type and justify it.
 >
 > **Checked answer.** EEPROM **(1)**, because it can be erased and reprogrammed electrically in-circuit **(1)**.
+
+
+
+---
+
+
 
 # Section 1.8 — Buffers and Virtual Memory
 
@@ -756,7 +1424,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 A **buffer** is temporary storage used during data transfer between devices with different speeds. Examples: keyboard buffer, printer buffer, video-streaming buffer and double buffering of display frames.
 
-![alt](./Assets/Screenshot%202026-11-05%20163624.png)
+![Figure 15 — A buffer smoothing speed differences.](hardware_figures/hardware-p040-1.png)
 
 *Figure 15 — A buffer smoothing speed differences.*
 
@@ -768,35 +1436,49 @@ A **buffer** is temporary storage used during data transfer between devices with
 
 **Virtual memory** uses secondary storage as extra RAM. The operating system divides memory into fixed-size **pages** and moves them between RAM and a **swap file** (page file). A **page fault** occurs when a required page is not in RAM. **Thrashing** is excessive swapping, where the system spends more time moving pages than running programs.
 
-![alt](./Assets/Screenshot%202026-11-05%20163633.png)
+![Figure 16 — Virtual memory: pages swapped between RAM and the swap file.](hardware_figures/hardware-p040-2.png)
 
 *Figure 16 — Virtual memory: pages swapped between RAM and the swap file.*
 
-**How it works:** the OS checks whether a page is in RAM; if not, a page fault occurs, an unneeded page is written to the swap file, and the required page is read into RAM. This is much slower than RAM but allows programs larger than RAM to run. Adding more RAM reduces page faults.
+**How it works:** the OS checks whether a page is in RAM; if not, a page fault occurs, an unneeded page is written to the swap file, and the required page is read into RAM. This is much slower than RAM but allows programs larger than RAM
+
+to run. Adding more RAM reduces page faults.
+
+
+
+---
+
+
 
 > **Activity 1.8 — Buffer or cache?**
 >
-> | Scenario                       | Buffer or cache? | Why |
-> |--------------------------------|------------------|-----|
-> | Keyboard holds key presses     | ?                | ?   |
-> | CPU holds recently used data   | ?                | ?   |
-> | Video player stores data ahead | ?                | ?   |
-> | L1 holds loop instructions     | ?                | ?   |
+> | Scenario | Buffer or cache? | Why |
+> |---|---|---|
+> | Keyboard holds key presses | ? | ? |
+> | CPU holds recently used data | ? | ? |
+> | Video player stores data ahead | ? | ? |
+> | L1 holds loop instructions | ? | ? |
 
 > **Checked answers**
 >
-> | Scenario                       | Answer | Why                                   |
-> |--------------------------------|--------|---------------------------------------|
-> | Keyboard holds key presses     | Buffer | Speed mismatch with the CPU           |
-> | CPU holds recently used data   | Cache  | Temporal locality                     |
-> | Video player stores data ahead | Buffer | Smooths network variation             |
-> | L1 holds loop instructions     | Cache  | Repeated use of the same instructions |
+> | Scenario | Answer | Why |
+> |---|---|---|
+> | Keyboard holds key presses | Buffer | Speed mismatch with the CPU |
+> | CPU holds recently used data | Cache | Temporal locality |
+> | Video player stores data ahead | Buffer | Smooths network variation |
+> | L1 holds loop instructions | Cache | Repeated use of the same instructions |
 
 > **Exam-style practice**
 >
 > **Question (3 marks).** Explain how virtual memory allows a program larger than RAM to run.
 >
 > **Checked answer.** The OS divides memory into pages **(1)**; unused pages are moved to secondary storage **(1)**; needed pages are swapped back into RAM **(1)**.
+
+
+
+---
+
+
 
 # Section 1.9 — Input and Output Devices
 
@@ -808,40 +1490,49 @@ A **buffer** is temporary storage used during data transfer between devices with
 
 An **input device** converts data from the outside world into a digital signal the computer can process.
 
-| Device          | Principle of operation                                                                                           | Typical use                      |
-|-----------------|------------------------------------------------------------------------------------------------------------------|----------------------------------|
-| Keyboard        | Key presses close circuits, generating a unique code (e.g. ASCII).                                               | Text and number entry            |
-| Mouse           | Movement is detected by a sensor and translated into cursor movement; buttons register clicks.                   | Pointing and selection           |
-| Microphone      | Converts sound waves into electrical signals, then into digital data via an ADC (analogue-to-digital converter). | Voice input, audio recording     |
-| Barcode scanner | Shines light on a barcode; the reflected light pattern is converted into a digital code.                         | Retail, inventory                |
-| QR code scanner | A camera captures the QR pattern; software decodes the data.                                                     | Mobile payments, advertising     |
-| Digital camera  | A lens focuses light onto a sensor (CCD/CMOS) that converts it into digital pixels.                              | Photography, video               |
-| 2D / 3D scanner | 2D scans documents; 3D scans objects using lasers or structured light.                                           | Document archiving, 3D modelling |
-| Touchscreen     | Detects touch via capacitive or resistive layers; position is calculated by a microprocessor.                    | Smartphones, kiosks              |
-| Sensors         | Measure physical quantities (light, temperature, pressure, moisture) and output a signal.                        | Monitoring and control systems   |
+| Device | Principle of operation | Typical use |
+|---|---|---|
+| Keyboard | Key presses close circuits, generating a unique code (e.g. ASCII). | Text and number entry |
+| Mouse | Movement is detected by a sensor and translated into cursor movement; buttons register clicks. | Pointing and selection |
+| Microphone | Converts sound waves into electrical signals, then into digital data via an ADC (analogue-to-digital converter). | Voice input, audio recording |
+| Barcode scanner | Shines light on a barcode; the reflected light pattern is converted into a digital code. | Retail, inventory |
+| QR code scanner | A camera captures the QR pattern; software decodes the data. | Mobile payments, advertising |
+| Digital camera | A lens focuses light onto a sensor (CCD/CMOS) that converts it into digital pixels. | Photography, video |
+| 2D / 3D scanner | 2D scans documents; 3D scans objects using lasers or structured light. | Document archiving, 3D modelling |
+| Touchscreen | Detects touch via capacitive or resistive layers; position is calculated by a microprocessor. | Smartphones, kiosks |
+| Sensors | Measure physical quantities (light, temperature, pressure, moisture) and output a signal. | Monitoring and control systems |
 
 ## 1.9.2 Output devices
 
 An **output device** presents processed results.
 
-| Device                | Principle of operation                                                           | Typical use                |
-|-----------------------|----------------------------------------------------------------------------------|----------------------------|
-| Inkjet printer        | Sprays tiny droplets of ink onto paper.                                          | Home/office printing       |
-| Laser printer         | A laser charges a drum; toner adheres to the charge and is fused onto paper.     | High-volume printing       |
-| 3D printer            | Builds objects layer by layer from plastic, resin or metal.                      | Prototyping, manufacturing |
-| 2D / 3D cutter        | 2D cuts flat material; 3D cuts or sculpts objects.                               | Sign-making, fabrication   |
-| Speakers / headphones | Convert electrical signals into sound waves.                                     | Audio output               |
-| Actuators             | Electromechanical devices (motors, valves, relays) that produce physical action. | Control systems            |
-| LCD / LED display     | LCD uses liquid crystals; LED uses light-emitting diodes as backlight or pixels. | Monitors, TVs, phones      |
-| LCD / DLP projector   | Projects an image onto a screen using LCD panels or DLP micromirrors.            | Presentations, cinema      |
+| Device | Principle of operation | Typical use |
+|---|---|---|
+| Inkjet printer | Sprays tiny droplets of ink onto paper. | Home/office printing |
+| Laser printer | A laser charges a drum; toner adheres to the charge and is fused onto paper. | High-volume printing |
+| 3D printer | Builds objects layer by layer from plastic, resin or metal. | Prototyping, manufacturing |
+| 2D / 3D cutter | 2D cuts flat material; 3D cuts or sculpts objects. | Sign-making, fabrication |
+| Speakers / headphones | Convert electrical signals into sound waves. | Audio output |
+| Actuators | Electromechanical devices (motors, valves, relays) that produce physical action. | Control systems |
+| LCD / LED display | LCD uses liquid crystals; LED uses light-emitting diodes as backlight or pixels. | Monitors, TVs, phones |
+
+
+
+---
+
+
+
+| Device | Principle of operation | Typical use |
+|---|---|---|
+| LCD / DLP projector | Projects an image onto a screen using LCD panels or DLP micromirrors. | Presentations, cinema |
 
 ## 1.9.3 HDMI vs VGA
 
-| Feature     | HDMI                    | VGA                           |
-|-------------|-------------------------|-------------------------------|
-| Signal      | Digital                 | Analogue                      |
-| Audio       | Yes (when supported)    | No                            |
-| Connector   | Compact, flat           | 15-pin D-sub                  |
+| Feature | HDMI | VGA |
+|---|---|---|
+| Signal | Digital | Analogue |
+| Audio | Yes (when supported) | No |
+| Connector | Compact, flat | 15-pin D-sub |
 | Typical use | Modern displays and TVs | Older displays and projectors |
 
 ## 1.9.4 Worked example — a mouse click
@@ -852,12 +1543,12 @@ An **output device** presents processed results.
 
 > **Activity 1.9 — Match the device**
 >
-> | Task                                | Most suitable device | Reason |
-> |-------------------------------------|----------------------|--------|
-> | Enter text into a word processor    | ?                    | ?      |
-> | Read a product barcode at checkout  | ?                    | ?      |
-> | Print a high-volume office document | ?                    | ?      |
-> | Produce a physical prototype        | ?                    | ?      |
+> | Task | Most suitable device | Reason |
+> |---|---|---|
+> | Enter text into a word processor | ? | ? |
+> | Read a product barcode at checkout | ? | ? |
+> | Print a high-volume office document | ? | ? |
+> | Produce a physical prototype | ? | ? |
 
 > **Checked answers**
 >
@@ -868,6 +1559,69 @@ An **output device** presents processed results.
 > **Question (2 marks).** Compare HDMI and VGA in signal type and audio support.
 >
 > **Checked answer.** HDMI is digital and carries audio **(1)**; VGA is analogue and does not carry audio **(1)**.
+
+
+---
+
+
+
+# Section 1.9 (continued) — Sensors in Detail
+
+## 1.9.5 Types of sensor, including the LDR `NEW`
+
+A **sensor** is an input device that measures a physical quantity and sends a signal to a microprocessor. Most sensors produce an **analogue** signal (a continuously varying voltage), so an **ADC (analogue-to-digital converter)** is needed before the processor can use the reading. Sensors only measure; they never make decisions. The processor compares the reading with a stored value and, in a control system, switches an actuator (Section 1.11.3).
+
+| Sensor | What it measures | Typical application |
+|---|---|---|
+| Acoustic (sound) | Sound level | Detecting breaking glass in a burglar alarm |
+| Accelerometer | Acceleration and tilt | Phone screen rotation, airbag crash detection |
+| Flow | Rate of flow of a liquid or gas | Water pipes, fuel lines |
+| Gas | Concentration of a gas (e.g. CO2, CO) | Carbon monoxide alarm, greenhouse CO2 control |
+| Humidity | Water vapour in the air | Greenhouse, museum climate control |
+| Infrared (IR) / PIR | Infrared radiation; movement of a warm body | Intruder alarm, automatic doors |
+| Level | Height of a liquid or solid in a container | Fuel tank gauge, washing machine water level |
+| **Light (LDR)** | Light intensity | Automatic street lights, screen brightness, greenhouse lighting |
+| Magnetic field | Strength of a magnetic field | Phone compass, anti-lock brake wheel-speed sensors |
+| Moisture | Water content of soil or a surface | Irrigation control |
+| pH | Acidity or alkalinity | Aquariums, chemical plants, soil testing |
+| Pressure | Force on a surface | Burglar-alarm pressure mats, tyre pressure |
+| Proximity | Whether an object is near | Parking sensors, phone screen turning off at the ear |
+| Temperature (thermistor) | Temperature | Central heating, ovens, greenhouses |
+
+**The LDR (light-dependent resistor).** An LDR is a resistor whose resistance changes with light: in bright light its resistance is **low**; in darkness its resistance is **high**. It is placed in a potential-divider circuit so that the change in resistance becomes a change in voltage, which the ADC converts to a number.
+
+![Figure 16A — The LDR changes resistance; the processor, not the sensor, makes the decision.](hardware_figures/hardware-p044-1.png)
+
+*Figure 16A — The LDR changes resistance; the processor, not the sensor, makes the decision.*
+
+
+
+---
+
+
+> **Worked example — an automatic street light**
+>
+> (1) The LDR measures light intensity continuously. (2) The ADC converts the analogue reading to digital. (3) The microprocessor compares the value with a stored threshold. (4) If the value shows it is darker than the threshold, the microprocessor sends a signal to switch the lamp on; otherwise it switches it off. (5) The process repeats. A short delay is often added so a passing car's headlights do not switch the lamp off.
+
+> **Activity 1.9B — Choose the sensor**
+>
+> Name the most suitable sensor: (a) a car's automatic headlights, (b) a smart irrigation system, (c) an alarm that detects a person walking into a room, (d) a fish tank that keeps the water at the right acidity, (e) a car that warns the driver when it is close to a wall.
+
+> **Checked answers**
+>
+> (a) Light (LDR) (b) Moisture (c) Infrared / PIR (motion) (d) pH (e) Proximity.
+
+> **Exam-style practice**
+>
+> **Question (2 marks).** Describe how the resistance of an LDR changes with light intensity.
+>
+> **Checked answer.** Resistance decreases as light intensity increases **(1)**; resistance is high in the dark **(1)**.
+
+
+
+---
+
+
 
 # Section 1.10 — Network Hardware and Cloud Storage
 
@@ -881,14 +1635,14 @@ A **LAN (Local Area Network)** covers a small area such as a home, school or off
 
 ## 1.10.2 Network hardware
 
-| Device                       | Role                                                                                           |
-|------------------------------|------------------------------------------------------------------------------------------------|
+| Device | Role |
+|---|---|
 | NIC (network interface card) | Connects a device to a network; converts data into signals. Each NIC has a unique MAC address. |
-| Switch                       | Forwards data within a LAN to the intended device only.                                        |
-| Router                       | Connects different networks and forwards packets between them.                                 |
-| WAP (wireless access point)  | Provides wireless access to a wired network.                                                   |
-| Modem                        | Converts signals between the service provider's line and the local network.                    |
-| Firewall                     | Monitors and controls traffic for security.                                                    |
+| Switch | Forwards data within a LAN to the intended device only. |
+| Router | Connects different networks and forwards packets between them. |
+| WAP (wireless access point) | Provides wireless access to a wired network. |
+| Modem | Converts signals between the service provider's line and the local network. |
+| Firewall | Monitors and controls traffic for security. |
 
 Data is broken into **packets**: small units with addressing information. Packets let many devices share a network efficiently.
 
@@ -896,25 +1650,31 @@ Data is broken into **packets**: small units with addressing information. Packet
 
 **Cloud storage** stores data on provider servers accessed over a network. The user's device sends data to a data centre; the provider stores it and makes it available to authorised devices.
 
-| Feature   | Local storage         | Cloud storage                     |
-|-----------|-----------------------|-----------------------------------|
-| Location  | User device           | Provider servers                  |
-| Access    | Direct                | Requires a network                |
-| Capacity  | Limited by the device | Often scalable                    |
-| Sharing   | Manual                | Easy via links                    |
+| Feature | Local storage | Cloud storage |
+|---|---|---|
+| Location | User device | Provider servers |
+| Access | Direct | Requires a network |
+| Capacity | Limited by the device | Often scalable |
+| Sharing | Manual | Easy via links |
 | Main risk | Device loss or damage | Account security, provider outage |
-| Cost      | One-off hardware      | Subscription or usage-based       |
+| Cost | One-off hardware | Subscription or usage-based |
 
 **Advantages of cloud:** access from multiple devices, easy backup, scalable capacity, collaboration. **Disadvantages:** depends on a network, ongoing cost, privacy and security concerns, provider lock-in.
 
+
+
+---
+
+
+
 > **Activity 1.10 — Local or cloud?**
 >
-> | Scenario                         | Better choice | Reason |
-> |----------------------------------|---------------|--------|
-> | Editing a video while travelling | ?             | ?      |
-> | Sharing a group project          | ?             | ?      |
-> | Backing up important photos      | ?             | ?      |
-> | Storing an OS for fast boot      | ?             | ?      |
+> | Scenario | Better choice | Reason |
+> |---|---|---|
+> | Editing a video while travelling | ? | ? |
+> | Sharing a group project | ? | ? |
+> | Backing up important photos | ? | ? |
+> | Storing an OS for fast boot | ? | ? |
 
 > **Checked answers**
 >
@@ -925,6 +1685,12 @@ Data is broken into **packets**: small units with addressing information. Packet
 > **Question (2 marks).** State one advantage and one disadvantage of cloud storage.
 >
 > **Checked answer.** Advantage: access from multiple devices or automatic backup **(1)**. Disadvantage: depends on an internet connection or raises security concerns **(1)**.
+
+
+
+---
+
+
 
 # Section 1.11 — Embedded Systems, Monitoring and Control
 
@@ -944,43 +1710,55 @@ An **embedded system** is a computer dedicated to a specific function inside a l
 
 A **monitoring system** observes and reports. A **control system** observes and acts automatically. **Sensors** measure, **actuators** act, and **feedback** uses the measured result to adjust future action.
 
-| System type | Job                     | Example                       |
-|-------------|-------------------------|-------------------------------|
-| Monitoring  | Observe and report      | Temperature display           |
-| Control     | Observe and act         | Thermostat switching a heater |
-| Combined    | Observe, report and act | Smart thermostat              |
+| System type | Job | Example |
+|---|---|---|
+| Monitoring | Observe and report | Temperature display |
+| Control | Observe and act | Thermostat switching a heater |
+| Combined | Observe, report and act | Smart thermostat |
 
 ## 1.11.4 Worked example — greenhouse
 
 Temperature sensor → microcontroller compares with the target → heater actuator switched on if too cold → vent/fan switched on if too warm → repeat (feedback). Note that the sensor produces an analogue signal, so an ADC converts it to digital before the microcontroller can use it.
 
-![alt](./Assets/Screenshot%202026-11-05%20163646.png)
+![Figure 17 — A monitoring-and-control feedback loop.](hardware_figures/hardware-p048-1.png)
 
 *Figure 17 — A monitoring-and-control feedback loop.*
 
+
+
+---
+
+
+
 > **Activity 1.11 — Identify sensors and actuators**
 >
-> | System           | Sensor | Actuator |
-> |------------------|--------|----------|
-> | Washing machine  | ?      | ?        |
-> | Greenhouse       | ?      | ?        |
-> | Anti-lock brakes | ?      | ?        |
-> | Smart speaker    | ?      | ?        |
+> | System | Sensor | Actuator |
+> |---|---|---|
+> | Washing machine | ? | ? |
+> | Greenhouse | ? | ? |
+> | Anti-lock brakes | ? | ? |
+> | Smart speaker | ? | ? |
 
 > **Checked answers**
 >
-> | System           | Sensor                    | Actuator                 |
-> |------------------|---------------------------|--------------------------|
-> | Washing machine  | Water level / temperature | Motor / valve            |
-> | Greenhouse       | Temperature               | Heater / vent            |
-> | Anti-lock brakes | Wheel speed               | Brake-pressure modulator |
-> | Smart speaker    | Microphone                | Speaker                  |
+> | System | Sensor | Actuator |
+> |---|---|---|
+> | Washing machine | Water level / temperature | Motor / valve |
+> | Greenhouse | Temperature | Heater / vent |
+> | Anti-lock brakes | Wheel speed | Brake-pressure modulator |
+> | Smart speaker | Microphone | Speaker |
 
 > **Exam-style practice**
 >
 > **Question (3 marks).** Describe three components of an embedded washing-machine system and their roles.
 >
 > **Checked answer.** Microcontroller executes the program **(1)**; sensor monitors water level/temperature **(1)**; actuator drives the motor/valve **(1)**.
+
+
+
+---
+
+
 
 # Section 1.12 — Processor Specialisation and CPU Core Types
 
@@ -990,14 +1768,16 @@ Temperature sensor → microcontroller compares with the target → heater actua
 
 ## 1.12.1 CPU, GPU, TPU
 
-**Latency** is the delay before a result is available; **throughput** is the amount of work completed per unit time. A processor can be designed to favour one or the other.
+**Latency** is the delay before a result is available; **throughput** is the amount of work completed per unit time. A
 
-| Processor       | Design goal                           | Best at                                                                        | Limitation                      |
-|-----------------|---------------------------------------|--------------------------------------------------------------------------------|---------------------------------|
-| CPU             | Low latency                           | Sequential, branchy code (operating system, general programs)                  | Lower parallel throughput       |
-| GPU             | High throughput                       | Graphics, parallel numerical work (SIMT: single instruction, multiple threads) | Weak on branchy sequential code |
-| TPU             | Very high throughput for tensor maths | Matrix multiplication for machine learning                                     | Narrow specialisation           |
-| Microcontroller | Predictable, low power                | Dedicated control tasks with hard real-time deadlines                          | Small memory, limited speed     |
+processor can be designed to favour one or the other.
+
+| Processor | Design goal | Best at | Limitation |
+|---|---|---|---|
+| CPU | Low latency | Sequential, branchy code (operating system, general programs) | Lower parallel throughput |
+| GPU | High throughput | Graphics, parallel numerical work (SIMT: single instruction, multiple threads) | Weak on branchy sequential code |
+| TPU | Very high throughput for tensor maths | Matrix multiplication for machine learning | Narrow specialisation |
+| Microcontroller | Predictable, low power | Dedicated control tasks with hard real-time deadlines | Small memory, limited speed |
 
 ## 1.12.2 P-cores and E-cores
 
@@ -1007,16 +1787,18 @@ Temperature sensor → microcontroller compares with the target → heater actua
 >
 > For each scenario choose from: CPU, GPU, TPU, microcontroller.
 >
-> | Scenario                  | Best choice | Reason |
-> |---------------------------|-------------|--------|
-> | Running a word processor  | ?           | ?      |
-> | Rendering 3D game frames  | ?           | ?      |
-> | Training a neural network | ?           | ?      |
-> | Anti-lock braking control | ?           | ?      |
+> | Scenario | Best choice | Reason |
+> |---|---|---|
+> | Running a word processor | ? | ? |
+> | Rendering 3D game frames | ? | ? |
+> | Training a neural network | ? | ? |
+> | Anti-lock braking control | ? | ? |
 
 > **Checked answers**
 >
-> CPU (sequential, general purpose); GPU (parallel pixels); TPU (matrix maths); microcontroller (hard real-time, dedicated control).
+> CPU (sequential, general purpose); GPU (parallel pixels); TPU (matrix maths); microcontroller (hard real-time,
+>
+> dedicated control).
 
 > **Exam-style practice**
 >
@@ -1024,25 +1806,105 @@ Temperature sensor → microcontroller compares with the target → heater actua
 >
 > **Checked answer.** CPU for the OS (sequential) **(1)**; GPU for graphics (parallel pixels) **(1)**; TPU for training (matrix multiplication) **(1)**; each balances latency and throughput differently **(1)**.
 
+
+
+---
+
+
+
+# Section 1.12 (continued) — RISC, CISC and Parallel Processing
+
+> **Learning objectives (new in this edition)**
+>
+> Compare RISC and CISC processors; explain why RISC suits pipelining; describe Flynn's four basic architectures (SISD, SIMD, MISD, MIMD); and explain massively parallel computers.
+
+## 1.12.3 RISC and CISC processors (A Level) `NEW`
+
+A processor's instruction set (Section 1.5.4) can follow one of two design philosophies. A **CISC** (Complex Instruction Set Computer) provides many powerful instructions, some of which do several steps at once. A **RISC** (Reduced Instruction Set Computer) provides fewer, simpler instructions, each taking one clock cycle, and builds complex operations from several of them.
+
+| Feature | RISC | CISC |
+|---|---|---|
+| Number of instructions | Fewer, simpler | Many, some complex |
+| Instruction length / format | Fixed length, few formats | Variable length, many formats |
+| Clock cycles per instruction | Usually one | Often several |
+| Addressing modes | Few | Many |
+| Memory access | Only LOAD and STORE use memory (load– store) | Many instructions can work directly on memory |
+| Registers | Many general-purpose registers | Fewer registers |
+| Control unit | Hardwired: fast | Often microprogrammed |
+| Pipelining | Easy: every instruction takes the same time | Harder: instructions vary in length and time |
+| Program in RAM | More instructions, so larger | Fewer instructions, so smaller |
+| Work done by | The compiler (more instructions to generate) | The hardware (complex circuits) |
+| Examples | ARM (phones, tablets, Apple M-series), RISC-V | Intel and AMD x86 (most desktop PCs) |
+
+> **Worked example — multiplying two numbers in memory**
+>
+> Multiply the value at address 2:3 by the value at 5:2 and store the result back at 2:3.
+>
+> **CISC:** one instruction, `MULT 2:3, 5:2`. The hardware loads both values, multiplies and stores; it takes several clock cycles but the program is one line.
+>
+> **RISC:** four simple instructions, `LOAD A, 2:3` · `LOAD B, 5:2` · `PROD A, B` · `STORE 2:3, A`. Each takes about one cycle and they flow neatly through a pipeline.
+
+Modern designs blur the line: x86 CISC processors translate complex instructions internally into RISC-like micro- operations so they can be pipelined. RISC's low power use is why ARM dominates phones and embedded systems (Section 1.11).
+
+
+
+---
+
+
+
+## 1.12.4 Parallel processing and Flynn's classification (A Level) `NEW`
+
+**Parallel processing** means using more than one processing unit at the same time on a task. Michael Flynn classified computer architectures by how many **instruction streams** and **data streams** they handle at once.
+
+![Figure 17A — The four basic computer architectures.](hardware_figures/hardware-p052-1.png)
+
+*Figure 17A — The four basic computer architectures.*
+
+**Massively parallel computers** link a very large number of processors (thousands or more), each with its own memory, by a fast network so they can work on separate parts of one huge problem at the same time: weather forecasting, climate modelling, protein folding and training large AI models. They are MIMD machines. A problem only speeds up if it can be split into parts that run independently: this is the same idea as the P-core/E-core point in Section 1.12.2 and the GPU's SIMT design in Section 1.12.1.
+
+> **Activity 1.12B — Classify**
+>
+> Classify each as SISD, SIMD, MISD or MIMD: (a) a GPU brightening every pixel of an image with the same instruction, (b) an early single-core PC, (c) an 8-core laptop running a browser, a game and a virus scan, (d) three flight computers performing the same check on the same sensor data and voting on the result.
+
+> **Checked answers**
+>
+> (a) SIMD (b) SISD (c) MIMD (d) MISD.
+
+> **Exam-style practice**
+>
+> **Question (4 marks).** Explain two differences between RISC and CISC processors and why RISC processors are well suited to pipelining.
+>
+> **Checked answer.** RISC has fewer, simpler instructions / CISC many complex ones **(1)**; RISC instructions are fixed length and take one cycle / CISC variable length and several cycles **(1)**. Because every RISC instruction is the same length and takes the same time **(1)**, each pipeline stage stays full and evenly timed **(1)**.
+
+
+---
+
+
+
 # Section 1.13 — Module Summary and Mind Map
 
-![alt](./Assets/Screenshot%202026-11-05%20163657.png)
+![Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.](hardware_figures/hardware-p053-1.png)
 
 *Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.*
 
-| Topic                        | Core comparison                                            |
-|------------------------------|------------------------------------------------------------|
-| 1.2 Binary / denary / hex    | Base and bit grouping; units bit to TB                     |
-| 1.3 Logic                    | Gates, truth tables, half-adder                            |
-| 1.4 Von Neumann              | Registers and three buses; IAS = main memory               |
-| 1.5 FDE                      | Stage order; interrupts/ISR; pipelining                    |
-| 1.6 Memory hierarchy         | Speed vs capacity vs cost; locality                        |
-| 1.7 RAM/ROM                  | DRAM vs SRAM; PROM/EPROM/EEPROM; flash                     |
-| 1.8 Buffers / virtual memory | Transfer storage; RAM + secondary storage                  |
-| 1.9 I/O devices              | Input principles; output principles; HDMI vs VGA           |
-| 1.10 Networks / cloud        | Network hardware; local vs cloud                           |
-| 1.11 Embedded / control      | Specific function; real-time; sensors, actuators, feedback |
-| 1.12 Processors              | Latency vs throughput; P-core vs E-core                    |
+| Topic | Core comparison |
+|---|---|
+| 1.2 Binary / denary / hex | Base and bit grouping; units bit to TB |
+| 1.3 Logic | Gates, truth tables, half-adder |
+| 1.4 Von Neumann | Registers and three buses; IAS = main memory |
+| 1.5 FDE | Stage order; interrupts/ISR; pipelining |
+| 1.6 Memory hierarchy | Speed vs capacity vs cost; locality |
+| 1.7 RAM/ROM | DRAM vs SRAM; PROM/EPROM/EEPROM; flash |
+| 1.8 Buffers / virtual memory | Transfer storage; RAM + secondary storage |
+| 1.9 I/O devices | Input principles; output principles; HDMI vs VGA |
+| 1.10 Networks / cloud | Network hardware; local vs cloud |
+| 1.11 Embedded / control | Specific function; real-time; sensors, actuators, feedback |
+| 1.12 Processors | Latency vs throughput; P-core vs E-core |
+
+
+---
+
+
 
 # Section 1.14 — Case Studies
 
@@ -1066,7 +1928,9 @@ Case studies apply several sections at once. Attempt each in writing before read
 
 > **Model answer**
 >
-> Sensors: temperature and soil-moisture. Actuators: heater, vent/fan motor, water valve. It is a **control system** (it acts as well as observes) built on an **embedded** microcontroller using a **feedback** loop; because it can also display and log readings it is a combined system. Deadlines are **soft** real-time: a few seconds' delay does not cause failure. An ADC converts the analogue sensor signals to digital.
+> Sensors: temperature and soil-moisture. Actuators: heater, vent/fan motor, water valve. It is a **control system** (it acts as well as observes) built on an **embedded** microcontroller using a **feedback** loop; because it can also display and log readings it is a combined system. Deadlines are **soft** real-time: a few seconds' delay does not cause
+>
+> failure. An ADC converts the analogue sensor signals to digital.
 
 > **Case study 3 — specifying a video-editing PC**
 >
@@ -1078,20 +1942,31 @@ Case studies apply several sections at once. Attempt each in writing before read
 >
 > **ATX** motherboard: enough expansion slots and RAM slots for upgrades. **32 GB+ DRAM**: large video files live in RAM while editing. **NVMe SSD** for the project (low latency) plus a large HDD or cloud storage for archive. A **GPU** with plenty of VRAM accelerates rendering and effects through parallel processing, and needs auxiliary power connectors, so the **PSU** must have enough wattage and the right PCIe power cables. A multi-core CPU with several **P-cores** for encoding. Good cooling because sustained load generates heat.
 
+
+
+---
+
+
 # Section 1.15 — Exam-Style Mixed Practice with Full Answers
 
-| \#  | Marks | Question                                                                  | Mark-scheme answer                                                                                          |
-|-----|-------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| 1   | 2     | Explain why hexadecimal is used for memory addresses.                     | Each hex digit = 4 bits; compact and less error-prone.                                                      |
-| 2   | 4     | Describe the fetch stage of the FDE cycle.                                | PC→MAR via address bus; READ on control bus; memory→MDR via data bus; MDR→CIR; PC incremented.              |
-| 3   | 3     | Explain what happens when an interrupt is received.                       | Save state; service the highest-priority interrupt with its ISR; restore state and continue.                |
-| 4   | 2     | Explain why cache sits between the CPU and main memory.                   | Faster; holds frequently used data close to the CPU; reduces wait time.                                     |
-| 5   | 3     | Explain how virtual memory allows a larger program to run.                | Pages moved to secondary storage and swapped back when needed.                                              |
-| 6   | 2     | State one advantage and one disadvantage of cloud storage.                | Access from multiple devices; depends on network / security risk.                                           |
-| 7   | 3     | Describe three components of an embedded washing-machine system.          | Microcontroller executes the program; sensor monitors water/temperature; actuator drives motor/valve.       |
-| 8   | 2     | Compare HDMI and VGA in signal type and audio support.                    | HDMI digital + audio; VGA analogue, no audio.                                                               |
-| 9   | 4     | Compare CPU, GPU and TPU for an OS, graphics and neural-network training. | CPU (sequential OS), GPU (parallel graphics), TPU (matrix training); different latency/throughput balances. |
-| 10  | 2     | State the difference between a P-core and an E-core.                      | P-core: high performance; E-core: lower power for background work.                                          |
+| # | Marks | Question | Mark-scheme answer |
+|---|---|---|---|
+| 1 | 2 | Explain why hexadecimal is used for memory addresses. | Each hex digit = 4 bits; compact and less error-prone. |
+| 2 | 4 | Describe the fetch stage of the FDE cycle. | PC→MAR via address bus; READ on control bus; memory→MDR via data bus; MDR→CIR; PC incremented. |
+| 3 | 3 | Explain what happens when an interrupt is received. | Save state; service the highest-priority interrupt with its ISR; restore state and continue. |
+| 4 | 2 | Explain why cache sits between the CPU and main memory. | Faster; holds frequently used data close to the CPU; reduces wait time. |
+| 5 | 3 | Explain how virtual memory allows a larger program to run. | Pages moved to secondary storage and swapped back when needed. |
+| 6 | 2 | State one advantage and one disadvantage of cloud storage. | Access from multiple devices; depends on network / security risk. |
+| 7 | 3 | Describe three components of an embedded washing-machine system. | Microcontroller executes the program; sensor monitors water/temperature; actuator drives motor/valve. |
+| 8 | 2 | Compare HDMI and VGA in signal type and audio support. | HDMI digital + audio; VGA analogue, no audio. |
+| 9 | 4 | Compare CPU, GPU and TPU for an OS, graphics and neural-network training. | CPU (sequential OS), GPU (parallel graphics), TPU (matrix training); different latency/throughput balances. |
+| 10 | 2 | State the difference between a P-core and an E-core. | P-core: high performance; E-core: lower power for background work. |
+
+
+
+---
+
+
 
 # Section 1.16 — End-of-Module Test
 
@@ -1099,144 +1974,243 @@ Total: 50 marks. Suggested time: 50 minutes. Attempt without notes, then mark yo
 
 ## Questions
 
-1.  Convert 11010110<sub>2</sub> to denary and to hexadecimal. \[2\]
-2.  Convert 4B<sub>16</sub> to binary. \[1\]
-3.  A file is 3 MB. How many bytes is this (use 1024)? \[2\]
-4.  State the output of NAND when A = 1 and B = 1, and of XOR when A = 1 and B = 1. \[2\]
-5.  Complete the half-adder outputs for A = 1, B = 0. \[2\]
-6.  State what the MAR and MDR hold. \[2\]
-7.  A computer has a 20-bit address bus. How many locations can it address? \[2\]
-8.  Which bus is one-way, and in which direction? \[2\]
-9.  Six instructions run through a three-stage pipeline. How many cycles are needed? \[2\]
-10. Calculate average access time: 95% cache hits at 2 ns, 5% misses at 100 ns. \[2\]
-11. Give two differences between DRAM and SRAM. \[2\]
-12. State which ROM type allows in-circuit electrical reprogramming. \[1\]
-13. Distinguish a buffer from a cache. \[2\]
-14. Describe thrashing. \[2\]
-15. Name two input devices and their principle of operation. \[4\]
-16. Explain the role of the rectifier in a PSU. \[2\]
-17. Give two reasons a GPU needs auxiliary power connectors. \[2\]
-18. Distinguish hard and soft real-time with an example of each. \[4\]
-19. Explain why the Von Neumann bottleneck occurs and one way to reduce it. \[3\]
-20. Explain the difference between latency and throughput. \[2\]
+1. Convert 11010110<sub>2</sub> to denary and to hexadecimal. [2]
+
+2. Convert 4B<sub>16</sub> to binary. [1]
+
+3. A file is 3 MB. How many bytes is this (use 1024)? [2]
+
+4. State the output of NAND when A = 1 and B = 1, and of XOR when A = 1 and B = 1. [2]
+
+5. Complete the half-adder outputs for A = 1, B = 0. [2]
+
+6. State what the MAR and MDR hold. [2]
+
+7. A computer has a 20-bit address bus. How many locations can it address? [2]
+
+8. Which bus is one-way, and in which direction? [2]
+
+9. Six instructions run through a three-stage pipeline. How many cycles are needed? [2]
+
+10. Calculate average access time: 95% cache hits at 2 ns, 5% misses at 100 ns. [2]
+
+11. Give two differences between DRAM and SRAM. [2]
+
+12. State which ROM type allows in-circuit electrical reprogramming. [1]
+
+13. Distinguish a buffer from a cache. [2]
+
+14. Describe thrashing. [2]
+
+15. Name two input devices and their principle of operation. [4]
+
+16. Explain the role of the rectifier in a PSU. [2]
+
+17. Give two reasons a GPU needs auxiliary power connectors. [2]
+
+18. Distinguish hard and soft real-time with an example of each. [4]
+
+19. Explain why the Von Neumann bottleneck occurs and one way to reduce it. [3]
+
+20. Explain the difference between latency and throughput. [2]
 
 ## Mark scheme
 
-| \#  | Answer                                                                                                                      |
-|-----|-----------------------------------------------------------------------------------------------------------------------------|
-| 1   | 214; D6.                                                                                                                    |
-| 2   | 0100 1011.                                                                                                                  |
-| 3   | 3 × 1024 × 1024 = 3 145 728 bytes.                                                                                          |
-| 4   | NAND = 0; XOR = 0.                                                                                                          |
-| 5   | Sum = 1; Carry = 0.                                                                                                         |
-| 6   | MAR: address being accessed; MDR: data/instruction transferred to or from memory.                                           |
-| 7   | 2<sup>20</sup> = 1 048 576.                                                                                                 |
-| 8   | Address bus, CPU to memory.                                                                                                 |
-| 9   | 3 + (6 − 1) = 8 cycles.                                                                                                     |
-| 10  | 0.95 × 2 + 0.05 × 100 = 1.9 + 5 = 6.9 ns.                                                                                   |
-| 11  | DRAM needs refresh, slower, cheaper, main memory; SRAM no refresh, faster, dearer, cache.                                   |
-| 12  | EEPROM.                                                                                                                     |
-| 13  | Buffer smooths speed mismatch during transfer; cache speeds repeated access to frequently used data.                        |
-| 14  | Excessive swapping of pages between RAM and storage; performance collapses as time is spent swapping.                       |
-| 15  | e.g. Keyboard: key press closes a circuit, generating a code. Barcode scanner: reflected light pattern converted to a code. |
-| 16  | Diodes let current flow one way, converting AC to pulsating DC.                                                             |
-| 17  | Draws more than the 75 W the PCIe slot supplies; extra current delivered from the PSU.                                      |
-| 18  | Hard: missing the deadline is failure, e.g. airbag. Soft: missing degrades quality, e.g. video streaming.                   |
-| 19  | Instructions and data share one memory and bus so they cannot be fetched at the same instant; cache reduces the impact.     |
-| 20  | Latency: delay for one result; throughput: work completed per unit time.                                                    |
+| # | Answer |
+|---|---|
+| 1 | 214; D6. |
+| 2 | 0100 1011. |
+| 3 | 3 × 1024 × 1024 = 3 145 728 bytes. |
+| 4 | NAND = 0; XOR = 0. |
+| 5 | Sum = 1; Carry = 0. |
+| 6 | MAR: address being accessed; MDR: data/instruction transferred to or from memory. |
+| 7 | 2<sup>20</sup> = 1 048 576. |
+| 8 | Address bus, CPU to memory. |
+| 9 | 3 + (6 − 1) = 8 cycles. |
+| 10 | 0.95 × 2 + 0.05 × 100 = 1.9 + 5 = 6.9 ns. |
+| 11 | DRAM needs refresh, slower, cheaper, main memory; SRAM no refresh, faster, dearer, cache. |
+| 12 | EEPROM. |
+
+
+
+---
+
+
+
+| # | Answer |
+|---|---|
+| 13 | Buffer smooths speed mismatch during transfer; cache speeds repeated access to frequently used data. |
+| 14 | Excessive swapping of pages between RAM and storage; performance collapses as time is spent swapping. |
+| 15 | e.g. Keyboard: key press closes a circuit, generating a code. Barcode scanner: reflected light pattern converted to a code. |
+| 16 | Diodes let current flow one way, converting AC to pulsating DC. |
+| 17 | Draws more than the 75 W the PCIe slot supplies; extra current delivered from the PSU. |
+| 18 | Hard: missing the deadline is failure, e.g. airbag. Soft: missing degrades quality, e.g. video streaming. |
+| 19 | Instructions and data share one memory and bus so they cannot be fetched at the same instant; cache reduces the impact. |
+| 20 | Latency: delay for one result; throughput: work completed per unit time. |
 
 Scoring: 45–50 outstanding; 40–44 excellent; 32–39 good; 25–31 fair; below 25 revisit the sections above.
+
+
+
+---
+
+
 
 # Section 1.17 — Learning Material List
 
 Suggested resources for further study. Titles are given so you can search for them; check that each is current before relying on it.
 
-| Resource                                                                            | Type     | Use it for                                                                   |
-|-------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------------|
-| Watson & Williams, *Cambridge IGCSE and O Level Computer Science* (Hodder)          | Textbook | Core reading for Sections 1.1–1.12 at IGCSE level                            |
-| Watson & Williams, *Cambridge International AS & A Level Computer Science* (Hodder) | Textbook | Processor fundamentals, pipelining and system software at A Level            |
-| Cambridge syllabuses 0478 / 2210 / 9618                                             | Syllabus | Checking exactly what may be asked                                           |
-| Crash Course Computer Science (YouTube series)                                      | Video    | Short animated explanations of logic gates, the CPU, memory and instructions |
-| Ben Eater, 8-bit computer series (YouTube)                                          | Video    | Seeing registers, buses and the FDE cycle built from simple parts            |
-| Nand2Tetris (nand2tetris.org)                                                       | Course   | Building a computer from NAND gates upward                                   |
-| Khan Academy, Computer Science and Computing                                        | Course   | Binary, logic and how computers work, with practice questions                |
-| Computerphile (YouTube)                                                             | Video    | Short talks on memory, caches and processors                                 |
+| Resource | Type | Use it for |
+|---|---|---|
+| Watson &amp; Williams, *Cambridge IGCSE and O Level* *Computer Science* (Hodder) | Textbook | Core reading for Sections 1.1–1.12 at IGCSE level |
+| Watson &amp; Williams, *Cambridge International AS &amp; A* *Level Computer Science* (Hodder) | Textbook | Processor fundamentals, pipelining and system software at A Level |
+| Cambridge syllabuses 0478 / 2210 / 9618 | Syllabus | Checking exactly what may be asked |
+| Crash Course Computer Science (YouTube series) | Video | Short animated explanations of logic gates, the CPU, memory and instructions |
+| Ben Eater, 8-bit computer series (YouTube) | Video | Seeing registers, buses and the FDE cycle built from simple parts |
+| Nand2Tetris (nand2tetris.org) | Course | Building a computer from NAND gates upward |
+| Khan Academy, Computer Science and Computing | Course | Binary, logic and how computers work, with practice questions |
+| Computerphile (YouTube) | Video | Short talks on memory, caches and processors |
+
+
+
+---
+
+
 
 # Section 1.18 — Glossary
 
-| Term                  | Definition                                                        |
-|-----------------------|-------------------------------------------------------------------|
-| **Actuator**          | Output device producing physical action.                          |
-| **Address bus**       | One-way bus carrying memory addresses.                            |
-| **ALU**               | Arithmetic Logic Unit; performs arithmetic and logic.             |
-| **ASIC**              | Application-specific integrated circuit.                          |
-| **Bit**               | A single binary digit.                                            |
-| **Buffer**            | Temporary storage during data transfer.                           |
-| **Bus**               | Set of parallel wires carrying signals.                           |
-| **Cache**             | Small fast memory holding frequently used data.                   |
-| **Cloud storage**     | Data stored on remote servers accessed over a network.            |
-| **Control bus**       | Bus carrying timing and command signals.                          |
-| **Control system**    | System that observes and acts automatically.                      |
-| **CPU**               | Central Processing Unit.                                          |
-| **CU**                | Control Unit.                                                     |
-| **Data bus**          | Two-way bus carrying data and instructions.                       |
-| **Denary**            | Base-10 number system.                                            |
-| **DRAM**              | Dynamic RAM; needs refresh.                                       |
-| **EEPROM**            | Electrically erasable programmable ROM.                           |
-| **Embedded system**   | Computer dedicated to a specific function.                        |
-| **EPROM**             | Erasable programmable ROM (UV light).                             |
-| **Feedback**          | Using a measured output to adjust action.                         |
-| **Firmware**          | Software stored permanently in hardware.                          |
-| **Flash memory**      | Non-volatile memory erased in blocks.                             |
-| **FDE cycle**         | Fetch–Decode–Execute cycle.                                       |
-| **GPU**               | Graphics Processing Unit.                                         |
-| **HDMI**              | Digital video and audio connection.                               |
-| **Hexadecimal**       | Base-16 number system.                                            |
-| **IAS**               | Immediate Access Store: main memory (RAM).                        |
-| **ISA**               | Instruction set architecture: the instructions a CPU understands. |
-| **Interrupt**         | Signal causing the processor to suspend its current task.         |
-| **ISR**               | Interrupt Service Routine.                                        |
-| **LAN**               | Local Area Network.                                               |
-| **Latency**           | Delay before data is available.                                   |
-| **Logic gate**        | Circuit implementing a logical operation.                         |
-| **MAR**               | Memory Address Register.                                          |
-| **MDR**               | Memory Data Register.                                             |
-| **Monitoring system** | System that observes and reports.                                 |
-| **Motherboard**       | Main circuit board connecting components.                         |
-| **Nibble**            | 4 bits.                                                           |
-| **NIC**               | Network Interface Card.                                           |
-| **Opcode**            | Part of an instruction specifying the operation.                  |
-| **Operand**           | Data, or the address of data, used by an instruction.             |
-| **Packet**            | Small unit of network data.                                       |
-| **Page**              | Fixed-size block moved between RAM and storage.                   |
-| **Pipelining**        | Overlapping the stages of consecutive instructions.               |
-| **PC**                | Program Counter.                                                  |
-| **P-core / E-core**   | Performance core / efficiency core.                               |
-| **PROM**              | Programmable ROM (usually once).                                  |
-| **RAM**               | Volatile working memory.                                          |
-| **Register**          | Fast storage inside the CPU.                                      |
-| **ROM**               | Non-volatile memory for firmware.                                 |
-| **Router**            | Connects different networks.                                      |
-| **SIMT**              | Single Instruction, Multiple Threads.                             |
-| **SRAM**              | Static RAM; no refresh while powered.                             |
-| **Status Register**   | Holds condition flags.                                            |
-| **Swap file**         | Storage area used for virtual memory.                             |
-| **Switch**            | Connects devices in a LAN.                                        |
-| **Systolic array**    | Grid of processing elements for matrix operations.                |
-| **Thrashing**         | Excessive swapping.                                               |
-| **Throughput**        | Tasks completed per unit time.                                    |
-| **TPU**               | Tensor Processing Unit.                                           |
-| **Transistor**        | Tiny electronic switch.                                           |
-| **Virtual memory**    | Using secondary storage as extra RAM.                             |
-| **VGA**               | Older analogue video connection.                                  |
-| **Volatile**          | Loses contents when power is removed.                             |
-| **WAN**               | Wide Area Network.                                                |
+| Term | Definition |
+|---|---|
+| **Actuator** | Output device producing physical action. |
+| **Address bus** | One-way bus carrying memory addresses. |
+| **ALU** | Arithmetic Logic Unit; performs arithmetic and logic. |
+| **ASIC** | Application-specific integrated circuit. |
+| **Bit** | A single binary digit. |
+| **Buffer** | Temporary storage during data transfer. |
+| **Bus** | Set of parallel wires carrying signals. |
+| **Cache** | Small fast memory holding frequently used data. |
+| **Cloud storage** | Data stored on remote servers accessed over a network. |
+| **Control bus** | Bus carrying timing and command signals. |
+| **Control system** | System that observes and acts automatically. |
+| **CPU** | Central Processing Unit. |
+| **CU** | Control Unit. |
+| **Data bus** | Two-way bus carrying data and instructions. |
+| **Denary** | Base-10 number system. |
+| **DRAM** | Dynamic RAM; needs refresh. |
+| **EEPROM** | Electrically erasable programmable ROM. |
+| **Embedded system** | Computer dedicated to a specific function. |
+| **EPROM** | Erasable programmable ROM (UV light). |
+| **Feedback** | Using a measured output to adjust action. |
+| **Firmware** | Software stored permanently in hardware. |
+| **Flash memory** | Non-volatile memory erased in blocks. |
+| **FDE cycle** | Fetch–Decode–Execute cycle. |
+| **GPU** | Graphics Processing Unit. |
+| **HDMI** | Digital video and audio connection. |
+| **Hexadecimal** | Base-16 number system. |
+| **IAS** | Immediate Access Store: main memory (RAM). |
+| **ISA** | Instruction set architecture: the instructions a CPU understands. |
+| **Interrupt** | Signal causing the processor to suspend its current task. |
+| **ISR** | Interrupt Service Routine. |
+| **LAN** | Local Area Network. |
+| **Latency** | Delay before data is available. |
+
+
+
+---
+
+
+
+| Term | Definition |
+|---|---|
+| **Logic gate** | Circuit implementing a logical operation. |
+| **MAR** | Memory Address Register. |
+| **MDR** | Memory Data Register. |
+| **Monitoring system** | System that observes and reports. |
+| **Motherboard** | Main circuit board connecting components. |
+| **Nibble** | 4 bits. |
+| **NIC** | Network Interface Card. |
+| **Opcode** | Part of an instruction specifying the operation. |
+| **Operand** | Data, or the address of data, used by an instruction. |
+| **Packet** | Small unit of network data. |
+| **Page** | Fixed-size block moved between RAM and storage. |
+| **Pipelining** | Overlapping the stages of consecutive instructions. |
+| **PC** | Program Counter. |
+| **P-core / E-core** | Performance core / efficiency core. |
+| **PROM** | Programmable ROM (usually once). |
+| **RAM** | Volatile working memory. |
+| **Register** | Fast storage inside the CPU. |
+| **ROM** | Non-volatile memory for firmware. |
+| **Router** | Connects different networks. |
+| **SIMT** | Single Instruction, Multiple Threads. |
+| **SRAM** | Static RAM; no refresh while powered. |
+| **Status Register** | Holds condition flags. |
+| **Swap file** | Storage area used for virtual memory. |
+| **Switch** | Connects devices in a LAN. |
+| **Systolic array** | Grid of processing elements for matrix operations. |
+| **Thrashing** | Excessive swapping. |
+| **Throughput** | Tasks completed per unit time. |
+| **TPU** | Tensor Processing Unit. |
+| **Transistor** | Tiny electronic switch. |
+| **Virtual memory** | Using secondary storage as extra RAM. |
+| **VGA** | Older analogue video connection. |
+| **Volatile** | Loses contents when power is removed. |
+| **WAN** | Wide Area Network. |
+
+
+
+---
+
+
+
+# Section 1.18 (continued) — Glossary Supplement
+
+Key terms introduced in this edition, in alphabetical order.
+
+| Term | Definition |
+|---|---|
+| **Accumulator (ACC)** | Register where arithmetic and logic results are formed. |
+| **ADD** | Assembly instruction: add a number (ADD #n) or the contents of an address (ADD &lt;address&gt;) to ACC. |
+| **Boolean algebra** | Rules for simplifying logic expressions (. = AND, + = OR, bar = NOT). |
+| **CISC** | Complex Instruction Set Computer: many complex, variable-length instructions. |
+| **De Morgan's laws** | NOT (A AND B) = NOT A OR NOT B; NOT (A OR B) = NOT A AND NOT B. |
+| **Flip-flop** | Sequential circuit that stores one bit (SR or JK). |
+| **Full adder** | Circuit adding three bits (A, B, carry-in) to give Sum and carry-out. |
+| **Index register (IX)** | Register holding an offset added to an address in indexed addressing. |
+| **Karnaugh map** | Grid form of a truth table used to simplify logic expressions by grouping 1s. |
+| **LDD** | Assembly instruction: load the contents of a given address into ACC (direct addressing). |
+| **LDI** | Load using indirect addressing: the given address holds the address of the data. |
+| **LDM** | Load a number into ACC (immediate addressing). |
+| **LDR (instruction)** | Load a number into the index register IX (immediate addressing). |
+| **LDR (sensor)** | Light-dependent resistor: resistance falls as light intensity rises. |
+| **LDX** | Load using indexed addressing: address = operand + IX. |
+| **Logical shift** | Moving all bits left (LSL) or right (LSR); zeros enter at the other end. |
+| **Mask** | Bit pattern used with AND, OR or XOR to clear, set or toggle chosen bits. |
+| **Massively parallel** **computer** | Very many processors with their own memory working on parts of one problem. |
+| **MIMD / SIMD / MISD /** **SISD** | Flynn's classes of architecture by number of instruction and data streams. |
+| **RISC** | Reduced Instruction Set Computer: few simple, fixed-length, one-cycle instructions. |
+| **Symbol table** | Assembler table linking each label to its address. |
+| **Two-pass assembler** | Assembler that reads source twice: pass 1 builds the symbol table, pass 2 translates. |
+
+
+
+---
+
+
 
 ## Section 1.19 — References and attribution
 
-1.  Watson, D. and Williams, H. *Cambridge IGCSE and O Level Computer Science*. Hodder Education. Chapters on binary systems, logic gates, computer architecture, input/output devices, and memory and data storage.
-2.  Watson, D. and Williams, H. *Cambridge International AS & A Level Computer Science*. Hodder Education. Chapters on hardware, processor fundamentals and system software.
-3.  Cambridge IGCSE Computer Science 0478 / O Level Computer Science 2210 syllabus.
-4.  Cambridge International AS & A Level Computer Science 9618 syllabus.
+1. Watson, D. and Williams, H. *Cambridge IGCSE and O Level Computer Science*. Hodder Education. Chapters on binary systems, logic gates, computer architecture, input/output devices, and memory and data storage.
 
-Revision notes (v3.0): corrected the definition of the IAS (main memory, not registers and cache); added pipelining, instruction format and addressing modes; made figure numbering sequential; replaced unrendered LaTeX with plain notation; replaced the Activity 1.12 option set so every answer is available; fixed table widths; removed a dangling reference to a conversion helper; added learning suggestions, mind map, case studies, end-of-module test and learning material list. All conversion calculations, truth tables and latency figures were recomputed.
+2. Watson, D. and Williams, H. *Cambridge International AS &amp; A Level Computer Science*. Hodder Education. Chapters on hardware, processor fundamentals and system software.
+
+3. Cambridge IGCSE Computer Science 0478 / O Level Computer Science 2210 syllabus.
+
+4. Cambridge International AS &amp; A Level Computer Science 9618 syllabus.
+
+Revision notes (v3.0): corrected the definition of the IAS (main memory, not registers and cache); added pipelining, instruction format and addressing modes; made figure numbering sequential; replaced unrendered LaTeX with plain notation; replaced the Activity 1.12 option set so every answer is available; fixed table widths; removed a dangling reference to a conversion helper; added learning suggestions, mind map, case
+
+studies, end-of-module test and learning material list. All conversion calculations, truth tables and latency figures were recomputed.
+
+
+
+---
