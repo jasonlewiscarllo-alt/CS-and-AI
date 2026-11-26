@@ -1,4 +1,4 @@
-<!-- Networks — Markdown edition. Figures are in the 'networks_figures' folder. -->
+
 
 
 
@@ -142,7 +142,7 @@ A more formal definition: a computer network is a collection of computing device
 
 # 2. Components of a Network
 
-![Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.](networks_figures/networks-p006-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110605.png)
 
 *Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.*
 
@@ -196,7 +196,7 @@ computer lab a document sent to a network printer on the same switch is forwarde
 
 A **packet** is a small part of a larger piece of data sent over a network. Each packet has a **header**, a **payload** and a **trailer**.
 
-![Figure 2 — The three parts of a packet.](networks_figures/networks-p008-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110611.png)
 
 *Figure 2 — The three parts of a packet.*
 
@@ -232,7 +232,7 @@ packets 1, 3, 5
 
 sender
 
-![Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.](networks_figures/networks-p008-2.png)
+![alt](Assets/Screenshot%202026-11-26%20110614.png)
 
 *Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.*
 
@@ -277,7 +277,7 @@ Packet switching is not the only way to send data. In **circuit switching** a co
 
 3. **Tear down:** the circuit is released so others can use it.
 
-![Figure 3A — One path is reserved end to end for the whole call. Compare Figure 3, where packets take different routes.](networks_figures/networks-p010-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110621.png)
 
 *Figure 3A — One path is reserved end to end for the whole call. Compare Figure 3, where packets take different routes.*
 
@@ -352,7 +352,7 @@ Packet switching is not the only way to send data. In **circuit switching** a co
 
 Network software is organised in layers, each doing one job and using the layer below. When you send data, each layer adds its own header (the model in Section 3); the receiver removes them in reverse order.
 
-![Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.](networks_figures/networks-p012-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110630.png)
 
 *Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.*
 
@@ -404,7 +404,7 @@ transferred, e.g. HTTP or HTTPS), **subdomain** (an area of a site, `www` being 
 
 
 
-![Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.](networks_figures/networks-p014-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110635.png)
 
 *Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.*
 
@@ -451,7 +451,7 @@ A **public IP address** is unique across the whole internet and is assigned by y
 
 Your home router has **two** addresses: a public one facing the internet and a private one (often 192.168.1.1) facing your devices. **Network Address Translation (NAT)** in the router swaps the private address in each outgoing packet for the router's public address, and keeps a table so replies are sent back to the right device. NAT lets many devices share one public IPv4 address, which slows down the running-out of IPv4 addresses, and hides internal devices from the internet.
 
-![Figure 5A — NAT: three private addresses share the router's single public address.](networks_figures/networks-p015-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110642.png)
 
 *Figure 5A — NAT: three private addresses share the router's single public address.*
 
@@ -501,7 +501,7 @@ An IPv4 address has two parts: the **network ID** (which network) and the **host
 
 **Network topology** is the physical or logical arrangement of nodes and links in a network. The choice affects performance, scalability, reliability and cost. *Physical* topology is how cables are laid out; *logical* topology is how data actually flows.
 
-![Figure 6 — Six basic topologies (a hybrid is a combination of these).](networks_figures/networks-p017-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110651.png)
 
 *Figure 6 — Six basic topologies (a hybrid is a combination of these).*
 
@@ -645,7 +645,7 @@ Combines two or more basic topologies, such as stars joined in a ring or a mesh.
 >
 > - Hard to diagnose across different layouts
 
-![Figure 7 — A hybrid topology.](networks_figures/networks-p019-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110658.png)
 
 *Figure 7 — A hybrid topology.*
 
@@ -713,25 +713,25 @@ A hierarchy of root, branch and leaf nodes combining star and bus ideas, like a 
 
 ### Simplex
 
-![Diagram](networks_figures/networks-p021-2.png)
+![alt](Assets/Screenshot%202026-11-26%20112604.png)
 
 Data travels in one direction only. *Examples:* traditional TV broadcast; a keyboard sending input to a computer.
 
 ### Full-duplex
 
-![Diagram](networks_figures/networks-p021-4.png)
+![alt](Assets/Screenshot%202026-11-26%20112607.png)
 
 Both directions at the same time. *Examples:* a telephone conversation; a video call; a switched Ethernet link.
 
 ### Half-duplex
 
-![Diagram](networks_figures/networks-p021-3.png)
+![alt](Assets/Screenshot%202026-11-26%20112619.png)
 
 Both directions, but not at the same time; the devices take turns. *Example:* walkie-talkies.
 
 ## 6.2 Methods of data transmission
 
-![Figure 8 — Serial and parallel transmission.](networks_figures/networks-p021-1.png)
+![alt](Assets/Screenshot%202026-11-26%20112632.png)
 
 *Figure 8 — Serial and parallel transmission.*
 
@@ -762,7 +762,7 @@ The words *synchronous* and *asynchronous* are used at two levels. Do not mix th
 | Speed | Fast | Slower |
 | Typical use | High-speed links, large transfers | Keyboards, serial ports, simple devices |
 
-![Figure 9 — An asynchronous frame carrying one byte.](networks_figures/networks-p022-1.png)
+![alt](Assets/Screenshot%202026-11-26%20112640.png)
 
 *Figure 9 — An asynchronous frame carrying one byte.*
 
@@ -857,7 +857,7 @@ The receiver sends the data straight back to the sender, which compares it with 
 
 After receiving data, the receiver checks it (for example with a parity check or checksum) and sends a **positive** **acknowledgement (ACK)** if it is correct, or a **negative acknowledgement** if not. The sender starts a **timer (timeout)** each time it sends. If no ACK arrives before the timeout, or a negative acknowledgement arrives, it resends the data automatically. TCP (Section 4.2) uses acknowledgements and timeouts in this way.
 
-![Figure 9A — No ACK arrives for packet 2 before the timeout, so the sender resends it.](networks_figures/networks-p025-1.png)
+![alt](Assets/Screenshot%202026-11-26%20112648.png)
 
 *Figure 9A — No ACK arrives for packet 2 before the timeout, so the sender resends it.*
 
@@ -907,7 +907,7 @@ A **check digit** is an extra digit calculated from the other digits of a number
 
 ## 7.1 Types of network by size
 
-![Figure 10 — Networks classified by the area they cover.](networks_figures/networks-p027-1.png)
+![alt](Assets/Screenshot%202026-11-26%20112654.png)
 
 *Figure 10 — Networks classified by the area they cover.*
 
@@ -948,7 +948,7 @@ Connects multiple LANs across a city, town or large campus; larger than a LAN bu
 
 ## 7.2 Network service models
 
-![Figure 11 — Client–server and peer-to-peer models.](networks_figures/networks-p028-1.png)
+![alt](Assets/Screenshot%202026-11-26%20112703.png)
 
 *Figure 11 — Client–server and peer-to-peer models.*
 
@@ -1212,7 +1212,7 @@ analysis.
 
 # 11. Mind Map and Summary
 
-![Figure 12 — Mind map of the Networks module.](networks_figures/networks-p035-1.png)
+![alt](Assets/Screenshot%202026-11-26%20112718.png)
 
 *Figure 12 — Mind map of the Networks module.*
 

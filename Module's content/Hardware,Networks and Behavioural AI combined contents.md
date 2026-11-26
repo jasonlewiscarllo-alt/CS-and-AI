@@ -1,4 +1,3 @@
-<!-- Hardware, Networks and Behavioural AI — Markdown edition. Figures are in the 'combined_figures' folder. -->
 
 
 COMBINED STUDY GUIDE

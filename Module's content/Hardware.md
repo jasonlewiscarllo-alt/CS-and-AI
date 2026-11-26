@@ -1,4 +1,4 @@
-<!-- Hardware — Markdown edition. Figures are in the 'hardware_figures' folder. -->
+
 
 
 MODULE 1
@@ -170,7 +170,7 @@ Connections between components are made by **traces**: thin copper pathways prin
 ---
 
 
-![Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.](hardware_figures/hardware-p007-1.png)
+![alt](Assets/Screenshot%202026-11-26%20100429.png)
 
 *Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.*
 
@@ -268,7 +268,7 @@ of expansion slots and connectors. Form factors exist so that cases, power suppl
 | Micro-ATX (mATX) | ~244 x 244 mm | Up to 4 | Smaller desktops, budget builds |
 | Mini-ITX | ~170 x 170 mm | 1–2 | Small-form-factor PCs, home theatre, embedded |
 
-![Figure 2 — Relative sizes of the four main motherboard form factors.](hardware_figures/hardware-p009-1.png)
+![alt](Assets/Screenshot%202026-11-26%20100436.png)
 
 *Figure 2 — Relative sizes of the four main motherboard form factors.*
 
@@ -310,7 +310,7 @@ of expansion slots and connectors. Form factors exist so that cases, power suppl
 
 The **power supply unit (PSU)** converts the high-voltage alternating current (AC) from a wall socket into the low-voltage direct current (DC) that the computer's components need. The conversion happens in four stages.
 
-![Figure 3 — The four stages of AC-to-DC conversion inside a PSU.](hardware_figures/hardware-p010-1.png)
+![alt](Assets/Screenshot%202026-11-26%20100441.png)
 
 *Figure 3 — The four stages of AC-to-DC conversion inside a PSU.*
 
@@ -396,7 +396,7 @@ A graphics card is an expansion card that contains a GPU and its supporting comp
 | 6. Monitor outputs | HDMI, DisplayPort, DVI and other connectors that send video to displays. |
 | 7. Video BIOS | Firmware that initialises the card at start-up and controls clock speeds and voltages. |
 
-![Figure 4 — The seven main parts of a graphics card.](hardware_figures/hardware-p012-1.png)
+![alt](Assets/Screenshot%202026-11-26%20100451.png)
 
 *Figure 4 — The seven main parts of a graphics card.*
 
@@ -464,7 +464,7 @@ A **bit** is a single binary digit: 0 or 1. In hardware these are two voltage le
 
 Each bit position has a value that is double the one to its right. To convert binary to denary, add the place values wherever there is a 1.
 
-![Figure 5 — Binary place-value chart: 10110101 = 181.](hardware_figures/hardware-p014-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110043.png)
 
 *Figure 5 — Binary place-value chart: 10110101 = 181.*
 
@@ -488,7 +488,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 >
 > B7<sub>16</sub> = 11 × 16 + 7 = 176 + 7 = 183<sub>10</sub>
 
-![Figure 6 — Binary to hex grouping: 1101 0110 = D6.](hardware_figures/hardware-p015-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110048.png)
 
 *Figure 6 — Binary to hex grouping: 1101 0110 = D6.*
 
@@ -531,7 +531,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 
 A **transistor** is a tiny electronic switch. Combining transistors forms **logic gates**: circuits whose output depends on the inputs according to a fixed rule. A **truth table** lists every input combination and the corresponding output.
 
-![Figure 7 — Standard logic gate symbols.](hardware_figures/hardware-p016-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110055.png)
 
 *Figure 7 — Standard logic gate symbols.*
 
@@ -556,7 +556,7 @@ A half-adder adds two single bits, producing a **Sum** and a **Carry**.
 ---
 
 
-![Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.](hardware_figures/hardware-p017-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110101.png)
 
 *Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.*
 
@@ -642,7 +642,7 @@ For a longer expression, add a **working column** for each part, then combine th
 
 To work out what a circuit does, label the output of every gate with a letter, then fill in one working column per gate from left to right. The circuit below is P = (A OR B) AND NOT (B AND C).
 
-![Figure 8A — D = A OR B, E = B AND C, F = NOT E, P = D AND F.](hardware_figures/hardware-p019-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110110.png)
 
 *Figure 8A — D = A OR B, E = B AND C, F = NOT E, P = D AND F.*
 
@@ -703,7 +703,7 @@ Sum = A ⊕ B ⊕ C<sub>in</sub>      C<sub>out</sub> = (A . B) + (C<sub>in<
 | 1 | 1 | 0 | 2 | **0** | **1** |
 | 1 | 1 | 1 | 3 | **1** | **1** |
 
-![Figure 8B — A full adder = two half-adders + OR.](hardware_figures/hardware-p021-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110116.png)
 
 *Figure 8B — A full adder = two half-adders + OR.*
 
@@ -754,7 +754,7 @@ A **Karnaugh map (K-map)** is a truth table redrawn as a grid so that neighbouri
 
 - In each group, keep only the variables that do *not* change; write them ANDed together. OR the groups.
 
-![Figure 8C — Two groups of two: P = A.B + B.C.](hardware_figures/hardware-p022-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110123.png)
 
 *Figure 8C — Two groups of two: P = A.B̅ + B.C̅.*
 
@@ -839,7 +839,7 @@ The **Von Neumann architecture** stores both instructions and data in the same m
 >
 > Because instructions and data share the same memory and buses, the CPU cannot fetch an instruction and a data value at exactly the same instant. Cache memory (Section 1.6) reduces its impact.
 
-![Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).](hardware_figures/hardware-p024-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110133.png)
 
 *Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).*
 
@@ -933,7 +933,7 @@ Flags let the CPU make decisions such as “jump if zero”.
 >
 > Describe each FDE stage, name the registers and buses used, explain interrupts and the ISR, and explain how instructions are encoded and how pipelining improves throughput.
 
-![Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.](hardware_figures/hardware-p027-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110141.png)
 
 *Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.*
 
@@ -987,7 +987,7 @@ The result is stored in the ACC or written to memory.
 
 An **interrupt** is a signal that causes the processor to suspend its current task and service an event. Causes: a timing signal, I/O completion, a user action, a hardware fault or a software error. At the end of each FDE cycle the processor checks for interrupts. The **Interrupt Service Routine (ISR)** services the highest-priority interrupt: the processor saves its state, runs the ISR, restores the state and continues. An interrupt does **not** restart the computer.
 
-![Figure 11 — Interrupt handling.](hardware_figures/hardware-p028-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110146.png)
 
 *Figure 11 — Interrupt handling.*
 
@@ -1008,7 +1008,7 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 ---
 
 
-![Figure 12 — Pipelining five instructions through a three-stage pipeline.](hardware_figures/hardware-p029-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110150.png)
 
 *Figure 12 — Pipelining five instructions through a three-stage pipeline.*
 
@@ -1297,7 +1297,7 @@ Symbol table for the program in Section 1.5.9 if it were written with labels: `L
 
 Fast memory is expensive and small; large memory is cheap and slow. Computers therefore combine several kinds of memory in layers, keeping the most-needed data in the fastest layer. This is the **memory hierarchy**.
 
-![Figure 13 — Memory hierarchy pyramid.](hardware_figures/hardware-p036-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110441.png)
 
 *Figure 13 — Memory hierarchy pyramid.*
 
@@ -1354,7 +1354,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 for cache and registers.
 
-![Figure 14 — DRAM versus SRAM cells (simplified).](hardware_figures/hardware-p038-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110449.png)
 
 *Figure 14 — DRAM versus SRAM cells (simplified).*
 
@@ -1424,7 +1424,7 @@ for cache and registers.
 
 A **buffer** is temporary storage used during data transfer between devices with different speeds. Examples: keyboard buffer, printer buffer, video-streaming buffer and double buffering of display frames.
 
-![Figure 15 — A buffer smoothing speed differences.](hardware_figures/hardware-p040-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110457.png)
 
 *Figure 15 — A buffer smoothing speed differences.*
 
@@ -1436,7 +1436,7 @@ A **buffer** is temporary storage used during data transfer between devices with
 
 **Virtual memory** uses secondary storage as extra RAM. The operating system divides memory into fixed-size **pages** and moves them between RAM and a **swap file** (page file). A **page fault** occurs when a required page is not in RAM. **Thrashing** is excessive swapping, where the system spends more time moving pages than running programs.
 
-![Figure 16 — Virtual memory: pages swapped between RAM and the swap file.](hardware_figures/hardware-p040-2.png)
+![alt](Assets/Screenshot%202026-11-26%20110504.png)
 
 *Figure 16 — Virtual memory: pages swapped between RAM and the swap file.*
 
@@ -1590,7 +1590,7 @@ A **sensor** is an input device that measures a physical quantity and sends a si
 
 **The LDR (light-dependent resistor).** An LDR is a resistor whose resistance changes with light: in bright light its resistance is **low**; in darkness its resistance is **high**. It is placed in a potential-divider circuit so that the change in resistance becomes a change in voltage, which the ADC converts to a number.
 
-![Figure 16A — The LDR changes resistance; the processor, not the sensor, makes the decision.](hardware_figures/hardware-p044-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110511.png)
 
 *Figure 16A — The LDR changes resistance; the processor, not the sensor, makes the decision.*
 
@@ -1720,7 +1720,7 @@ A **monitoring system** observes and reports. A **control system** observes and 
 
 Temperature sensor → microcontroller compares with the target → heater actuator switched on if too cold → vent/fan switched on if too warm → repeat (feedback). Note that the sensor produces an analogue signal, so an ADC converts it to digital before the microcontroller can use it.
 
-![Figure 17 — A monitoring-and-control feedback loop.](hardware_figures/hardware-p048-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110519.png)
 
 *Figure 17 — A monitoring-and-control feedback loop.*
 
@@ -1856,7 +1856,7 @@ Modern designs blur the line: x86 CISC processors translate complex instructions
 
 **Parallel processing** means using more than one processing unit at the same time on a task. Michael Flynn classified computer architectures by how many **instruction streams** and **data streams** they handle at once.
 
-![Figure 17A — The four basic computer architectures.](hardware_figures/hardware-p052-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110548.png)
 
 *Figure 17A — The four basic computer architectures.*
 
@@ -1883,7 +1883,7 @@ Modern designs blur the line: x86 CISC processors translate complex instructions
 
 # Section 1.13 — Module Summary and Mind Map
 
-![Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.](hardware_figures/hardware-p053-1.png)
+![alt](Assets/Screenshot%202026-11-26%20110529.png)
 
 *Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.*
 
