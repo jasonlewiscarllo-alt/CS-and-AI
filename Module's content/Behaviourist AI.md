@@ -100,23 +100,23 @@ Everything outside a **Going deeper (optional)** box is the core course: it is c
 
 > **The big idea**
 >
-> We use one friendly story (Minecraft) to build intuition, and one tiny puzzle (the 2×2 grid) for every calculation. Keep both in mind.
+> We use one everyday story (a mouse learning a maze) to build intuition, and one tiny puzzle (the 2×2 grid) for every calculation. Keep both in mind.
 
-## Example 1: an AI learning to speedrun Minecraft
+## Example 1: a mouse learning a maze
 
-Imagine an AI player dropped into a new Minecraft world. It can move, jump, mine and craft. Nobody tells it how to beat the game. It only gets points (rewards) when it reaches milestones: for example +1 for collecting wood, +1 for a stone pickaxe, +1 for iron, and +10 for defeating the Ender Dragon.
+Imagine a mouse placed at the entrance of a maze, with a piece of cheese hidden at the far end. Nobody shows it the way. At every junction it can go left, right or straight on. The only "reward" is the cheese at the end.
 
-- At first it wanders randomly and earns almost nothing.
-- Slowly it notices that some actions lead to points sooner, and does them more often.
-- After many runs it has learned a plan that reaches the dragon quickly.
+- At first it wanders randomly, bumps into walls and takes a long time to find the cheese.
+- Slowly it remembers which turns led to the cheese sooner, and takes them more often.
+- After many runs it goes straight to the cheese without a wrong turn.
 
-That is reinforcement learning. Minecraft is also the theme of our team's video tutorial, so you will see the same ideas there.
+That is reinforcement learning. Psychologists studied exactly this kind of maze learning in animals in the early 1900s, and the computer methods in this module grew out of the same idea.
 
 ## Example 2: the 2×2 grid world
 
-Minecraft is far too big to calculate by hand, so for every worked example we shrink the world to four squares.
+Even a small maze has too many junctions to calculate by hand, so for every worked example we shrink it to four squares.
 
-![alt](Assets/Screenshot%202026-11-26%20095701.png)
+![The 2×2 grid world. The agent starts at (0,0); the goal (1,1) is the top-right square.](figures/grid-world-2x2.png)
 
 *Figure 1. The 2×2 grid world. Squares are named (x, y): x counts across, y counts up.*
 
@@ -128,7 +128,7 @@ Minecraft is far too big to calculate by hand, so for every worked example we sh
 | End | The game ends as soon as you reach the goal |
 | Discount γ | 0.9 (Section 5.3 explains this) |
 
-**Two Minecraft ↔ grid matches to remember:** reaching the goal square is like beating the dragon; a move into the wall is like walking into a block: you stay put and waste time.
+**Two maze ↔ grid matches to remember:** reaching the goal square is like finding the cheese; a move into the edge is like the mouse running into a wall: it stays where it is and wastes time.
 
 ---
 
@@ -165,7 +165,7 @@ Most AI you hear about learns from examples with answers attached: "this photo i
 
 The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner): behaviour that is followed by a reward happens more often; behaviour followed by punishment happens less. A dog that gets a treat for sitting learns to sit. **Reinforcement learning** is the computer version of that idea.
 
-![alt](Assets/Screenshot%202026-11-26%20095706.png)
+![Three families of machine learning: supervised, unsupervised and reinforcement learning.](figures/three-families-of-ml.png)
 
 *Figure 2. The three families of machine learning. This module is about the third.*
 
@@ -173,20 +173,20 @@ The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner):
 |---|---|---|
 | Supervised learning | Examples **with** the right answer | A spam filter trained on emails marked "spam" or "not spam" |
 | Unsupervised learning | Examples **without** answers; it finds groups | Grouping shoppers by what they buy |
-| Reinforcement learning | **No** answers, only a reward after acting | A Minecraft AI that gets points for milestones |
+| Reinforcement learning | **No** answers, only a reward after acting | A mouse that learns a maze because it finds cheese at the end |
 
 ## 1.2 Key words
 
-| Word | Meaning | In Minecraft |
+| Word | Meaning | In the maze |
 |---|---|---|
-| **Agent** | The learner that makes decisions | The AI player |
-| **Environment** | Everything outside the agent | The Minecraft world |
-| **State (s)** | A description of the situation right now | What is on screen, health, inventory |
-| **Action (a)** | A choice the agent can make | Move, jump, mine, craft |
-| **Reward (r)** | Points given after an action; higher is better | +1 for a pickaxe |
-| **Policy (π)** | The agent's plan: which action to take in each state | "If I see a tree and have no wood, mine it" |
-| **Value** | How many points the agent expects from here on | "From here I can probably reach iron soon" |
-| **Episode** | One complete run from start to finish | One attempt at the speedrun |
+| **Agent** | The learner that makes decisions | The mouse |
+| **Environment** | Everything outside the agent | The maze |
+| **State (s)** | A description of the situation right now | Which junction the mouse is at |
+| **Action (a)** | A choice the agent can make | Go left, right or straight on |
+| **Reward (r)** | Points given after an action; higher is better | +1 for reaching the cheese |
+| **Policy (π)** | The agent's plan: which action to take in each state | "At the first junction, turn left" |
+| **Value** | How many points the agent expects from here on | "From this junction the cheese is close" |
+| **Episode** | One complete run from start to finish | One run from the entrance to the cheese |
 
 > **Check Q1.1. A chess program is trained on millions of positions, each with the "correct" move. Is that behavioural AI?**
 >
@@ -214,7 +214,7 @@ The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner):
 
 ## 2.1 The agent–environment loop
 
-![alt](Assets/Screenshot%202026-11-26%20095716.png)
+![The agent–environment loop: the agent sends an action; the environment returns a new state and a reward.](figures/agent-environment-loop.png)
 
 *Figure 3. The agent–environment loop.*
 
@@ -224,7 +224,7 @@ The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner):
 4. **Reward** — the world gives a reward r.
 5. **Learn** — the agent updates what it knows, then the loop repeats from the new state.
 
-In Minecraft: see a tree → punch it → a wood block drops → +1 → "punching trees is good" → look again.
+In the maze: the mouse is at a junction → turns left → arrives in a new corridor → finds the cheese, +1 → remembers "turning left there was good" → carries on next time from the start.
 
 > **Going deeper (optional): time-step notation**
 >
@@ -265,7 +265,7 @@ In Minecraft: see a tree → punch it → a wood block drops → +1 → "punchin
 ## 3.1 Three special features
 
 1. **Trial and error.** The agent is never told the correct action; it must try things and see what happens.
-2. **Delayed reward.** The reward for a good move may come much later. In Minecraft, crafting a pickaxe early is what makes beating the dragon possible an hour later. Working out which earlier actions deserve the credit is called the **credit assignment problem**.
+2. **Delayed reward.** The reward for a good move may come much later. The mouse only gets the cheese at the very end, but the turn that really mattered may have been the first one at the entrance. Working out which earlier actions deserve the credit is called the **credit assignment problem**.
 3. **The agent's actions change what it sees next.** If it never goes into a cave, it never learns what is inside.
 
 > **Common mistake**
@@ -277,7 +277,7 @@ In Minecraft: see a tree → punch it → a wood block drops → +1 → "punchin
 - **Exploitation:** do what currently looks best.
 - **Exploration:** try something else, because it might be better.
 
-A player who only ever mines in the first cave they found (exploiting) may never discover the diamond cave next door (exploring). The usual compromise is called **ε-greedy** (say "epsilon-greedy"): most of the time do the best-known action, but with a small chance ε (for example 0.1, so 1 time in 10) do a random action instead. ε is often lowered over time: explore a lot early, then mostly exploit.
+If you always order your usual dish at a restaurant (exploiting), you will never find out that another dish is even better (exploring). The usual compromise is called **ε-greedy** (say "epsilon-greedy"): most of the time do the best-known action, but with a small chance ε (for example 0.1, so 1 time in 10) do a random action instead. ε is often lowered over time: explore a lot early, then mostly exploit.
 
 > **Worked example — two slot machines**
 >
@@ -361,7 +361,7 @@ In the grid, knowing your square is enough. In chess, the board position is enou
 
 ## 5.1 When moves are uncertain
 
-Real worlds are not perfectly predictable: a robot's wheels slip, Minecraft gravel falls. We describe this with chances.
+Real worlds are not perfectly predictable: a robot's wheels slip, a door in the maze is sometimes stuck. We describe this with chances.
 
 > **Worked example — a slippery grid**
 >
@@ -379,9 +379,9 @@ Points you get later count for a little less than points you get now. With γ = 
 2. **Sooner is better:** reaching the goal in fewer moves is usually what we want.
 3. **Maths:** in a game that never ends, the total stays a finite number.
 
-> **Worked example — the Minecraft milestone**
+> **Worked example — cheese at the end of the maze**
 >
-> The AI earns 0, 0, 0 and then +10 for beating the dragon on the fourth step. With γ = 0.9 that +10, three steps after the first reward, is worth 0.9 × 0.9 × 0.9 × 10 = 0.729 × 10 = **7.29** now. With γ = 0.5 it would be worth only 0.125 × 10 = **1.25**: a smaller γ makes the agent care much less about far-away rewards.
+> The mouse gets 0, 0, 0 for its first three moves and then +10 for reaching the cheese on the fourth move. With γ = 0.9 that +10, three steps after the first reward, is worth 0.9 × 0.9 × 0.9 × 10 = 0.729 × 10 = **7.29** now. With γ = 0.5 it would be worth only 0.125 × 10 = **1.25**: a smaller γ makes the agent care much less about far-away rewards.
 
 ## 5.4 The return and the value
 
@@ -441,7 +441,7 @@ The **value** V(s) of a state is the return you expect if you start there and fo
 
 A **model** answers: "if I am here and do this, where will I end up and how many points will I get?" For the grid, the model is the table in Example 2 (Our Two Running Examples).
 
-![alt](Assets/Screenshot%202026-11-26%20095731.png)
+![Model-based learning plans with a map of the world; model-free learning learns values or habits directly from experience.](figures/model-based-vs-model-free.png)
 
 *Figure 4. Model-based versus model-free learning.*
 
@@ -452,7 +452,7 @@ A **model** answers: "if I am here and do this, where will I end up and how many
 
 A **model-based** person in a new city studies the map first, then plans routes without walking them. A **model-free** person just learns "leave home, turn left, arrive at work" by repetition. No map, but the habit works, until a road closes and they have to find a detour by trial and error.
 
-A Minecraft player who reads the wiki for crafting recipes is model-based; one who presses every button combination until something gets crafted is model-free.
+In the maze: a mouse that has explored before and remembers the layout can plan a route in its head (model-based); a mouse that simply repeats "left, left, right" because it worked last time is model-free.
 
 > **Check Q6.1. A robot vacuum has a stored floor plan and calculates a route from it. Model-based or model-free?**
 >
@@ -480,7 +480,7 @@ A Minecraft player who reads the wiki for crafting recipes is model-based; one w
 
 ## 7.1 The idea in one sentence
 
-Think of a Minecraft run: "how good is it to be standing next to iron ore?" equals "the points I get for mining it now" plus "90% of how good my situation is after that". You do not have to think about the whole game at once, only one step plus the value of what comes next.
+Think of the mouse at a junction: "how good is this junction?" equals "the reward I get for my next move" plus "90% of how good the next junction is". You do not have to think about the whole game at once, only one step plus the value of what comes next.
 
 **Formula in words:** value here = reward now + γ × value of the next state.
 
@@ -570,7 +570,7 @@ Plan: "go Right if you can; otherwise go Up". So (0,0) goes Right, (1,0) goes Up
 >
 > **Sweep 3.** Nothing changes, so we stop.
 
-![alt](Assets/Screenshot%202026-11-26%20095743.png)
+![Value spreads backwards from the goal, one square per sweep.](figures/value-spreads-backwards.png)
 
 *Figure 5. Value travels backwards from the goal, one step per sweep. Squares next to the goal fill in first.*
 
@@ -723,7 +723,7 @@ The **policy improvement theorem** promises that the new plan is never worse tha
 3. **Improve:** at each square switch to the best move (Section 9).
 4. If no square changed, stop: the plan is optimal. Otherwise go back to step 2.
 
-![alt](Assets/Screenshot%202026-11-26%20095802.png)
+![Value iteration and policy iteration are two routes to the same optimal plan.](figures/value-vs-policy-iteration.png)
 
 *Figure 6. Two routes to the same optimal plan.*
 
@@ -798,7 +798,7 @@ Both reach the same best plan. Choosing between them is about speed, not correct
 
 ## 12.2 In everyday terms
 
-Learning Minecraft **on-policy** is like rating your own playing style honestly, including the times you fall in lava while experimenting. Learning **off-policy** is like watching your experiments (or someone else's videos) but always asking "what would the *best* move have been?". Neither is always better: off-policy can reuse old experience; on-policy is often steadier and more realistic about the mistakes you will really make.
+Think of a learner driver. Learning **on-policy** is like judging the routes you really drive, wrong turns included. Learning **off-policy** is like watching your own drives (or someone else's) but always asking "what would the *best* route have been?". Neither is always better: off-policy can reuse old experience; on-policy is often steadier and more realistic about the mistakes you will really make.
 
 > **Check Q12.1. A robot explores with ε-greedy and learns with Q-learning. Is the plan it follows the same as the plan it is learning?**
 >
@@ -828,7 +828,7 @@ Learning Minecraft **on-policy** is like rating your own playing style honestly,
 
 Up to Section 11 the agent knew the map. From now on it does not: it only has its own **experience**.
 
-![alt](Assets/Screenshot%202026-11-26%20095811.png)
+![The three model-free families: value-based, policy-based and actor–critic, with example algorithms.](figures/three-model-free-families.png)
 
 *Figure 7. The three model-free families and their example algorithms.*
 
@@ -850,13 +850,19 @@ All the methods from here on update in the same way: they nudge the old estimate
 
 The gap "target − old estimate" is the **surprise**: how wrong we were. α, the learning rate, says how much of the gap to close. With α = 0.5 we move halfway; with α = 0.1 we move a tenth of the way, which is slower but steadier.
 
-![alt](Assets/Screenshot%202026-11-26%20095817.png)
+> **Everyday version**
+>
+> You guess your bus journey takes 20 minutes. Today it takes 30. You do not throw your old guess away, and you do not trust one day completely either. With α = 0.5 you move halfway: new guess = 20 + 0.5 × (30 − 20) = **25 minutes**. Every method from here on learns exactly like this.
+
+![An update moves the old estimate part of the way towards the target.](figures/update-step-toward-target.png)
 
 *Figure 8. One update with α = 0.5: the old estimate 0.2 moves halfway towards the target 1.0, giving 0.6.*
 
 ## 13.3 Monte Carlo: wait until the end and average
 
 **Monte Carlo (MC)** learning plays a whole game, then looks back: for each square it visited, it adds up the actual discounted rewards that followed (the **return**). That return is the target. Over many games, the values become the average of what really happened. No map is needed.
+
+Everyday version: you only update your guess of how long your journey home takes **when you arrive**, using the real total time.
 
 **Formula in words:** new V(square) = old V + α × (actual return after that square − old V)
 
@@ -883,6 +889,8 @@ Because the return is only known when the game ends, MC **updates only after the
 ## 13.4 TD learning: update after every step
 
 Waiting until the end is slow, and impossible if the game never ends. **Temporal-difference (TD)** learning updates after **every single step**. It does not know the full return yet, so it uses a shortcut target: the reward it just got plus γ × its *current guess* for the next square.
+
+Everyday version: on your journey home you **update your arrival estimate at every stop**. If the first stop took longer than usual, you already know you will be late. You do not wait until you get home.
 
 **Formula in words:** new V(here) = old V(here) + α × (reward + γ × V(next) − old V(here))
 
@@ -929,7 +937,7 @@ REINFORCE (Section 16) instead uses the Monte Carlo idea: the full return of the
 | How noisy? | Not noisy (no sampling) | Noisy: one game's return can vary a lot | Steadier, but starts from rough guesses |
 | Leads to | Value and policy iteration (10–11) | REINFORCE (16) | SARSA, Q-learning, DQN, actor–critic (14–17) |
 
-![alt](Assets/Screenshot%202026-11-26%20095826.png)
+![How far each method looks: DP looks one step at every possibility; MC follows one game to the end; TD takes one real step.](figures/dp-mc-td-compared.png)
 
 *Figure 9. How far each method looks ahead to build its target.*
 
@@ -1037,7 +1045,7 @@ Its target uses the **best** next move, even if the agent is about to take a ran
 
 > **The big idea**
 >
-> SARSA is Q-learning's careful twin: its target uses the move it will *really* take next, mistakes included. DQN replaces the Q-table with a neural network so the idea works in huge worlds like Atari games or Minecraft.
+> SARSA is Q-learning's careful twin: its target uses the move it will *really* take next, mistakes included. DQN replaces the Q-table with a neural network so the idea works in huge worlds such as video games played from the screen.
 
 ## 15.1 SARSA
 
@@ -1060,7 +1068,7 @@ The name lists the five things one update uses: **S**tate, **A**ction, **R**ewar
 
 ## 15.2 The cliff walk: where the difference matters
 
-![alt](Assets/Screenshot%202026-11-26%20095836.png)
+![The cliff walk: the shortest path runs along the cliff edge; a safer path goes further away.](figures/cliff-walk.png)
 
 *Figure 10. The cliff walk. Falling off the cliff gives a big penalty and sends the agent back to the start.*
 
@@ -1069,7 +1077,7 @@ A grid has a cliff along the bottom. The shortest path hugs the edge; a safer pa
 - **Q-learning** learns the edge path, because its target assumes perfect play from now on. That is best *if exploring stops* when the robot is used for real.
 - **SARSA** learns the safer path, because its target includes the occasional random step that could fall off the edge.
 
-In Minecraft terms: Q-learning happily walks along a lava lake's edge because the shortest route is optimal "in theory"; SARSA keeps a block of distance because it knows it sometimes presses the wrong key.
+In everyday terms: Q-learning happily walks right along the edge of a cliff path because it is the shortest route "if I never slip"; SARSA keeps a step away from the edge because it knows it sometimes stumbles.
 
 > **Check Q15.1. In the cliff walk, which algorithm would a safety engineer prefer if the robot keeps exploring while in use?**
 >
@@ -1077,12 +1085,14 @@ In Minecraft terms: Q-learning happily walks along a lava lake's edge because th
 
 ## 15.3 Deep Q-Networks (DQN)
 
-A Q-table needs one row per state. A Minecraft screen has millions of pixels, so there are far too many states to list. A **Deep Q-Network (DQN)** replaces the table with a **neural network**: a function made of layers of simple adjustable units that takes the screen as input and outputs one score per move. Similar screens get similar scores, so the network can handle states it has never seen exactly before.
+A Q-table needs one row for every state. A video-game screen has millions of pixels, so there are far too many possible screens to list. A **Deep Q-Network (DQN)** replaces the table with a **neural network**: a function made of layers of simple adjustable units. You give it the screen, and it gives back one score for each move.
+
+Think of it like this: you have never walked down most streets in the world, but you can still guess whether a new street looks safe, because it looks like streets you know. In the same way, the network gives similar screens similar scores, so it can score screens it has never seen before.
 
 Two tricks keep DQN stable:
 
-- **Experience replay:** store past steps in a memory and learn from small random handfuls (**minibatches**) of them, rather than only from the very latest steps, which are all very similar to each other.
-- **Target network:** compute targets with a separate copy of the network that is updated only now and then, so the target does not shift every time the main network learns.
+- **Experience replay:** keep a memory of past steps and learn from small random handfuls of them (**minibatches**). Learning only from the last few steps is like revising only yesterday's lesson: they are all too similar.
+- **Target network:** work out the targets with a second copy of the network that is updated only now and then. Otherwise the target moves every time the network learns, like trying to hit a goal that keeps sliding away.
 
 DQN learned to play many Atari games from the screen alone (Mnih et al., 2015).
 
@@ -1116,13 +1126,15 @@ DQN learned to play many Atari games from the screen alone (Mnih et al., 2015).
 
 ## 16.1 Why learn the plan directly?
 
-- When actions are smooth quantities (a steering angle, how hard to jump), picking "the best of all actions" from a table is awkward.
-- When the best plan is deliberately random (in rock–paper–scissors, being predictable loses).
-- When we want behaviour to change smoothly as learning goes on.
+- When actions are amounts, not a short list. A steering wheel can turn to any angle, so there is no small table of moves to score.
+- When the best plan is to be unpredictable. In rock–paper–scissors, always playing the same move loses.
+- When we want behaviour to change gradually as learning goes on, not jump suddenly.
 
 ## 16.2 The idea in words
 
-The plan is a set of adjustable numbers that give a probability for each move. **REINFORCE** plays a whole game, works out the return after each move, and then nudges the numbers so that each move it took becomes more likely in proportion to how good the return after it was. Moves followed by big returns are pushed up strongly; moves followed by poor returns are pushed up only a little (or pushed down, with a baseline, Section 16.3).
+Think of the plan as a set of dials, one setting how likely each move is. **REINFORCE** plays a whole game, works out the return after each move, and then turns the dials so that each move it took becomes more likely, more so when the return after it was big. Moves followed by big returns are pushed up strongly; moves followed by poor returns are pushed up only a little (or pushed down, with a baseline, Section 16.3).
+
+Everyday version: a basketball player who scores tends to repeat that shot more often; a shot that misses badly gets used less.
 
 Because it uses whole-game returns, REINFORCE is a **Monte Carlo** method (Section 13.3) and is **on-policy**.
 
@@ -1180,7 +1192,7 @@ The standard fix is a **baseline**: instead of the return, use "return minus wha
 
 ## 17.1 How it works
 
-![alt](Assets/Screenshot%202026-11-26%20095844.png)
+![The actor–critic loop: the actor picks an action; the critic's TD error tells the actor how good it was.](figures/actor-critic-loop.png)
 
 *Figure 11. The actor–critic loop.*
 
@@ -1251,7 +1263,7 @@ For each example, ask two questions: **what is learned?** and **what reward is i
 
 | Area | Example | What is learned | Reward |
 |---|---|---|---|
-| Games | Agents for Atari, Go, chess, Minecraft | A plan and/or a value function | Game score, or win/loss |
+| Games | Agents for Atari, Go and chess | A plan and/or a value function | Game score, or win/loss |
 | Recommendations | A video platform choosing what to show next | A ranking plan | Clicks, watch time |
 | Robotics | A robot arm learning to grasp or pour, trained in simulation first | A control plan from sensors to motors | Task success, minus penalties for drops or collisions |
 | Healthcare | A rehabilitation robot adjusting exercise difficulty | A personalisation plan | Measured patient progress |
@@ -1262,7 +1274,7 @@ For each example, ask two questions: **what is learned?** and **what reward is i
 
 An RL agent will find **any** way to collect reward, including ways nobody intended. This is called **reward hacking**.
 
-- A Minecraft agent rewarded for "items collected" may just dig and re-place the same dirt block over and over instead of progressing.
+- In a real example, a boat-racing game agent rewarded for hitting targets learned to drive in circles hitting the same targets again and again, and never finished the race (Clark & Amodei, 2016).
 - A recommender rewarded only for watch time may push extreme or repetitive videos that keep people watching but leave them feeling worse.
 - A robot rewarded only for speed may learn unsafe shortcuts.
 
@@ -1298,7 +1310,7 @@ An RL agent will find **any** way to collect reward, including ways nobody inten
 
 # 19. Mind Map and Summary
 
-![alt](Assets/Screenshot%202026-11-26%20095855.png)
+![Mind map of the Behavioural AI module.](figures/mind-map.png)
 
 *Figure 12. Mind map of the module.*
 
@@ -1460,14 +1472,12 @@ Titles are given so that you can find them; check availability before relying on
 
 | Resource | Type | Use it for |
 |---|---|---|
-| Our team's video tutorial and slides on reinforcement learning in Minecraft (see the resource map in the README) | Video and slides | A visual walk-through of Sections 1–3 and 14 |
 | Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed.), free online from the authors | Textbook | The standard reference; chapters 1–6 match Sections 1–14 |
 | David Silver, *Introduction to Reinforcement Learning* lectures (UCL / DeepMind, YouTube) | Video lectures | Lectures 1–7 match Sections 4–17 |
 | Hugging Face, *Deep Reinforcement Learning Course* | Free online course | Hands-on Q-learning and DQN with exercises |
 | OpenAI, *Spinning Up in Deep RL* | Web tutorial | Policy gradients and actor–critic (Sections 16–17) |
 | Gymnasium (Python library) | Software | Try FrozenLake and CliffWalking (Sections 14–15) |
 | Stable-Baselines3 (Python library) | Software | Ready-made DQN, A2C and PPO |
-| MineRL project | Research project | Reinforcement learning research in Minecraft |
 | Mnih et al. (2015), *Human-level control through deep reinforcement learning* | Paper | The original DQN paper (Section 15.3) |
 
 ## Suggested path
@@ -1552,7 +1562,7 @@ Titles are given so that you can find them; check availability before relying on
 7. Mnih, V., et al. (2015). Human-level control through deep reinforcement learning. *Nature*, 518, 529–533.
 8. Puterman, M. L. (1994). *Markov Decision Processes*. Wiley.
 9. Skinner, B. F. (1938). *The Behavior of Organisms*. Appleton-Century.
-10. Guss, W. H., et al. (2019). MineRL: A large-scale dataset of Minecraft demonstrations. *Proceedings of IJCAI 2019*.
+10. Clark, J., & Amodei, D. (2016). Faulty reward functions in the wild. *OpenAI Blog*.
 
 **Attribution.** The grid world, corridor and cliff-walk examples follow the standard teaching examples in Sutton & Barto (2018); all numbers in them were recalculated for this module.
 
@@ -1562,7 +1572,7 @@ Titles are given so that you can find them; check availability before relying on
 |---|---|---|
 | 3.0 | Rewritten for beginners: every section now opens with **The big idea** and closes with **Remember**; plain-words explanation before every formula, with a **Formula in words** line | All sections |
 | 3.0 | Symbols cut from 16 to the 8 needed for the core path; the rest moved into clearly labelled **Going deeper (optional)** boxes | Notation; Sections 2, 4, 5, 7–10, 13–17 |
-| 3.0 | Added Minecraft as a running analogy, matching the team's video tutorial, alongside the 2×2 grid used for all calculations | Running examples; Sections 1–3, 5–7, 12, 15, 18 |
+| 3.0 | Added everyday analogies (a mouse learning a maze, a restaurant, a learner driver, a bus journey) alongside the 2×2 grid used for all calculations | Running examples; Sections 1–3, 5–7, 12, 13, 15, 18 |
 | 3.0 | Added two figures: value spreading back from the goal, and an update as a step towards a target | Sections 8 and 13 |
 | 3.0 | Merged the add-on Monte Carlo and TD material into Section 13, with a shared learning-rate explanation (13.2) used by Sections 14–17 | Section 13 |
 | 3.0 | Added a Q-table illustration, a reward-hacking subsection, Mixed Practice P9, and test Q21 (TD learning); test total now 55 marks | 14.1, 18.2, 21, 22 |
