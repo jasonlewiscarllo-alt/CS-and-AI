@@ -116,7 +116,7 @@ That is reinforcement learning. Psychologists studied exactly this kind of maze 
 
 Even a small maze has too many junctions to calculate by hand, so for every worked example we shrink it to four squares.
 
-![The 2×2 grid world. The agent starts at (0,0); the goal (1,1) is the top-right square.](figures/grid-world-2x2.png)
+![alt](Assets/Screenshot%202026-11-27%20142859.png)
 
 *Figure 1. The 2×2 grid world. Squares are named (x, y): x counts across, y counts up.*
 
@@ -165,7 +165,7 @@ Most AI you hear about learns from examples with answers attached: "this photo i
 
 The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner): behaviour that is followed by a reward happens more often; behaviour followed by punishment happens less. A dog that gets a treat for sitting learns to sit. **Reinforcement learning** is the computer version of that idea.
 
-![Three families of machine learning: supervised, unsupervised and reinforcement learning.](figures/three-families-of-ml.png)
+![alt](Assets/Screenshot%202026-11-27%20142907.png)
 
 *Figure 2. The three families of machine learning. This module is about the third.*
 
@@ -214,7 +214,7 @@ The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner):
 
 ## 2.1 The agent–environment loop
 
-![The agent–environment loop: the agent sends an action; the environment returns a new state and a reward.](figures/agent-environment-loop.png)
+![alt](Assets/Screenshot%202026-11-27%20142913.png)
 
 *Figure 3. The agent–environment loop.*
 
@@ -441,7 +441,7 @@ The **value** V(s) of a state is the return you expect if you start there and fo
 
 A **model** answers: "if I am here and do this, where will I end up and how many points will I get?" For the grid, the model is the table in Example 2 (Our Two Running Examples).
 
-![Model-based learning plans with a map of the world; model-free learning learns values or habits directly from experience.](figures/model-based-vs-model-free.png)
+![alt](Assets/Screenshot%202026-11-27%20142924.png)
 
 *Figure 4. Model-based versus model-free learning.*
 
@@ -570,7 +570,7 @@ Plan: "go Right if you can; otherwise go Up". So (0,0) goes Right, (1,0) goes Up
 >
 > **Sweep 3.** Nothing changes, so we stop.
 
-![Value spreads backwards from the goal, one square per sweep.](figures/value-spreads-backwards.png)
+![alt](Assets/Screenshot%202026-11-27%20142933.png)
 
 *Figure 5. Value travels backwards from the goal, one step per sweep. Squares next to the goal fill in first.*
 
@@ -723,7 +723,7 @@ The **policy improvement theorem** promises that the new plan is never worse tha
 3. **Improve:** at each square switch to the best move (Section 9).
 4. If no square changed, stop: the plan is optimal. Otherwise go back to step 2.
 
-![Value iteration and policy iteration are two routes to the same optimal plan.](figures/value-vs-policy-iteration.png)
+![alt](Assets/Screenshot%202026-11-27%20142942.png)
 
 *Figure 6. Two routes to the same optimal plan.*
 
@@ -828,7 +828,7 @@ Think of a learner driver. Learning **on-policy** is like judging the routes you
 
 Up to Section 11 the agent knew the map. From now on it does not: it only has its own **experience**.
 
-![The three model-free families: value-based, policy-based and actor–critic, with example algorithms.](figures/three-model-free-families.png)
+![alt](Assets/Screenshot%202026-11-27%20142951.png)
 
 *Figure 7. The three model-free families and their example algorithms.*
 
@@ -854,7 +854,7 @@ The gap "target − old estimate" is the **surprise**: how wrong we were. α, th
 >
 > You guess your bus journey takes 20 minutes. Today it takes 30. You do not throw your old guess away, and you do not trust one day completely either. With α = 0.5 you move halfway: new guess = 20 + 0.5 × (30 − 20) = **25 minutes**. Every method from here on learns exactly like this.
 
-![An update moves the old estimate part of the way towards the target.](figures/update-step-toward-target.png)
+![alt](Assets/Screenshot%202026-11-27%20142957.png)
 
 *Figure 8. One update with α = 0.5: the old estimate 0.2 moves halfway towards the target 1.0, giving 0.6.*
 
@@ -937,7 +937,7 @@ REINFORCE (Section 16) instead uses the Monte Carlo idea: the full return of the
 | How noisy? | Not noisy (no sampling) | Noisy: one game's return can vary a lot | Steadier, but starts from rough guesses |
 | Leads to | Value and policy iteration (10–11) | REINFORCE (16) | SARSA, Q-learning, DQN, actor–critic (14–17) |
 
-![How far each method looks: DP looks one step at every possibility; MC follows one game to the end; TD takes one real step.](figures/dp-mc-td-compared.png)
+![alt](Assets/Screenshot%202026-11-27%20143003.png)
 
 *Figure 9. How far each method looks ahead to build its target.*
 
@@ -1068,7 +1068,7 @@ The name lists the five things one update uses: **S**tate, **A**ction, **R**ewar
 
 ## 15.2 The cliff walk: where the difference matters
 
-![The cliff walk: the shortest path runs along the cliff edge; a safer path goes further away.](figures/cliff-walk.png)
+![alt](Assets/Screenshot%202026-11-27%20143012.png)
 
 *Figure 10. The cliff walk. Falling off the cliff gives a big penalty and sends the agent back to the start.*
 
@@ -1192,7 +1192,7 @@ The standard fix is a **baseline**: instead of the return, use "return minus wha
 
 ## 17.1 How it works
 
-![The actor–critic loop: the actor picks an action; the critic's TD error tells the actor how good it was.](figures/actor-critic-loop.png)
+![alt](Assets/Screenshot%202026-11-27%20143019.png)
 
 *Figure 11. The actor–critic loop.*
 
@@ -1310,7 +1310,7 @@ An RL agent will find **any** way to collect reward, including ways nobody inten
 
 # 19. Mind Map and Summary
 
-![Mind map of the Behavioural AI module.](figures/mind-map.png)
+![alt](Assets/Screenshot%202026-11-27%20143027.png)
 
 *Figure 12. Mind map of the module.*
 

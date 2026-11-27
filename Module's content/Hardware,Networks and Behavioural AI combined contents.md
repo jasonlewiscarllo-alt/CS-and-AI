@@ -16,7 +16,7 @@ Each module begins with its own cover, contents list, learning outcomes and stud
 
 ---
 
-<!-- ===================== Module 1 — Computer Hardware & Microarchitecture ===================== -->
+
 
 MODULE 1
 
@@ -163,7 +163,7 @@ Connections between components are made by **traces**: thin copper pathways prin
 >
 > A fast CPU connected by a slow or narrow pathway cannot perform at its full speed. The motherboard and its traces are part of the performance story.
 
-![Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.](modules/hardware/figures/fig001-motherboard-block-diagram-traces-carry-both-elec.png)
+![alt](Assets/Screenshot%202026-11-26%20100429.png)
 
 *Figure 1 — Motherboard block diagram. Traces carry both electricity and signals between components.*
 
@@ -253,7 +253,7 @@ of expansion slots and connectors. Form factors exist so that cases, power suppl
 | Micro-ATX (mATX) | ~244 x 244 mm | Up to 4 | Smaller desktops, budget builds |
 | Mini-ITX | ~170 x 170 mm | 1–2 | Small-form-factor PCs, home theatre, embedded |
 
-![Figure 2 — Relative sizes of the four main motherboard form factors.](modules/hardware/figures/fig002-relative-sizes-of-the-four-main-motherboard-form.png)
+![alt](Assets/Screenshot%202026-11-26%20100436.png)
 
 *Figure 2 — Relative sizes of the four main motherboard form factors.*
 
@@ -291,7 +291,7 @@ of expansion slots and connectors. Form factors exist so that cases, power suppl
 
 The **power supply unit (PSU)** converts the high-voltage alternating current (AC) from a wall socket into the low-voltage direct current (DC) that the computer's components need. The conversion happens in four stages.
 
-![Figure 3 — The four stages of AC-to-DC conversion inside a PSU.](modules/hardware/figures/fig003-the-four-stages-of-ac-to-dc-conversion-inside-a.png)
+![alt](Assets/Screenshot%202026-11-26%20100441.png)
 
 *Figure 3 — The four stages of AC-to-DC conversion inside a PSU.*
 
@@ -369,7 +369,7 @@ A graphics card is an expansion card that contains a GPU and its supporting comp
 | 6. Monitor outputs | HDMI, DisplayPort, DVI and other connectors that send video to displays. |
 | 7. Video BIOS | Firmware that initialises the card at start-up and controls clock speeds and voltages. |
 
-![Figure 4 — The seven main parts of a graphics card.](modules/hardware/figures/fig004-the-seven-main-parts-of-a-graphics-card.png)
+![alt](Assets/Screenshot%202026-11-26%20100451.png)
 
 *Figure 4 — The seven main parts of a graphics card.*
 
@@ -429,7 +429,7 @@ A **bit** is a single binary digit: 0 or 1. In hardware these are two voltage le
 
 Each bit position has a value that is double the one to its right. To convert binary to denary, add the place values wherever there is a 1.
 
-![Figure 5 — Binary place-value chart: 10110101 = 181.](modules/hardware/figures/fig005-binary-place-value-chart-10110101-181.png)
+![alt](Assets/Screenshot%202026-11-26%20110043.png)
 
 *Figure 5 — Binary place-value chart: 10110101 = 181.*
 
@@ -449,7 +449,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 >
 > B7<sub>16</sub> = 11 × 16 + 7 = 176 + 7 = 183<sub>10</sub>
 
-![Figure 6 — Binary to hex grouping: 1101 0110 = D6.](modules/hardware/figures/fig006-binary-to-hex-grouping-1101-0110-d6.png)
+![alt](Assets/Screenshot%202026-11-26%20110048.png)
 
 *Figure 6 — Binary to hex grouping: 1101 0110 = D6.*
 
@@ -488,7 +488,7 @@ Each bit position has a value that is double the one to its right. To convert bi
 
 A **transistor** is a tiny electronic switch. Combining transistors forms **logic gates**: circuits whose output depends on the inputs according to a fixed rule. A **truth table** lists every input combination and the corresponding output.
 
-![Figure 7 — Standard logic gate symbols.](modules/hardware/figures/fig007-standard-logic-gate-symbols.png)
+![alt](Assets/Screenshot%202026-11-26%20110055.png)
 
 *Figure 7 — Standard logic gate symbols.*
 
@@ -509,7 +509,7 @@ A **transistor** is a tiny electronic switch. Combining transistors forms **logi
 
 A half-adder adds two single bits, producing a **Sum** and a **Carry**.
 
-![Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.](modules/hardware/figures/fig008-half-adder-xor-gives-the-sum-and-gives-the-carry.png)
+![alt](Assets/Screenshot%202026-11-26%20110101.png)
 
 *Figure 8 — Half-adder: XOR gives the Sum, AND gives the Carry.*
 
@@ -587,7 +587,7 @@ For a longer expression, add a **working column** for each part, then combine th
 
 To work out what a circuit does, label the output of every gate with a letter, then fill in one working column per gate from left to right. The circuit below is P = (A OR B) AND NOT (B AND C).
 
-![Figure 8A — D = A OR B, E = B AND C, F = NOT E, P = D AND F.](modules/hardware/figures/fig8a-d-a-or-b-e-b-and-c-f-not-e-p-d-and-f.png)
+![alt](Assets/Screenshot%202026-11-26%20110110.png)
 
 *Figure 8A — D = A OR B, E = B AND C, F = NOT E, P = D AND F.*
 
@@ -640,7 +640,7 @@ Sum = A ⊕ B ⊕ C<sub>in</sub>      C<sub>out</sub> = (A . B) + (C<sub>in<
 | 1 | 1 | 0 | 2 | **0** | **1** |
 | 1 | 1 | 1 | 3 | **1** | **1** |
 
-![Figure 8B — A full adder = two half-adders + OR.](modules/hardware/figures/fig8b-a-full-adder-two-half-adders-or.png)
+![alt](Assets/Screenshot%202026-11-26%20110116.png)
 
 *Figure 8B — A full adder = two half-adders + OR.*
 
@@ -687,7 +687,7 @@ A **Karnaugh map (K-map)** is a truth table redrawn as a grid so that neighbouri
 
 - In each group, keep only the variables that do *not* change; write them ANDed together. OR the groups.
 
-![Figure 8C — Two groups of two: P = A.B + B.C.](modules/hardware/figures/fig8c-two-groups-of-two-p-a-b-b-c.png)
+![alt](Assets/Screenshot%202026-11-26%20110123.png)
 
 *Figure 8C — Two groups of two: P = A.B̅ + B.C̅.*
 
@@ -764,7 +764,7 @@ The **Von Neumann architecture** stores both instructions and data in the same m
 >
 > Because instructions and data share the same memory and buses, the CPU cannot fetch an instruction and a data value at exactly the same instant. Cache memory (Section 1.6) reduces its impact.
 
-![Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).](modules/hardware/figures/fig009-von-neumann-architecture-main-memory-is-the-imme.png)
+![alt](Assets/Screenshot%202026-11-26%20110133.png)
 
 *Figure 9 — Von Neumann architecture. Main memory is the Immediate Access Store (IAS).*
 
@@ -846,7 +846,7 @@ Flags let the CPU make decisions such as “jump if zero”.
 >
 > Describe each FDE stage, name the registers and buses used, explain interrupts and the ISR, and explain how instructions are encoded and how pipelining improves throughput.
 
-![Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.](modules/hardware/figures/fig010-the-fde-cycle-writeback-is-shown-as-a-separate-s.png)
+![alt](Assets/Screenshot%202026-11-26%20110141.png)
 
 *Figure 10 — The FDE cycle. Writeback is shown as a separate stage; some syllabi merge it into Execute.*
 
@@ -896,7 +896,7 @@ The result is stored in the ACC or written to memory.
 
 An **interrupt** is a signal that causes the processor to suspend its current task and service an event. Causes: a timing signal, I/O completion, a user action, a hardware fault or a software error. At the end of each FDE cycle the processor checks for interrupts. The **Interrupt Service Routine (ISR)** services the highest-priority interrupt: the processor saves its state, runs the ISR, restores the state and continues. An interrupt does **not** restart the computer.
 
-![Figure 11 — Interrupt handling.](modules/hardware/figures/fig011-interrupt-handling.png)
+![alt](Assets/Screenshot%202026-11-26%20110146.png)
 
 *Figure 11 — Interrupt handling.*
 
@@ -913,7 +913,7 @@ An **instruction** has two parts: an **opcode** (which operation to perform) and
 
 **Pipelining** overlaps the stages of consecutive instructions so that, while one instruction is being executed, the next is being decoded and the one after is being fetched. It raises *throughput* (instructions completed per unit time) but does not shorten the time for a single instruction. Branches can disrupt a pipeline because the CPU may have fetched the wrong instructions.
 
-![Figure 12 — Pipelining five instructions through a three-stage pipeline.](modules/hardware/figures/fig012-pipelining-five-instructions-through-a-three-sta.png)
+![alt](Assets/Screenshot%202026-11-26%20110150.png)
 
 *Figure 12 — Pipelining five instructions through a three-stage pipeline.*
 
@@ -1174,7 +1174,7 @@ Symbol table for the program in Section 1.5.9 if it were written with labels: `L
 
 Fast memory is expensive and small; large memory is cheap and slow. Computers therefore combine several kinds of memory in layers, keeping the most-needed data in the fastest layer. This is the **memory hierarchy**.
 
-![Figure 13 — Memory hierarchy pyramid.](modules/hardware/figures/fig013-memory-hierarchy-pyramid.png)
+![alt](Assets/Screenshot%202026-11-26%20110441.png)
 
 *Figure 13 — Memory hierarchy pyramid.*
 
@@ -1223,7 +1223,7 @@ Fast memory is expensive and small; large memory is cheap and slow. Computers th
 
 for cache and registers.
 
-![Figure 14 — DRAM versus SRAM cells (simplified).](modules/hardware/figures/fig014-dram-versus-sram-cells-simplified.png)
+![alt](Assets/Screenshot%202026-11-26%20110449.png)
 
 *Figure 14 — DRAM versus SRAM cells (simplified).*
 
@@ -1281,7 +1281,7 @@ for cache and registers.
 
 A **buffer** is temporary storage used during data transfer between devices with different speeds. Examples: keyboard buffer, printer buffer, video-streaming buffer and double buffering of display frames.
 
-![Figure 15 — A buffer smoothing speed differences.](modules/hardware/figures/fig015-a-buffer-smoothing-speed-differences.png)
+![alt](Assets/Screenshot%202026-11-26%20110457.png)
 
 *Figure 15 — A buffer smoothing speed differences.*
 
@@ -1293,7 +1293,7 @@ A **buffer** is temporary storage used during data transfer between devices with
 
 **Virtual memory** uses secondary storage as extra RAM. The operating system divides memory into fixed-size **pages** and moves them between RAM and a **swap file** (page file). A **page fault** occurs when a required page is not in RAM. **Thrashing** is excessive swapping, where the system spends more time moving pages than running programs.
 
-![Figure 16 — Virtual memory: pages swapped between RAM and the swap file.](modules/hardware/figures/fig016-virtual-memory-pages-swapped-between-ram-and-the.png)
+![alt](Assets/Screenshot%202026-11-26%20110504.png)
 
 *Figure 16 — Virtual memory: pages swapped between RAM and the swap file.*
 
@@ -1424,7 +1424,7 @@ A **sensor** is an input device that measures a physical quantity and sends a si
 
 **The LDR (light-dependent resistor).** An LDR is a resistor whose resistance changes with light: in bright light its resistance is **low**; in darkness its resistance is **high**. It is placed in a potential-divider circuit so that the change in resistance becomes a change in voltage, which the ADC converts to a number.
 
-![Figure 16A — The LDR changes resistance; the processor, not the sensor, makes the decision.](modules/hardware/figures/fig16a-the-ldr-changes-resistance-the-processor-not-the.png)
+![alt](Assets/Screenshot%202026-11-26%20110511.png)
 
 *Figure 16A — The LDR changes resistance; the processor, not the sensor, makes the decision.*
 
@@ -1531,7 +1531,7 @@ A **monitoring system** observes and reports. A **control system** observes and 
 
 Temperature sensor → microcontroller compares with the target → heater actuator switched on if too cold → vent/fan switched on if too warm → repeat (feedback). Note that the sensor produces an analogue signal, so an ADC converts it to digital before the microcontroller can use it.
 
-![Figure 17 — A monitoring-and-control feedback loop.](modules/hardware/figures/fig017-a-monitoring-and-control-feedback-loop.png)
+![alt](Assets/Screenshot%202026-11-26%20110519.png)
 
 *Figure 17 — A monitoring-and-control feedback loop.*
 
@@ -1643,7 +1643,7 @@ Modern designs blur the line: x86 CISC processors translate complex instructions
 
 **Parallel processing** means using more than one processing unit at the same time on a task. Michael Flynn classified computer architectures by how many **instruction streams** and **data streams** they handle at once.
 
-![Figure 17A — The four basic computer architectures.](modules/hardware/figures/fig17a-the-four-basic-computer-architectures.png)
+![alt](Assets/Screenshot%202026-11-26%20110548.png)
 
 *Figure 17A — The four basic computer architectures.*
 
@@ -1665,7 +1665,7 @@ Modern designs blur the line: x86 CISC processors translate complex instructions
 
 # Section 1.13 — Module Summary and Mind Map
 
-![Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.](modules/hardware/figures/fig018-mind-map-of-module-1-computer-hardware-and-micro.png)
+![alt](Assets/Screenshot%202026-11-26%20110529.png)
 
 *Figure 18 — Mind map of Module 1: Computer Hardware and Microarchitecture.*
 
@@ -2056,7 +2056,7 @@ A more formal definition: a computer network is a collection of computing device
 
 # 2. Components of a Network
 
-![Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.](modules/networks/figures/fig001-components-of-a-small-network-links-join-nodes-t.png)
+![alt](Assets/Screenshot%202026-11-26%20110605.png)
 
 *Figure 1 — Components of a small network. Links join nodes to a switch; the router connects the LAN to other networks.*
 
@@ -2099,7 +2099,7 @@ computer lab a document sent to a network printer on the same switch is forwarde
 
 A **packet** is a small part of a larger piece of data sent over a network. Each packet has a **header**, a **payload** and a **trailer**.
 
-![Figure 2 — The three parts of a packet.](modules/networks/figures/fig002-the-three-parts-of-a-packet.png)
+![alt](Assets/Screenshot%202026-11-26%20110611.png)
 
 *Figure 2 — The three parts of a packet.*
 
@@ -2135,7 +2135,7 @@ packets 1, 3, 5
 
 sender
 
-![Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.](modules/networks/figures/fig003-packets-can-take-different-routes-if-a-router-or.png)
+![alt](Assets/Screenshot%202026-11-26%20110614.png)
 
 *Figure 3 — Packets can take different routes. If a router or link fails, packets are rerouted around the problem.*
 
@@ -2170,7 +2170,7 @@ Packet switching is not the only way to send data. In **circuit switching** a co
 
 3. **Tear down:** the circuit is released so others can use it.
 
-![Figure 3A — One path is reserved end to end for the whole call. Compare Figure 3, where packets take different routes.](modules/networks/figures/fig3a-one-path-is-reserved-end-to-end-for-the-whole-ca.png)
+![alt](Assets/Screenshot%202026-11-26%20110621.png)
 
 *Figure 3A — One path is reserved end to end for the whole call. Compare Figure 3, where packets take different routes.*
 
@@ -2233,7 +2233,7 @@ Packet switching is not the only way to send data. In **circuit switching** a co
 
 Network software is organised in layers, each doing one job and using the layer below. When you send data, each layer adds its own header (the model in Section 3); the receiver removes them in reverse order.
 
-![Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.](modules/networks/figures/fig004-the-tcp-ip-model-a-switch-works-mainly-at-the-li.png)
+![alt](Assets/Screenshot%202026-11-26%20110630.png)
 
 *Figure 4 — The TCP/IP model. A switch works mainly at the link layer; a router at the internet layer.*
 
@@ -2274,7 +2274,7 @@ A **URL (Uniform Resource Locator)** is the address of a resource on the interne
 
 transferred, e.g. HTTP or HTTPS), **subdomain** (an area of a site, `www` being the most common), **domain name** (the human-readable name of the site), **top-level domain** (purpose or country, e.g. .com, .org, .edu, .uk) and optionally a **path** to a page.
 
-![Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.](modules/networks/figures/fig005-anatomy-of-the-url-https-www-bbc-co-uk-news.png)
+![alt](Assets/Screenshot%202026-11-26%20110635.png)
 
 *Figure 5 — Anatomy of the URL https://www.bbc.co.uk/news.*
 
@@ -2315,7 +2315,7 @@ A **public IP address** is unique across the whole internet and is assigned by y
 
 Your home router has **two** addresses: a public one facing the internet and a private one (often 192.168.1.1) facing your devices. **Network Address Translation (NAT)** in the router swaps the private address in each outgoing packet for the router's public address, and keeps a table so replies are sent back to the right device. NAT lets many devices share one public IPv4 address, which slows down the running-out of IPv4 addresses, and hides internal devices from the internet.
 
-![Figure 5A — NAT: three private addresses share the router's single public address.](modules/networks/figures/fig5a-nat-three-private-addresses-share-the-router-s-s.png)
+![alt](Assets/Screenshot%202026-11-26%20110642.png)
 
 *Figure 5A — NAT: three private addresses share the router's single public address.*
 
@@ -2353,7 +2353,7 @@ An IPv4 address has two parts: the **network ID** (which network) and the **host
 
 **Network topology** is the physical or logical arrangement of nodes and links in a network. The choice affects performance, scalability, reliability and cost. *Physical* topology is how cables are laid out; *logical* topology is how data actually flows.
 
-![Figure 6 — Six basic topologies (a hybrid is a combination of these).](modules/networks/figures/fig006-six-basic-topologies-a-hybrid-is-a-combination-o.png)
+![alt](Assets/Screenshot%202026-11-26%20110651.png)
 
 *Figure 6 — Six basic topologies (a hybrid is a combination of these).*
 
@@ -2485,7 +2485,7 @@ Combines two or more basic topologies, such as stars joined in a ring or a mesh.
 >
 > - Hard to diagnose across different layouts
 
-![Figure 7 — A hybrid topology.](modules/networks/figures/fig007-a-hybrid-topology.png)
+![alt](Assets/Screenshot%202026-11-26%20110658.png)
 
 *Figure 7 — A hybrid topology.*
 
@@ -2541,25 +2541,25 @@ A hierarchy of root, branch and leaf nodes combining star and bus ideas, like a 
 
 ### Simplex
 
-![Diagram](modules/networks/figures/diagram-p021-2.png)
+![alt](Assets/Screenshot%202026-11-26%20112604.png)
 
 Data travels in one direction only. *Examples:* traditional TV broadcast; a keyboard sending input to a computer.
 
 ### Full-duplex
 
-![Diagram](modules/networks/figures/diagram-p021-4.png)
+![alt](Assets/Screenshot%202026-11-26%20112619.png)
 
 Both directions at the same time. *Examples:* a telephone conversation; a video call; a switched Ethernet link.
 
 ### Half-duplex
 
-![Diagram](modules/networks/figures/diagram-p021-3.png)
+![alt](Assets/Screenshot%202026-11-26%20112607.png)
 
 Both directions, but not at the same time; the devices take turns. *Example:* walkie-talkies.
 
 ## 6.2 Methods of data transmission
 
-![Figure 8 — Serial and parallel transmission.](modules/networks/figures/fig008-serial-and-parallel-transmission.png)
+![alt](Assets/Screenshot%202026-11-26%20112632.png)
 
 *Figure 8 — Serial and parallel transmission.*
 
@@ -2584,7 +2584,7 @@ The words *synchronous* and *asynchronous* are used at two levels. Do not mix th
 | Speed | Fast | Slower |
 | Typical use | High-speed links, large transfers | Keyboards, serial ports, simple devices |
 
-![Figure 9 — An asynchronous frame carrying one byte.](modules/networks/figures/fig009-an-asynchronous-frame-carrying-one-byte.png)
+![alt](Assets/Screenshot%202026-11-26%20112640.png)
 
 *Figure 9 — An asynchronous frame carrying one byte.*
 
@@ -2661,7 +2661,7 @@ The receiver sends the data straight back to the sender, which compares it with 
 
 After receiving data, the receiver checks it (for example with a parity check or checksum) and sends a **positive** **acknowledgement (ACK)** if it is correct, or a **negative acknowledgement** if not. The sender starts a **timer (timeout)** each time it sends. If no ACK arrives before the timeout, or a negative acknowledgement arrives, it resends the data automatically. TCP (Section 4.2) uses acknowledgements and timeouts in this way.
 
-![Figure 9A — No ACK arrives for packet 2 before the timeout, so the sender resends it.](modules/networks/figures/fig9a-no-ack-arrives-for-packet-2-before-the-timeout-s.png)
+![alt](Assets/Screenshot%202026-11-26%20112648.png)
 
 *Figure 9A — No ACK arrives for packet 2 before the timeout, so the sender resends it.*
 
@@ -2699,7 +2699,7 @@ A **check digit** is an extra digit calculated from the other digits of a number
 
 ## 7.1 Types of network by size
 
-![Figure 10 — Networks classified by the area they cover.](modules/networks/figures/fig010-networks-classified-by-the-area-they-cover.png)
+![alt](Assets/Screenshot%202026-11-26%20112654.png)
 
 *Figure 10 — Networks classified by the area they cover.*
 
@@ -2734,7 +2734,7 @@ Connects multiple LANs across a city, town or large campus; larger than a LAN bu
 
 ## 7.2 Network service models
 
-![Figure 11 — Client–server and peer-to-peer models.](modules/networks/figures/fig011-client-server-and-peer-to-peer-models.png)
+![alt](Assets/Screenshot%202026-11-26%20112703.png)
 
 *Figure 11 — Client–server and peer-to-peer models.*
 
@@ -2956,7 +2956,7 @@ analysis.
 
 # 11. Mind Map and Summary
 
-![Figure 12 — Mind map of the Networks module.](modules/networks/figures/fig012-mind-map-of-the-networks-module.png)
+![alt](Assets/Screenshot%202026-11-26%20112718.png)
 
 *Figure 12 — Mind map of the Networks module.*
 
@@ -3399,7 +3399,7 @@ That is reinforcement learning. Psychologists studied exactly this kind of maze 
 
 Even a small maze has too many junctions to calculate by hand, so for every worked example we shrink it to four squares.
 
-![The 2×2 grid world. The agent starts at (0,0); the goal (1,1) is the top-right square.](modules/behavioural-ai/figures/grid-world-2x2.png)
+![alt](Assets/Screenshot%202026-11-27%20142859.png)
 
 *Figure 1. The 2×2 grid world. Squares are named (x, y): x counts across, y counts up.*
 
@@ -3448,7 +3448,7 @@ Most AI you hear about learns from examples with answers attached: "this photo i
 
 The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner): behaviour that is followed by a reward happens more often; behaviour followed by punishment happens less. A dog that gets a treat for sitting learns to sit. **Reinforcement learning** is the computer version of that idea.
 
-![Three families of machine learning: supervised, unsupervised and reinforcement learning.](modules/behavioural-ai/figures/three-families-of-ml.png)
+![alt](Assets/Screenshot%202026-11-27%20142907.png)
 
 *Figure 2. The three families of machine learning. This module is about the third.*
 
@@ -3497,7 +3497,7 @@ The name comes from **behaviourism** in psychology (Pavlov, Thorndike, Skinner):
 
 ## 2.1 The agent–environment loop
 
-![The agent–environment loop: the agent sends an action; the environment returns a new state and a reward.](modules/behavioural-ai/figures/agent-environment-loop.png)
+![alt](Assets/Screenshot%202026-11-27%20142913.png)
 
 *Figure 3. The agent–environment loop.*
 
@@ -3724,7 +3724,7 @@ The **value** V(s) of a state is the return you expect if you start there and fo
 
 A **model** answers: "if I am here and do this, where will I end up and how many points will I get?" For the grid, the model is the table in Example 2 (Our Two Running Examples).
 
-![Model-based learning plans with a map of the world; model-free learning learns values or habits directly from experience.](modules/behavioural-ai/figures/model-based-vs-model-free.png)
+![alt](Assets/Screenshot%202026-11-27%20142924.png)
 
 *Figure 4. Model-based versus model-free learning.*
 
@@ -3853,7 +3853,7 @@ Plan: "go Right if you can; otherwise go Up". So (0,0) goes Right, (1,0) goes Up
 >
 > **Sweep 3.** Nothing changes, so we stop.
 
-![Value spreads backwards from the goal, one square per sweep.](modules/behavioural-ai/figures/value-spreads-backwards.png)
+![alt](Assets/Screenshot%202026-11-27%20142933.png)
 
 *Figure 5. Value travels backwards from the goal, one step per sweep. Squares next to the goal fill in first.*
 
@@ -4006,7 +4006,7 @@ The **policy improvement theorem** promises that the new plan is never worse tha
 3. **Improve:** at each square switch to the best move (Section 9).
 4. If no square changed, stop: the plan is optimal. Otherwise go back to step 2.
 
-![Value iteration and policy iteration are two routes to the same optimal plan.](modules/behavioural-ai/figures/value-vs-policy-iteration.png)
+![alt](Assets/Screenshot%202026-11-27%20142942.png)
 
 *Figure 6. Two routes to the same optimal plan.*
 
@@ -4111,7 +4111,7 @@ Think of a learner driver. Learning **on-policy** is like judging the routes you
 
 Up to Section 11 the agent knew the map. From now on it does not: it only has its own **experience**.
 
-![The three model-free families: value-based, policy-based and actor–critic, with example algorithms.](modules/behavioural-ai/figures/three-model-free-families.png)
+![alt](Assets/Screenshot%202026-11-27%20142951.png)
 
 *Figure 7. The three model-free families and their example algorithms.*
 
@@ -4137,7 +4137,7 @@ The gap "target − old estimate" is the **surprise**: how wrong we were. α, th
 >
 > You guess your bus journey takes 20 minutes. Today it takes 30. You do not throw your old guess away, and you do not trust one day completely either. With α = 0.5 you move halfway: new guess = 20 + 0.5 × (30 − 20) = **25 minutes**. Every method from here on learns exactly like this.
 
-![An update moves the old estimate part of the way towards the target.](modules/behavioural-ai/figures/update-step-toward-target.png)
+![alt](Assets/Screenshot%202026-11-27%20142957.png)
 
 *Figure 8. One update with α = 0.5: the old estimate 0.2 moves halfway towards the target 1.0, giving 0.6.*
 
@@ -4220,7 +4220,7 @@ REINFORCE (Section 16) instead uses the Monte Carlo idea: the full return of the
 | How noisy? | Not noisy (no sampling) | Noisy: one game's return can vary a lot | Steadier, but starts from rough guesses |
 | Leads to | Value and policy iteration (10–11) | REINFORCE (16) | SARSA, Q-learning, DQN, actor–critic (14–17) |
 
-![How far each method looks: DP looks one step at every possibility; MC follows one game to the end; TD takes one real step.](modules/behavioural-ai/figures/dp-mc-td-compared.png)
+![alt](Assets/Screenshot%202026-11-27%20143003.png)
 
 *Figure 9. How far each method looks ahead to build its target.*
 
@@ -4351,7 +4351,7 @@ The name lists the five things one update uses: **S**tate, **A**ction, **R**ewar
 
 ## 15.2 The cliff walk: where the difference matters
 
-![The cliff walk: the shortest path runs along the cliff edge; a safer path goes further away.](modules/behavioural-ai/figures/cliff-walk.png)
+![alt](Assets/Screenshot%202026-11-27%20143012.png)
 
 *Figure 10. The cliff walk. Falling off the cliff gives a big penalty and sends the agent back to the start.*
 
@@ -4475,7 +4475,7 @@ The standard fix is a **baseline**: instead of the return, use "return minus wha
 
 ## 17.1 How it works
 
-![The actor–critic loop: the actor picks an action; the critic's TD error tells the actor how good it was.](modules/behavioural-ai/figures/actor-critic-loop.png)
+![alt](Assets/Screenshot%202026-11-27%20143019.png)
 
 *Figure 11. The actor–critic loop.*
 
@@ -4593,7 +4593,7 @@ An RL agent will find **any** way to collect reward, including ways nobody inten
 
 # 19. Mind Map and Summary
 
-![Mind map of the Behavioural AI module.](modules/behavioural-ai/figures/mind-map.png)
+![alt](Assets/Screenshot%202026-11-27%20143027.png)
 
 *Figure 12. Mind map of the module.*
 
